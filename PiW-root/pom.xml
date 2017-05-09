@@ -15,8 +15,8 @@
 
 	<!-- 项目模块定义 -->
 	<modules>
-<!-- 		<module>../PiW-core</module> -->
-<!-- 		<module>../PiW-webapp</module> -->
+		<module>../PiW-core</module>
+		<module>../PiW-webapp</module>
 	</modules>
 
 	<build>
