@@ -1,0 +1,35 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>cn.rdlts</groupId>
+	<artifactId>PiW-root</artifactId>
+	<version>${piw.version}</version>
+	<packaging>pom</packaging>
+	<name>PracticeInWeb</name>
+	<description>Practice in web to test different type of web plugin.</description>
+
+	<!-- maven属性定义 -->
+	<properties>
+		<piw.version>0.0.1-SNAPSHOT</piw.version>
+	</properties>
+
+	<!-- 项目模块定义 -->
+	<modules>
+<!-- 		<module>../PiW-core</module> -->
+<!-- 		<module>../PiW-webapp</module> -->
+	</modules>
+
+	<build>
+		<sourceDirectory>src</sourceDirectory>
+		<plugins>
+			<plugin>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>3.5.1</version>
+				<configuration>
+					<source>1.8</source>
+					<target>1.8</target>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+</project>
