@@ -5,11 +5,10 @@
 		<groupId>cn.rdlts</groupId>
 		<artifactId>PiW-root</artifactId>
 		<version>0.0.2-SNAPSHOT</version>
+		<relativePath>../PiW-root</relativePath>
 	</parent>
 	
 	<artifactId>PiW-core</artifactId>
-	<version>${piw.version}</version>
 	<name>Practice In Web core</name>
-	
 	
 </project>

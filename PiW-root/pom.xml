@@ -18,7 +18,7 @@
 
 	<groupId>cn.rdlts</groupId>
 	<artifactId>PiW-root</artifactId>
-	<version>${piw.version}</version>
+	<version>0.0.2-SNAPSHOT</version>
 	<packaging>pom</packaging>
 	<name>PracticeInWeb</name>
 	<description>Practice in web to test different type of web plugin.</description>

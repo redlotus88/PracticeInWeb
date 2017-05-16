@@ -5,10 +5,10 @@
 		<groupId>cn.rdlts</groupId>
 		<artifactId>PiW-root</artifactId>
 		<version>0.0.2-SNAPSHOT</version>
+		<relativePath>../PiW-root</relativePath>
 	</parent>
 
 	<artifactId>PiW-webapp</artifactId>
-	<version>${piw.version}</version>
 	<packaging>war</packaging>
 	<name>PiW-webapp Maven Webapp</name>
 
