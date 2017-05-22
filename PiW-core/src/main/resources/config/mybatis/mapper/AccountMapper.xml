@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="cn.rdlts.usermgr.dao.mapper.AccountMapper">
+    <resultMap id="BaseResultMap" type="cn.rdlts.usermgr.model.Account">
+        <id column="id" property="id" jdbcType="INTEGER"/>
+        <result column="accountName" property="accountName" jdbcType="VARCHAR"/>
+        <result column="password" property="password" jdbcType="VARCHAR"/>
+    </resultMap>
+
+    <sql id="Query_Column_List">
+        id, accountName, password
+    </sql>
+    
+    <sql id="Modify_Column_List">
+        accountName, password
+    </sql>
+
+    <!-- BaseMapper definition -->
+    <!-- 定义条件查询的 sql 片段 -->
+    <select id="getById" resultType="cn.rdlts.usermgr.model.Account">
+        select * from piw_usermgr_account where id = #{id}
+    </select>
+        
+    <select id="findAll" resultMap="BaseResultMap">
+        select * from piw_usermgr_account
+    </select>
+    
+    <insert id="save" parameterType="cn.rdlts.usermgr.model.Account" useGeneratedKeys="true" keyProperty="id">
+        insert into piw_usermgr_account (<include refid="Modify_Column_List"/>)
+        values(#{accountName}, #{password})
+    </insert>
+    
+    <delete id="delete" parameterType="cn.rdlts.usermgr.model.Account">
+        delete from piw_usermgr_account where id=#{id} or accountName = #{accountName}
+    </delete>
+</mapper>

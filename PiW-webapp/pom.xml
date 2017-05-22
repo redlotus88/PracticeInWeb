@@ -10,7 +10,7 @@
 
 	<artifactId>PiW-webapp</artifactId>
 	<packaging>war</packaging>
-	<name>PiW-webapp Maven Webapp</name>
+	<name>PiW-webapp</name>
 
 	<dependencies>
 		<dependency>

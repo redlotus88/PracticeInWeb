@@ -7,8 +7,9 @@
                 http://www.springframework.org/schema/context/spring-context-4.1.xsd">
 
 	<!--引入配置属性文件 -->
-	<context:property-placeholder location="classpath*:conf/applicationConfig.properties" />
-	
+	<context:property-placeholder
+		location="classpath*:config/applicationConfig.properties" />
+
 	<!-- 扫描包，注入bean -->
 	<context:component-scan base-package="cn.rdlts" />
 
@@ -32,16 +33,6 @@
 		<property name="maxPoolSize" value="20" />
 		<!--当连接池中的连接耗尽的时候c3p0一次同时获取的连接数。默认值: 3 -->
 		<property name="acquireIncrement" value="5" />
-	</bean>
-
-	<!-- spring jdbc -->
-	<bean id="jdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate">
-		<property name="dataSource" ref="dataSource" />
-	</bean>
-
-	<bean id="namedParameterJdbcTemplate"
-		class="org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate">
-		<constructor-arg ref="dataSource" />
 	</bean>
 
 	<!-- 配置事务管理 -->
@@ -85,5 +76,24 @@
 			</list>
 		</property>
 	</bean>
-	
+	<!-- MyBatis配置 -->
+	<!-- 配置 SqlSessionFactory -->
+	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+		<!-- 加载mybatis的配置文件 -->
+		<property name="configLocation" value="classpath:config/mybatis/SqlMapConfig.xml" />
+		<!-- 加载数据源 -->
+		<property name="dataSource" ref="dataSource" />
+	</bean>
+
+	<!-- 通过MapperScannerConfigurer进行mapper扫描（建议使用） mapper 批量扫描，从 mapper 包中扫描出 
+		mapper 接口，自动创建代理对象，并在 spring 容器中注册名陈为类名首字母小写。 遵循的规范：将 mapper.java 和 mapper.xml 
+		映射文件名陈一致，且在同一个目录 -->
+	<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+		<!-- 指定扫描的包，如果存在多个包使用(逗号,)分割 -->
+		<property name="basePackage" value="cn.rdlts" />
+		<!-- 注意此处是sqlSessionFactoryBeanName，如果写成 sqlSessionFactory，ref="sqlSessionFactory" 
+			会造成 <context:property-placeholder location="classpath:config/db.properties"/> 
+			失效 而连接不上数据库 -->
+		<property name="sqlSessionFactoryBeanName" value="sqlSessionFactory" />
+	</bean>
 </beans>  

@@ -18,18 +18,16 @@
     <!-- 设置使用注解的类所在的jar包 -->
     <context:component-scan base-package="cn.rdlts" />
     
-<!--     don't handle the static resource -->
-<!--     <mvc:default-servlet-handler /> -->
- 
-<!--     if you use annotation you must configure following setting -->
-<!--     <mvc:annotation-driven /> -->
-     
-<!--     configure the InternalResourceViewResolver -->
-<!--     <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver" -->
-<!--             id="internalResourceViewResolver"> -->
-<!--         前缀 -->
-<!--         <property name="prefix" value="/WEB-INF/jsp/" /> -->
-<!--         后缀 -->
-<!--         <property name="suffix" value=".jsp" /> -->
-<!--     </bean> -->
+ 	<!-- 注解驱动 -->  
+    <mvc:annotation-driven />  
+    <!-- <context:annotation-config /> -->  
+    <!-- context:component-scan 具有annotation-config 的功能 -->  
+    <!-- 扫描 控制层 -->  
+    <context:component-scan base-package="com.website.controller"></context:component-scan>  
+    <!-- 视图解析器 -->  
+    <bean id="viewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">  
+	    <property name="prefix" value="/WEB-INF/view/">  
+	    </property>  
+	    <property name="suffix" value=".jsp"></property>  
+    </bean>  
 </beans>

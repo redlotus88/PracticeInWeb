@@ -9,6 +9,24 @@
 	</parent>
 	
 	<artifactId>PiW-core</artifactId>
-	<name>Practice In Web core</name>
+	<name>Practice_In_Web_core</name>
+	
+	<properties>
+	   <mybatis.version>3.2.8</mybatis.version>
+	</properties>
+	
+	<dependencies>
+	   <dependency>
+            <groupId>org.mybatis</groupId>
+            <artifactId>mybatis</artifactId>
+            <version>${mybatis.version}</version>
+        </dependency>
+        
+        <dependency>
+            <groupId>org.mybatis</groupId>
+            <artifactId>mybatis-spring</artifactId>
+            <version>1.2.2</version>
+        </dependency>
+	</dependencies>
 	
 </project>
