@@ -51,7 +51,7 @@ public class AccountDaoTest extends AbstractJUnit4SpringContextTests {
 		assertNotNull(accToDel.getId());
 		accountMapper.delete(accToDel);
 		
-		accToDel = accountMapper.getById(id);
+		accToDel = accountMapper.getById(accToDel.getId());
 		assertNull(accToDel);
 	}
 	
