@@ -9,7 +9,7 @@
 	</parent>
 	
 	<artifactId>PiW-core</artifactId>
-	<name>Practice_In_Web_core</name>
+	<name>PiW-core</name>
 	
 	<properties>
 	   <mybatis.version>3.2.8</mybatis.version>

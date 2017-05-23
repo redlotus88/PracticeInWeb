@@ -20,7 +20,7 @@
 	<artifactId>PiW-root</artifactId>
 	<version>0.0.3-SNAPSHOT</version>
 	<packaging>pom</packaging>
-	<name>PracticeInWeb</name>
+	<name>PiW-root</name>
 	<description>Practice in web to test different type of web plugin.</description>
 
 	<!-- 项目模块定义 -->
