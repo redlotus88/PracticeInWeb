@@ -11,4 +11,6 @@ public interface AccountService {
 	List<Account> findAll();
 	
 	Integer save(Account userInfo);
+	
+	
 }
