@@ -1,24 +1,35 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="cn.rdlts.usermgr.dao.mapper.AccountMapper">
+<mapper namespace="cn.rdlts.usermgr.dao.AccountMapper">
     <resultMap id="BaseResultMap" type="cn.rdlts.usermgr.model.Account">
         <id column="id" property="id" jdbcType="INTEGER"/>
-        <result column="accountName" property="accountName" jdbcType="VARCHAR"/>
+        <result column="account_name" property="accountName" jdbcType="VARCHAR"/>
         <result column="password" property="password" jdbcType="VARCHAR"/>
+        <result column="salt" property="salt" jdbcType="VARCHAR"/>
+        <result column="create_time" property="createTime" jdbcType="TIMESTAMP"/>
+        <result column="last_modify_time" property="lastModifyTime" jdbcType="TIMESTAMP"/>
     </resultMap>
 
     <sql id="Query_Column_List">
-        id, accountName, password
+        id, account_name, password, salt, create_time, last_modify_time
+    </sql>
+    
+    <sql id="Create_Column_List">
+        account_name, password, salt, create_time
     </sql>
     
     <sql id="Modify_Column_List">
-        accountName, password
+        account_name, password, salt, last_modify_time
     </sql>
 
     <!-- BaseMapper definition -->
     <!-- 定义条件查询的 sql 片段 -->
-    <select id="getById" resultType="cn.rdlts.usermgr.model.Account">
+    <select id="getById" resultMap="BaseResultMap" resultType="cn.rdlts.usermgr.model.Account">
         select * from piw_usermgr_account where id = #{id}
+    </select>
+    
+    <select id="getByName" resultMap="BaseResultMap" resultType="cn.rdlts.usermgr.model.Account">
+        select * from piw_usermgr_account where account_name = #{name}
     </select>
         
     <select id="findAll" resultMap="BaseResultMap">
@@ -26,11 +37,21 @@
     </select>
     
     <insert id="save" parameterType="cn.rdlts.usermgr.model.Account" useGeneratedKeys="true" keyProperty="id">
-        insert into piw_usermgr_account (<include refid="Modify_Column_List"/>)
-        values(#{accountName}, #{password})
+        insert into piw_usermgr_account (<include refid="Create_Column_List"/>)
+        values(#{accountName}, #{password}, #{salt}, #{createTime})
     </insert>
     
     <delete id="delete" parameterType="cn.rdlts.usermgr.model.Account">
-        delete from piw_usermgr_account where id=#{id} or accountName = #{accountName}
+        delete from piw_usermgr_account where id=#{id} or account_name = #{accountName}
     </delete>
+    
+    <select id="exist" resultType="boolean" parameterType="cn.rdlts.usermgr.model.Account">
+        <![CDATA[ select count(*) from piw_usermgr_account where id=#{id} or account_name = #{accountName} ]]> 
+    </select>
+    
+    <update id="update" parameterType="cn.rdlts.usermgr.model.Account">
+        update piw_usermgr_account 
+        set password = #{password}, last_modify_time=#{lastModifyTime}
+        where id = #{id} or account_name = #{accountName}
+    </update>
 </mapper>

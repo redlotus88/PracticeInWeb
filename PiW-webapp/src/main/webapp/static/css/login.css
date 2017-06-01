@@ -27,7 +27,7 @@ body.login {
 .login_boder_background {
     background: url(/static/image/login_m_bg.png) ;
     background-size: cover;
-    height: 318px;
+    height: 325px;
     width: 403px;
 /*     opacity: 0.5;  */
     position: absolute;
@@ -36,6 +36,11 @@ body.login {
 .login_padding {
 	padding: 28px 47px 20px 47px;
 	position: absolute;
+}
+
+.login_logo {
+	text-align: center;
+	margin-bottom: 0px;
 }
 
 .login_boder h2 {

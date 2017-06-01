@@ -10,11 +10,24 @@
 		<!-- 批量扫描别名 -->
 		<package name="cn.rdlts" />
 	</typeAliases>
+	
+	<typeHandlers>  
+        <!-- mybatis处理Java8的时间类型 -->
+        <typeHandler handler="org.apache.ibatis.type.InstantTypeHandler" />  
+        <typeHandler handler="org.apache.ibatis.type.LocalDateTimeTypeHandler" />  
+        <typeHandler handler="org.apache.ibatis.type.LocalDateTypeHandler" />  
+        <typeHandler handler="org.apache.ibatis.type.LocalTimeTypeHandler" />  
+        <typeHandler handler="org.apache.ibatis.type.OffsetDateTimeTypeHandler" />  
+        <typeHandler handler="org.apache.ibatis.type.OffsetTimeTypeHandler" />  
+        <typeHandler handler="org.apache.ibatis.type.ZonedDateTimeTypeHandler" />  
+    </typeHandlers>  
 
 	<!-- 配置 mapper 由于使用的是在 spring 和 config.mybatis 的整合包中配置的批量扫描 mapper， 所以此处不需要配置了。但需要遵循一定的规则：mapper.java 
 		和 mapper.xml 同名且在同一个目录下。 <mappers> </mappers> -->
 	<mappers>
 		<!-- maven 的目录结构下的resources为classpath -->
 		<mapper resource="config/mybatis/mapper/AccountMapper.xml"/>
+<!-- 		<mapper resource="config/mybatis/mapper/SecurityMapper.xml"/> -->
 	</mappers>
+	
 </configuration>
