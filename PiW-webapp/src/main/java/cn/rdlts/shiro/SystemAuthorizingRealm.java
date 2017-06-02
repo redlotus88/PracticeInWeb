@@ -13,20 +13,19 @@ import org.apache.shiro.authz.SimpleAuthorizationInfo;
 import org.apache.shiro.realm.AuthorizingRealm;
 import org.apache.shiro.subject.PrincipalCollection;
 import org.apache.shiro.util.ByteSource;
-import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import cn.rdlts.security.service.SecurityService;
 import cn.rdlts.usermgr.model.Account;
 import cn.rdlts.usermgr.service.AccountService;
 
+@Service("systemAuthorizingRealm")
 public class SystemAuthorizingRealm extends AuthorizingRealm {
 
 	private static final Log LOGGER = LogFactory.getLog(SystemAuthorizingRealm.class);
 	
-	@Autowired
 	private AccountService accountServiceImpl;
 	
-	@Autowired
 	private SecurityService securityServiceImpl;
 	
 	/**
@@ -35,7 +34,7 @@ public class SystemAuthorizingRealm extends AuthorizingRealm {
 	@Override
 	protected AuthorizationInfo doGetAuthorizationInfo(PrincipalCollection principals) {
 		LOGGER.info("执行权限认证");
-		String accountName = (String)super.getAvailablePrincipal(principals);
+		String accountName = (String) super.getAvailablePrincipal(principals);
 		Account account = accountServiceImpl.getByName(accountName);
 		
 		if (account == null) {
@@ -60,7 +59,7 @@ public class SystemAuthorizingRealm extends AuthorizingRealm {
 		if (account == null) {
 			throw new UnknownAccountException();
 		}
-		SimpleAuthenticationInfo autheInfo = new SimpleAuthenticationInfo(account.getAccountName(), account.getPassword(), 
+		SimpleAuthenticationInfo autheInfo = new SimpleAuthenticationInfo(new ShiroUser(account.getAccountName()), account.getPassword(), 
 				ByteSource.Util.bytes(account.getSalt()), getName());
 		return autheInfo;
 	}

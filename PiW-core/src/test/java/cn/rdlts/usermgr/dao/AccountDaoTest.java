@@ -13,6 +13,7 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 
 import cn.rdlts.usermgr.JUnit4SpringContextTests;
@@ -28,7 +29,7 @@ public class AccountDaoTest {
 	private final String PASSWORD_12345678 = "12345678";
 	private final String SALT_1 = "salt1";
 	
-	@Resource
+	@Autowired
 	private AccountMapper accountMapper;
 	
 	private Account initAcc;

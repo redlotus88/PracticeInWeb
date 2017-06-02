@@ -17,11 +17,11 @@ public class AccountServiceTest {
 	private static Log LOGGER = LogFactory.getLog(AccountServiceTest.class);
 	
 	@Autowired
-	private AccountService accountServiceImpl;
+	private AccountService accountService;
 	
 	@Test
 	public void saveTest() {
 		Account account = new Account("Rean_Wang", "123456");
-		accountServiceImpl.save(account);
+		accountService.save(account);
 	}
 }

@@ -8,14 +8,14 @@ import org.apache.commons.logging.LogFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import cn.rdlts.constant.ServiceConstants;
 import cn.rdlts.usermgr.dao.AccountMapper;
 import cn.rdlts.usermgr.model.Account;
 import cn.rdlts.usermgr.service.AccountService;
 import cn.rdlts.utils.DateUtils;
 import cn.rdlts.utils.PasswordHelper;
-import cn.rdlts.utils.ServiceConstants;
 
-@Service
+@Service("accountService")
 public class AccountServiceImpl implements AccountService {
 
 	private static final Log LOGGER = LogFactory.getLog(AccountServiceImpl.class);

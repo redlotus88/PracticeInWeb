@@ -1,4 +1,4 @@
-package cn.rdlts.utils;
+package cn.rdlts.constant;
 
 public class ServiceConstants {
 	

@@ -1,4 +1,4 @@
-package cn.rdlts.security.impl;
+package cn.rdlts.security.service.impl;
 
 import java.util.Set;
 
