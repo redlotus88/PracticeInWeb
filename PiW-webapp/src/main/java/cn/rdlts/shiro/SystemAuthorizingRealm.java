@@ -13,37 +13,43 @@ import org.apache.shiro.authz.SimpleAuthorizationInfo;
 import org.apache.shiro.realm.AuthorizingRealm;
 import org.apache.shiro.subject.PrincipalCollection;
 import org.apache.shiro.util.ByteSource;
-import org.springframework.stereotype.Service;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import cn.rdlts.security.service.SecurityService;
 import cn.rdlts.usermgr.model.Account;
 import cn.rdlts.usermgr.service.AccountService;
 
-@Service("systemAuthorizingRealm")
 public class SystemAuthorizingRealm extends AuthorizingRealm {
 
-	private static final Log LOGGER = LogFactory.getLog(SystemAuthorizingRealm.class);
+	private static Log logger = LogFactory.getLog(SystemAuthorizingRealm.class);
 	
-	private AccountService accountServiceImpl;
+	@Autowired
+	private AccountService accountService;
 	
-	private SecurityService securityServiceImpl;
+	@Autowired
+	private SecurityService securityService;
 	
 	/**
 	 * 授权查询回调函数, 进行鉴权但缓存中无用户的授权信息时调用
 	 */
 	@Override
 	protected AuthorizationInfo doGetAuthorizationInfo(PrincipalCollection principals) {
-		LOGGER.info("执行权限认证");
-		String accountName = (String) super.getAvailablePrincipal(principals);
-		Account account = accountServiceImpl.getByName(accountName);
+		logger.info("执行权限认证");
+		ShiroUser shiroUser = (ShiroUser) super.getAvailablePrincipal(principals);
+		Account account = accountService.getByName(shiroUser.getName());
 		
 		if (account == null) {
 			throw new AuthenticationException("用户不存在：" + account);
 		}
 		
 		SimpleAuthorizationInfo simpleAuthorInfo = new SimpleAuthorizationInfo();
-		simpleAuthorInfo.setRoles(securityServiceImpl.findCodeOfRoles(accountName));
-		LOGGER.info("权限认证结束");
+		// 角色赋予
+		logger.info("用户[" + account.getAccountName() + "]角色：");
+//		simpleAuthorInfo.setRoles(securityService.findCodeOfRoles(accountName));
+		// 权限赋予
+		logger.info("用户[" + account.getAccountName() + "]权限: ");
+//		authorizationInfo.setStringPermissions(userService.findPermissions(username));
+		logger.info("权限认证结束");
 		return simpleAuthorInfo;
 	}
 
@@ -52,15 +58,16 @@ public class SystemAuthorizingRealm extends AuthorizingRealm {
      */  
 	@Override
 	protected AuthenticationInfo doGetAuthenticationInfo(AuthenticationToken authcToken) throws AuthenticationException {
-		LOGGER.info("认证用户token");
+		logger.info("认证用户token");
 		UsernamePasswordToken token = (UsernamePasswordToken) authcToken;
 		String username = token.getUsername();
-		Account account = accountServiceImpl.getByName(username);
+		Account account = accountService.getByName(username);
 		if (account == null) {
-			throw new UnknownAccountException();
+			throw new UnknownAccountException("未查找到账号：" + username);
 		}
+		
 		SimpleAuthenticationInfo autheInfo = new SimpleAuthenticationInfo(new ShiroUser(account.getAccountName()), account.getPassword(), 
-				ByteSource.Util.bytes(account.getSalt()), getName());
+				ByteSource.Util.bytes(account.getCredentialsSalt()), getName());
 		return autheInfo;
 	}
 

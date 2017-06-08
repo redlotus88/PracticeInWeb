@@ -16,19 +16,14 @@
                         http://www.springframework.org/schema/tx 
                         http://www.springframework.org/schema/tx/spring-tx-4.1.xsd"
     default-lazy-init="true">
-    <!-- 设置使用注解的类所在的jar包 -->
-    <context:component-scan base-package="cn.rdlts" />
-    
- 	<!-- 注解驱动 -->  
-    <mvc:annotation-driven />  
     <!-- <context:annotation-config /> -->  
     <!-- context:component-scan 具有annotation-config 的功能 -->  
     <!-- 扫描 控制层 -->  
     <context:component-scan base-package="cn.rdlts"></context:component-scan>  
     <!-- 视图解析器 -->  
     <bean id="viewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">  
-	    <property name="prefix" value="/WEB-INF/view/"></property>  
-	    <property name="suffix" value=".jsp"></property>  
+        <property name="prefix" value="/WEB-INF/view/"></property>  
+        <property name="suffix" value=".jsp"></property>  
     </bean>  
     
     

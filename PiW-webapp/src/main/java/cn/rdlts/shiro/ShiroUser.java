@@ -11,13 +11,12 @@ import org.apache.commons.lang3.builder.HashCodeBuilder;
 public class ShiroUser implements Serializable {
 	
 	private static final long serialVersionUID = -1373760761780840081L;
-	
-	private String name;
-	
+	public String name;
+
 	public ShiroUser(String name) {
 		this.name = name;
 	}
-	
+
 	public String getName() {
 		return name;
 	}
@@ -41,7 +40,7 @@ public class ShiroUser implements Serializable {
 		if (obj instanceof ShiroUser) {
 			ShiroUser user = (ShiroUser) obj;
 			return new EqualsBuilder()
-					.append(this.name, user.getName())
+					.append(name, user.getName())
 					.isEquals();
 		}
 		return false;

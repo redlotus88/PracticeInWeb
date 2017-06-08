@@ -7,6 +7,13 @@ require.config({
 })
 
 require(['jquery','vue'], function($, vue) {
+	var app = new Vue({
+		el : '#login_web_app',
+		data : {
+			message : "hello Vue!"
+		}
+	});
+	
 	$(document).ready(function() {
 	});
 	

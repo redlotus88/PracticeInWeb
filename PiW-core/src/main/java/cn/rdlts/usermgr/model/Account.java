@@ -71,6 +71,10 @@ public class Account implements Serializable {
 		this.salt = salt;
 	}
 	
+	public String getCredentialsSalt() {
+		return accountName + salt;
+	}
+	
 	public LocalDateTime getCreateTime() {
 		return createTime;
 	}

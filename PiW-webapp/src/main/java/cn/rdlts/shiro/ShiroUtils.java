@@ -1,11 +1,16 @@
 package cn.rdlts.shiro;
 
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
 import org.apache.shiro.SecurityUtils;
+import org.apache.shiro.session.InvalidSessionException;
 import org.apache.shiro.session.Session;
 import org.apache.shiro.subject.Subject;
 import org.apache.shiro.web.util.WebUtils;
 
 public final class ShiroUtils {
+	
+	private static Log logger = LogFactory.getLog(ShiroUtils.class);
 	
 	public static ShiroUser getCurrentUser() {
 		return (ShiroUser) SecurityUtils.getSubject().getPrincipal();
@@ -21,5 +26,22 @@ public final class ShiroUtils {
         if (session != null) {
             session.removeAttribute(WebUtils.SAVED_REQUEST_KEY);
         }
+    }
+    
+    public static Session getSession() {
+    	try {
+    		Subject subject = SecurityUtils.getSubject();
+    		Session session = subject.getSession(false);
+    		if (session == null) {
+    			session = subject.getSession();
+    		}
+    		
+    		if (session != null) {
+    			return session;
+    		}
+    	} catch (InvalidSessionException e) {
+    		logger.error("获取Shiro session失败。", e);
+    	}
+    	return null;
     }
 }

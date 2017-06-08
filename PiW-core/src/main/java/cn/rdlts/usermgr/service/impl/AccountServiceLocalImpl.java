@@ -16,9 +16,9 @@ import cn.rdlts.utils.DateUtils;
 import cn.rdlts.utils.PasswordHelper;
 
 @Service("accountService")
-public class AccountServiceImpl implements AccountService {
+public class AccountServiceLocalImpl implements AccountService {
 
-	private static final Log LOGGER = LogFactory.getLog(AccountServiceImpl.class);
+	private static Log logger = LogFactory.getLog(AccountServiceLocalImpl.class);
 	
 	@Autowired
 	private AccountMapper accountMapper;
@@ -40,16 +40,16 @@ public class AccountServiceImpl implements AccountService {
 
 	@Override
 	public Integer save(final Account account) {
-		LOGGER.info("保存用户信息：" + account);
+		logger.info("保存用户信息：" + account);
 		if (exist(account)) {
-			LOGGER.error("已存在用户[" + account.getAccountName() + "], 无法创建");
+			logger.error("已存在用户[" + account.getAccountName() + "], 无法创建");
 			return ServiceConstants.NO_AFFECTED_LINE;
 		}
 		
 		Account toSave = PasswordHelper.encryptPassword(account);
 		toSave.setCreateTime(DateUtils.nowTime());
 		int affectedRow = accountMapper.save(toSave);
-		LOGGER.info("保存结束。影响" + affectedRow + "行");
+		logger.info("保存结束。影响" + affectedRow + "行");
 		return affectedRow;
 	}
 
@@ -60,11 +60,11 @@ public class AccountServiceImpl implements AccountService {
 
 	@Override
 	public int update(final Account account) {
-		LOGGER.info("更新用户信息：" + account);
+		logger.info("更新用户信息：" + account);
 		Account toUpdate = PasswordHelper.encryptPassword(account);
 		toUpdate.setLastModifyTime(LocalDateTime.now());
 		int affectedRow = accountMapper.update(toUpdate);
-		LOGGER.info("更新完成，影响" + affectedRow + "行");
+		logger.info("更新完成，影响" + affectedRow + "行");
 		return affectedRow;
 	}
 }
