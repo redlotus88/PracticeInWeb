@@ -2,7 +2,7 @@ package cn.rdlts.security.model;
 
 public enum RoleEnum {
 	
-	ADMIN("admin"), USER("user");
+	ADMIN("admin"), USER("user"), GUEST("guest");
 	
 	private String code;
 	

@@ -43,11 +43,12 @@ public class SystemAuthorizingRealm extends AuthorizingRealm {
 		}
 		
 		SimpleAuthorizationInfo simpleAuthorInfo = new SimpleAuthorizationInfo();
+		String accountName =  account.getAccountName();
 		// 角色赋予
-		logger.info("用户[" + account.getAccountName() + "]角色：");
-//		simpleAuthorInfo.setRoles(securityService.findCodeOfRoles(accountName));
+		logger.info("用户[" + accountName + "]角色：");
+		simpleAuthorInfo.setRoles(securityService.getRolesByAccountName(accountName));
 		// 权限赋予
-		logger.info("用户[" + account.getAccountName() + "]权限: ");
+		logger.info("用户[" + accountName + "]权限: ");
 //		authorizationInfo.setStringPermissions(userService.findPermissions(username));
 		logger.info("权限认证结束");
 		return simpleAuthorInfo;

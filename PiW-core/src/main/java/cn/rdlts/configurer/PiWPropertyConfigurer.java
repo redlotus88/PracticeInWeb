@@ -2,6 +2,8 @@ package cn.rdlts.configurer;
 
 import java.util.Properties;
 
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
 import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.config.ConfigurableListableBeanFactory;
 import org.springframework.beans.factory.config.PropertyPlaceholderConfigurer;
@@ -11,7 +13,9 @@ import org.springframework.beans.factory.config.PropertyPlaceholderConfigurer;
  * @author Dragon.Wang
  *
  */
-public class PiWCorePropertyConfigurer extends PropertyPlaceholderConfigurer {
+public class PiWPropertyConfigurer extends PropertyPlaceholderConfigurer {
+	
+	private static Log logger = LogFactory.getLog(PiWPropertyConfigurer.class);
 	
 	private Properties props;
 	
@@ -19,6 +23,7 @@ public class PiWCorePropertyConfigurer extends PropertyPlaceholderConfigurer {
     protected void processProperties(ConfigurableListableBeanFactory beanFactoryToProcess, Properties props) throws BeansException {
         super.processProperties(beanFactoryToProcess, props);
         this.props = props;
+        logger.info("Spring 加载属性文件：\n" + props);
     }
 	
 	public String getProperty(String key){

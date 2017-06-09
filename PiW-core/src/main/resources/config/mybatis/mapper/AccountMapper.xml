@@ -28,10 +28,6 @@
         select * from piw_usermgr_account where id = #{id}
     </select>
     
-    <select id="getByName" resultMap="BaseResultMap" resultType="cn.rdlts.usermgr.model.Account">
-        select * from piw_usermgr_account where account_name = #{name}
-    </select>
-        
     <select id="findAll" resultMap="BaseResultMap">
         select * from piw_usermgr_account
     </select>
@@ -44,6 +40,11 @@
     <delete id="delete" parameterType="cn.rdlts.usermgr.model.Account">
         delete from piw_usermgr_account where id=#{id} or account_name = #{accountName}
     </delete>
+    <!-- BaseMapper definition end -->
+    
+    <select id="getByName" resultMap="BaseResultMap" resultType="cn.rdlts.usermgr.model.Account">
+        select * from piw_usermgr_account where account_name = #{name}
+    </select>
     
     <select id="exist" resultType="boolean" parameterType="cn.rdlts.usermgr.model.Account">
         <![CDATA[ select count(*) from piw_usermgr_account where id=#{id} or account_name = #{accountName} ]]> 

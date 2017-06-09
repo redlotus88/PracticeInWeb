@@ -1,23 +1,26 @@
-﻿<!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml">
-
+﻿<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<!DOCTYPE html>
+<html>
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Free Bootstrap Admin Template : Dream</title>
+    <title>管理员界面</title>
     <!-- Bootstrap Styles-->
-    <link href="assets/css/bootstrap.css" rel="stylesheet" />
+    <link href="//cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" />
     <!-- FontAwesome Styles-->
-    <link href="assets/css/font-awesome.css" rel="stylesheet" />
+    <link href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" />
     <!-- Morris Chart Styles-->
-    <link href="assets/js/morris/morris-0.4.3.min.css" rel="stylesheet" />
+    <link href="//cdn.bootcss.com/morris.js/0.4.3/morris.css" rel="stylesheet" />
     <!-- Custom Styles-->
-    <link href="assets/css/custom-styles.css" rel="stylesheet" />
+    <link href="/static/css/custom-styles.css" rel="stylesheet" />
     <!-- Google Fonts-->
     <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
 </head>
 
 <body>
+    <c:set var="ctx" value="${pageContext.request.contextPath}" />
+
     <div id="wrapper">
         <nav class="navbar navbar-default top-navbar" role="navigation">
             <div class="navbar-header">
@@ -27,7 +30,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="index.html">Dream</a>
+                <a class="navbar-brand">管理员界面</a>
             </div>
 
             <ul class="nav navbar-top-links navbar-right">
@@ -44,7 +47,7 @@
                                         <em>Today</em>
                                     </span>
                                 </div>
-                                <div>Lorem Ipsum has been the industry's standard dummy text ever since the 1500s...</div>
+                                <div>待完成，消息显示页面</div>
                             </a>
                         </li>
                         <li class="divider"></li>
@@ -56,7 +59,7 @@
                                         <em>Yesterday</em>
                                     </span>
                                 </div>
-                                <div>Lorem Ipsum has been the industry's standard dummy text ever since an kwilnw...</div>
+                                <div>消息2</div>
                             </a>
                         </li>
                         <li class="divider"></li>
@@ -68,13 +71,13 @@
                                         <em>Yesterday</em>
                                     </span>
                                 </div>
-                                <div>Lorem Ipsum has been the industry's standard dummy text ever since the...</div>
+                                <div>消息3</div>
                             </a>
                         </li>
                         <li class="divider"></li>
                         <li>
                             <a class="text-center" href="#">
-                                <strong>Read All Messages</strong>
+                                <strong>标记所有消息为已读</strong>
                                 <i class="fa fa-angle-right"></i>
                             </a>
                         </li>
@@ -231,7 +234,7 @@
                         <li><a href="#"><i class="fa fa-gear fa-fw"></i> Settings</a>
                         </li>
                         <li class="divider"></li>
-                        <li><a href="#"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
+                        <li><a href="${ctx}/login/logout.do"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
                         </li>
                     </ul>
                     <!-- /.dropdown-user -->
@@ -514,17 +517,16 @@
     <!-- /. WRAPPER  -->
     <!-- JS Scripts-->
     <!-- jQuery Js -->
-    <script src="assets/js/jquery-1.10.2.js"></script>
+    <script src="//cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
     <!-- Bootstrap Js -->
-    <script src="assets/js/bootstrap.min.js"></script>
+    <script src="//cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <!-- Metis Menu Js -->
-    <script src="assets/js/jquery.metisMenu.js"></script>
+    <script src="//cdn.bootcss.com/metisMenu/2.7.0/metisMenu.min.js"></script>
     <!-- Morris Chart Js -->
-    <script src="assets/js/morris/raphael-2.1.0.min.js"></script>
-    <script src="assets/js/morris/morris.js"></script>
+    <script src="//cdn.bootcss.com/raphael/2.1.0/raphael-min.js"></script>
+    <script src="//cdn.bootcss.com/morris.js/0.4.3/morris.min.js"></script>
     <!-- Custom Js -->
-    <script src="assets/js/custom-scripts.js"></script>
-
+    <script src="/static/js/custom-scripts.js"></script>
 
 </body>
 

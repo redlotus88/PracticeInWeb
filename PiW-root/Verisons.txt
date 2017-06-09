@@ -1,0 +1,10 @@
+0.0.3-SNAPSHOT:
+    - 使用shiro框架 实现登录和权限控制
+    - 增加权限 数据库表
+    - 为piw_usermgr_account添加修改日期字段
+    - mybatis 3.2.8 处理java 8 的localdatetime类型
+    - 定义log4j,将日志输出到控制台
+    - 设计登录页面
+    - bug: Permission denied when install in Jenkins
+    - 编写角色管理后台，Mybatis配置，service编写
+    

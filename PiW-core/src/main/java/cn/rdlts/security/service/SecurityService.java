@@ -4,5 +4,5 @@ import java.util.Set;
 
 public interface SecurityService {
 	
-	Set<String> findCodeOfRoles(String accountName);
+	Set<String> getRolesByAccountName(String accountName);
 }
