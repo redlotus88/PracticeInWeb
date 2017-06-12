@@ -22,11 +22,13 @@
     <!-- BaseMapper definition -->
     <!-- 定义条件查询的 sql 片段 -->
     <select id="getById" resultMap="BaseResultMap" resultType="cn.rdlts.security.model.Role">
-        select * from piw_usermgr_role where id = #{id}
+        select <include refid="Query_Column_List" />
+        from piw_usermgr_role where id = #{id}
     </select>
     
     <select id="findAll" resultMap="BaseResultMap">
-        select * from piw_usermgr_role
+        select <include refid="Query_Column_List" />
+        from piw_usermgr_role
     </select>
     
     <insert id="save" parameterType="cn.rdlts.security.model.Role" useGeneratedKeys="true" keyProperty="id">
@@ -40,7 +42,8 @@
     <!-- BaseMapper definition end -->
     
     <select id="getByCode" resultMap="BaseResultMap" resultType="cn.rdlts.security.model.Role">
-        select * from piw_usermgr_role where code = #{code}
+        select <include refid="Query_Column_List" />
+        from piw_usermgr_role where code = #{code}
     </select>
     
     <select id="getByAccountName" resultMap="BaseResultMap" resultType="cn.rdlts.security.model.Role">
@@ -48,18 +51,4 @@
         from piw_usermgr_role role right outer join piw_usermgr_account_role acc_role on role.id = acc_role.role_id left outer join piw_usermgr_account account on acc_role.account_id = account.id
         where account.account_name = #{accountName}
     </select>
-    
-<!--     <select id="getByName" resultMap="BaseResultMap" resultType="cn.rdlts.security.model.Role"> -->
-<!--         select * from piw_usermgr_role where account_name = #{name} -->
-<!--     </select> -->
-    
-<!--     <select id="exist" resultType="boolean" parameterType="cn.rdlts.security.model.Role"> -->
-<!--         <![CDATA[ select count(*) from piw_usermgr_role where id=#{id} or account_name = #{accountName} ]]>  -->
-<!--     </select> -->
-    
-<!--     <update id="update" parameterType="cn.rdlts.security.model.Role"> -->
-<!--         update piw_usermgr_role  -->
-<!--         set password = #{password}, last_modify_time=#{lastModifyTime} -->
-<!--         where id = #{id} or account_name = #{accountName} -->
-<!--     </update> -->
 </mapper>
