@@ -7,18 +7,10 @@ require.config({
 })
 
 require(['jquery','vue'], function($, vue) {
-	var app = new Vue({
-		el : '#login_web_app',
-		data : {
-			message : "hello Vue!"
-		}
-	});
+	vue.el = '#login_web_app';
+	vue.data = {message : "hello Vue!"};
 	
 	$(document).ready(function() {
+		console.log("加载login.js");
 	});
-	
-	/** 登录按钮事件 */
-	$('#btnLogin').on('click', function() {
-	});
-	
 })

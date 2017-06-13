@@ -27,6 +27,8 @@
 	<modules>
 		<module>../PiW-core</module>
 		<module>../PiW-webapp</module>
+		<module>../PiW-commons</module>
+		<module>../PiW-shiro</module>
 	</modules>
 
 	<build>
@@ -74,6 +76,7 @@
 			<groupId>junit</groupId>
 			<artifactId>junit</artifactId>
 			<version>${junit.version}</version>
+			<scope>test</scope>
 		</dependency>
 
 		<dependency>

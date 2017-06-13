@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="cn.rdlts.security.dao.RoleMapper">
-    <resultMap id="BaseResultMap" type="cn.rdlts.security.model.Role">
+<mapper namespace="cn.rdlts.core.security.dao.RoleMapper">
+    <resultMap id="BaseResultMap" type="cn.rdlts.core.security.model.Role">
         <id column="id" property="id" jdbcType="INTEGER"/>
         <result column="code" property="code" jdbcType="VARCHAR"/>
         <result column="description" property="description" jdbcType="VARCHAR"/>
@@ -21,7 +21,7 @@
 
     <!-- BaseMapper definition -->
     <!-- 定义条件查询的 sql 片段 -->
-    <select id="getById" resultMap="BaseResultMap" resultType="cn.rdlts.security.model.Role">
+    <select id="getById" resultMap="BaseResultMap" resultType="cn.rdlts.core.security.model.Role">
         select <include refid="Query_Column_List" />
         from piw_usermgr_role where id = #{id}
     </select>
@@ -31,22 +31,22 @@
         from piw_usermgr_role
     </select>
     
-    <insert id="save" parameterType="cn.rdlts.security.model.Role" useGeneratedKeys="true" keyProperty="id">
+    <insert id="save" parameterType="cn.rdlts.core.security.model.Role" useGeneratedKeys="true" keyProperty="id">
         insert into piw_usermgr_role (<include refid="Create_Column_List"/>)
         values(#{code}, #{description})
     </insert>
     
-    <delete id="delete" parameterType="cn.rdlts.security.model.Role">
+    <delete id="delete" parameterType="cn.rdlts.core.security.model.Role">
         delete from piw_usermgr_role where id=#{id} or code = #{code}
     </delete>
     <!-- BaseMapper definition end -->
     
-    <select id="getByCode" resultMap="BaseResultMap" resultType="cn.rdlts.security.model.Role">
+    <select id="getByCode" resultMap="BaseResultMap" resultType="cn.rdlts.core.security.model.Role">
         select <include refid="Query_Column_List" />
         from piw_usermgr_role where code = #{code}
     </select>
     
-    <select id="getByAccountName" resultMap="BaseResultMap" resultType="cn.rdlts.security.model.Role">
+    <select id="getByAccountName" resultMap="BaseResultMap" resultType="cn.rdlts.core.security.model.Role">
         select role.id as id, role.code as code, role.description as description
         from piw_usermgr_role role right outer join piw_usermgr_account_role acc_role on role.id = acc_role.role_id left outer join piw_usermgr_account account on acc_role.account_id = account.id
         where account.account_name = #{accountName}

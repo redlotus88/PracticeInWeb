@@ -18,8 +18,9 @@ import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 
+import cn.rdlts.core.usermgr.dao.AccountMapper;
+import cn.rdlts.core.usermgr.model.Account;
 import cn.rdlts.usermgr.JUnit4SpringContextTests;
-import cn.rdlts.usermgr.model.Account;
 
 @RunWith(JUnit4SpringContextTests.class)
 @ContextConfiguration(value = "classpath:config/applicationContext.xml")

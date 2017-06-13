@@ -14,18 +14,17 @@ import org.apache.shiro.authc.LockedAccountException;
 import org.apache.shiro.authc.UnknownAccountException;
 import org.apache.shiro.authc.UsernamePasswordToken;
 import org.apache.shiro.subject.Subject;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.view.InternalResourceViewResolver;
 
+import cn.rdlts.core.security.model.RoleEnum;
 import cn.rdlts.exception.PiWLoginException;
-import cn.rdlts.security.model.RoleEnum;
 import cn.rdlts.shiro.ShiroUser;
 import cn.rdlts.shiro.ShiroUtils;
-import cn.rdlts.usermgr.service.AccountService;
+import cn.rdlts.shiro.ciper.MD5Ciper;
 import cn.rdlts.vo.LoginVO;
 
 @Controller
@@ -35,15 +34,14 @@ public class LoginController {
 	 /** logger. */
     private static Log logger = LogFactory.getLog(LoginController.class);
     
-    @Autowired
-    private AccountService accountService;
-
     /**
      * 系统入口
      * @return 返回login页面
      */
 	@RequestMapping(method = RequestMethod.GET)
 	public String login() {
+		MD5Ciper.encrypt("1", "231");
+		
 		// 打开登录页面
 		Subject currentUser = SecurityUtils.getSubject();
         ShiroUtils.clearURL(currentUser);
@@ -89,6 +87,8 @@ public class LoginController {
     	} else {
     		token.clear();
     	}
+    	
+    	model.addAttribute("test_arg", "我是test_arg");
         return login();
     }
 	

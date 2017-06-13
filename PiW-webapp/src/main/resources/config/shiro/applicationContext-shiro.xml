@@ -10,8 +10,7 @@
 	<description>Shiro Configuration</description>
     
     <!--引入配置属性文件 -->
-<!--     <context:property-placeholder location="classpath*:config/shiro/shiro.properties" /> -->
-    <bean id="shiroPropertyConfigurer" class="cn.rdlts.configurer.PiWPropertyConfigurer">
+    <bean id="shiroPropertyConfigurer" class="cn.rdlts.shiro.configurer.PiWShiroPropertyConfigurer">
        <property name="ignoreUnresolvablePlaceholders" value="true"/>
        <property name="ignoreResourceNotFound" value="true"/>
        <property name="locations">
@@ -22,13 +21,16 @@
     </bean>
     
     <bean name="credentialsMatcher" class="org.apache.shiro.authc.credential.Md5CredentialsMatcher">
-        <property name="hashAlgorithmName" value="${shiro.hashAlgorithmName}" />
         <property name="hashIterations" value="${shiro.hashIterations}" />
         <property name="storedCredentialsHexEncoded" value="true" />  
     </bean>
     
+    <bean name="md5Ciper" class="cn.rdlts.shiro.ciper.MD5Ciper">
+        <property name="configurer" ref="credentialsMatcher"/>
+    </bean>
+    
 	<!-- 继承自AuthorizingRealm的自定义Realm,即指定Shiro验证用户登录的类为自定义的ShiroDbRealm.java -->
-	<bean id="systemAuthorizingRealm" class="cn.rdlts.shiro.SystemAuthorizingRealm">
+	<bean id="systemAuthorizingRealm" class="cn.rdlts.webapp.shiro.PiWShiroAuthorizingRealm">
 		<!-- 密码加密验证方式 -->
 		<property name="credentialsMatcher" ref="credentialsMatcher" />
 	</bean>

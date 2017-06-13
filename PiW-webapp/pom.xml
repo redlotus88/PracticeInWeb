@@ -19,6 +19,12 @@
             <version>${piw.version}</version>
         </dependency>
         
+        <dependency>
+            <groupId>cn.rdlts</groupId>
+            <artifactId>PiW-shiro</artifactId>
+            <version>${piw.version}</version>
+        </dependency>
+        
         <!-- https://mvnrepository.com/artifact/javax.servlet/javax.servlet-api -->
         <!-- Correct jsp console problem. -->
         <dependency>

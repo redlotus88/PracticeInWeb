@@ -8,3 +8,5 @@
     - bug: Permission denied when install in Jenkins
     - 编写角色管理后台，Mybatis配置，service编写
     
+0.0.4-SNAPSHOT:
+    

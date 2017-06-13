@@ -14,13 +14,11 @@
 <meta name="description" content="Project 红莲">
 <meta name="author" content="红莲">
 
-<!-- js 引用 -->
-<script src="//cdn.bootcss.com/require.js/2.3.3/require.js" data-main="static/js/module/login.js"></script>
-
 <!-- css 引用 -->
 <link rel="stylesheet" type="text/css" href="/static/css/login.css">
 
 <script type="text/javascript">
+    alert(${test_arg});
 </script>
 
 </head>
@@ -53,5 +51,8 @@
             </div>
         </div>      
     </form>
+    
+    <!-- js 引用 -->
+    <script src="//cdn.bootcss.com/require.js/2.3.3/require.js" data-main="static/js/module/login.js"></script>
 </body>
 </html>

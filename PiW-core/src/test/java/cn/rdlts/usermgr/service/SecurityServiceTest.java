@@ -8,7 +8,7 @@ import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 
-import cn.rdlts.security.service.SecurityService;
+import cn.rdlts.core.security.service.SecurityService;
 import cn.rdlts.usermgr.JUnit4SpringContextTests;
 
 @RunWith(JUnit4SpringContextTests.class)

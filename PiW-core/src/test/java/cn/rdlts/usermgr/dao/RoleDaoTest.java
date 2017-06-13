@@ -10,8 +10,8 @@ import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 
-import cn.rdlts.security.dao.RoleMapper;
-import cn.rdlts.security.model.Role;
+import cn.rdlts.core.security.dao.RoleMapper;
+import cn.rdlts.core.security.model.Role;
 import cn.rdlts.usermgr.JUnit4SpringContextTests;
 
 @RunWith(JUnit4SpringContextTests.class)
