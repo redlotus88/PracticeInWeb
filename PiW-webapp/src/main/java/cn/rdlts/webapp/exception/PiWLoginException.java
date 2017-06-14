@@ -1,4 +1,4 @@
-package cn.rdlts.exception;
+package cn.rdlts.webapp.exception;
 
 public class PiWLoginException extends Exception {
 

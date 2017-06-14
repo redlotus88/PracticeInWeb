@@ -88,7 +88,7 @@
 		mapper 接口，自动创建代理对象，并在 spring 容器中注册名陈为类名首字母小写。 遵循的规范：将 mapper.java 和 mapper.xml 
 		映射文件名陈一致，且在同一个目录 -->
 	<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
-	   <property name="basePackage" value="cn.rdlts.*.dao" />
+	   <property name="basePackage" value="cn.rdlts.core.*.dao" />
 		<!-- 注意此处是sqlSessionFactoryBeanName，如果写成 sqlSessionFactory，ref="sqlSessionFactory" 
 			会造成 <context:property-placeholder location="classpath:config/db.properties"/> 
 			失效 而连接不上数据库 -->

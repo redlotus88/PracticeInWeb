@@ -1,7 +1,8 @@
-package cn.rdlts.controller;
+package cn.rdlts.webapp.controller;
 
 import javax.servlet.http.HttpServletRequest;
 
+import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.lang3.builder.ReflectionToStringBuilder;
 import org.apache.commons.lang3.builder.ToStringStyle;
 import org.apache.commons.logging.Log;
@@ -21,11 +22,11 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.view.InternalResourceViewResolver;
 
 import cn.rdlts.core.security.model.RoleEnum;
-import cn.rdlts.exception.PiWLoginException;
 import cn.rdlts.shiro.ShiroUser;
 import cn.rdlts.shiro.ShiroUtils;
-import cn.rdlts.shiro.ciper.MD5Ciper;
-import cn.rdlts.vo.LoginVO;
+import cn.rdlts.webapp.constant.ViewConst;
+import cn.rdlts.webapp.exception.PiWLoginException;
+import cn.rdlts.webapp.vo.LoginVO;
 
 @Controller
 @RequestMapping("/login")
@@ -34,25 +35,24 @@ public class LoginController {
 	 /** logger. */
     private static Log logger = LogFactory.getLog(LoginController.class);
     
+    private static final String REDIRECT_SUCCESS = "redirect:/login/success.do";
+    
     /**
      * 系统入口
      * @return 返回login页面
      */
 	@RequestMapping(method = RequestMethod.GET)
 	public String login() {
-		MD5Ciper.encrypt("1", "231");
-		
-		// 打开登录页面
 		Subject currentUser = SecurityUtils.getSubject();
         ShiroUtils.clearURL(currentUser);
         
         logger.info("验证当前用户是否登录：" + currentUser.getPrincipal());
         if (currentUser.isAuthenticated()) {
         	logger.info("用户已登录成功，直接跳转。");
-            return "redirect:/login/success.do";
+            return REDIRECT_SUCCESS;
         }
         logger.info("用户未登陆，跳转到登录页");
-		return "login";
+		return ViewConst.VIEW_LOGIN;
 	}
 	
 	/**
@@ -68,28 +68,30 @@ public class LoginController {
     	String password = loginVO.getPassword();
     	boolean rememberMe = loginVO.isRememberMe();
     	
-    	//TODO : 
-    	//verifyAuthCode();
-    	UsernamePasswordToken token = new UsernamePasswordToken(accountName, password, rememberMe);
-    	logger.info("验证登陆用户：" + ReflectionToStringBuilder.toString(token, ToStringStyle.MULTI_LINE_STYLE));
-    	
-    	Subject currentUser = SecurityUtils.getSubject();
-    	
-    	try {
-    		verifyUser(currentUser, token);
-    	} catch (PiWLoginException ex) {
-    		logger.error(ex.getMessage(), ex);
-    		model.addAttribute("message_error",  ex.getMessage());
-    	}
-    	
-    	if (currentUser.isAuthenticated()) {
-    		logger.info("用户[" + token.getUsername() + "]登录认证通过");
+    	if (StringUtils.isNotEmpty(password) && StringUtils.isNotEmpty(accountName)) {
+        	UsernamePasswordToken token = new UsernamePasswordToken(accountName, password, rememberMe);
+        	logger.info("验证登陆用户：" + ReflectionToStringBuilder.toString(token, ToStringStyle.MULTI_LINE_STYLE));
+        	
+        	Subject currentUser = SecurityUtils.getSubject();
+        	
+        	try {
+        		verifyUser(currentUser, token);
+        	} catch (PiWLoginException ex) {
+        		logger.error(ex.getMessage(), ex);
+        		model.addAttribute("errorMessage",  ex.getMessage());
+        	}
+        	
+        	if (currentUser.isAuthenticated()) {
+        		logger.info("用户[" + token.getUsername() + "]登录认证通过");
+        		return REDIRECT_SUCCESS;
+        	} else {
+        		logger.info("用户[" + token.getUsername() + "]登录认证失败，清除用户token");
+        		token.clear();
+        	}
     	} else {
-    		token.clear();
+    		model.addAttribute("errorMessage", "账号或密码不能为空");
     	}
-    	
-    	model.addAttribute("test_arg", "我是test_arg");
-        return login();
+        return ViewConst.VIEW_LOGIN;
     }
 	
 	private boolean verifyUser(Subject currentUser, UsernamePasswordToken token) throws PiWLoginException {
@@ -148,10 +150,10 @@ public class LoginController {
 		
 		if (currentUser.hasRole(RoleEnum.ADMIN.getCode())) {
 			logger.info("跳转到管理员界面");
-			return "admin/admin";
+			return ViewConst.VIEW_ADMIN;
 		} else {
 			logger.info("跳转到客户端界面");
-			return "client/client";
+			return ViewConst.VIEW_CLIENT;
 		}
 	}
 	

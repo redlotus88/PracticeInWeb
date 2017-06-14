@@ -1,6 +1,6 @@
-package cn.rdlts.vo;
+package cn.rdlts.webapp.vo;
 
-import cn.rdlts.constant.VOConstants;
+import cn.rdlts.webapp.constant.VOConst;
 
 public class LoginVO {
 	
@@ -35,6 +35,6 @@ public class LoginVO {
 	}
 	
 	public boolean isRememberMe() {
-		return rememberMe == null ? false : rememberMe.equals(VOConstants.CHECKBOX_ON);
+		return VOConst.CHECKBOX_ON.equals(rememberMe);
 	}
 }

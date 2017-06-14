@@ -16,9 +16,7 @@
 
 <!-- css 引用 -->
 <link rel="stylesheet" type="text/css" href="/static/css/login.css">
-
 <script type="text/javascript">
-    alert(${test_arg});
 </script>
 
 </head>
@@ -33,23 +31,25 @@
                 <div class="login_boder_background"></div>
                 <div class="login_padding" id="login_model">
                     <h2>账号：</h2>
-                    <label><input type="text" class="txt_input txt_input2" id="accountName" name="accountName" placeholder="邮箱账号或手机" required autofocus></label>
+                    <label><input type="text" class="txt_input txt_input2" id="accountName" name="accountName" value="${loginVO.accountName}" placeholder="邮箱账号或手机" required autofocus></label>
                     <h2>密码：</h2>
-                    <label><input type="password" class="txt_input" name="password" id="password" placeholder="密码" required></label>
+                    <label><input type="password" class="txt_input" name="password" id="password" value="${loginVO.password}" placeholder="密码" required></label>
     
                     <p class="forgot">
                         <a id="iforget" href="javascript:void(0);">忘记密码？</a>
                     </p>
-                    <span>{{ message }}</span>
+                    <c:if test="${not empty errorMessage}">
+                        <span style="color:red">${errorMessage}</span>
+                    </c:if>
                     <div class="rem_sub">
                         <div class="rem_sub_l">
-                            <input type="checkbox" name="rememberMe" id="rememberMe"><label for="checkbox">记住我</label>
+                            <input type="checkbox" name="rememberMe" id="rememberMe" <c:if test="${not empty loginVO.rememberMe && loginVO.rememberMe}">checked="checked"</c:if>><label for="checkbox">记住我</label>
                         </div>
                         <label> <input type="submit" class="sub_button" name="button" id="btnLogin" value="登录" style="opacity: 0.7;"></label>
                     </div>
                 </div>
             </div>
-        </div>      
+        </div>
     </form>
     
     <!-- js 引用 -->

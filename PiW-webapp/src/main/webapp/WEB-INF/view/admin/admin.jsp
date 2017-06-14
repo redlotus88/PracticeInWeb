@@ -1,5 +1,4 @@
-﻿
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+﻿<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
@@ -224,30 +223,14 @@
                     </ul>
                     <!-- /.dropdown-alerts -->
                 </li>
-                <!-- /.dropdown -->
-                <li class="dropdown">
-                    <a class="dropdown-toggle" data-toggle="dropdown" href="#" aria-expanded="false">
-                        <i class="fa fa-user fa-fw"></i> <i class="fa fa-caret-down"></i>
-                    </a>
-                    <ul class="dropdown-menu dropdown-user">
-                        <li><a href="#"><i class="fa fa-user fa-fw"></i> User Profile</a>
-                        </li>
-                        <li><a href="#"><i class="fa fa-gear fa-fw"></i> Settings</a>
-                        </li>
-                        <li class="divider"></li>
-                        <li><a href="${ctx}/login/logout.do"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
-                        </li>
-                    </ul>
-                    <!-- /.dropdown-user -->
-                </li>
-                <!-- /.dropdown -->
+                <!-- 个人信息下拉列表 -->
+                <%@ include file="person/personInfo.jsp" %>
             </ul>
         </nav>
         <!--/. NAV TOP  -->
         <nav class="navbar-default navbar-side" role="navigation">
             <div class="sidebar-collapse">
                 <ul class="nav" id="main-menu">
-
                     <li>
                         <a class="active-menu" href="index.html"><i class="fa fa-dashboard"></i> Dashboard</a>
                     </li>
@@ -509,7 +492,7 @@
                     </div>
                 </div>
                 <!-- /. ROW  -->
-				<footer><p>All right reserved. Template by: <a href="http://webthemez.com">WebThemez</a></p></footer>
+				<footer><p>All right reserved. Created By : Dragon.Wang @ newtouch.cn</a></p></footer>
             </div>
             <!-- /. PAGE INNER  -->
         </div>
@@ -528,7 +511,6 @@
     <script src="//cdn.bootcss.com/morris.js/0.4.3/morris.min.js"></script>
     <!-- Custom Js -->
     <script src="/static/js/custom-scripts.js"></script>
-
 </body>
 
 </html>
