@@ -45,7 +45,7 @@
         
         <dependency>
             <groupId>cn.rdlts</groupId>
-            <artifactId>PiW-commons</artifactId>
+            <artifactId>PiW-common</artifactId>
             <version>${piw.version}</version>
         </dependency>
 	</dependencies>

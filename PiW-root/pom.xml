@@ -27,7 +27,7 @@
 	<modules>
 		<module>../PiW-core</module>
 		<module>../PiW-webapp</module>
-		<module>../PiW-commons</module>
+		<module>../PiW-common</module>
 		<module>../PiW-shiro</module>
 	</modules>
 

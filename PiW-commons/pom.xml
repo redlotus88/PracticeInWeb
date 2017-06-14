@@ -9,10 +9,10 @@
 		<relativePath>../PiW-root</relativePath>
 	</parent>
 
-	<artifactId>PiW-commons</artifactId>
+	<artifactId>PiW-common</artifactId>
 	<packaging>jar</packaging>
 
-	<name>PiW-commons</name>
+	<name>PiW-common</name>
 	<url>http://maven.apache.org</url>
 
 	<properties>
