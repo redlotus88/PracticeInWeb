@@ -1,4 +1,4 @@
-package cn.rdlts.usermgr.dao;
+package cn.rdlts.core.security.dao;
 
 import java.util.List;
 
@@ -10,15 +10,14 @@ import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 
-import cn.rdlts.core.security.dao.RoleMapper;
+import cn.rdlts.core.JUnit4SpringContextTests;
 import cn.rdlts.core.security.model.Role;
-import cn.rdlts.usermgr.JUnit4SpringContextTests;
 
 @RunWith(JUnit4SpringContextTests.class)
 @ContextConfiguration(value = "classpath:config/applicationContext.xml")
 public class RoleDaoTest {
 	
-	private static Log LOGGER = LogFactory.getLog(AccountDaoTest.class);
+	private static Log LOGGER = LogFactory.getLog(RoleDaoTest.class);
 	
 	@Autowired
 	private RoleMapper roleMapper;

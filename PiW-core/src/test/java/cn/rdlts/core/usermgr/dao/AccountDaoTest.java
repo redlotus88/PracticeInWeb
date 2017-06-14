@@ -1,4 +1,4 @@
-package cn.rdlts.usermgr.dao;
+package cn.rdlts.core.usermgr.dao;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
@@ -18,9 +18,9 @@ import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 
+import cn.rdlts.core.JUnit4SpringContextTests;
 import cn.rdlts.core.usermgr.dao.AccountMapper;
 import cn.rdlts.core.usermgr.model.Account;
-import cn.rdlts.usermgr.JUnit4SpringContextTests;
 
 @RunWith(JUnit4SpringContextTests.class)
 @ContextConfiguration(value = "classpath:config/applicationContext.xml")

@@ -1,4 +1,4 @@
-package cn.rdlts.usermgr.service;
+package cn.rdlts.core.usermgr.service;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
@@ -7,9 +7,9 @@ import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 
+import cn.rdlts.core.JUnit4SpringContextTests;
 import cn.rdlts.core.usermgr.model.Account;
 import cn.rdlts.core.usermgr.service.AccountService;
-import cn.rdlts.usermgr.JUnit4SpringContextTests;
 
 @RunWith(JUnit4SpringContextTests.class)
 @ContextConfiguration(value = "classpath:config/applicationContext.xml")

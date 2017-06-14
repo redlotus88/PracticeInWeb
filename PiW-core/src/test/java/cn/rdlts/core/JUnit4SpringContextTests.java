@@ -1,4 +1,4 @@
-package cn.rdlts.usermgr;
+package cn.rdlts.core;
 
 import java.io.FileNotFoundException;
 

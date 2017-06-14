@@ -1,4 +1,4 @@
-package cn.rdlts.usermgr.service;
+package cn.rdlts.core.security.service;
 
 import java.util.Set;
 
@@ -8,8 +8,8 @@ import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 
+import cn.rdlts.core.JUnit4SpringContextTests;
 import cn.rdlts.core.security.service.SecurityService;
-import cn.rdlts.usermgr.JUnit4SpringContextTests;
 
 @RunWith(JUnit4SpringContextTests.class)
 @ContextConfiguration(value = "classpath:config/applicationContext.xml")
