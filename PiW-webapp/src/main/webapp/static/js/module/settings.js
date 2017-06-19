@@ -8,7 +8,7 @@ require.config({
 		"eve":["//cdn.bootcss.com/eve.js/0.8.4/eve.min"],
 		"raphael":["//cdn.bootcss.com/raphael/2.2.7/raphael"],
 		"morris":["//cdn.bootcss.com/morris.js/0.5.1/morris"],
-		"custom":["/js/module/custom"],
+		"custom":["./module/custom"],
 	},
 	
 	shim: {

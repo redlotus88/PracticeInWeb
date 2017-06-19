@@ -148,7 +148,7 @@ public class LoginController {
 		// 需要Token验证
 		Subject currentUser = SecurityUtils.getSubject();
 		ShiroUser shiroUser = ShiroUtils.getCurrentUser();
-		logger.info("用户 [" + shiroUser.getName() + "]  登陆系统...");
+		logger.info("用户 [" + shiroUser.getAccountName() + "]  登陆系统...");
 		
 		if (currentUser.hasRole(RoleEnum.ADMIN.getCode())) {
 			logger.info("跳转到管理员界面");

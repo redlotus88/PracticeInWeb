@@ -12,6 +12,10 @@
     <packaging>war</packaging>
     <name>PiW-webapp</name>
     
+    <properties>
+        <tiles.version>3.0.7</tiles.version>
+    </properties>
+    
     <dependencies>
         <dependency>
             <groupId>cn.rdlts</groupId>
@@ -51,6 +55,22 @@
             <artifactId>camel-shiro</artifactId>
             <version>2.19.0</version>
             <!-- use the same version as your Camel core version -->
+        </dependency>
+        
+        <dependency>
+            <groupId>org.apache.tiles</groupId>
+			<artifactId>tiles-extras</artifactId>
+			<version>${tiles.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.tiles</groupId>
+            <artifactId>tiles-servlet</artifactId>
+            <version>${tiles.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.tiles</groupId>
+            <artifactId>tiles-jsp</artifactId>
+            <version>${tiles.version}</version>
         </dependency>
         
     </dependencies>

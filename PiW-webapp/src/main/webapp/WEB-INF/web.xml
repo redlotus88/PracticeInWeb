@@ -29,7 +29,7 @@
     <!-- 为避免项目间冲突，定义唯一的 webAppRootKey -->
     <context-param>
         <param-name>webAppRootKey</param-name>
-        <param-value>scheduleProject</param-value>
+        <param-value>webapp</param-value>
     </context-param>
     <!-- log4j 配置end -->
     
@@ -41,6 +41,10 @@
     <listener>
         <listener-class>org.springframework.web.util.Log4jConfigListener</listener-class>
     </listener>
+    <!-- Apache Tiles 3 监听器 -->
+    <listener>
+	    <listener-class>org.apache.tiles.extras.complete.CompleteAutoloadTilesListener</listener-class>
+	</listener>
     
      <!-- 压入项目路径 -->  
     <listener>  
@@ -96,6 +100,11 @@
     <servlet-mapping>
         <servlet-name>SpringMVC</servlet-name>
         <url-pattern>*.do</url-pattern>
+    </servlet-mapping>
+    
+    <servlet-mapping>
+        <servlet-name>SpringMVC</servlet-name>
+        <url-pattern>/</url-pattern>
     </servlet-mapping>
     
     <welcome-file-list>

@@ -10,8 +10,6 @@ public final class ViewConst {
 	
 	public static final String VIEW_PROFILE = "common/profile";
 	
-	public static final String VIEW_SETTINGS = "common/settings";
-	
 	private ViewConst() {
 	}
 }

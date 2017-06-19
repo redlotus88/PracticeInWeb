@@ -12,6 +12,9 @@ public final class ShiroUtils {
 	
 	private static Log logger = LogFactory.getLog(ShiroUtils.class);
 	
+	private ShiroUtils() {
+	}
+	
 	public static ShiroUser getCurrentUser() {
 		return (ShiroUser) SecurityUtils.getSubject().getPrincipal();
 	}

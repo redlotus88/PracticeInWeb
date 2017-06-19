@@ -13,11 +13,11 @@
     <!-- Morris Chart Styles-->
     <link href="//cdn.bootcss.com/morris.js/0.4.3/morris.css" rel="stylesheet" />
     <!-- Custom Styles-->
-    <link href="/static/css/admin/custom-styles.css" rel="stylesheet" />
+    <link rel="stylesheet" href="<c:url value='/css/admin/custom-styles.css'/>"/>
     <!-- Google Fonts-->
     <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
     <!-- Admin Page Styles -->
-    <link href="/static/css/admin/admin.css" rel="stylesheet" />
+    <link rel="stylesheet" href="<c:url value='/css/admin/admin.css'/>" />
     
 </head>
 
@@ -256,15 +256,16 @@
 
 
                     <li>
-                        <a href="#"><i class="fa fa-sitemap"></i> Multi-Level Dropdown<span class="fa arrow"></span></a>
+                        <a href="#"><i class="fa fa-gear fa-fw"></i> 设置<span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
                             <li>
-                                <a href="#">Second Level Link</a>
+                                <a href="${ctx}/settings/profile.do"><i class="fa fa-user fa-fw"></i>个人档案</a>
                             </li>
                             <li>
-                                <a href="#">Second Level Link</a>
+                                <a href="${ctx}/settings/account.do"><i class="fa fa-id-card" aria-hidden="true"></i>账号</a>
                             </li>
-                            <li>
+                            <!-- 3级菜单 -->
+                            <!-- <li>
                                 <a href="#">Second Level Link<span class="fa arrow"></span></a>
                                 <ul class="nav nav-third-level">
                                     <li>
@@ -276,14 +277,9 @@
                                     <li>
                                         <a href="#">Third Level Link</a>
                                     </li>
-
                                 </ul>
-
-                            </li>
+                            </li> -->
                         </ul>
-                    </li>
-                    <li>
-                        <a href="empty.html"><i class="fa fa-fw fa-file"></i> Empty Page</a>
                     </li>
                 </ul>
 
@@ -503,6 +499,6 @@
     </div>
     <!-- /. WRAPPER  -->
     
-    <script src="//cdn.bootcss.com/require.js/2.3.3/require.js" data-main="/static/js/module/admin.js"></script>
+    <script src="//cdn.bootcss.com/require.js/2.3.3/require.js" data-main="<c:url value='/js/module/admin.js'/>" ></script>
 </body>
 </html>

@@ -11,28 +11,29 @@ import org.apache.commons.lang3.builder.HashCodeBuilder;
 public class ShiroUser implements Serializable {
 	
 	private static final long serialVersionUID = -1373760761780840081L;
-	public String name;
+	
+	private String accountName;
 
 	public ShiroUser(String name) {
-		this.name = name;
+		this.accountName = name;
 	}
 
-	public String getName() {
-		return name;
+	public String getAccountName() {
+		return accountName;
 	}
 
-	public void setName(String name) {
-		this.name = name;
+	public void setAccountName(String accountName) {
+		this.accountName = accountName;
 	}
 
 	@Override
 	public String toString() {
-		return "ShiroUser [name=" + name + "]";
+		return "ShiroUser [accountName=" + accountName + "]";
 	}
 
 	@Override
 	public int hashCode() {
-		return new HashCodeBuilder().append(name).toHashCode();
+		return new HashCodeBuilder().append(accountName).toHashCode();
 	}
 
 	@Override
@@ -40,7 +41,7 @@ public class ShiroUser implements Serializable {
 		if (obj instanceof ShiroUser) {
 			ShiroUser user = (ShiroUser) obj;
 			return new EqualsBuilder()
-					.append(name, user.getName())
+					.append(accountName, user.getAccountName())
 					.isEquals();
 		}
 		return false;

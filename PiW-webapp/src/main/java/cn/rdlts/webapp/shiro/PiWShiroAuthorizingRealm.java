@@ -39,7 +39,7 @@ public class PiWShiroAuthorizingRealm extends AuthorizingRealm {
 	protected AuthorizationInfo doGetAuthorizationInfo(PrincipalCollection principals) {
 		logger.info("执行权限认证");
 		ShiroUser shiroUser = (ShiroUser) super.getAvailablePrincipal(principals);
-		Account account = accountService.getByName(shiroUser.getName());
+		Account account = accountService.getByName(shiroUser.getAccountName());
 		
 		if (account == null) {
 			throw new AuthenticationException("用户不存在：" + account);

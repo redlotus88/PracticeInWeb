@@ -9,4 +9,12 @@
     - 编写角色管理后台，Mybatis配置，service编写
     
 0.0.4-SNAPSHOT:
-    
+    - 创建piw-commons项目，将所有项目的公共内容放入其中
+    - 创建piw-shiro项目，将所有shiro相关的内容引入该项目
+    - 修改Shiro属性在java类中的获取方式：hash iteration和algorithme md5
+    - 重命名package，cn.rdlts.项目名小写连续
+    - 处理当用户名或密码错误时的事件
+    - 在管理界面中，个人头像下拉列表中，增加'登录为:{当前账号}'
+    - SonarQube 与ecilpse插件sonarlint
+    - Jenkins: 为master配置sonar check，参考develop的配置
+    - 修改springmvc 资源配置路径

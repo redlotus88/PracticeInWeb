@@ -8,7 +8,7 @@ body {
 }
 
 body.login {
-    background: url(/static/image/login_bgx.gif);
+    background: url(/image/login_bgx.gif);
 }
 
 .login_m {
@@ -25,7 +25,7 @@ body.login {
 }
 
 .login_boder_background {
-    background: url(/static/image/login_m_bg.png) ;
+    background: url(/image/login_m_bg.png) ;
     background-size: cover;
     height: 375px;
     width: 403px;
@@ -102,7 +102,7 @@ body.login {
     float: right;
     width: 122px;
     height: 32px;
-    background: url(/static/image/site_bg.png) no-repeat -153px -850px;
+    background: url(/image/site_bg.png) no-repeat -153px -850px;
     border: none;
     color: #FFF;
     padding-bottom: 2px;
