@@ -3,12 +3,10 @@
     License: Commons Attribution 3.0
     http://creativecommons.org/licenses/by/3.0/
 ---------------------------------------------------------  */
-
-(function ($) {
-    "use strict";
-    var mainApp = {
-
-        initFunction: function () {
+define(['jquery', 'morris'], function($, morris) {
+	"use strict";
+	return {
+		initFunction: function () {
             /*MENU 
             ------------------------------------*/
             $('#main-menu').metisMenu();
@@ -23,7 +21,7 @@
 
             /* MORRIS BAR CHART
 			-----------------------------------------*/
-            Morris.Bar({
+            morris.Bar({
                 element: 'morris-bar-chart',
                 data: [{
                     y: '2006',
@@ -63,7 +61,7 @@
 
             /* MORRIS DONUT CHART
 			----------------------------------------*/
-            Morris.Donut({
+            morris.Donut({
                 element: 'morris-donut-chart',
                 data: [{
                     label: "Download Sales",
@@ -81,7 +79,7 @@
             /* MORRIS AREA CHART
 			----------------------------------------*/
 
-            Morris.Area({
+            morris.Area({
                 element: 'morris-area-chart',
                 data: [{
                     period: '2010 Q1',
@@ -142,9 +140,9 @@
                 resize: true
             });
 
-            /* MORRIS LINE CHART
+            /* Morris LINE CHART
 			----------------------------------------*/
-            Morris.Line({
+            morris.Line({
                 element: 'morris-line-chart',
                 data: [{
                     y: '2006',
@@ -181,20 +179,6 @@
                 hideHover: 'auto',
                 resize: true
             });
-           
-     
         },
-
-        initialization: function () {
-            mainApp.initFunction();
-
-        }
-
-    }
-    // Initializing ///
-
-    $(document).ready(function () {
-        mainApp.initFunction();
-    });
-
-}(jQuery));
+	}
+}(jQuery, Morris));

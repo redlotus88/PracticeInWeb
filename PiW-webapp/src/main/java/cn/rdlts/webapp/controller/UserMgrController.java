@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @RequestMapping("/usermgr")
 public class UserMgrController {
 	
-	private static Log logger = LogFactory.getLog(UserMgrController.class);
+	protected static Log logger = LogFactory.getLog(UserMgrController.class);
 	
 	
 }

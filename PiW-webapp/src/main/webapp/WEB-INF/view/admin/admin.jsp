@@ -13,9 +13,12 @@
     <!-- Morris Chart Styles-->
     <link href="//cdn.bootcss.com/morris.js/0.4.3/morris.css" rel="stylesheet" />
     <!-- Custom Styles-->
-    <link href="/static/css/custom-styles.css" rel="stylesheet" />
+    <link href="/static/css/admin/custom-styles.css" rel="stylesheet" />
     <!-- Google Fonts-->
     <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
+    <!-- Admin Page Styles -->
+    <link href="/static/css/admin/admin.css" rel="stylesheet" />
+    
 </head>
 
 <body>
@@ -232,7 +235,7 @@
             <div class="sidebar-collapse">
                 <ul class="nav" id="main-menu">
                     <li>
-                        <a class="active-menu" href="index.html"><i class="fa fa-dashboard"></i> Dashboard</a>
+                        <a class="active-menu" href="index.html"><i class="fa fa-dashboard"></i> 仪表盘</a>
                     </li>
                     <li>
                         <a href="ui-elements.html"><i class="fa fa-desktop"></i> UI Elements</a>
@@ -295,7 +298,7 @@
                 <div class="row">
                     <div class="col-md-12">
                         <h1 class="page-header">
-                            Dashboard <small>Summary of your App</small>
+                            仪表盘 <small>Summary of your App</small>
                         </h1>
                     </div>
                 </div>
@@ -492,25 +495,14 @@
                     </div>
                 </div>
                 <!-- /. ROW  -->
-				<footer><p>All right reserved. Created By : Dragon.Wang @ newtouch.cn</a></p></footer>
+				<footer><p>All right reserved. Created By : Dragon.Wang @ newtouch.cn</p></footer>
             </div>
             <!-- /. PAGE INNER  -->
         </div>
         <!-- /. PAGE WRAPPER  -->
     </div>
     <!-- /. WRAPPER  -->
-    <!-- JS Scripts-->
-    <!-- jQuery Js -->
-    <script src="//cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
-    <!-- Bootstrap Js -->
-    <script src="//cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <!-- Metis Menu Js -->
-    <script src="//cdn.bootcss.com/metisMenu/2.7.0/metisMenu.min.js"></script>
-    <!-- Morris Chart Js -->
-    <script src="//cdn.bootcss.com/raphael/2.1.0/raphael-min.js"></script>
-    <script src="//cdn.bootcss.com/morris.js/0.4.3/morris.min.js"></script>
-    <!-- Custom Js -->
-    <script src="/static/js/custom-scripts.js"></script>
+    
+    <script src="//cdn.bootcss.com/require.js/2.3.3/require.js" data-main="/static/js/module/admin.js"></script>
 </body>
-
 </html>

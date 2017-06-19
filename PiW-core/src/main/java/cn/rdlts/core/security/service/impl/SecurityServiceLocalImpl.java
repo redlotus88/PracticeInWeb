@@ -20,8 +20,7 @@ public class SecurityServiceLocalImpl implements SecurityService {
 	@Override
 	public Set<String> getRolesByAccountName(String accountName) {
 		List<Role> roles = roleMapper.getByAccountName(accountName);
-		Set<String> results = roles.stream().map(Role::getCode).collect(Collectors.toSet());
-		return results;
+		return roles.stream().map(Role::getCode).collect(Collectors.toSet());
 	}
 	
 

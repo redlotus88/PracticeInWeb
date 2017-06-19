@@ -37,6 +37,8 @@ public class LoginController {
     
     private static final String REDIRECT_SUCCESS = "redirect:/login/success.do";
     
+    private static final String REDIRECT_ADMIN = "redirect:/admin/home.do";
+    
     /**
      * 系统入口
      * @return 返回login页面
@@ -150,7 +152,7 @@ public class LoginController {
 		
 		if (currentUser.hasRole(RoleEnum.ADMIN.getCode())) {
 			logger.info("跳转到管理员界面");
-			return ViewConst.VIEW_ADMIN;
+			return REDIRECT_ADMIN;
 		} else {
 			logger.info("跳转到客户端界面");
 			return ViewConst.VIEW_CLIENT;

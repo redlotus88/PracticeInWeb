@@ -14,6 +14,7 @@ public enum RoleEnum {
 		return code;
 	}
 	
+	@Override
 	public String toString() {
 		return code;
 	}

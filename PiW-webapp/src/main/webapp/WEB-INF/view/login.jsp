@@ -53,6 +53,6 @@
     </form>
     
     <!-- js 引用 -->
-    <script src="//cdn.bootcss.com/require.js/2.3.3/require.js" data-main="static/js/module/login.js"></script>
+    <script src="//cdn.bootcss.com/require.js/2.3.3/require.js" data-main="/static/js/module/login.js"></script>
 </body>
 </html>

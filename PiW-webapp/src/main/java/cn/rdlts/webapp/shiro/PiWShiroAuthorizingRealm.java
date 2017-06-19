@@ -1,5 +1,7 @@
 package cn.rdlts.webapp.shiro;
 
+import java.util.Set;
+
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.apache.shiro.authc.AuthenticationException;
@@ -46,8 +48,9 @@ public class PiWShiroAuthorizingRealm extends AuthorizingRealm {
 		SimpleAuthorizationInfo simpleAuthorInfo = new SimpleAuthorizationInfo();
 		String accountName =  account.getAccountName();
 		// 角色赋予
-		logger.info("用户[" + accountName + "]角色：");
-		simpleAuthorInfo.setRoles(securityService.getRolesByAccountName(accountName));
+		Set<String> roles = securityService.getRolesByAccountName(accountName);
+		logger.info("用户[" + accountName + "]角色：" + roles);
+		simpleAuthorInfo.setRoles(roles);
 		// 权限赋予
 		logger.info("用户[" + accountName + "]权限: ");
 //		authorizationInfo.setStringPermissions(userService.findPermissions(username));
@@ -68,9 +71,8 @@ public class PiWShiroAuthorizingRealm extends AuthorizingRealm {
 			throw new UnknownAccountException("未查找到账号：" + username);
 		}
 		
-		SimpleAuthenticationInfo autheInfo = new SimpleAuthenticationInfo(new ShiroUser(account.getAccountName()), account.getPassword(), 
+		return new SimpleAuthenticationInfo(new ShiroUser(account.getAccountName()), account.getPassword(), 
 				ByteSource.Util.bytes(account.getCredentialsSalt()), getName());
-		return autheInfo;
 	}
 
 }

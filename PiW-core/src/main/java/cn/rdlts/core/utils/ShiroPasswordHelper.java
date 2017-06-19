@@ -24,15 +24,15 @@ public final class ShiroPasswordHelper {
 	}
 	
 	public static void main(String[] args) {
-		String algorithmName = "md5";  
-	    String username = "wang";  
-	    String password = "111111";  
-	    String salt1 = username;  
-	    String salt2 = new SecureRandomNumberGenerator().nextBytes().toHex();  
-	    int hashIterations = 3;  
-	    SimpleHash hash = new SimpleHash(algorithmName, password, salt1 + salt2, hashIterations);  
-	    String encodedPassword = hash.toHex();  
-	    System.out.println(encodedPassword);  
-	    System.out.println(salt2); 
+//		String algorithmName = "md5";  
+//	    String username = "wang";  
+//	    String password = "111111";  
+//	    String salt1 = username;  
+//	    String salt2 = new SecureRandomNumberGenerator().nextBytes().toHex();  
+//	    int hashIterations = 3;  
+//	    SimpleHash hash = new SimpleHash(algorithmName, password, salt1 + salt2, hashIterations);  
+//	    String encodedPassword = hash.toHex();  
+//	    System.out.println(encodedPassword);  
+//	    System.out.println(salt2); 
 	}
 }
