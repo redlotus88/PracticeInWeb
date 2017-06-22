@@ -62,7 +62,7 @@ public class PiWShiroAuthorizingRealm extends AuthorizingRealm {
      * 认证回调函数, 登录时调用 
      */  
 	@Override
-	protected AuthenticationInfo doGetAuthenticationInfo(AuthenticationToken authcToken) throws AuthenticationException {
+	protected AuthenticationInfo doGetAuthenticationInfo(AuthenticationToken authcToken) {
 		logger.info("认证用户token");
 		UsernamePasswordToken token = (UsernamePasswordToken) authcToken;
 		String username = token.getUsername();
