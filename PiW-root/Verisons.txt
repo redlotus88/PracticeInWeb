@@ -18,3 +18,5 @@
     - SonarQube 与ecilpse插件sonarlint
     - Jenkins: 为master配置sonar check，参考develop的配置
     - 修改springmvc 资源配置路径
+    - 架构设计：添加Apache Tiles 3，为所有JSP文件，添加模板
+    - 
