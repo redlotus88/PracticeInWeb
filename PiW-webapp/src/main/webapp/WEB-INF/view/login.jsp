@@ -23,7 +23,7 @@
     <!-- 变量定义 -->
     <c:set var="ctx" value="${pageContext.request.contextPath}" />
     
-    <form class="form-login" action="${ctx}/login.do" method="post">
+    <form class="form-login" action="${ctx}/login" method="post">
         <div id="login_web_app" class="login_m">
             <div class="login_logo"><img src="<c:url value='/image/redlotus.jpg'/>" width="150" height="100"></div>
             <div class="login_boder">

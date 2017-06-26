@@ -16,6 +16,26 @@
         <tiles.version>3.0.7</tiles.version>
     </properties>
     
+    <build>
+        <finalName>PiW-webapp</finalName>
+        <resources>  
+            <!-- Filter jdbc.properties & mail.properties. NOTE: We don't filter applicationContext-infrastructure.xml,   
+                let it go with spring's resource process mechanism. -->  
+            <resource>  
+                <directory>src/main/resources</directory>  
+                <includes>
+                    <include>**/*.properties</include>
+                    <include>**/*.xml</include>
+                </includes>
+                <filtering>false</filtering>  
+            </resource>  
+            <resource>  
+                <directory>src/test/resources</directory>  
+                <filtering>true</filtering>  
+            </resource>  
+        </resources>  
+    </build>
+    
     <dependencies>
         <dependency>
             <groupId>cn.rdlts</groupId>
@@ -75,7 +95,4 @@
         
     </dependencies>
     
-    <build>
-        <finalName>PiW-webapp</finalName>
-    </build>
 </project>

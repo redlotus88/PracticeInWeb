@@ -2,7 +2,7 @@ package cn.rdlts.webapp.vo;
 
 import cn.rdlts.webapp.constant.VOConst;
 
-public class LoginVO {
+public final class LoginVO {
 	
 	private String accountName;
 	

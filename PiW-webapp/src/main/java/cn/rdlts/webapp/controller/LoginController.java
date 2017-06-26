@@ -35,9 +35,9 @@ public class LoginController {
 	 /** logger. */
     private static Log logger = LogFactory.getLog(LoginController.class);
     
-    private static final String REDIRECT_SUCCESS = "redirect:/login/success.do";
+    private static final String REDIRECT_SUCCESS = "redirect:/login/success";
     
-    private static final String REDIRECT_ADMIN = "redirect:/admin/home.do";
+    private static final String REDIRECT_ADMIN = "redirect:/admin/dashboard";
     
     /**
      * 系统入口

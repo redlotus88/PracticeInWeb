@@ -12,7 +12,7 @@ import cn.rdlts.webapp.constant.tiles.ViewTilesConst;
 @RequestMapping("/admin")
 public class AdminController {
 	
-	@RequestMapping(value = "/home")
+	@RequestMapping(value = "/dashboard")
 	public String home(Model model) {
 		ShiroUser shiroUser = ShiroUtils.getCurrentUser();
 		model.addAttribute("accountName", shiroUser.getAccountName());

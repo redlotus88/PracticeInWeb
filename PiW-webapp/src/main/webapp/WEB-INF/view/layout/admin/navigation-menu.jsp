@@ -3,7 +3,7 @@
     <div class="sidebar-collapse">
         <ul class="nav" id="main-menu">
             <li>
-                <a class="active-menu" href="index.html"><i class="fa fa-dashboard"></i> 仪表盘</a>
+                <a class="active-menu" href="index.html" data-selected-links="/admin/dashboard"><i class="fa fa-dashboard"></i> 仪表盘</a>
             </li>
             <li>
                 <a href="ui-elements.html"><i class="fa fa-desktop"></i> UI Elements</a>
@@ -23,13 +23,13 @@
             </li>
 
             <li>
-                <a href="#"><i class="fa fa-gear fa-fw"></i> 设置<span class="fa arrow"></span></a>
+                <a href="#" data-selected-links="/settings"><i class="fa fa-gear fa-fw"></i> 设置<span class="fa arrow"></span></a>
                 <ul class="nav nav-second-level">
                     <li>
-                        <a href="${ctx}/settings/profile.do"><i class="fa fa-user fa-fw"></i>个人档案</a>
+                        <a href="${ctx}/settings/profile" data-selected-links="/settings/profile"><i class="fa fa-user fa-fw"></i>个人档案</a>
                     </li>
                     <li>
-                        <a href="${ctx}/settings/account.do"><i class="fa fa-id-card" aria-hidden="true"></i>账号</a>
+                        <a href="${ctx}/settings/account" data-selected-links="/settings/account"><i class="fa fa-id-card" aria-hidden="true"></i>账号</a>
                     </li>
                     <!-- 3级菜单 -->
                     <!-- <li>

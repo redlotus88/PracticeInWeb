@@ -164,8 +164,21 @@
 				<li><a class="text-center" href="#"> <strong>See
 							All Alerts</strong> <i class="fa fa-angle-right"></i>
 				</a></li>
-			</ul> <!-- /.dropdown-alerts --></li>
+			</ul> 
+			<!-- /.dropdown-alerts -->
+	    </li>
 		<!-- 个人信息下拉列表 -->
-		<%@ include file="../../admin//person/personInfo.jsp"%>
+		<li class="dropdown">
+		    <a class="dropdown-toggle" data-toggle="dropdown" href="#" aria-expanded="false"> <i class="fa fa-user fa-fw"></i> <i class="fa fa-caret-down"></i></a>
+		    <ul class="dropdown-menu dropdown-user">
+		        <li><a href="#"><i class="fa fa-user-circle fa-fw"></i> 登录为：${accountName} </a></li>
+		        <li class="divider"></li>
+		        <li><a href="#"><i class="fa fa-user fa-fw"></i> 个人档案</a></li>
+		        <li><a href="${ctx}/admin/settings"><i class="fa fa-gear fa-fw"></i> 设置</a></li>
+		        <li class="divider"></li>
+		        <li><a href="${ctx}/login/logout"><i class="fa fa-sign-out fa-fw"></i> 登出</a></li>
+		    </ul> <!-- /.dropdown-user -->
+		</li>
+        <!-- 个人信息下拉列表 end -->
 	</ul>
 </nav>
