@@ -11,6 +11,4 @@ public interface AccountMapper extends BaseMapper<Account, Integer> {
 	boolean exist(Account entity); 
 	
 	Account getByName(String name);
-	
-	int update(Account entity);
 }

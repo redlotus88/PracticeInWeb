@@ -12,4 +12,6 @@ public interface BaseMapper <T, PK extends Serializable> {
 	Integer save(T entity);
 	
 	int delete(T entity);
+	
+	int update(T entity);
 }

@@ -2,37 +2,28 @@ package cn.rdlts.webapp.vo;
 
 public final class ProfileVO {
 	
-	private String nickName;
-	private String email;
-	private String biography;
+	private String profileName;
+	private String publicEmail;
 	private String company;
 	
 	public ProfileVO() {
 		// Nothing to do.
 	}
 
-	public String getNickName() {
-		return nickName;
+	public String getProfileName() {
+		return profileName;
 	}
 
-	public void setNickName(String nickName) {
-		this.nickName = nickName;
+	public void setProfileName(String profileName) {
+		this.profileName = profileName;
 	}
 
-	public String getEmail() {
-		return email;
+	public String getPublicEmail() {
+		return publicEmail;
 	}
 
-	public void setEmail(String email) {
-		this.email = email;
-	}
-
-	public String getBiography() {
-		return biography;
-	}
-
-	public void setBiography(String biography) {
-		this.biography = biography;
+	public void setPublicEmail(String publicEmail) {
+		this.publicEmail = publicEmail;
 	}
 
 	public String getCompany() {

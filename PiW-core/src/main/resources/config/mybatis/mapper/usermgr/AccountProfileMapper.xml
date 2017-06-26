@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="cn.rdlts.core.usermgr.dao.AccountProfileMapper">
+    <resultMap id="BaseResultMap" type="cn.rdlts.core.usermgr.model.AccountProfile">
+        <result column="account_id" property="id" jdbcType="INTEGER"/>
+        <result column="profile_name" property="profileName" jdbcType="VARCHAR"/>
+        <result column="public_email" property="publicEmail" jdbcType="VARCHAR"/>
+        <result column="company" property="company" jdbcType="VARCHAR"/>
+    </resultMap>
+
+    <sql id="Query_Column_List">
+        account_id, profile_name, public_email, company
+    </sql>
+    
+    <sql id="Create_Column_List">
+        account_id, profile_name, public_email, company
+    </sql>
+    
+    <sql id="Update_Column_List">
+        profile_name, public_email, company
+    </sql>
+
+    <!-- BaseMapper definition -->
+    <!-- 定义条件查询的 sql 片段 -->
+    <select id="getById" resultMap="BaseResultMap" resultType="cn.rdlts.core.usermgr.model.AccountProfile">
+        select <include refid="Query_Column_List" />
+        from piw_usermgr_account_profile where account_id = #{id}
+    </select>
+    
+    <select id="findAll" resultMap="BaseResultMap">
+        select <include refid="Query_Column_List" />
+        from piw_usermgr_account_profile
+    </select>
+    
+    <insert id="save" parameterType="cn.rdlts.core.usermgr.model.AccountProfile">
+        insert into piw_usermgr_account_profile (<include refid="Create_Column_List"/>)
+        values(#{id}, #{profileName}, #{publicEmail}, #{company})
+    </insert>
+    
+    <delete id="delete" parameterType="cn.rdlts.core.usermgr.model.AccountProfile">
+        delete from piw_usermgr_account_profile where account_id=#{id}
+    </delete>
+    
+    <update id="update" parameterType="cn.rdlts.core.usermgr.model.AccountProfile">
+        update piw_usermgr_account_profile 
+        <trim prefix="set" suffixOverrides=",">
+            <if test="profileName != null">profile_name=#{profileName},</if>
+            <if test="publicEmail != null">public_email=#{publicEmail},</if>
+            <if test="company != null">company=#{company},</if>
+        </trim>
+        where account_id = #{id}
+    </update>
+    <!-- BaseMapper definition end -->
+</mapper>

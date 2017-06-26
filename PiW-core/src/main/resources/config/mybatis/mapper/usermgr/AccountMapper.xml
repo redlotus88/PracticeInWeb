@@ -18,7 +18,7 @@
         account_name, password, salt, create_time
     </sql>
     
-    <sql id="Modify_Column_List">
+    <sql id="Update_Column_List">
         account_name, password, salt, last_modify_time
     </sql>
 
@@ -42,6 +42,15 @@
     <delete id="delete" parameterType="cn.rdlts.core.usermgr.model.Account">
         delete from piw_usermgr_account where id=#{id} or account_name = #{accountName}
     </delete>
+    
+    <update id="update" parameterType="cn.rdlts.core.usermgr.model.Account">
+        update piw_usermgr_account 
+        <trim prefix="set" suffixOverrides=",">
+            <if test="password != null">password=#{password},</if>
+            <if test="lastModifyTime != null">last_modify_time=#{lastModifyTime}</if>
+        </trim>
+        where id = #{id} or account_name = #{accountName}
+    </update>
     <!-- BaseMapper definition end -->
     
     <select id="getByName" resultMap="BaseResultMap" resultType="cn.rdlts.core.usermgr.model.Account">
@@ -52,10 +61,4 @@
     <select id="exist" resultType="boolean" parameterType="cn.rdlts.core.usermgr.model.Account">
         <![CDATA[ select count(*) from piw_usermgr_account where id=#{id} or account_name = #{accountName} ]]> 
     </select>
-    
-    <update id="update" parameterType="cn.rdlts.core.usermgr.model.Account">
-        update piw_usermgr_account 
-        set password = #{password}, last_modify_time=#{lastModifyTime}
-        where id = #{id} or account_name = #{accountName}
-    </update>
 </mapper>

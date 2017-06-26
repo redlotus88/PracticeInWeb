@@ -15,7 +15,7 @@
         code, description
     </sql>
     
-    <sql id="Modify_Column_List">
+    <sql id="Update_Column_List">
         code, description
     </sql>
 
@@ -39,6 +39,14 @@
     <delete id="delete" parameterType="cn.rdlts.core.security.model.Role">
         delete from piw_usermgr_role where id=#{id} or code = #{code}
     </delete>
+    
+    <update id="update" parameterType="cn.rdlts.core.security.model.Role">
+        update piw_usermgr_role
+        <trim prefix="set" suffixOverrides=",">
+            <if test="description != null">description=#{description}</if>
+        </trim>
+        where id =#{id} or code=#{code}
+    </update>
     <!-- BaseMapper definition end -->
     
     <select id="getByCode" resultMap="BaseResultMap" resultType="cn.rdlts.core.security.model.Role">

@@ -47,20 +47,17 @@
         <property name="dataSource" ref="dataSource" />
     </bean>
 
-    <bean id="namedParameterJdbcTemplate"
-        class="org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate">
+    <bean id="namedParameterJdbcTemplate" class="org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate">
         <constructor-arg ref="dataSource" />
     </bean>
 
     <!-- 配置事务管理 -->
-    <bean id="transactionManager"
-        class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+    <bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
         <property name="dataSource" ref="dataSource" />
     </bean>
 
     <!-- 声明式事务，事务拦截器 -->
-    <bean id="transactionInterceptor"
-        class="org.springframework.transaction.interceptor.TransactionInterceptor">
+    <bean id="transactionInterceptor" class="org.springframework.transaction.interceptor.TransactionInterceptor">
         <property name="transactionManager" ref="transactionManager" />
         <!-- 配置事务属性 -->
         <property name="transactionAttributes">
@@ -78,8 +75,7 @@
     </bean>
 
     <!-- Bean后处理器BeanNameAutoProxyCreator，根据List配置创建事务代理 -->
-    <bean
-        class="org.springframework.aop.framework.autoproxy.BeanNameAutoProxyCreator">
+    <bean class="org.springframework.aop.framework.autoproxy.BeanNameAutoProxyCreator">
         <!-- 下面是所有需要自动创建事务代理的bean -->
         <property name="beanNames">
             <list>
@@ -115,4 +111,5 @@
          -->
         <property name="sqlSessionFactoryBeanName" value="sqlSessionFactory" />
     </bean>
+    <!-- MyBatis配置 end -->
 </beans>  

@@ -26,8 +26,12 @@
 		和 mapper.xml 同名且在同一个目录下。 <mappers> </mappers> -->
 	<mappers>
 		<!-- maven 的目录结构下的resources为classpath -->
-		<mapper resource="config/mybatis/mapper/AccountMapper.xml"/>
-		<mapper resource="config/mybatis/mapper/RoleMapper.xml"/>
+		<!-- User management -->
+		<mapper resource="config/mybatis/mapper/usermgr/AccountMapper.xml"/>
+		<mapper resource="config/mybatis/mapper/usermgr/AccountProfileMapper.xml"/>
+		
+		<!-- Security -->
+		<mapper resource="config/mybatis/mapper/security/RoleMapper.xml"/>
 	</mappers>
 	
 </configuration>

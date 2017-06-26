@@ -20,6 +20,8 @@
     <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
     <!-- Admin Page Styles -->
     <link rel="stylesheet" href="<c:url value='/css/admin/admin.css'/>" />
+    <!-- PiW Styles -->
+    <link rel="stylesheet" href="<c:url value='/css/piw-style.css'/>" />
 </head>
 
 <body>

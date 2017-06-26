@@ -18,6 +18,7 @@ public class SettingsController {
 	
 	@RequestMapping("/profile")
 	public String profile(HttpServletRequest request, Model model) {
+		log.info("访问个人档案页面");
 		String selectedLink = request.getRequestURI();
 		model.addAttribute("selected-link", selectedLink);
 		return ViewTilesConst.VIEW_TILES_ADMIN_SETTINGS_PROFILE;
