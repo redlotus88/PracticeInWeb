@@ -12,10 +12,21 @@ public class ShiroUser implements Serializable {
 	
 	private static final long serialVersionUID = -1373760761780840081L;
 	
+	private Integer id;
+	
 	private String accountName;
 
-	public ShiroUser(String name) {
+	public ShiroUser(Integer id, String name) {
+		this.id = id;
 		this.accountName = name;
+	}
+
+	public Integer getId() {
+		return id;
+	}
+
+	public void setId(Integer id) {
+		this.id = id;
 	}
 
 	public String getAccountName() {
@@ -28,12 +39,15 @@ public class ShiroUser implements Serializable {
 
 	@Override
 	public String toString() {
-		return "ShiroUser [accountName=" + accountName + "]";
+		return "ShiroUser [id=" + id + ", accountName=" + accountName + "]";
 	}
 
 	@Override
 	public int hashCode() {
-		return new HashCodeBuilder().append(accountName).toHashCode();
+		return new HashCodeBuilder()
+				.append(id)
+				.append(accountName)
+				.toHashCode();
 	}
 
 	@Override
@@ -41,6 +55,7 @@ public class ShiroUser implements Serializable {
 		if (obj instanceof ShiroUser) {
 			ShiroUser user = (ShiroUser) obj;
 			return new EqualsBuilder()
+					.append(id, user.getId())
 					.append(accountName, user.getAccountName())
 					.isEquals();
 		}

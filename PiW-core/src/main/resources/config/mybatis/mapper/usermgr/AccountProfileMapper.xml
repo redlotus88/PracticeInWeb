@@ -51,4 +51,8 @@
         where account_id = #{id}
     </update>
     <!-- BaseMapper definition end -->
+    
+    <select id="exist" resultType="boolean" parameterType="cn.rdlts.core.usermgr.model.AccountProfile">
+        <![CDATA[ select count(*) from piw_usermgr_account_profile where account_id = #{id} ]]> 
+    </select>
 </mapper>

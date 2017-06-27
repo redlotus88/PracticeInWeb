@@ -71,7 +71,7 @@ public class PiWShiroAuthorizingRealm extends AuthorizingRealm {
 			throw new UnknownAccountException("未查找到账号：" + username);
 		}
 		
-		return new SimpleAuthenticationInfo(new ShiroUser(account.getAccountName()), account.getPassword(), 
+		return new SimpleAuthenticationInfo(new ShiroUser(account.getId(), account.getAccountName()), account.getPassword(), 
 				ByteSource.Util.bytes(account.getCredentialsSalt()), getName());
 	}
 
