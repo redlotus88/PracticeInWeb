@@ -6,7 +6,7 @@
 			<span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span>
 			<span class="icon-bar"></span> <span class="icon-bar"></span>
 		</button>
-		<a class="navbar-brand">管理员界面</a>
+		<a class="navbar-brand">管理员界面：欢迎，${globalShiroUser.profileName}</a>
 	</div>
 
 	<ul class="nav navbar-top-links navbar-right">
@@ -171,10 +171,10 @@
 		<li class="dropdown">
 		    <a class="dropdown-toggle" data-toggle="dropdown" href="#" aria-expanded="false"> <i class="fa fa-user fa-fw"></i> <i class="fa fa-caret-down"></i></a>
 		    <ul class="dropdown-menu dropdown-user">
-		        <li><a href="#"><i class="fa fa-user-circle fa-fw"></i> 登录为：${accountName} </a></li>
+		        <li><a href="#"><i class="fa fa-user-circle fa-fw"></i> 登录为：${global.shiroUser.accountName} </a></li>
 		        <li class="divider"></li>
-		        <li><a href="#"><i class="fa fa-user fa-fw"></i> 个人档案</a></li>
-		        <li><a href="${ctx}/admin/settings"><i class="fa fa-gear fa-fw"></i> 设置</a></li>
+		        <li><a href="${ctx}/settings/profile"><i class="fa fa-user fa-fw"></i> 个人档案</a></li>
+		        <li><a href="${ctx}/settings/account"><i class="fa fa-gear fa-fw"></i> 账号设置</a></li>
 		        <li class="divider"></li>
 		        <li><a href="${ctx}/login/logout"><i class="fa fa-sign-out fa-fw"></i> 登出</a></li>
 		    </ul> <!-- /.dropdown-user -->

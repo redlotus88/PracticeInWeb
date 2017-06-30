@@ -3,10 +3,7 @@ package cn.rdlts.webapp.controller;
 import javax.servlet.http.HttpServletRequest;
 
 import org.apache.commons.lang3.StringUtils;
-import org.apache.commons.lang3.builder.ReflectionToStringBuilder;
-import org.apache.commons.lang3.builder.ToStringStyle;
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
+import org.apache.log4j.Logger;
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authc.AuthenticationException;
 import org.apache.shiro.authc.ExcessiveAttemptsException;
@@ -16,14 +13,15 @@ import org.apache.shiro.authc.UnknownAccountException;
 import org.apache.shiro.authc.UsernamePasswordToken;
 import org.apache.shiro.subject.Subject;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import org.springframework.web.servlet.view.InternalResourceViewResolver;
 
 import cn.rdlts.core.security.model.RoleEnum;
 import cn.rdlts.shiro.ShiroUser;
 import cn.rdlts.shiro.ShiroUtils;
+import cn.rdlts.webapp.constant.GlobalConst;
 import cn.rdlts.webapp.constant.ViewConst;
 import cn.rdlts.webapp.exception.PiWLoginException;
 import cn.rdlts.webapp.vo.LoginVO;
@@ -33,7 +31,7 @@ import cn.rdlts.webapp.vo.LoginVO;
 public class LoginController {
 
 	 /** logger. */
-    private static Log logger = LogFactory.getLog(LoginController.class);
+    private static Logger logger = Logger.getLogger(LoginController.class);
     
     private static final String REDIRECT_SUCCESS = "redirect:/login/success";
     
@@ -65,23 +63,17 @@ public class LoginController {
      * @return
      */
     @RequestMapping(method = RequestMethod.POST)
-    public String tryLogin(HttpServletRequest request, LoginVO loginVO, Model model) {
+    public String tryLogin(HttpServletRequest request, LoginVO loginVO, RedirectAttributes model) {
     	String accountName = loginVO.getAccountName();
     	String password = loginVO.getPassword();
     	boolean rememberMe = loginVO.isRememberMe();
     	
-    	if (StringUtils.isNotEmpty(password) && StringUtils.isNotEmpty(accountName)) {
+    	if (StringUtils.isNotBlank(password) && StringUtils.isNotBlank(accountName)) {
         	UsernamePasswordToken token = new UsernamePasswordToken(accountName, password, rememberMe);
-        	logger.info("验证登陆用户：" + ReflectionToStringBuilder.toString(token, ToStringStyle.MULTI_LINE_STYLE));
+        	logger.info("验证登陆用户：" + accountName);
         	
         	Subject currentUser = SecurityUtils.getSubject();
-        	
-        	try {
-        		verifyUser(currentUser, token);
-        	} catch (PiWLoginException ex) {
-        		logger.error(ex.getMessage(), ex);
-        		model.addAttribute("errorMessage",  ex.getMessage());
-        	}
+    		verifyUser(currentUser, token);
         	
         	if (currentUser.isAuthenticated()) {
         		logger.info("用户[" + token.getUsername() + "]登录认证通过");
@@ -93,10 +85,11 @@ public class LoginController {
     	} else {
     		model.addAttribute("errorMessage", "账号或密码不能为空");
     	}
-        return ViewConst.VIEW_LOGIN;
+    	
+        return ViewConst.REDIRECT_LOGIN;
     }
 	
-	private boolean verifyUser(Subject currentUser, UsernamePasswordToken token) throws PiWLoginException {
+	private boolean verifyUser(Subject currentUser, UsernamePasswordToken token) {
 		boolean success = false;
 		String username = token.getUsername();
 		String errorMessage = null;
@@ -134,21 +127,26 @@ public class LoginController {
         }
 		
 		if (!success) {
+			// 抛出的异常会由PiWLoginExceptionHandler处理。
 			throw new PiWLoginException(errorMessage, exceptionLogin);
 		}
 		return success;
 	}
 
 	/**
-	 * 登录成功
+	 * 登录成功，唯一入口。
+	 * 
 	 * @return
 	 */
 	@RequestMapping(value="/success")
-	public String success() {
-		// 需要Token验证
+	public String success(HttpServletRequest request) {
+		// 需要Token验证。
 		Subject currentUser = SecurityUtils.getSubject();
 		ShiroUser shiroUser = ShiroUtils.getCurrentUser();
 		logger.info("用户 [" + shiroUser.getAccountName() + "]  登陆系统...");
+		
+		// 在session中保存用户的信息。
+		request.getSession().setAttribute(GlobalConst.GLOBAL_SHIRO_USER, shiroUser);
 		
 		if (currentUser.hasRole(RoleEnum.ADMIN.getCode())) {
 			logger.info("跳转到管理员界面");

@@ -1,8 +1,7 @@
 package cn.rdlts.webapp.controller;
 
 import org.apache.commons.lang3.StringUtils;
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
+import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -21,22 +20,22 @@ import cn.rdlts.webapp.vo.ProfileVO;
 @RequestMapping("/usermgr")
 public class UserMgrController {
 	
-	protected static Log logger = LogFactory.getLog(UserMgrController.class);
+	protected static Logger logger = Logger.getLogger(UserMgrController.class);
 	
 	@Autowired
 	private AccountProfileService accountProfileService;
 	
-	@RequestMapping(value="/${id}", method=RequestMethod.GET)
+	@RequestMapping(value="profile/{id}", method=RequestMethod.GET)
 	public String getAccountProfile(@PathVariable String id) {
 		String invalidPath = checkAccountConsistency(id);
 		if (StringUtils.isNotEmpty(invalidPath)) {
 			return invalidPath;
 		}
 		logger.info("跳转到个人档案页面。");
-		return ViewConst.VIEW_SETTINGS_PROFILE;
+		return ViewConst.REDIRECT_SETTINGS_PROFILE;
 	}
 	
-	@RequestMapping(value="/${id}", method=RequestMethod.POST)
+	@RequestMapping(value="profile/{id}", method=RequestMethod.POST)
 	public String update(@PathVariable String id, ProfileVO profileVO) {
 		logger.info("更新["+ id + "]的个人文档。");
 		String invalidPath = checkAccountConsistency(id);
@@ -49,7 +48,7 @@ public class UserMgrController {
 		profileVO.decorate(ap);
 		int result = accountProfileService.update(ap);
 		logger.info("更新完毕。影响数据库行数：" + result);
-		return ViewConst.VIEW_SETTINGS_PROFILE;
+		return ViewConst.REDIRECT_SETTINGS_PROFILE;
 	}
 	
 	/**

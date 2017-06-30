@@ -21,6 +21,7 @@
     <!-- 扫描 控制层 -->  
     <context:component-scan base-package="cn.rdlts.webapp" use-default-filters="false">
         <context:include-filter type="annotation" expression="org.springframework.stereotype.Controller" />
+        <context:include-filter type="annotation" expression="org.springframework.web.bind.annotation.ControllerAdvice"/>
     </context:component-scan>  
     
     <mvc:annotation-driven />

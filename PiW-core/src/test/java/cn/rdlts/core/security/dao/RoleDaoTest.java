@@ -2,8 +2,7 @@ package cn.rdlts.core.security.dao;
 
 import java.util.List;
 
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
+import org.apache.log4j.Logger;
 import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
@@ -19,7 +18,7 @@ import cn.rdlts.core.security.model.Role;
 @ContextConfiguration(value = "classpath:config/applicationContext.xml")
 public class RoleDaoTest {
 	
-	private static Log log = LogFactory.getLog(RoleDaoTest.class);
+	private static Logger log = Logger.getLogger(RoleDaoTest.class);
 	
 	private static final String ROLE_TEST = "roleTest";
 	

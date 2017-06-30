@@ -28,8 +28,8 @@ public class SecurityServiceTest {
 		Assert.assertNotNull(rolesAlisa);
 		Assert.assertNotNull(nothing);
 		
-		Assert.assertEquals(rolesRean.size(), 1);
-		Assert.assertEquals(rolesAlisa.size(), 2);
+		Assert.assertTrue(rolesRean.size() > 0);
+		Assert.assertTrue(rolesAlisa.size() > 0);
 		Assert.assertEquals(nothing.size(), 0);
 		
 	}

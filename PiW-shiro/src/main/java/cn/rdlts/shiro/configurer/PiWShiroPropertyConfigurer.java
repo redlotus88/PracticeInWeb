@@ -3,8 +3,7 @@ package cn.rdlts.shiro.configurer;
 import java.util.Properties;
 
 import org.apache.commons.lang3.StringUtils;
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
+import org.apache.log4j.Logger;
 import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.config.ConfigurableListableBeanFactory;
 
@@ -14,7 +13,7 @@ import cn.rdlts.shiro.constant.PiWShiroConst;
 
 public class PiWShiroPropertyConfigurer extends PiWPropertyConfigurer {
 	
-	private static Log log = LogFactory.getLog(PiWShiroPropertyConfigurer.class);
+	private static Logger log = Logger.getLogger(PiWShiroPropertyConfigurer.class);
 	
 	@Override
     protected void processProperties(ConfigurableListableBeanFactory beanFactoryToProcess, Properties props) throws BeansException {

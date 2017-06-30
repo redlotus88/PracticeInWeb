@@ -9,8 +9,7 @@ import static org.junit.Assert.assertTrue;
 import java.time.LocalDateTime;
 import java.util.List;
 
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
+import org.apache.log4j.Logger;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -19,14 +18,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 
 import cn.rdlts.core.JUnit4SpringContextTests;
-import cn.rdlts.core.usermgr.dao.AccountMapper;
 import cn.rdlts.core.usermgr.model.Account;
 
 @RunWith(JUnit4SpringContextTests.class)
 @ContextConfiguration(value = "classpath:config/applicationContext.xml")
 public class AccountDaoTest {
 	
-	private static Log LOGGER = LogFactory.getLog(AccountDaoTest.class);
+	private static Logger LOGGER = Logger.getLogger(AccountDaoTest.class);
 	
 	private final String ACCOUNT_TEST = "test";
 	private final String PASSWORD_12345678 = "12345678";

@@ -96,6 +96,8 @@
 				/login/**=authc
 				/admin=authc,roles[admin]
 				/admin/**=authc,roles[admin]
+				/settings/** = authc
+				/usermgr/** = authc
 				/static/** = anon
 <!-- 				/dologin=anon -->
 <!-- 				/logout=anon -->

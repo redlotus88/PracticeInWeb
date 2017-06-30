@@ -4,7 +4,7 @@ import cn.rdlts.core.usermgr.model.AccountProfile;
 
 public final class ProfileVO {
 	
-	private String accountName;
+	private String accountId;
 	private String profileName;
 	private String publicEmail;
 	private String company;
@@ -13,12 +13,12 @@ public final class ProfileVO {
 		// Nothing to do.
 	}
 	
-	public String getAccountName() {
-		return accountName;
+	public String getAccountId() {
+		return accountId;
 	}
 
-	public void setAccountName(String accountName) {
-		this.accountName = accountName;
+	public void setAccountId(String accountId) {
+		this.accountId = accountId;
 	}
 
 	public String getProfileName() {
@@ -47,7 +47,9 @@ public final class ProfileVO {
 	
 	public void accept(AccountProfile accountProfile) {
 		if (accountProfile != null) {
-			
+			setProfileName(accountProfile.getProfileName());
+			setPublicEmail(accountProfile.getPublicEmail());
+			setCompany(accountProfile.getCompany());
 		}
 	}
 	

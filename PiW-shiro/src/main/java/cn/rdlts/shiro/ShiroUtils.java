@@ -1,7 +1,6 @@
 package cn.rdlts.shiro;
 
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
+import org.apache.log4j.Logger;
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.session.InvalidSessionException;
 import org.apache.shiro.session.Session;
@@ -10,7 +9,7 @@ import org.apache.shiro.web.util.WebUtils;
 
 public final class ShiroUtils {
 	
-	private static Log logger = LogFactory.getLog(ShiroUtils.class);
+	private static Logger logger = Logger.getLogger(ShiroUtils.class);
 	
 	private ShiroUtils() {
 	}

@@ -2,8 +2,7 @@ package cn.rdlts.webapp.shiro;
 
 import java.util.Set;
 
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
+import org.apache.log4j.Logger;
 import org.apache.shiro.authc.AuthenticationException;
 import org.apache.shiro.authc.AuthenticationInfo;
 import org.apache.shiro.authc.AuthenticationToken;
@@ -19,15 +18,20 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import cn.rdlts.core.security.service.SecurityService;
 import cn.rdlts.core.usermgr.model.Account;
+import cn.rdlts.core.usermgr.model.AccountProfile;
+import cn.rdlts.core.usermgr.service.AccountProfileService;
 import cn.rdlts.core.usermgr.service.AccountService;
 import cn.rdlts.shiro.ShiroUser;
 
 public class PiWShiroAuthorizingRealm extends AuthorizingRealm {
 
-	private static Log logger = LogFactory.getLog(PiWShiroAuthorizingRealm.class);
+	private static Logger logger = Logger.getLogger(PiWShiroAuthorizingRealm.class);
 	
 	@Autowired
 	private AccountService accountService;
+	
+	@Autowired
+	private AccountProfileService accountProfileService;
 	
 	@Autowired
 	private SecurityService securityService;
@@ -46,7 +50,7 @@ public class PiWShiroAuthorizingRealm extends AuthorizingRealm {
 		}
 		
 		SimpleAuthorizationInfo simpleAuthorInfo = new SimpleAuthorizationInfo();
-		String accountName =  account.getAccountName();
+		String accountName = account.getAccountName();
 		// 角色赋予
 		Set<String> roles = securityService.getRolesByAccountName(accountName);
 		logger.info("用户[" + accountName + "]角色：" + roles);
@@ -71,7 +75,10 @@ public class PiWShiroAuthorizingRealm extends AuthorizingRealm {
 			throw new UnknownAccountException("未查找到账号：" + username);
 		}
 		
-		return new SimpleAuthenticationInfo(new ShiroUser(account.getId(), account.getAccountName()), account.getPassword(), 
+		AccountProfile accountProfile = accountProfileService.getById(account.getId());
+		String profileName = accountProfile.getProfileName();
+		
+		return new SimpleAuthenticationInfo(new ShiroUser(account.getId(), account.getAccountName(), profileName), account.getPassword(), 
 				ByteSource.Util.bytes(account.getCredentialsSalt()), getName());
 	}
 

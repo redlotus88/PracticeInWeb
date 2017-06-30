@@ -2,8 +2,7 @@ package cn.rdlts.core.utils;
 
 import java.util.Properties;
 
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
+import org.apache.log4j.Logger;
 
 /**
  * Printer Utility
@@ -14,7 +13,7 @@ public class PrinterUtils {
 	
 	public static final String EQUAL_SYMBOL = "=";
 	
-	private static Log logger = LogFactory.getLog(PrinterUtils.class);
+	private static Logger logger = Logger.getLogger(PrinterUtils.class);
 	
 	private PrinterUtils() {
 	}

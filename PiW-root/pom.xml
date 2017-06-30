@@ -25,9 +25,13 @@
 
 	<!-- 项目模块定义 -->
 	<modules>
+	    <!-- 项目核心模块，包含业务代码, mybatis -->
 		<module>../PiW-core</module>
+		<!-- 项目的web实现，springmvc, shiro-->
 		<module>../PiW-webapp</module>
+		<!-- 项目通用模块，不包含业务代码，工具类，异常类等 -->
 		<module>../PiW-common</module>
+		<!-- Shiro模块实现代码 -->
 		<module>../PiW-shiro</module>
 	</modules>
 

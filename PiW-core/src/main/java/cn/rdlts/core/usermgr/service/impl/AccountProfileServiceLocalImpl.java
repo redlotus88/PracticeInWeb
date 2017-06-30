@@ -2,8 +2,7 @@ package cn.rdlts.core.usermgr.service.impl;
 
 import java.util.List;
 
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
+import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -17,7 +16,7 @@ import cn.rdlts.core.utils.DateUtils;
 @Service("accountProfileService")
 public class AccountProfileServiceLocalImpl implements AccountProfileService {
 
-	private static Log logger = LogFactory.getLog(AccountProfileServiceLocalImpl.class);
+	private static Logger logger = Logger.getLogger(AccountProfileServiceLocalImpl.class);
 	
 	@Autowired
 	private AccountProfileMapper accountProfileMapper;

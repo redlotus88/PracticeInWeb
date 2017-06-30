@@ -1,7 +1,6 @@
 package cn.rdlts.core.usermgr.service;
 
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
+import org.apache.log4j.Logger;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,13 +8,12 @@ import org.springframework.test.context.ContextConfiguration;
 
 import cn.rdlts.core.JUnit4SpringContextTests;
 import cn.rdlts.core.usermgr.model.Account;
-import cn.rdlts.core.usermgr.service.AccountService;
 
 @RunWith(JUnit4SpringContextTests.class)
 @ContextConfiguration(value = "classpath:config/applicationContext.xml")
 public class AccountServiceTest {
 	
-	private static Log LOGGER = LogFactory.getLog(AccountServiceTest.class);
+	private static Logger logger = Logger.getLogger(AccountServiceTest.class);
 	
 	@Autowired
 	private AccountService accountService;

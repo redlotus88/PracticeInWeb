@@ -1,14 +1,9 @@
 package cn.rdlts.shiro.ciper;
 
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
-import org.apache.shiro.authc.credential.Md5CredentialsMatcher;
+import org.apache.log4j.Logger;
 import org.apache.shiro.crypto.hash.SimpleHash;
 import org.apache.shiro.util.ByteSource;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
 
-import cn.rdlts.shiro.configurer.PiWShiroPropertyConfigurer;
 import cn.rdlts.shiro.constant.PiWShiroConst;
 
 /**
@@ -19,7 +14,7 @@ import cn.rdlts.shiro.constant.PiWShiroConst;
  */
 public class MD5Ciper {
 	
-	private static Log log = LogFactory.getLog(MD5Ciper.class);
+	private static Logger log = Logger.getLogger(MD5Ciper.class);
 	
 	private static int shiroHashIterations = PiWShiroConst.DEFAULT_HASH_ITERATIONS;
 	

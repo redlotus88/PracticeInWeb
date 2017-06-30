@@ -2,8 +2,7 @@ package cn.rdlts.core.usermgr.dao;
 
 import java.util.List;
 
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
+import org.apache.log4j.Logger;
 import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
@@ -19,7 +18,7 @@ import cn.rdlts.core.usermgr.model.AccountProfile;
 @ContextConfiguration(value = "classpath:config/applicationContext.xml")
 public class AccountProfileDaoTest {
 	
-	private static Log log = LogFactory.getLog(AccountProfileDaoTest.class);
+	private static Logger log = Logger.getLogger(AccountProfileDaoTest.class);
 	
 	private final int ACCOUNT_ID = 1;
 	private final String PROFILE_NAME_PTEST = "ptest";

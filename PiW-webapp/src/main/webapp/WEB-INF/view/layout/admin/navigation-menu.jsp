@@ -3,7 +3,7 @@
     <div class="sidebar-collapse">
         <ul class="nav" id="main-menu">
             <li>
-                <a class="active-menu" href="index.html" data-selected-links="/admin/dashboard"><i class="fa fa-dashboard"></i> 仪表盘</a>
+                <a class="active-menu" href="${ctx}/admin/dashboard" data-selected-links="/admin/dashboard"><i class="fa fa-dashboard"></i> 仪表盘</a>
             </li>
             <li>
                 <a href="ui-elements.html"><i class="fa fa-desktop"></i> UI Elements</a>

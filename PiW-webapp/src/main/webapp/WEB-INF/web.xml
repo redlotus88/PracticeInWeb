@@ -26,10 +26,10 @@
         <param-value>10000</param-value>
     </context-param>
     
-    <!-- 为避免项目间冲突，定义唯一的 webAppRootKey -->
+    <!-- 为避免项目间冲突，定义唯一的 webAppRootKey. Log4j会使用 -->
     <context-param>
         <param-name>webAppRootKey</param-name>
-        <param-value>webapp</param-value>
+        <param-value>scheduleProject</param-value>
     </context-param>
     <!-- log4j 配置end -->
     
