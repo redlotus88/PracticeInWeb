@@ -13,9 +13,9 @@ import org.apache.shiro.authc.UnknownAccountException;
 import org.apache.shiro.authc.UsernamePasswordToken;
 import org.apache.shiro.subject.Subject;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import org.springframework.web.servlet.view.InternalResourceViewResolver;
 
 import cn.rdlts.core.security.model.RoleEnum;
@@ -63,17 +63,22 @@ public class LoginController {
      * @return
      */
     @RequestMapping(method = RequestMethod.POST)
-    public String tryLogin(HttpServletRequest request, LoginVO loginVO, RedirectAttributes model) {
+    public String tryLogin(HttpServletRequest request, LoginVO loginVO, Model model) {
     	String accountName = loginVO.getAccountName();
     	String password = loginVO.getPassword();
     	boolean rememberMe = loginVO.isRememberMe();
     	
     	if (StringUtils.isNotBlank(password) && StringUtils.isNotBlank(accountName)) {
         	UsernamePasswordToken token = new UsernamePasswordToken(accountName, password, rememberMe);
-        	logger.info("验证登陆用户：" + accountName);
+        	logger.info("正在验证登陆用户：" + accountName);
         	
         	Subject currentUser = SecurityUtils.getSubject();
-    		verifyUser(currentUser, token);
+        	try {
+        		verifyUser(currentUser, token);
+        	} catch (PiWLoginException ex) {
+        		logger.error(ex.getMessage(), ex);
+        		model.addAttribute("errorMessage",  ex.getMessage());
+        	}
         	
         	if (currentUser.isAuthenticated()) {
         		logger.info("用户[" + token.getUsername() + "]登录认证通过");
@@ -86,7 +91,7 @@ public class LoginController {
     		model.addAttribute("errorMessage", "账号或密码不能为空");
     	}
     	
-        return ViewConst.REDIRECT_LOGIN;
+        return ViewConst.VIEW_LOGIN;
     }
 	
 	private boolean verifyUser(Subject currentUser, UsernamePasswordToken token) {

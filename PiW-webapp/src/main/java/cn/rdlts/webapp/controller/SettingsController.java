@@ -10,7 +10,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import cn.rdlts.core.usermgr.model.AccountProfile;
 import cn.rdlts.core.usermgr.service.AccountProfileService;
-import cn.rdlts.core.usermgr.service.AccountService;
 import cn.rdlts.shiro.ShiroUser;
 import cn.rdlts.shiro.ShiroUtils;
 import cn.rdlts.webapp.constant.PathConst;
@@ -22,9 +21,6 @@ import cn.rdlts.webapp.vo.ProfileVO;
 public class SettingsController {
 	
 	protected static Logger logger = Logger.getLogger(SettingsController.class);
-	
-	@Autowired
-	private AccountService accountService;
 	
 	@Autowired
 	private AccountProfileService accountProfileService;
