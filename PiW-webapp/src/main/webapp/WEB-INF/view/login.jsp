@@ -38,7 +38,7 @@
                         <a id="iforget" href="javascript:void(0);">忘记密码？(功能未实现)</a>
                     </p>
                     <c:if test="${not empty errorMessage}">
-                        <span style="color:red">${errorMessage}</span>
+                        <span class="error">${errorMessage}</span>
                     </c:if>
                     <div class="rem_sub">
                         <div class="rem_sub_l">

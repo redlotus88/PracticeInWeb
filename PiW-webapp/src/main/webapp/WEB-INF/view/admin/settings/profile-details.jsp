@@ -37,7 +37,7 @@
 			</dl>
 			<c:if test="${not empty message}">
 				<p class="${message.type}">
-	               ${message}
+	               ${message.content}
 	            </p>
             </c:if>
 			<p>

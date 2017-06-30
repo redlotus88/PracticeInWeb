@@ -9,7 +9,6 @@ http://creativecommons.org/licenses/by/3.0/
 ------------------------------------------------*/
 body {
 	font-family: 'Open Sans', sans-serif;
-	white-space: nowrap;
 }
 
 #wrapper {
@@ -28,7 +27,7 @@ body {
 	margin: 10px 20px 10px 0px;
 	background-color: transparent;
 	padding: 10px;
-	min-height: 1200px;
+	min-height: 900px;
 }
 
 .text-center {
@@ -452,7 +451,7 @@ ul.nav.nav-second-level.collapse.in {
 	#page-wrapper {
 		margin: 0 0 0 260px;
 		padding: 15px 30px;
-		min-height: 1200px;
+		min-height: 600px;
 	}
 	.navbar-side {
 		z-index: 1;

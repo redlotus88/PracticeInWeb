@@ -1,5 +1,5 @@
 require.config({
-	baseUrl: "/static/js",
+	baseUrl: "/static/js/",
 	paths: {
 		// jQuery Js
 		"jquery":["//cdn.bootcss.com/jquery/3.2.1/jquery.min", "//cdn.bootcss.com/jquery/3.2.1/jquery"],
@@ -9,6 +9,7 @@ require.config({
 		"raphael":["//cdn.bootcss.com/raphael/2.2.7/raphael"],
 		"morris":["//cdn.bootcss.com/morris.js/0.5.1/morris"],
 		"custom":["/js/module/custom"],
+		"stringutils":["/js/module/stringutils"]
 	},
 	
 	shim: {
@@ -43,10 +44,26 @@ require.config({
 	}
 })
 
-require(['jquery', 'eve', 'bootstrap', 'metisMenu', 'raphael', 'morris', 'custom'], 
-		function($, eve, bootstrap, metisMenu, raphael, morris, custom) {
+require(['jquery', 'eve', 'bootstrap', 'metisMenu', 'raphael', 'morris', 'custom', 'stringutils'], 
+		function($, eve, bootstrap, metisMenu, raphael, morris, custom, stringutils) {
 	$(document).ready(function() {
-		window.Raphael = raphael;
-		custom.initFunction();
+		// 得到当前的uri.
+		var pathname = window.location.pathname;
+		
+		// 根据uri展开当前菜单
+		$('a[data-selected-link]').each(function() {
+			var link = $(this).data('selected-link');
+			if (link === pathname) {
+				$(this).parent('li').addClass('active-menu');
+			} else if (stringutils.contains(pathname, link)) {
+				$(this).parent('li').addClass('active');
+			}
+		})
+		
+		if (pathname === "/admin/dashboard") {
+			// dashboard图标
+			window.Raphael = raphael;
+			custom.initFunction();
+		}
 	});
 });

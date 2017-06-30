@@ -68,8 +68,11 @@
 	            <filtering>false</filtering>  
 	        </resource>  
 	        <resource>  
-	            <directory>src/test/resources</directory>  
-	            <filtering>true</filtering>  
+	            <directory>src/test/resources</directory>
+				<excludes>
+					<exclude>**/*.*</exclude>
+				</excludes>
+				<filtering>true</filtering>  
 	        </resource>  
 	    </resources>  
 	</build>

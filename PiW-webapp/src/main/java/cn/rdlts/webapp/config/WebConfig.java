@@ -12,6 +12,7 @@ import org.springframework.web.servlet.view.tiles3.TilesViewResolver;
 //		basePackages="cn.rdlts.webapp",
 //		includeFilters=@Filter(pattern="org.springframework.stereotype.Controller")
 //)
+@Deprecated
 public class WebConfig extends WebMvcConfigurerAdapter {
 	
 	/**

@@ -1,5 +1,17 @@
 @CHARSET "UTF-8";
 
-footer {
-	
+.error {
+	color: red;
+}
+
+.info {
+	color: green;
+}
+
+.success {
+	color: green;
+}
+
+.warn {
+	color:yellow;
 }

@@ -13,7 +13,7 @@ import cn.rdlts.shiro.constant.PiWShiroConst;
 
 public class PiWShiroPropertyConfigurer extends PiWPropertyConfigurer {
 	
-	private static Logger log = Logger.getLogger(PiWShiroPropertyConfigurer.class);
+	protected static Logger log = Logger.getLogger(PiWShiroPropertyConfigurer.class);
 	
 	@Override
     protected void processProperties(ConfigurableListableBeanFactory beanFactoryToProcess, Properties props) throws BeansException {
@@ -22,7 +22,7 @@ public class PiWShiroPropertyConfigurer extends PiWPropertyConfigurer {
         // Shiro properties设置
         String strHashIterations = this.getProperty(PiWShiroConst.PROPERTY_SHIRO_HASH_ITERATIONS);
         if (StringUtils.isNumeric(strHashIterations)) {
-        	 int hashIterations = Integer.valueOf(strHashIterations);
+        	 int hashIterations = Integer.parseInt(strHashIterations);
         	 if (hashIterations < 1) {
         		 hashIterations = 1;
         	 }
@@ -33,14 +33,17 @@ public class PiWShiroPropertyConfigurer extends PiWPropertyConfigurer {
         }
     }
 	
+	@Override
 	public String getProperty(String key){
         return super.getProperty(key);
     }
 
+	@Override
     public String getProperty(String key, String defaultValue) {
         return super.getProperty(key, defaultValue);
     }
 
+	@Override
     public Object setProperty(String key, String value) {
         return super.setProperty(key, value);
     }

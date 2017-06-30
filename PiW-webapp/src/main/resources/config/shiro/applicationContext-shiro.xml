@@ -99,13 +99,6 @@
 				/settings/** = authc
 				/usermgr/** = authc
 				/static/** = anon
-<!-- 				/dologin=anon -->
-<!-- 				/logout=anon -->
-<!-- 				/getVerifyCodeImage=anon -->
-<!-- 				/admin/channel/** = authc,perms[admin:channel] -->
-<!-- 				/admin/content/** = authc,perms[admin:content] -->
-<!-- 				/admin/sys/** = authc,perms[admin:sys] -->
-<!-- 				/admin/**=authc -->
 			</value>
 		</constructor-arg>
 	</bean>
