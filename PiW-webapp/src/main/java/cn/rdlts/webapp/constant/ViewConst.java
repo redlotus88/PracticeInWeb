@@ -14,6 +14,8 @@ public final class ViewConst {
 	
 	public static final String REDIRECT_SETTINGS_PROFILE = "redirect:/settings/profile";
 	
+	public static final String REDIRECT_SETTINGS_ACCOUNT = "redirect:/settings/account";
+	
 	public static final String VIEW_ERROR = "common/error";
 	
 	private ViewConst() {

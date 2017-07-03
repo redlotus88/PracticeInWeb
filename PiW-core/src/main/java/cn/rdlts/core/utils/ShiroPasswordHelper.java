@@ -2,10 +2,9 @@ package cn.rdlts.core.utils;
 
 import org.apache.shiro.crypto.RandomNumberGenerator;
 import org.apache.shiro.crypto.SecureRandomNumberGenerator;
-import org.apache.shiro.crypto.hash.SimpleHash;
 
 import cn.rdlts.core.usermgr.model.Account;
-import cn.rdlts.shiro.ciper.MD5Ciper;
+import cn.rdlts.shiro.ciper.CiperUtils;
 
 public final class ShiroPasswordHelper {
 	
@@ -18,8 +17,7 @@ public final class ShiroPasswordHelper {
 	 */
 	public static Account encryptPassword(Account account) {
 		account.setSalt(randomNumberGenerator.nextBytes().toHex());
-		String newPassword = MD5Ciper.encrypt(account.getPassword(), account.getCredentialsSalt()); 
-		account.setPassword(newPassword);
+		account.setPassword(CiperUtils.encrypt(account.getPassword(), account.getCredentialsSalt()));
 		return account;
 	}
 	
@@ -34,5 +32,7 @@ public final class ShiroPasswordHelper {
 //	    String encodedPassword = hash.toHex();  
 //	    System.out.println(encodedPassword);  
 //	    System.out.println(salt2); 
+//	    
+//	    System.out.println(verifyPassowrd(password, salt1 + salt2, encodedPassword));
 	}
 }

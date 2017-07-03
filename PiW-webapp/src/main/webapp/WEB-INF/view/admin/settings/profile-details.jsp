@@ -13,7 +13,7 @@
 	   <div class="col-md-12">
 			<dl class="form-group">
 				<dt>
-					<label for="user_profile_name">Name</label>
+					<label for="user_profile_name">名字：</label>
 				</dt>
 				<dd>
 					<input class="form-control" id="profileName" name="profileName" size="16" type="text" value="${profileVO.profileName}" />
@@ -21,7 +21,7 @@
 			</dl>
 			<dl class="form-group">
 				<dt>
-					<label for="user_profile_email">Public email</label>
+					<label for="user_profile_email">邮件：</label>
 				</dt>
 				<dd>
 				    <input class="form-control" id="publicEmail" name="publicEmail" size="30" type="text" value="${profileVO.publicEmail}" />
@@ -29,7 +29,7 @@
 			</dl>
 			<dl class="form-group">
 				<dt>
-					<label for="user_profile_company">Company</label>
+					<label for="user_profile_company">公司：</label>
 				</dt>
 				<dd class="user-profile-company-field-container js-suggester-container">
 					<input autocomplete="off" class="form-control js-suggester-field" id="company" name="company" size="50" type="text" value="${profileVO.company}" />
