@@ -21,8 +21,10 @@ import org.springframework.web.servlet.view.InternalResourceViewResolver;
 import cn.rdlts.core.security.model.RoleEnum;
 import cn.rdlts.shiro.ShiroUser;
 import cn.rdlts.shiro.ShiroUtils;
+import cn.rdlts.webapp.bean.WebMessage;
 import cn.rdlts.webapp.constant.GlobalConst;
 import cn.rdlts.webapp.constant.ViewConst;
+import cn.rdlts.webapp.enumeration.WebMessageTypeEnum;
 import cn.rdlts.webapp.exception.PiWLoginException;
 import cn.rdlts.webapp.vo.LoginVO;
 
@@ -77,7 +79,7 @@ public class LoginController {
         		verifyUser(currentUser, token);
         	} catch (PiWLoginException ex) {
         		logger.error(ex.getMessage(), ex);
-        		model.addAttribute("errorMessage",  ex.getMessage());
+        		model.addAttribute("errorMessage",  WebMessage.createMessage(ex.getMessage(), WebMessageTypeEnum.ERROR));
         	}
         	
         	if (currentUser.isAuthenticated()) {
@@ -88,7 +90,7 @@ public class LoginController {
         		token.clear();
         	}
     	} else {
-    		model.addAttribute("errorMessage", "账号或密码不能为空");
+    		model.addAttribute("errorMessage", WebMessage.createMessage("账号或密码不能为空", WebMessageTypeEnum.ERROR));
     	}
     	
         return ViewConst.VIEW_LOGIN;

@@ -1,12 +1,9 @@
 package cn.rdlts.webapp.controller;
 
-import javax.servlet.http.HttpServletRequest;
-
 import org.apache.log4j.Logger;
 import org.apache.shiro.SecurityUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import cn.rdlts.core.security.model.RoleEnum;
@@ -17,7 +14,6 @@ import cn.rdlts.shiro.ShiroUtils;
 import cn.rdlts.webapp.constant.PathConst;
 import cn.rdlts.webapp.constant.tiles.ViewTilesConst;
 import cn.rdlts.webapp.exception.PiWUnknownViewException;
-import cn.rdlts.webapp.vo.AccountVO;
 import cn.rdlts.webapp.vo.ProfileVO;
 
 @Controller
@@ -30,7 +26,7 @@ public class SettingsController {
 	private AccountProfileService accountProfileService;
 
 	@RequestMapping("/profile")
-	public String profile(HttpServletRequest request, ProfileVO profileVO, Model model) {
+	public String profile(ProfileVO profileVO) {
 		logger.info("访问个人档案页面");
 		ShiroUser currentUser = ShiroUtils.getCurrentUser();
 		if (currentUser == null) {
@@ -51,7 +47,7 @@ public class SettingsController {
 	}
 	
 	@RequestMapping("/account")
-	public String account(HttpServletRequest request, AccountVO accountVO) {
+	public String account() {
 		logger.info("访问个人账户页面");
 		ShiroUser currentUser = ShiroUtils.getCurrentUser();
 		if (currentUser == null) {
@@ -59,10 +55,10 @@ public class SettingsController {
 		}
 		
 		if (SecurityUtils.getSubject().hasRole(RoleEnum.ADMIN.getCode())) {
-			logger.info("用户是管理员，跳转到管理员个人档案设置界面。");
+			logger.info("用户是管理员，跳转到管理员账号设置界面。");
 			return ViewTilesConst.VIEW_TILES_ADMIN_SETTINGS_ACCOUNT;
 		}
 		
-		throw new PiWUnknownViewException("未知角色信息，无法访问档案页面");
+		throw new PiWUnknownViewException("未知角色信息，无法访问账号管理页面");
 	}
 }

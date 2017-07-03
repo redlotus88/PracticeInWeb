@@ -1,5 +1,6 @@
 package cn.rdlts.webapp.shiro;
 
+import java.util.Optional;
 import java.util.Set;
 
 import org.apache.log4j.Logger;
@@ -19,6 +20,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import cn.rdlts.core.security.service.SecurityService;
 import cn.rdlts.core.usermgr.model.Account;
 import cn.rdlts.core.usermgr.model.AccountProfile;
+import cn.rdlts.core.usermgr.model.EmptyAccountProfile;
 import cn.rdlts.core.usermgr.service.AccountProfileService;
 import cn.rdlts.core.usermgr.service.AccountService;
 import cn.rdlts.shiro.ShiroUser;
@@ -75,10 +77,10 @@ public class PiWShiroAuthorizingRealm extends AuthorizingRealm {
 			throw new UnknownAccountException("未查找到账号：" + username);
 		}
 		
-		AccountProfile accountProfile = accountProfileService.getById(account.getId());
-		String profileName = accountProfile.getProfileName();
+		AccountProfile accountProfile = Optional.ofNullable(accountProfileService.getById(account.getId()))
+												.orElse(new EmptyAccountProfile(username));
 		
-		return new SimpleAuthenticationInfo(new ShiroUser(account.getId(), account.getAccountName(), profileName), account.getPassword(), 
+		return new SimpleAuthenticationInfo(new ShiroUser(account.getId(), account.getAccountName(), accountProfile.getProfileName()), account.getPassword(), 
 				ByteSource.Util.bytes(account.getCredentialsSalt()), getName());
 	}
 

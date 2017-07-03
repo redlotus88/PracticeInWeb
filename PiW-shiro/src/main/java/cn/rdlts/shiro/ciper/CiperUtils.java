@@ -20,6 +20,15 @@ public class CiperUtils {
 	}
 	
 	/**
+	 * 设置iterations的值。
+	 * 
+	 * @param iterations
+	 */
+	public static void setShiroHashIterations(int iterations) {
+		MD5Ciper.setShiroHashIterations(iterations);
+	}
+	
+	/**
 	 * 如果encryptedPassword为空，则始终返回false.
 	 * 
 	 * @param toVerify

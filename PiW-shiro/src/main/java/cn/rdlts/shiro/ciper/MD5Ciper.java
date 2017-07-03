@@ -21,10 +21,10 @@ public final class MD5Ciper {
 	private MD5Ciper() {
 	}
 	
-	public static String encrypt(String str, String salt) {
-		log.info("加密字符串[" + str + "] with salt[" + salt + "].");
-		SimpleHash sh = new SimpleHash(PiWShiroConst.ALGORITHM_MD5, str, ByteSource.Util.bytes(salt), shiroHashIterations);
-		return sh.toString();
+	public static String encrypt(String password, String salt) {
+		log.info("加密字符串[" + password + "] with salt[" + salt + "].");
+		SimpleHash sh = new SimpleHash(PiWShiroConst.ALGORITHM_MD5, password, ByteSource.Util.bytes(salt), shiroHashIterations);
+		return sh.toHex();
 	}
 	
 	public static void setShiroHashIterations(int hashIterations) {

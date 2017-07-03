@@ -13,11 +13,11 @@
     </definition>
     
     <definition name="tiles.admin.settings.profile" extends="tiles.admin.base">
-        <put-attribute name="content" value="/WEB-INF/view/admin/settings/profile-details.jsp"/>
+        <put-attribute name="content" value="/WEB-INF/view/settings/profile.jsp"/>
     </definition>
     
     <definition name="tiles.admin.settings.account" extends="tiles.admin.base">
-        <put-attribute name="content" value="/WEB-INF/view/admin/settings/account-details.jsp"/>
+        <put-attribute name="content" value="/WEB-INF/view/settings/account.jsp"/>
     </definition>
     
 <!-- 	<definition name="default.list" template="/WEB-INF/jsp/template/list.jsp"> -->

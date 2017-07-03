@@ -51,4 +51,7 @@ public class WebMessage {
 		this.type = type;
 	}
 	
+	public boolean isError() {
+		return type == WebMessageTypeEnum.ERROR;
+	}
 }

@@ -11,7 +11,6 @@ import cn.rdlts.core.usermgr.dao.AccountProfileMapper;
 import cn.rdlts.core.usermgr.model.Account;
 import cn.rdlts.core.usermgr.model.AccountProfile;
 import cn.rdlts.core.usermgr.service.AccountProfileService;
-import cn.rdlts.core.utils.DateUtils;
 
 @Service("accountProfileService")
 public class AccountProfileServiceLocalImpl implements AccountProfileService {

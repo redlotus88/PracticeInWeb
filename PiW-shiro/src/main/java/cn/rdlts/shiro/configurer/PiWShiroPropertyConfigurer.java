@@ -8,7 +8,7 @@ import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.config.ConfigurableListableBeanFactory;
 
 import cn.rdlts.common.configurer.PiWPropertyConfigurer;
-import cn.rdlts.shiro.ciper.MD5Ciper;
+import cn.rdlts.shiro.ciper.CiperUtils;
 import cn.rdlts.shiro.constant.PiWShiroConst;
 
 public class PiWShiroPropertyConfigurer extends PiWPropertyConfigurer {
@@ -26,7 +26,7 @@ public class PiWShiroPropertyConfigurer extends PiWPropertyConfigurer {
         	 if (hashIterations < 1) {
         		 hashIterations = 1;
         	 }
-             MD5Ciper.setShiroHashIterations(hashIterations);
+             CiperUtils.setShiroHashIterations(hashIterations);
              log.info("修改Shiro配置hashIterations的值为：" + hashIterations);
         } else {
         	log.error("不能读取Shiro配置hashIterations的值");

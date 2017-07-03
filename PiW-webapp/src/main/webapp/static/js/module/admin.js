@@ -44,8 +44,8 @@ require.config({
 	}
 })
 
-require(['jquery', 'eve', 'bootstrap', 'metisMenu', 'raphael', 'morris', 'custom', 'stringutils'], 
-		function($, eve, bootstrap, metisMenu, raphael, morris, custom, stringutils) {
+require(['jquery', 'stringutils'], 
+		function($, stringutils) {
 	$(document).ready(function() {
 		// 得到当前的uri.
 		var pathname = window.location.pathname;
@@ -61,9 +61,13 @@ require(['jquery', 'eve', 'bootstrap', 'metisMenu', 'raphael', 'morris', 'custom
 		})
 		
 		if (pathname === "/admin/dashboard") {
-			// dashboard图标
-			window.Raphael = raphael;
-			custom.initFunction();
+			requrie(['eve', 'bootstrap', 'metisMenu', 'raphael', 'morris', 'custom'], 
+					function(eve, bootstrap, metisMenu, raphael, morris, custom) {
+				// dashboard图标
+				window.Raphael = raphael;
+				custom.initFunction();
+			})
 		}
+		
 	});
 });

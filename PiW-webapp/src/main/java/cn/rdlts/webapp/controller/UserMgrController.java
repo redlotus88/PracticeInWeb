@@ -30,6 +30,8 @@ public class UserMgrController {
 	
 	protected static Logger logger = Logger.getLogger(UserMgrController.class);
 	
+	private static final String ATT_MESSAGE = "message";
+	
 	@Autowired
 	private AccountService accountService;
 	
@@ -53,9 +55,14 @@ public class UserMgrController {
 		AccountProfile ap = new AccountProfile();
 		ap.setId(Integer.parseInt(id));
 		profileVO.decorate(ap);
-		int result = accountProfileService.update(ap);
+		int result;
+		if (accountProfileService.exist(ap)) {
+			result = accountProfileService.update(ap);
+		} else {
+			result = accountProfileService.save(ap);
+		}
 		
-		model.addFlashAttribute("message", WebMessage.createMessage("更新档案成功", WebMessageTypeEnum.SUCCESS));
+		model.addFlashAttribute(ATT_MESSAGE, WebMessage.createMessage("更新档案成功", WebMessageTypeEnum.SUCCESS));
 		logger.info("更新完毕。影响数据库行数：" + result);
 		return ViewConst.REDIRECT_SETTINGS_PROFILE;
 	}
@@ -68,24 +75,49 @@ public class UserMgrController {
 	
 	@RequestMapping(value="account/{id}", method=RequestMethod.POST)
 	public String updateAccount(@PathVariable String id, AccountVO accountVO, RedirectAttributes model) {
-		logger.info("更新["+ id + "]的个人账号。");
+		logger.info("更新id=["+ id + "]的个人账号。");
 		String invalidPath = checkAccountConsistency(id, "/settings/account");
 		if (StringUtils.isNotEmpty(invalidPath)) {
 			return invalidPath;
 		}
 		
-		Account account = accountService.getById(Integer.parseInt(id));
-		boolean validPassword = CiperUtils.verifyPassowrd(accountVO.getOldPassword(), account.getCredentialsSalt(), account.getPassword());
-		if (validPassword) {
-			account.setPassword(accountVO.getNewPassword());
-			int result = accountService.update(account);
-			model.addFlashAttribute("message", WebMessage.createMessage("更新密码成功", WebMessageTypeEnum.INFO));
-			logger.info("更新[" + id + "]的密码成功，影响数据库" + result + "行。");
+		WebMessage message = verifyForm(Integer.parseInt(id), accountVO);
+		model.addFlashAttribute(ATT_MESSAGE, message);
+		model.addFlashAttribute("accountVO", accountVO);
+		return ViewConst.REDIRECT_SETTINGS_ACCOUNT;
+	}
+	
+	/**
+	 * 校验修改密码表单
+	 * 
+	 * @param id
+	 * @param accountVO
+	 * @return
+	 */
+	private WebMessage verifyForm(Integer id, AccountVO accountVO) {
+		WebMessage result;
+		String np = accountVO.getNewPassword();
+		String confirm = accountVO.getConfirmPassword();
+		Account account = accountService.getById(id);
+		
+		if (StringUtils.isBlank(np)) {
+			logger.error("新密码不能为空");
+			result = WebMessage.createMessage("新密码不能为空", WebMessageTypeEnum.ERROR);
+		} else if (!np.equals(confirm)) {
+			logger.error("二次输入密码不正确");
+			result = WebMessage.createMessage("二次输入密码不正确", WebMessageTypeEnum.ERROR);
+		} else if (!CiperUtils.verifyPassowrd(accountVO.getOldPassword(), account.getCredentialsSalt(), account.getPassword())) {
+			logger.error("更新密码失败：旧密码错误。");
+			result = WebMessage.createMessage("旧密码错误", WebMessageTypeEnum.ERROR);
 		} else {
-			model.addFlashAttribute("message", WebMessage.createMessage("原始密码错误", WebMessageTypeEnum.ERROR));
+			logger.info("旧密码验证, 二次输入密码验证成功。");
+			account.setPassword(accountVO.getNewPassword());
+			int affected = accountService.update(account);
+			result = WebMessage.createMessage("更新密码成功", WebMessageTypeEnum.INFO);
+			logger.info("更新用户[" + account.getAccountName() + "]的密码成功，影响数据库" + affected + "行。");
 		}
 		
-		return ViewConst.REDIRECT_SETTINGS_ACCOUNT;
+		return result;
 	}
 	
 	/**
@@ -99,7 +131,7 @@ public class UserMgrController {
 		if (currentUser != null) {
 			currentId = currentUser.getId();
 		}
-		logger.info("用户[" + currentId + "]尝试访问[" + id + "]的个人档案页面。");
+		logger.info("用户id=[" + currentId + "]尝试访问id=[" + id + "]的个人档案页面。");
 		// 当前只能访问自己的网页
 		if (StringUtils.isEmpty(id) || !StringUtils.isNumeric(id) || currentId == null) {
 			logger.info("无用户信息，登出。");

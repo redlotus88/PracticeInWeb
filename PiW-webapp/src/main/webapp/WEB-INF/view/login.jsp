@@ -15,6 +15,7 @@
 
 <!-- css 引用 -->
 <link rel="stylesheet" type="text/css" href="<c:url value='/css/login.css'/>" />
+<link rel="stylesheet" type="text/css" href="<c:url value='/css/piw-style.css'/>" />
 <script type="text/javascript">
 </script>
 
@@ -30,15 +31,15 @@
                 <div class="login_boder_background"></div>
                 <div class="login_padding" id="login_model">
                     <h2>账号：</h2>
-                    <label><input type="text" class="txt_input txt_input2" id="accountName" name="accountName" value="${loginVO.accountName}" placeholder="邮箱账号或手机" required autofocus></label>
+                    <label><input type="text" class="txt_input txt_input2" id="accountName" name="accountName" value="${loginVO['accountName']}" placeholder="邮箱账号或手机" required autofocus></label>
                     <h2>密码：</h2>
-                    <label><input type="password" class="txt_input" name="password" id="password" value="${loginVO.password}" placeholder="密码" autocomplete="off" required></label>
+                    <label><input type="password" class="txt_input" name="password" id="password" value="${loginVO['password']}" placeholder="密码" autocomplete="off" required></label>
     
                     <p class="forgot">
                         <a id="iforget" href="javascript:void(0);">忘记密码？(功能未实现)</a>
                     </p>
                     <c:if test="${not empty errorMessage}">
-                        <span class="error">${errorMessage}</span>
+                        <span class="${errorMessage['type']}">${errorMessage['message']}</span>
                     </c:if>
                     <div class="rem_sub">
                         <div class="rem_sub_l">

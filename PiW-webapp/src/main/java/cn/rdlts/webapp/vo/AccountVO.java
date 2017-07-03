@@ -5,6 +5,7 @@ public final class AccountVO {
 	private Integer id;
 	private String oldPassword;
 	private String newPassword;
+	private String confirmPassword;
 	
 	public AccountVO() {
 		// Nothing to do.
@@ -32,6 +33,14 @@ public final class AccountVO {
 
 	public void setNewPassword(String newPassword) {
 		this.newPassword = newPassword;
+	}
+
+	public String getConfirmPassword() {
+		return confirmPassword;
+	}
+
+	public void setConfirmPassword(String confirmPassword) {
+		this.confirmPassword = confirmPassword;
 	}
 	
 }
