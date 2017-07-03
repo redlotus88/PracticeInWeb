@@ -79,16 +79,8 @@ public class Account implements Serializable {
 		return createTime;
 	}
 
-	public void setCreateTime(LocalDateTime createTime) {
-		this.createTime = createTime;
-	}
-
 	public LocalDateTime getLastModifyTime() {
 		return lastModifyTime;
-	}
-
-	public void setLastModifyTime(LocalDateTime lastModifyTime) {
-		this.lastModifyTime = lastModifyTime;
 	}
 
 	@Override

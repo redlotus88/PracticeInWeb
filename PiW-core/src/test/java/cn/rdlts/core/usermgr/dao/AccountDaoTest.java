@@ -51,6 +51,8 @@ public class AccountDaoTest {
 		Account account = accountMapper.getById(initAcc.getId());
 		assertNotNull(account);
 		assertAccount(account, ACCOUNT_TEST, PASSWORD_12345678, SALT_1);
+		assertNotNull(account.getCreateTime());
+		assertNotNull(account.getLastModifyTime());
 		
 		account = accountMapper.getById(-1);
 		assertNull(account);
@@ -112,9 +114,8 @@ public class AccountDaoTest {
 	public void updateTest() {
 		Account account = accountMapper.getById(initAcc.getId());
 		assertNotNull(account.getCreateTime());
-		assertNull(account.getLastModifyTime());
+		assertNotNull(account.getLastModifyTime());
 		account.setPassword("87654321");
-		account.setLastModifyTime(LocalDateTime.now());
 		accountMapper.update(account);
 		
 		account = accountMapper.getById(initAcc.getId());
@@ -125,7 +126,6 @@ public class AccountDaoTest {
 	
 	private Account deleteAndInsertNewAccount(String accName, String password, String salt) {
 		Account account = new Account(accName, password, salt);
-		account.setCreateTime(LocalDateTime.now());
 		accountMapper.delete(account);
 		Integer id = accountMapper.save(account);
 		assertNotNull(id);
@@ -133,8 +133,7 @@ public class AccountDaoTest {
 		return account;
 	}
 	
-	private void assertAccount(Account account, String expectedName, 
-			String expectedPassword, String expectedSalt) {
+	private void assertAccount(Account account, String expectedName, String expectedPassword, String expectedSalt) {
 		assertNotNull(account);
 		assertEquals(account.getAccountName(), expectedName);
 		assertEquals(account.getPassword(), expectedPassword);

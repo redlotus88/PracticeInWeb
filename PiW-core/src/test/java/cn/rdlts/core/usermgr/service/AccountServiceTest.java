@@ -1,6 +1,8 @@
 package cn.rdlts.core.usermgr.service;
 
 import org.apache.log4j.Logger;
+import org.junit.After;
+import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,9 +20,21 @@ public class AccountServiceTest {
 	@Autowired
 	private AccountService accountService;
 	
+	@Before
+	public void before() {
+		
+	}
+	
+	@After
+	public void after() {
+		
+	}
+	
 	@Test
 	public void saveTest() {
 		Account account = new Account("Rean_Wang", "123456");
 		accountService.save(account);
+		
+		
 	}
 }

@@ -46,7 +46,6 @@ public class AccountServiceLocalImpl implements AccountService {
 		}
 		
 		Account toSave = ShiroPasswordHelper.encryptPassword(account);
-		toSave.setCreateTime(DateUtils.nowTime());
 		int affectedRow = accountMapper.save(toSave);
 		logger.info("保存结束。影响" + affectedRow + "行");
 		return affectedRow;
@@ -61,7 +60,6 @@ public class AccountServiceLocalImpl implements AccountService {
 	public int update(final Account account) {
 		logger.info("更新用户信息：" + account);
 		Account toUpdate = ShiroPasswordHelper.encryptPassword(account);
-		toUpdate.setLastModifyTime(LocalDateTime.now());
 		int affectedRow = accountMapper.update(toUpdate);
 		logger.info("更新完成，影响" + affectedRow + "行");
 		return affectedRow;

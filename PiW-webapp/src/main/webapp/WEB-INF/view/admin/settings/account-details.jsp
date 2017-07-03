@@ -8,7 +8,7 @@
     </div>
 </div>
  
-<form action="${ctx}/usermgr/account/${profileVO.accountId}" method="POST">
+<form action="${ctx}/usermgr/account/${globalShiroUser.accountId}" method="POST">
     <div class="row">
        <div class="col-md-12">
             <h3 class="page-header">修改密码</h3>

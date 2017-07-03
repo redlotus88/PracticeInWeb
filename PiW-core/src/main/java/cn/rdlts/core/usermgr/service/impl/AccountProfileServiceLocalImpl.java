@@ -66,7 +66,6 @@ public class AccountProfileServiceLocalImpl implements AccountProfileService {
 			logger.warn("AccountProfile的id无效，未找到相关Account.");
 		} else {
 			logger.info("更新Account最后更改时间。");
-			account.setLastModifyTime(DateUtils.nowTime());
 			accountMapper.update(account);
 		}
 	}
