@@ -31,21 +31,6 @@
                     <li>
                         <a href="${ctx}/settings/account" data-selected-link="/settings/account"><i class="fa fa-id-card" aria-hidden="true"></i>账号</a>
                     </li>
-                    <!-- 3级菜单 -->
-                    <!-- <li>
-                        <a href="#">Second Level Link<span class="fa arrow"></span></a>
-                        <ul class="nav nav-third-level">
-                            <li>
-                                <a href="#">Third Level Link</a>
-                            </li>
-                            <li>
-                                <a href="#">Third Level Link</a>
-                            </li>
-                            <li>
-                                <a href="#">Third Level Link</a>
-                            </li>
-                        </ul>
-                    </li> -->
                 </ul>
             </li>
         </ul>

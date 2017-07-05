@@ -44,7 +44,7 @@
             </c:if>
             <p>
                 <button type="submit" class="btn btn-primary">修改密码</button>
-                <span><a href="#">忘记密码</a></span>
+<!--TODO:                 <span><a href="#">忘记密码</a></span>-->            
             </p>
        </div>
     </div>

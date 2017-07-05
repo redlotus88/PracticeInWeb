@@ -30,7 +30,7 @@ public class WebMessage {
 	public static WebMessage createMessage(String msg, WebMessageTypeEnum type) {
 		return new WebMessage(msg, type);
 	}
-
+	
 	public String getMessage() {
 		return message;
 	}

@@ -47,7 +47,7 @@
         update piw_usermgr_account 
         <trim prefix="set" suffixOverrides=",">
             <if test="password != null">password=#{password},</if>
-            <if test="lastModifyTime != null">last_modify_time=#{lastModifyTime}</if>
+            <if test="salt != null">salt=#{salt}</if>
         </trim>
         where id = #{id} or account_name = #{accountName}
     </update>

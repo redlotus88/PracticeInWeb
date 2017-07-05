@@ -36,7 +36,7 @@
                     <label><input type="password" class="txt_input" name="password" id="password" value="${loginVO['password']}" placeholder="密码" autocomplete="off" required></label>
     
                     <p class="forgot">
-                        <a id="iforget" href="javascript:void(0);">忘记密码？(功能未实现)</a>
+                       <!--TODO:  <a id="iforget" href="javascript:void(0);">忘记密码？(功能未实现)</a> -->
                     </p>
                     <c:if test="${not empty errorMessage}">
                         <span class="${errorMessage['type']}">${errorMessage['message']}</span>

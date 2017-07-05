@@ -1,5 +1,7 @@
 package cn.rdlts.webapp.controller;
 
+import java.util.Optional;
+
 import org.apache.commons.lang3.StringUtils;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -81,8 +83,18 @@ public class UserMgrController {
 			return invalidPath;
 		}
 		
-		WebMessage message = verifyForm(Integer.parseInt(id), accountVO);
-		model.addFlashAttribute(ATT_MESSAGE, message);
+		Account account = accountService.getById(Integer.parseInt(id));
+		Optional<WebMessage> message = verifyForm(account, accountVO);
+		
+		if (!message.isPresent()) {
+			logger.info("旧密码验证, 二次输入密码验证成功。");
+			account.setPassword(accountVO.getNewPassword());
+			int affected = accountService.update(account);
+			message = Optional.of(WebMessage.createMessage("更新密码成功", WebMessageTypeEnum.INFO));
+			logger.info("更新用户[" + account.getAccountName() + "]的密码成功，影响数据库" + affected + "行。");
+		}
+		
+		model.addFlashAttribute(ATT_MESSAGE, message.orElse(WebMessage.createMessage("更新密码失败", WebMessageTypeEnum.ERROR)));
 		model.addFlashAttribute("accountVO", accountVO);
 		return ViewConst.REDIRECT_SETTINGS_ACCOUNT;
 	}
@@ -94,11 +106,10 @@ public class UserMgrController {
 	 * @param accountVO
 	 * @return
 	 */
-	private WebMessage verifyForm(Integer id, AccountVO accountVO) {
-		WebMessage result;
+	private Optional<WebMessage> verifyForm(Account account, AccountVO accountVO) {
+		WebMessage result = null;
 		String np = accountVO.getNewPassword();
 		String confirm = accountVO.getConfirmPassword();
-		Account account = accountService.getById(id);
 		
 		if (StringUtils.isBlank(np)) {
 			logger.error("新密码不能为空");
@@ -109,15 +120,8 @@ public class UserMgrController {
 		} else if (!CiperUtils.verifyPassowrd(accountVO.getOldPassword(), account.getCredentialsSalt(), account.getPassword())) {
 			logger.error("更新密码失败：旧密码错误。");
 			result = WebMessage.createMessage("旧密码错误", WebMessageTypeEnum.ERROR);
-		} else {
-			logger.info("旧密码验证, 二次输入密码验证成功。");
-			account.setPassword(accountVO.getNewPassword());
-			int affected = accountService.update(account);
-			result = WebMessage.createMessage("更新密码成功", WebMessageTypeEnum.INFO);
-			logger.info("更新用户[" + account.getAccountName() + "]的密码成功，影响数据库" + affected + "行。");
-		}
-		
-		return result;
+		} 
+		return Optional.ofNullable(result);
 	}
 	
 	/**
