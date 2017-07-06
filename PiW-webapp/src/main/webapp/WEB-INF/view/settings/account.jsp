@@ -18,7 +18,7 @@
                     <label for="user_profile_name">旧密码：</label>
                 </dt>
                 <dd>
-                    <input class="form-control form-control" id="oldPassword" name="oldPassword" size="16" type="password" value="${accountVO['oldPassword']}" required="required" placeholder="输入旧密码" />
+                    <input class="form-control form-control" id="oldPassword" name="oldPassword" size="16" maxlength="16" type="password" value="${accountVO['oldPassword']}" required="required" placeholder="输入旧密码" />
                 </dd>
             </dl>
             <dl class="form-group">
@@ -26,7 +26,7 @@
                     <label for="user_profile_email">新密码：</label>
                 </dt>
                 <dd>
-                    <input class="form-control form-control" id="newPassword" name="newPassword" size="16" type="password" value="${accountVO['newPassword']}" required="required" placeholder="输入新密码" />
+                    <input class="form-control form-control" id="newPassword" name="newPassword" size="16" maxlength="16" type="password" value="${accountVO['newPassword']}" required="required" placeholder="输入新密码" />
                 </dd>
             </dl>
             <dl class="form-group">
@@ -34,7 +34,7 @@
                     <label for="user_profile_company">确认新密码：</label>
                 </dt>
                 <dd class="user-profile-company-field-container js-suggester-container">
-                    <input class="form-control" id="confirmPassword" name="confirmPassword" size="16" type="password" value="${accountVO['confirmPassword']}" required="required" placeholder="再次输入新密码" />
+                    <input class="form-control" id="confirmPassword" name="confirmPassword" size="16" maxlength="16" type="password" value="${accountVO['confirmPassword']}" required="required" placeholder="再次输入新密码" />
                 </dd>
             </dl>
             <c:if test="${not empty message}">

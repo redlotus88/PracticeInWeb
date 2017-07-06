@@ -1,13 +1,13 @@
 package cn.rdlts.webapp.vo;
 
-public final class AccountVO {
+public final class SettingsAccountVO {
 	
 	private Integer id;
 	private String oldPassword;
 	private String newPassword;
 	private String confirmPassword;
 	
-	public AccountVO() {
+	public SettingsAccountVO() {
 		// Nothing to do.
 	}
 

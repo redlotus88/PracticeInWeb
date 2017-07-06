@@ -6,7 +6,15 @@
                 <a href="${ctx}/admin/dashboard" data-selected-link="/admin/dashboard"><i class="fa fa-dashboard"></i> 仪表盘</a>
             </li>
             <li>
-                <a href="#"><i class="fa fa-desktop"></i> UI Elements</a>
+                <a href="#" data-selected-link="/admin/mgr"><i class="fa fa-desktop"></i> 全局管理<span class="fa arrow"></span></a>
+                <ul class="nav nav-second-level">
+                    <li>
+                        <a href="${ctx}/admin/mgr/account" data-selected-link="/admin/mgr/account"><i class="fa fa-user fa-fw"></i>账号管理</a>
+                    </li>
+                    <li>
+                        <a href="${ctx}/admin/mgr/role" data-selected-link="/admin/mgr/role"><i class="fa fa-id-card" ></i>权限管理</a>
+                    </li>
+                </ul>
             </li>
             <li>
                 <a href="#"><i class="fa fa-bar-chart-o"></i> Charts</a>
@@ -22,14 +30,16 @@
                 <a href="#"><i class="fa fa-edit"></i> Forms </a>
             </li>
 
-            <li>
+            <li>    
                 <a href="#" data-selected-link="/settings"><i class="fa fa-gear fa-fw"></i> 设置<span class="fa arrow"></span></a>
                 <ul class="nav nav-second-level">
                     <li>
-                        <a href="${ctx}/settings/profile" data-selected-link="/settings/profile"><i class="fa fa-user fa-fw"></i>个人档案</a>
+                        <a href="${ctx}/settings/profile"
+                            data-selected-link="/settings/profile"><i class="fa fa-user fa-fw"></i>个人档案</a>
                     </li>
                     <li>
-                        <a href="${ctx}/settings/account" data-selected-link="/settings/account"><i class="fa fa-id-card" aria-hidden="true"></i>账号</a>
+                        <a href="${ctx}/settings/account"
+                         data-selected-link="/settings/account"><i class="fa fa-id-card" aria-hidden="true"></i>账号</a>
                     </li>
                 </ul>
             </li>

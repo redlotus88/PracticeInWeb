@@ -14,10 +14,12 @@ public class CiperUtilsTest {
 	 */
 	@Test
 	public void verifyPassowrdTest() {
-		String name = "Rean";
-		String password = "kami4423";
+		String name = "A_VERY_LONG_NAME";
+		String password = "123456";
 		String salt = randomNumberGenerator.nextBytes().toHex();
 		String encodedPassword = CiperUtils.encrypt(password, name + salt);
+		System.out.println("password:" + encodedPassword);
+		System.out.println("salt: " + salt);
 		Assert.assertTrue(CiperUtils.verifyPassowrd(password, name + salt, encodedPassword));
 		
 		name = "Rean";

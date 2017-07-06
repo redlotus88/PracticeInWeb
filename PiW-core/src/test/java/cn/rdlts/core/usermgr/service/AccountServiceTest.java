@@ -34,7 +34,5 @@ public class AccountServiceTest {
 	public void saveTest() {
 		Account account = new Account("Rean_Wang", "123456");
 		accountService.save(account);
-		
-		
 	}
 }

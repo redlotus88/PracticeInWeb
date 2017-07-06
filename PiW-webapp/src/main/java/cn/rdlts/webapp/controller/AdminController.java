@@ -14,5 +14,9 @@ public class AdminController {
 		return ViewTilesConst.VIEW_TILES_ADMIN_HOME;
 	}
 	
+	@RequestMapping(value = "/mgr/account")
+	public String manageAccount() {
+		return ViewTilesConst.VIEW_TILES_ADMIN_MGR_ACCOUNT;
+	}
 	
 }

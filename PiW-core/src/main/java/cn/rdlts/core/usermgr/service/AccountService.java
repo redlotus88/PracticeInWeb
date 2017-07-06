@@ -2,6 +2,7 @@ package cn.rdlts.core.usermgr.service;
 
 import java.util.List;
 
+import cn.rdlts.core.security.model.Role;
 import cn.rdlts.core.usermgr.model.Account;
 
 public interface AccountService {
@@ -17,4 +18,6 @@ public interface AccountService {
 	boolean exist(final Account account);
 	
 	int update(final Account account);
+	
+	List<Account> findAccountBy(Role role);
 }

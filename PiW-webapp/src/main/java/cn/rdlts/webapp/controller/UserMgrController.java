@@ -23,8 +23,8 @@ import cn.rdlts.webapp.bean.WebMessage;
 import cn.rdlts.webapp.constant.PathConst;
 import cn.rdlts.webapp.constant.ViewConst;
 import cn.rdlts.webapp.enumeration.WebMessageTypeEnum;
-import cn.rdlts.webapp.vo.AccountVO;
 import cn.rdlts.webapp.vo.ProfileVO;
+import cn.rdlts.webapp.vo.SettingsAccountVO;
 
 @Controller
 @RequestMapping("/usermgr")
@@ -76,7 +76,7 @@ public class UserMgrController {
 	}
 	
 	@RequestMapping(value="account/{id}", method=RequestMethod.POST)
-	public String updateAccount(@PathVariable String id, AccountVO accountVO, RedirectAttributes model) {
+	public String updateAccount(@PathVariable String id, SettingsAccountVO settingsAccountVO, RedirectAttributes model) {
 		logger.info("更新id=["+ id + "]的个人账号。");
 		String invalidPath = checkAccountConsistency(id, "/settings/account");
 		if (StringUtils.isNotEmpty(invalidPath)) {
@@ -84,18 +84,18 @@ public class UserMgrController {
 		}
 		
 		Account account = accountService.getById(Integer.parseInt(id));
-		Optional<WebMessage> message = verifyForm(account, accountVO);
+		Optional<WebMessage> message = verifyForm(account, settingsAccountVO);
 		
 		if (!message.isPresent()) {
 			logger.info("旧密码验证, 二次输入密码验证成功。");
-			account.setPassword(accountVO.getNewPassword());
+			account.setPassword(settingsAccountVO.getNewPassword());
 			int affected = accountService.update(account);
 			message = Optional.of(WebMessage.createMessage("更新密码成功", WebMessageTypeEnum.INFO));
 			logger.info("更新用户[" + account.getAccountName() + "]的密码成功，影响数据库" + affected + "行。");
 		}
 		
 		model.addFlashAttribute(ATT_MESSAGE, message.orElse(WebMessage.createMessage("更新密码失败", WebMessageTypeEnum.ERROR)));
-		model.addFlashAttribute("accountVO", accountVO);
+		model.addFlashAttribute("accountVO", settingsAccountVO);
 		return ViewConst.REDIRECT_SETTINGS_ACCOUNT;
 	}
 	
@@ -103,13 +103,13 @@ public class UserMgrController {
 	 * 校验修改密码表单
 	 * 
 	 * @param id
-	 * @param accountVO
+	 * @param settingsAccountVO
 	 * @return
 	 */
-	private Optional<WebMessage> verifyForm(Account account, AccountVO accountVO) {
+	private Optional<WebMessage> verifyForm(Account account, SettingsAccountVO settingsAccountVO) {
 		WebMessage result = null;
-		String np = accountVO.getNewPassword();
-		String confirm = accountVO.getConfirmPassword();
+		String np = settingsAccountVO.getNewPassword();
+		String confirm = settingsAccountVO.getConfirmPassword();
 		
 		if (StringUtils.isBlank(np)) {
 			logger.error("新密码不能为空");
@@ -117,7 +117,7 @@ public class UserMgrController {
 		} else if (!np.equals(confirm)) {
 			logger.error("二次输入密码不正确");
 			result = WebMessage.createMessage("二次输入密码不正确", WebMessageTypeEnum.ERROR);
-		} else if (!CiperUtils.verifyPassowrd(accountVO.getOldPassword(), account.getCredentialsSalt(), account.getPassword())) {
+		} else if (!CiperUtils.verifyPassowrd(settingsAccountVO.getOldPassword(), account.getCredentialsSalt(), account.getPassword())) {
 			logger.error("更新密码失败：旧密码错误。");
 			result = WebMessage.createMessage("旧密码错误", WebMessageTypeEnum.ERROR);
 		} 

@@ -18,10 +18,17 @@
     <link rel="stylesheet" href="<c:url value='/css/admin/custom-styles.css'/>"/>
     <!-- Google Fonts-->
     <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
+    <!-- DataTables Bootstrap style -->
+    <link href='//cdn.bootcss.com/datatables/1.10.15/css/dataTables.bootstrap.css' rel='stylesheet' type='text/css'/>
+        
+    <!-- Animsition A simple and easy jQuery plugin for CSS animated page transitions.-->
+    <!-- <link href='//cdn.bootcss.com/animsition/4.0.2/css/animsition.min.css' rel='stylesheet' type='text/css' /> -->
+    
     <!-- Admin Page Styles -->
     <link rel="stylesheet" href="<c:url value='/css/admin/admin.css'/>" />
     <!-- PiW Styles -->
     <link rel="stylesheet" href="<c:url value='/css/piw-style.css'/>" />
+    
 </head>
 
 <body>
