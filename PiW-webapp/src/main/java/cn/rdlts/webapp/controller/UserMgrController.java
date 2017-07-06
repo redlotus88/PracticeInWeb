@@ -25,6 +25,7 @@ import cn.rdlts.webapp.constant.ViewConst;
 import cn.rdlts.webapp.enumeration.WebMessageTypeEnum;
 import cn.rdlts.webapp.vo.ProfileVO;
 import cn.rdlts.webapp.vo.SettingsAccountVO;
+import cn.rdlts.webapp.vo.ViewObjectUtils;
 
 @Controller
 @RequestMapping("/usermgr")
@@ -56,7 +57,7 @@ public class UserMgrController {
 		
 		AccountProfile ap = new AccountProfile();
 		ap.setId(Integer.parseInt(id));
-		profileVO.decorate(ap);
+		ViewObjectUtils.decorate(profileVO, ap);
 		int result;
 		if (accountProfileService.exist(ap)) {
 			result = accountProfileService.update(ap);

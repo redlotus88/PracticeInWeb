@@ -1,6 +1,10 @@
 package cn.rdlts.webapp.vo.datatable;
 
-public abstract class AbstractServerSideDTVO extends BaseDataTableVO {
+import java.io.Serializable;
+
+public abstract class AbstractServerSideDTVO<T extends Serializable> extends BaseDataTableVO<T> {
+	
+	private static final long serialVersionUID = 3003382792055257550L;
 	
 	private int draw;
 	private int recordsTotal;

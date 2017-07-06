@@ -25,6 +25,10 @@ p {
     margin-bottom: 10px;
 }
 
+td {
+	white-space: nowrap;
+}
+
 .content {
 	
 }

@@ -1,7 +1,5 @@
 package cn.rdlts.webapp.vo;
 
-import cn.rdlts.core.usermgr.model.AccountProfile;
-
 public final class ProfileVO {
 	
 	private String accountId;
@@ -43,21 +41,5 @@ public final class ProfileVO {
 
 	public void setCompany(String company) {
 		this.company = company;
-	}
-	
-	public void accept(AccountProfile accountProfile) {
-		if (accountProfile != null) {
-			setProfileName(accountProfile.getProfileName());
-			setPublicEmail(accountProfile.getPublicEmail());
-			setCompany(accountProfile.getCompany());
-		}
-	}
-	
-	public void decorate(AccountProfile accountProfile) {
-		if (accountProfile != null) {
-			accountProfile.setProfileName(profileName);
-			accountProfile.setPublicEmail(publicEmail);
-			accountProfile.setCompany(company);
-		} 
 	}
 }

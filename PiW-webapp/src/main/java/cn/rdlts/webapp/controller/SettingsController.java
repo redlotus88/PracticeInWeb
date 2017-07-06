@@ -15,6 +15,7 @@ import cn.rdlts.webapp.constant.PathConst;
 import cn.rdlts.webapp.constant.tiles.ViewTilesConst;
 import cn.rdlts.webapp.exception.PiWUnknownViewException;
 import cn.rdlts.webapp.vo.ProfileVO;
+import cn.rdlts.webapp.vo.ViewObjectUtils;
 
 @Controller
 @RequestMapping("/settings")
@@ -36,7 +37,7 @@ public class SettingsController {
 		Integer accountId = currentUser.getId();
 		AccountProfile accountProfile = accountProfileService.getById(accountId);
 		profileVO.setAccountId(Integer.toString(accountId));
-		profileVO.accept(accountProfile);
+		ViewObjectUtils.accept(profileVO, accountProfile);
 		
 		if (SecurityUtils.getSubject().hasRole(RoleEnum.ADMIN.getCode())) {
 			logger.info("用户是管理员，跳转到管理员个人档案设置界面。");

@@ -1,6 +1,8 @@
-package cn.rdlts.webapp.vo.admin.mgr;
+package cn.rdlts.webapp.vo.datatable;
 
 import java.io.Serializable;
+
+import org.apache.commons.lang3.StringUtils;
 
 public class AccountView implements Serializable {
 	
@@ -24,6 +26,10 @@ public class AccountView implements Serializable {
 
 	public void setId(String id) {
 		this.id = id;
+	}
+	
+	public void setFormattedId(String id, int size) {
+		this.id = StringUtils.leftPad(id, size, '0');
 	}
 
 	public String getAccountName() {

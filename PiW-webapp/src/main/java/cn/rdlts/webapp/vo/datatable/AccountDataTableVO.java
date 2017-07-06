@@ -1,8 +1,7 @@
-package cn.rdlts.webapp.vo.admin.mgr;
+package cn.rdlts.webapp.vo.datatable;
 
 import java.util.ArrayList;
-
-import cn.rdlts.webapp.vo.datatable.BaseDataTableVO;
+import java.util.List;
 
 public class AccountDataTableVO extends BaseDataTableVO<AccountView> {
 
@@ -12,6 +11,10 @@ public class AccountDataTableVO extends BaseDataTableVO<AccountView> {
 	
 	public AccountDataTableVO() {
 		// public constructor
+	}
+	
+	public AccountDataTableVO(List<AccountView> data) {
+		super.setData(data);
 	}
 	
 	public static AccountDataTableVO getEmtpyObject() {

@@ -14,14 +14,14 @@ define(['jquery', 'datatables.net', 'bootstrapDT'], function($, dtnet, dataTable
 		 * 全局管理 - 账号管理页面的初始化
 		 */
 		initFunction : function() {
-			console.log("account initialization.")
 			// 列表初始化
 			$("#dt_account_list").dataTable({
+				stateSave: true,
+				scrollX: "150%",
 				ajax: {
 			        "url": '/admin/mgr/account',
 			        "type": 'POST',
 			    },
-			    
 				columns : [
 					// 后台属性名字
 		            { "data": "id" },
@@ -29,8 +29,8 @@ define(['jquery', 'datatables.net', 'bootstrapDT'], function($, dtnet, dataTable
 		            { "data": "profileName" },
 		            { "data": "publicEmail"},
 		            { "data": "company"},
-//		            { "data": "lastLoginTime" },
-//		            { "data": "lastModifyTime" },
+		            { "data": "lastLoginTime", "width": "20%"},
+		            { "data": "lastModifyTime", "width": "20%"},
 		        ]
 			});
 		}
