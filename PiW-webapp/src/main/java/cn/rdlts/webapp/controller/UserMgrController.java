@@ -108,19 +108,25 @@ public class UserMgrController {
 	 */
 	private Optional<WebMessage> verifyForm(Account account, SettingsAccountVO settingsAccountVO) {
 		WebMessage result = null;
+		String errorMessage = null;
+		String op = settingsAccountVO.getOldPassword();
 		String np = settingsAccountVO.getNewPassword();
 		String confirm = settingsAccountVO.getConfirmPassword();
 		
 		if (StringUtils.isBlank(np)) {
-			logger.error("新密码不能为空");
-			result = WebMessage.createMessage("新密码不能为空", WebMessageTypeEnum.ERROR);
-		} else if (!np.equals(confirm)) {
-			logger.error("二次输入密码不正确");
-			result = WebMessage.createMessage("二次输入密码不正确", WebMessageTypeEnum.ERROR);
+			errorMessage = "新密码不能为空";
+		} else if (!StringUtils.equals(np, confirm)) {
+			errorMessage = "二次输入密码不正确";
 		} else if (!CiperUtils.verifyPassowrd(settingsAccountVO.getOldPassword(), account.getCredentialsSalt(), account.getPassword())) {
-			logger.error("更新密码失败：旧密码错误。");
-			result = WebMessage.createMessage("旧密码错误", WebMessageTypeEnum.ERROR);
-		} 
+			errorMessage = "更新密码失败：旧密码错误。";
+		} else if (StringUtils.equals(op, np)) {
+			errorMessage = "新旧密码不能相同。";
+		}
+		
+		if (StringUtils.isNotEmpty(errorMessage)) { 
+			logger.error(errorMessage);
+			result = WebMessage.createMessage(errorMessage, WebMessageTypeEnum.ERROR);
+		}
 		return Optional.ofNullable(result);
 	}
 	

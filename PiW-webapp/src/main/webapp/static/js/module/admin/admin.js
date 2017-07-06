@@ -5,12 +5,15 @@ require.config({
 		"jquery":["//cdn.bootcss.com/jquery/3.2.1/jquery.min", "//cdn.bootcss.com/jquery/3.2.1/jquery"],
 		"bootstrap": "//cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min",
 		"metisMenu": "//cdn.bootcss.com/metisMenu/2.7.0/metisMenu.min",
-		"datatables.net": "//cdn.bootcss.com/datatables/1.10.15/js/jquery.dataTables",
-		"bootstrapDT": "//cdn.bootcss.com/datatables/1.10.15/js/dataTables.bootstrap",
 		
 		// custom javascript
-		"dashboard": "/js/module/dashboard",
-		"stringutils":"/js/module/stringutils"
+		// module
+		"dashboard": "/js/module/admin/dashboard",
+		"mgrAccount": "/js/module/admin/mgr/account",
+		
+		// utility
+		"dtUtils": "/js/module/dt-utils",
+		"stringutils":"/js/module/string-utils"
 
 	},
 	
@@ -27,8 +30,8 @@ require.config({
 	}
 })
 
-require(['jquery', 'stringutils', 'bootstrap', 'metisMenu', 'datatables.net', 'bootstrapDT'], 
-		function($, stringutils, bootstrap, metisMenu, DTnet, bootDT) {
+require(['jquery', 'stringutils', 'bootstrap', 'metisMenu'], 
+		function($, stringutils, bootstrap, metisMenu) {
 	$(document).ready(function() {
 		// 得到当前的uri.
 		var pathname = window.location.pathname;
@@ -37,14 +40,16 @@ require(['jquery', 'stringutils', 'bootstrap', 'metisMenu', 'datatables.net', 'b
 		
 		if (pathname === "/admin/dashboard") {
 			// 加载dashboard
-			require(['dashboard'], function(dashboard){
+			require(['dashboard'], function(dashboard) {
 				dashboard.initFunction();
 			});
 		};
 		
-		if (pathname == "admin/mgr/account") {
+		if (pathname === "/admin/mgr/account") {
 			// 加载全局账号管理js
-			$('#dataTables-example').dataTable();
+			require(['mgrAccount'], function(mgrAccount) {
+				mgrAccount.initFunction();
+			});
 		}
 	});
 	

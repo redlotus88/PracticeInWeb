@@ -6,7 +6,7 @@
                 <a href="${ctx}/admin/dashboard" data-selected-link="/admin/dashboard"><i class="fa fa-dashboard"></i> 仪表盘</a>
             </li>
             <li>
-                <a href="#" data-selected-link="/admin/mgr"><i class="fa fa-desktop"></i> 全局管理<span class="fa arrow"></span></a>
+                <a href="#" data-selected-link="/admin/mgr" aria-expanded="false"><i class="fa fa-desktop"></i> 全局管理<span class="fa arrow"></span></a>
                 <ul class="nav nav-second-level">
                     <li>
                         <a href="${ctx}/admin/mgr/account" data-selected-link="/admin/mgr/account"><i class="fa fa-user fa-fw"></i>账号管理</a>
@@ -31,7 +31,7 @@
             </li>
 
             <li>    
-                <a href="#" data-selected-link="/settings"><i class="fa fa-gear fa-fw"></i> 设置<span class="fa arrow"></span></a>
+                <a href="#" data-selected-link="/settings" aria-expanded="false"><i class="fa fa-gear fa-fw"></i> 设置<span class="fa arrow"></span></a>
                 <ul class="nav nav-second-level">
                     <li>
                         <a href="${ctx}/settings/profile"

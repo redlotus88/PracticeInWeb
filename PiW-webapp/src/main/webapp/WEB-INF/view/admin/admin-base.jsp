@@ -51,6 +51,6 @@
         <!-- /. PAGE WRAPPER  -->
     </div>
     <!-- /. WRAPPER  -->
-    <script src="//cdn.bootcss.com/require.js/2.3.3/require.js" data-main="<c:url value='/js/module/admin.js'/>" ></script>
+    <script src="//cdn.bootcss.com/require.js/2.3.3/require.js" data-main="<c:url value='/js/module/admin/admin.js'/>" ></script>
 </body>
 </html>
