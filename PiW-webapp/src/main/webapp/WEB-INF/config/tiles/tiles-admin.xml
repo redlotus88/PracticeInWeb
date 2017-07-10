@@ -9,7 +9,7 @@
     </definition>
     
     <definition name="tiles.admin.home" extends="tiles.admin.base">
-        <put-attribute name="content" value="/WEB-INF/view/layout/contentExample.jsp"/>
+        <put-attribute name="content" value="/WEB-INF/view/admin/dashboard.jsp"/>
     </definition>
     
     <definition name="tiles.admin.settings.profile" extends="tiles.admin.base">

@@ -12,8 +12,6 @@
 	</typeAliases>
 	
 	<typeHandlers>  
-	    <!-- Enum类型处理 -->
-	    <typeHandler handler="org.apache.ibatis.type.EnumOrdinalTypeHandler" javaType="java.lang.Enum" />
         <!-- mybatis处理Java8的时间类型 -->
         <typeHandler handler="org.apache.ibatis.type.InstantTypeHandler" />  
         <typeHandler handler="org.apache.ibatis.type.LocalDateTimeTypeHandler" />  
@@ -34,6 +32,7 @@
 		
 		<!-- Security -->
 		<mapper resource="config/mybatis/mapper/security/RoleMapper.xml"/>
+		<mapper resource="config/mybatis/mapper/security/LoginInfoMapper.xml"/>
 	</mappers>
 	
 </configuration>

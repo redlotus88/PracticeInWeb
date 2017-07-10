@@ -18,11 +18,14 @@ public class ShiroUser implements Serializable {
 	private String accountName;
 	
 	private String profileName;
+	
+	private String host;
 
-	public ShiroUser(Integer id, String name, String profileName) {
+	public ShiroUser(Integer id, String name, String profileName, String host) {
 		this.id = id;
 		this.accountName = name;
 		this.profileName = profileName;
+		this.host = host;
 	}
 
 	public Integer getId() {
@@ -48,6 +51,14 @@ public class ShiroUser implements Serializable {
 	public void setProfileName(String profileName) {
 		this.profileName = profileName;
 	}
+	
+	public String getHost() {
+		return host;
+	}
+
+	public void setHost(String host) {
+		this.host = host;
+	}
 
 	@Override
 	public String toString() {
@@ -55,6 +66,7 @@ public class ShiroUser implements Serializable {
 					.append("id", id)
 					.append("accountName", accountName)
 					.append("profileName", profileName)
+					.append("host", host)
 					.build();
 	}
 

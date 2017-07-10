@@ -15,12 +15,19 @@ public class LoginInfo implements Serializable {
 
 	private String loginIp;
 
-	private LocalDateTime datetime;
+	private transient LocalDateTime recordTime;
 
 	private Type type;
 
 	public LoginInfo() {
 		// public constructor
+	}
+	
+	public LoginInfo(int accountId, String loginIp, LocalDateTime recordTime, Type type) {
+		this.accountId = accountId;
+		this.loginIp = loginIp;
+		this.recordTime = recordTime;
+		this.type = type;
 	}
 
 	public Long getSerial() {
@@ -39,14 +46,6 @@ public class LoginInfo implements Serializable {
 		this.accountId = accountId;
 	}
 
-	public LocalDateTime getDatetime() {
-		return datetime;
-	}
-
-	public void setDatetime(LocalDateTime datetime) {
-		this.datetime = datetime;
-	}
-
 	public String getLoginIp() {
 		return loginIp;
 	}
@@ -62,8 +61,16 @@ public class LoginInfo implements Serializable {
 	public void setType(Type type) {
 		this.type = type;
 	}
+	
+	public LocalDateTime getRecordTime() {
+		return recordTime;
+	}
 
-	enum Type {
+	public void setRecordTime(LocalDateTime recordTime) {
+		this.recordTime = recordTime;
+	}
+
+	public enum Type {
 		LOGIN("login"), LOGOUT("logout");
 		
 		private String code;

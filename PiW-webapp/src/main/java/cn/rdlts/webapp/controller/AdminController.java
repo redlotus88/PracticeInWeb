@@ -1,17 +1,15 @@
 package cn.rdlts.webapp.controller;
 
-import java.util.List;
-
 import org.apache.commons.lang3.StringUtils;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import cn.rdlts.core.usermgr.model.Account;
-import cn.rdlts.core.usermgr.model.AccountProfile;
+import cn.rdlts.core.security.service.LoginService;
 import cn.rdlts.core.usermgr.service.AccountProfileService;
 import cn.rdlts.core.usermgr.service.AccountService;
 import cn.rdlts.webapp.constant.tiles.ViewTilesConst;
@@ -32,8 +30,12 @@ public class AdminController {
 	@Autowired
 	private AccountProfileService accountProfileService;
 	
+	@Autowired
+	private LoginService loginService;
+	
 	@RequestMapping(value = "/dashboard")
-	public String home() {
+	public String home(ModelMap model) {
+		model.put("dailyVisits", loginService.getDailyVisits());
 		return ViewTilesConst.VIEW_TILES_ADMIN_HOME;
 	}
 	
@@ -50,10 +52,7 @@ public class AdminController {
 	@ResponseBody
 	public String getAccounts(AccountVO accountVO) {
 		logger.info("开始获取账号列表信息：");
-		List<Account> accounts = accountService.findAll();
-		List<AccountProfile> accountProfiles = accountProfileService.findAll();
-		
-		ViewObjectUtils.accept(accountVO, accounts, accountProfiles);
+		ViewObjectUtils.accept(accountVO, accountService.findAll(), accountProfileService.findAll(), loginService.findAllLastLoginTimeByAccount());
 		JSONObject object = JSONObject.fromObject(accountVO.getData());
 		
 		if (!object.isNullObject()) {

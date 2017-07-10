@@ -8,5 +8,4 @@ public interface SecurityService {
 	
 	Set<String> getRolesByAccountName(String accountName);
 	
-	void save(LoginInfo loginInfo);
 }

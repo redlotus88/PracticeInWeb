@@ -8,6 +8,7 @@ import java.util.stream.Collectors;
 
 import org.apache.log4j.Logger;
 
+import cn.rdlts.core.security.model.LoginInfo;
 import cn.rdlts.core.usermgr.model.Account;
 import cn.rdlts.core.usermgr.model.AccountProfile;
 import cn.rdlts.webapp.vo.datatable.AccountDataTableVO;
@@ -22,9 +23,11 @@ public final class ViewObjectUtils {
 	private ViewObjectUtils() {
 	}
 	
-	public static void accept(AccountVO accountVO, List<Account> accounts, List<AccountProfile> profiles) {
+	public static void accept(AccountVO accountVO, List<Account> accounts, List<AccountProfile> profiles, List<LoginInfo> loginInfos) {
 		Map<Integer, AccountProfile> mapProfiles = profiles.stream().collect(Collectors.toMap(AccountProfile::getId, p -> p));
-		List<AccountView> data = accounts.stream().map(account -> ViewObjectUtils.createViewWith(account, mapProfiles.get(account.getId())))
+		Map<Integer, LoginInfo> mapLoginInfos = loginInfos.stream().collect(Collectors.toMap(LoginInfo::getAccountId, p -> p));
+		List<AccountView> data = accounts.stream()
+										.map(account -> ViewObjectUtils.createViewWith(account, mapProfiles.get(account.getId()), mapLoginInfos.get(account.getId())))
 										.collect(Collectors.toList());
 		accountVO.setData(new AccountDataTableVO(data));
 	}
@@ -37,7 +40,7 @@ public final class ViewObjectUtils {
 		}
 	}
 	
-	public static AccountView createViewWith(Account account, AccountProfile profile) {
+	public static AccountView createViewWith(Account account, AccountProfile profile, LoginInfo lastLoginInfo) {
 		AccountView view = new AccountView();
 		if (account == null) {
 			return view;
@@ -49,15 +52,16 @@ public final class ViewObjectUtils {
 		
 		view.setFormattedId(Integer.toString(Optional.ofNullable(account.getId()).orElse(Integer.valueOf(-1))), 8);
 		view.setAccountName(account.getAccountName());
-		//TODO: create login time record
-		view.setLastLoginTime("2017-07-06 14:00:00");
+		if (lastLoginInfo != null && lastLoginInfo.getRecordTime() != null) {
+			view.setLastLoginTime(DateTimeFormatter.ofPattern(DATE_TIME_PATTERN).format(lastLoginInfo.getRecordTime()));
+		}
 		if (account.getLastModifyTime() != null) {
 			view.setLastModifyTime(DateTimeFormatter.ofPattern(DATE_TIME_PATTERN).format(account.getLastModifyTime()));
 		}
 		
 		if (profile != null) {
 			view.setProfileName(profile.getProfileName());
-			view.setPublicEmail(profile.getProfileName());
+			view.setPublicEmail(profile.getPublicEmail());
 			view.setCompany(profile.getCompany());
 		}
 		return view;

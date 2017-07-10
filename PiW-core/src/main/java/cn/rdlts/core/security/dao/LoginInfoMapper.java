@@ -1,20 +1,18 @@
 package cn.rdlts.core.security.dao;
 
+import java.util.List;
+
 import org.springframework.stereotype.Repository;
 
 import cn.rdlts.common.dao.BaseMapper;
 import cn.rdlts.core.security.model.LoginInfo;
 
 @Repository
-public interface LoginInfoMapper extends BaseMapper<LoginInfo, Integer> {
+public interface LoginInfoMapper extends BaseMapper<LoginInfo, Long> {
 	
-	@Override
-	default int delete(LoginInfo entity) {
-		throw new UnsupportedOperationException("不支持删除登录信息");
-	}
+	int getDailyVisits();
 	
-	@Override
-	default int update(LoginInfo entity) {
-		throw new UnsupportedOperationException("不支持更新登录信息");
-	}
+	List<LoginInfo> findAllBy(int accountId);
+	
+	List<LoginInfo> findAllLastLoginTimeByAccount();
 }

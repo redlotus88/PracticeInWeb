@@ -19,7 +19,7 @@ public class PiWGlobalExceptionHandler {
 	@ResponseStatus(value=HttpStatus.NOT_FOUND, reason="Web Error occured")
 	@ExceptionHandler(value={AbstractPiWException.class, AbstractPiWRuntimeException.class})
 	public ModelAndView handleDefaultError(Exception ex) {
-		logger.warn("处理全局错误：\n" + ex.getMessage());
+		logger.warn("处理全局错误：\n" + ex.getMessage(), ex);
 		ModelAndView mav = new ModelAndView();
 		mav.addObject("errorMessage", ex.getMessage());
 		mav.setViewName(ViewConst.VIEW_ERROR);
@@ -32,7 +32,7 @@ public class PiWGlobalExceptionHandler {
 	@ResponseStatus(value=HttpStatus.NOT_FOUND, reason="Error occured")  
     @ExceptionHandler(Exception.class)  
     public String handleIOException(Exception e){  
-		logger.error("发生未知错误:" + e.getMessage());
+		logger.error("发生未知错误:" + e.getMessage(), e);
 		return "redirect:/static/error/error.html";
     } 
 	

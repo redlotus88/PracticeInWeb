@@ -1,8 +1,10 @@
 package cn.rdlts.webapp.shiro;
 
+import java.time.LocalDateTime;
 import java.util.Optional;
 import java.util.Set;
 
+import org.apache.commons.lang3.StringUtils;
 import org.apache.log4j.Logger;
 import org.apache.shiro.authc.AuthenticationException;
 import org.apache.shiro.authc.AuthenticationInfo;
@@ -17,6 +19,9 @@ import org.apache.shiro.subject.PrincipalCollection;
 import org.apache.shiro.util.ByteSource;
 import org.springframework.beans.factory.annotation.Autowired;
 
+import cn.rdlts.core.security.model.LoginInfo;
+import cn.rdlts.core.security.model.LoginInfo.Type;
+import cn.rdlts.core.security.service.LoginService;
 import cn.rdlts.core.security.service.SecurityService;
 import cn.rdlts.core.usermgr.model.Account;
 import cn.rdlts.core.usermgr.model.AccountProfile;
@@ -38,6 +43,9 @@ public class PiWShiroAuthorizingRealm extends AuthorizingRealm {
 	@Autowired
 	private SecurityService securityService;
 	
+	@Autowired
+	private LoginService loginService;
+	
 	/**
 	 * 授权查询回调函数, 进行鉴权但缓存中无用户的授权信息时调用
 	 */
@@ -55,11 +63,15 @@ public class PiWShiroAuthorizingRealm extends AuthorizingRealm {
 		String accountName = account.getAccountName();
 		// 角色赋予
 		Set<String> roles = securityService.getRolesByAccountName(accountName);
-		logger.info("用户[" + accountName + "]角色：" + roles);
+		logger.info(StringUtils.join("用户[", accountName, "]角色：", roles));
 		simpleAuthorInfo.setRoles(roles);
 		// 权限赋予
-		logger.info("用户[" + accountName + "]权限: ");
+		logger.info(StringUtils.join("用户[", accountName, "]权限: "));
 //		authorizationInfo.setStringPermissions(userService.findPermissions(username));
+		
+		logger.info("记录登录信息：");
+		loginService.save(new LoginInfo(account.getId(), shiroUser.getHost(), LocalDateTime.now(), Type.LOGIN));
+		
 		logger.info("权限认证结束");
 		return simpleAuthorInfo;
 	}
@@ -80,7 +92,7 @@ public class PiWShiroAuthorizingRealm extends AuthorizingRealm {
 		AccountProfile accountProfile = Optional.ofNullable(accountProfileService.getById(account.getId()))
 												.orElse(new EmptyAccountProfile(username));
 		
-		return new SimpleAuthenticationInfo(new ShiroUser(account.getId(), account.getAccountName(), accountProfile.getProfileName()), account.getPassword(), 
+		return new SimpleAuthenticationInfo(new ShiroUser(account.getId(), account.getAccountName(), accountProfile.getProfileName(), token.getHost()), account.getPassword(), 
 				ByteSource.Util.bytes(account.getCredentialsSalt()), getName());
 	}
 

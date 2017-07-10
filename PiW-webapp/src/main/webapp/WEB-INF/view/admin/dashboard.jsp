@@ -1,5 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <div class="row">
     <div class="col-md-12">
         <h1 class="page-header">
@@ -14,11 +14,10 @@
         <div class="panel panel-primary text-center no-boder bg-color-green">
             <div class="panel-body">
                 <i class="fa fa-bar-chart-o fa-5x"></i>
-                <h3>8,457</h3>
+                <h3>${dailyVisits}</h3>
             </div>
             <div class="panel-footer back-footer-green">
                 Daily Visits
-
             </div>
         </div>
     </div>

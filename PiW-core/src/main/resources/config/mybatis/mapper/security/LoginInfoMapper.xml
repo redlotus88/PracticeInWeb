@@ -5,16 +5,16 @@
         <id column="serial" property="serial" jdbcType="BIGINT"/>
         <result column="account_id" property="accountId" jdbcType="INTEGER"/>
         <result column="login_ip" property="loginIp" jdbcType="VARCHAR"/>
-        <result column="datetime" property="datetime" jdbcType="TIMESTAMP"/>
-        <result column="type" property="type" jdbcType="TINYINT"/>
+        <result column="record_time" property="recordTime" jdbcType="TIMESTAMP"/>
+        <result column="type" property="type" typeHandler="org.apache.ibatis.type.EnumOrdinalTypeHandler"/>
     </resultMap>
 
     <sql id="Query_Column_List">
-        serial, account_id, login_ip, datetime, type
+        serial, account_id, login_ip, record_time, type
     </sql>
     
     <sql id="Create_Column_List">
-        account_id, login_ip, datetime, type
+        account_id, login_ip, record_time, type
     </sql>
     
     <!-- BaseMapper definition -->
@@ -31,11 +31,26 @@
     
     <insert id="save" parameterType="cn.rdlts.core.security.model.LoginInfo" useGeneratedKeys="true" keyProperty="serial">
         insert into piw_security_login_info (<include refid="Create_Column_List"/>)
-        values(#{account_id}, #{login_ip}, #{datetime}, #{type})
+        values(#{accountId}, #{loginIp}, #{recordTime}, #{type, typeHandler=org.apache.ibatis.type.EnumOrdinalTypeHandler})
     </insert>
     
-    <delete id="delete" parameterType="cn.rdlts.core.security.model.LoginInfo">
-        delete from piw_security_login_info where serial=#{serial}
-    </delete>
+    <select id="getDailyVisits" resultType="int">
+        <![CDATA[ 
+            select count(*) 
+            from piw_security_login_info 
+            where record_time >= CURDATE()
+                    and record_time < date_add(CURDATE(), interval 1 day) and type=0 ]]>
+    </select>
+    
+    <select id="findAllBy" resultMap="BaseResultMap" resultType="cn.rdlts.core.security.model.LoginInfo" parameterType="java.lang.Integer">
+        select * from piw_security_login_info where account_id = #{accountId}
+    </select>
+    
+    <select id="findAllLastLoginTimeByAccount" resultMap="BaseResultMap" resultType="cn.rdlts.core.security.model.LoginInfo">
+        select <include refid="Query_Column_List" />
+        from piw_security_login_info a
+        where record_time = (select max(record_time) from piw_security_login_info b where a.account_id = b.account_id)
+    </select>
+    
     <!-- BaseMapper definition end -->
 </mapper>

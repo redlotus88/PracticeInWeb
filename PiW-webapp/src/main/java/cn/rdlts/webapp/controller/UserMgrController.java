@@ -41,39 +41,16 @@ public class UserMgrController {
 	@Autowired
 	private AccountProfileService accountProfileService;
 	
-	@RequestMapping(value="profile/{id}", method=RequestMethod.GET)
-	public String toAccountProfile(@PathVariable String id) {
-		logger.info("跳转到个人档案页面。");
-		return ViewConst.REDIRECT_SETTINGS_PROFILE;
-	}
-	
-	@RequestMapping(value="profile/{id}", method=RequestMethod.POST)
-	public String updateProfile(@PathVariable String id, ProfileVO profileVO, RedirectAttributes model) {
-		logger.info("更新["+ id + "]的个人文档。");
-		String invalidPath = checkAccountConsistency(id, "/settings/profile");
-		if (StringUtils.isNotEmpty(invalidPath)) {
-			return invalidPath;
-		}
-		
-		AccountProfile ap = new AccountProfile();
-		ap.setId(Integer.parseInt(id));
-		ViewObjectUtils.decorate(profileVO, ap);
-		int result;
-		if (accountProfileService.exist(ap)) {
-			result = accountProfileService.update(ap);
-		} else {
-			result = accountProfileService.save(ap);
-		}
-		
-		model.addFlashAttribute(ATT_MESSAGE, WebMessage.createMessage("更新档案成功", WebMessageTypeEnum.SUCCESS));
-		logger.info("更新完毕。影响数据库行数：" + result);
-		return ViewConst.REDIRECT_SETTINGS_PROFILE;
-	}
-	
 	@RequestMapping(value="account/{id}", method=RequestMethod.GET)
 	public String toAccount() {
 		logger.info("跳转到个人账号页面。");
 		return ViewConst.REDIRECT_SETTINGS_ACCOUNT;
+	}
+
+	@RequestMapping(value="profile/{id}", method=RequestMethod.GET)
+	public String toAccountProfile(@PathVariable String id) {
+		logger.info("跳转到个人档案页面。");
+		return ViewConst.REDIRECT_SETTINGS_PROFILE;
 	}
 	
 	@RequestMapping(value="account/{id}", method=RequestMethod.POST)
@@ -98,6 +75,29 @@ public class UserMgrController {
 		model.addFlashAttribute(ATT_MESSAGE, message.orElse(WebMessage.createMessage("更新密码失败", WebMessageTypeEnum.ERROR)));
 		model.addFlashAttribute("accountVO", settingsAccountVO);
 		return ViewConst.REDIRECT_SETTINGS_ACCOUNT;
+	}
+
+	@RequestMapping(value="profile/{id}", method=RequestMethod.POST)
+	public String updateProfile(@PathVariable String id, ProfileVO profileVO, RedirectAttributes model) {
+		logger.info("更新["+ id + "]的个人文档。");
+		String invalidPath = checkAccountConsistency(id, "/settings/profile");
+		if (StringUtils.isNotEmpty(invalidPath)) {
+			return invalidPath;
+		}
+		
+		AccountProfile ap = new AccountProfile();
+		ap.setId(Integer.parseInt(id));
+		ViewObjectUtils.decorate(profileVO, ap);
+		int result;
+		if (accountProfileService.exist(ap)) {
+			result = accountProfileService.update(ap);
+		} else {
+			result = accountProfileService.save(ap);
+		}
+		
+		model.addFlashAttribute(ATT_MESSAGE, WebMessage.createMessage("更新档案成功", WebMessageTypeEnum.SUCCESS));
+		logger.info("更新完毕。影响数据库行数：" + result);
+		return ViewConst.REDIRECT_SETTINGS_PROFILE;
 	}
 	
 	/**

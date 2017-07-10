@@ -24,7 +24,6 @@ public class RoleDaoTest {
 	
 	private static final String DESCRIPTION_TEST = "test";
 	
-	
 	@Autowired
 	private RoleMapper roleMapper;
 	
