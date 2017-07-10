@@ -33,6 +33,8 @@
 		<module>../PiW-common</module>
 		<!-- Shiro模块实现代码 -->
 		<module>../PiW-shiro</module>
+		<!-- Jobs模块 -->
+		<module>../PiW-jobs</module>
 	</modules>
 
 	<build>
