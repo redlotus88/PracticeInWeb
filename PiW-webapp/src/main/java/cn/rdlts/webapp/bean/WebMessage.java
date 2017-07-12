@@ -46,6 +46,10 @@ public class WebMessage {
 	public String getType() {
 		return type.getCode();
 	}
+	
+	public String getBootstrapType() {
+		return type.getBootstrapCode();
+	}
 
 	public void setType(WebMessageTypeEnum type) {
 		this.type = type;

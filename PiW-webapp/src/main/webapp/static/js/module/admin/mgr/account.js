@@ -17,6 +17,7 @@ define(['jquery', 'datatables.net', 'bootstrapDT'], function($, dtnet, dataTable
 			// 列表初始化
 			$("#dt_account_list").dataTable({
 				stateSave: true,
+				scrollX: "150%",
 				ajax: {
 			        "url": '/admin/mgr/account',
 			        "type": 'POST',

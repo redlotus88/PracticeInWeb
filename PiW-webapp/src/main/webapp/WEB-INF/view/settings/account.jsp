@@ -38,9 +38,9 @@
                 </dd>
             </dl>
             <c:if test="${not empty message}">
-                <p class="${message.type}">
+                <div class="alert alert-${message.bootstrapType}">
                    ${message.content}
-                </p>
+                </div>
             </c:if>
             <p>
                 <button type="submit" class="btn btn-primary">修改密码</button>

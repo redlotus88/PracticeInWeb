@@ -39,7 +39,7 @@
                        <!--TODO:  <a id="iforget" href="javascript:void(0);">忘记密码？(功能未实现)</a> -->
                     </p>
                     <c:if test="${not empty errorMessage}">
-                        <span class="${errorMessage['type']}">${errorMessage['message']}</span>
+                        <div class="${errorMessage['type']}">${errorMessage['message']}</div>
                     </c:if>
                     <div class="rem_sub">
                         <div class="rem_sub_l">

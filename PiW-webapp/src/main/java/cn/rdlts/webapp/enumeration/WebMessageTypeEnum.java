@@ -6,12 +6,20 @@ import org.apache.commons.lang3.StringUtils;
 
 public enum WebMessageTypeEnum {
 	
-	INFO("info"), SUCCESS("success"), WARNING("warning"), ERROR("error");
+	INFO("info"), SUCCESS("success"), WARNING("warning"), ERROR("error", "danger");
 	
 	private String code;
 	
+	private String bootstrapCode;
+	
 	private WebMessageTypeEnum(String code) {
 		this.code = code;
+		this.bootstrapCode = code;
+	}
+	
+	private WebMessageTypeEnum(String code, String bootstrapCode) {
+		this.code = code;
+		this.bootstrapCode = bootstrapCode;
 	}
 	
 	public static Optional<WebMessageTypeEnum> resolve(String type) {
@@ -29,5 +37,9 @@ public enum WebMessageTypeEnum {
 	
 	public String getCode() {
 		return code;
+	}
+	
+	public String getBootstrapCode() {
+		return bootstrapCode;
 	}
 }
