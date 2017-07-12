@@ -17,7 +17,15 @@ public abstract class BaseDataTableVO<T extends Serializable> implements Seriali
 	private String[] columns;
 	
 	private List<T> data = new ArrayList<>();
-
+	
+	public BaseDataTableVO() {
+		
+	}
+	
+	public BaseDataTableVO(List<T> data) {
+		this.data = data;
+	}
+	
 	public String[] getColumns() {
 		return columns;
 	}
@@ -33,4 +41,5 @@ public abstract class BaseDataTableVO<T extends Serializable> implements Seriali
 	public void setData(List<T> data) {
 		this.data = data;
 	}
+	
 }

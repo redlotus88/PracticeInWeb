@@ -10,6 +10,7 @@ require.config({
 		// module
 		"dashboard": "/js/module/admin/dashboard",
 		"mgrAccount": "/js/module/admin/mgr/account",
+		"mgrRole": "/js/module/admin/mgr/role",
 		
 		// utility
 		"dtUtils": "/js/module/dt-utils",
@@ -49,6 +50,12 @@ require(['jquery', 'stringutils', 'bootstrap', 'metisMenu'],
 			// 加载全局账号管理js
 			require(['mgrAccount'], function(mgrAccount) {
 				mgrAccount.initFunction();
+			});
+		}
+		
+		if (pathname === "/admin/mgr/role") {
+			require(['mgrRole'], function(mgrRole) {
+				mgrRole.initFunction();
 			});
 		}
 	});

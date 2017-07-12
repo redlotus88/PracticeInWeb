@@ -10,6 +10,8 @@ public class ViewTilesConst {
 	
 	public static final String VIEW_TILES_ADMIN_MGR_ACCOUNT = "tiles.admin.mgr.account";
 	
+	public static final String VIEW_TILES_ADMIN_MGR_ROLE = "tiles.admin.mgr.role";
+	
 	private ViewTilesConst() {
 	}
 }

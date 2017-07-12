@@ -3,6 +3,8 @@ package cn.rdlts.webapp.vo.datatable;
 import java.util.ArrayList;
 import java.util.List;
 
+import cn.rdlts.webapp.vo.datatable.view.AccountView;
+
 public class AccountDataTableVO extends BaseDataTableVO<AccountView> {
 
 	private static final long serialVersionUID = 3955609939637312742L;

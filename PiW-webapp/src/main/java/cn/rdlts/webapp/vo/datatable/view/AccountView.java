@@ -1,8 +1,9 @@
-package cn.rdlts.webapp.vo.datatable;
+package cn.rdlts.webapp.vo.datatable.view;
 
 import java.io.Serializable;
 
 import org.apache.commons.lang3.StringUtils;
+import org.apache.commons.lang3.builder.ToStringBuilder;
 
 public class AccountView implements Serializable {
 	
@@ -78,5 +79,10 @@ public class AccountView implements Serializable {
 
 	public void setLastModifyTime(String lastModifyTime) {
 		this.lastModifyTime = lastModifyTime;
+	}
+	
+	@Override
+	public String toString() {
+		return ToStringBuilder.reflectionToString(this);
 	}
 }

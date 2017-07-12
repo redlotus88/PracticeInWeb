@@ -15,10 +15,11 @@ define(['jquery', 'datatables.net', 'bootstrapDT'], function($, dtnet, dataTable
 		 */
 		initFunction : function() {
 			// 列表初始化
-			$("#dt_account_list").dataTable({
+			$("#dt_role_list").dataTable({
 				stateSave: true,
+				autowidth: true,
 				ajax: {
-			        "url": '/admin/mgr/account',
+			        "url": '/admin/mgr/role',
 			        "type": 'POST',
 			    },
 				columns : [
@@ -26,10 +27,8 @@ define(['jquery', 'datatables.net', 'bootstrapDT'], function($, dtnet, dataTable
 		            { "data": "id" },
 		            { "data": "accountName" },
 		            { "data": "profileName" },
-		            { "data": "publicEmail"},
-		            { "data": "company"},
-		            { "data": "lastLoginTime", "width": "20%"},
-		            { "data": "lastModifyTime", "width": "20%"},
+		            { "data": "role"},
+		            { "data": "description"},
 		        ]
 			});
 		}

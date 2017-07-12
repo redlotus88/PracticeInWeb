@@ -5,7 +5,7 @@
 <div class="row">
     <div class="col-md-12">
         <h1 class="page-header">
-            全局账号管理 <small>Account Management</small>
+            全局角色管理 <small>Role Management</small>
         </h1>
     </div>
 </div> 
@@ -16,20 +16,18 @@
         <!-- Advanced Tables -->
         <div class="panel panel-default">
             <div class="panel-heading">
-                 账号列表
+                 角色列表
             </div>
             <div class="panel-body">
                 <div class="table-responsive">
-                    <table class="table table-striped table-bordered table-hover" id="dt_account_list">
+                    <table class="table table-striped table-bordered table-hover" id="dt_role_list">
                         <thead>
                             <tr>
                                 <th>ID</th>
                                 <th>账号</th>
                                 <th>档案名</th>
-                                <th>Email</th>
-                                <th>公司</th>
-                                <th>最后登录时间</th>
-                                <th>最后更新时间</th>
+                                <th>角色</th>
+                                <th>角色信息</th>
                             </tr>
                         </thead>
                     </table>
