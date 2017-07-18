@@ -18,6 +18,8 @@ public final class ViewConst {
 	
 	public static final String REDIRECT_SETTINGS_ACCOUNT = "redirect:/settings/account";
 	
+	public static final String REDIRECT_MGR_GLOBAL_ACCOUNT = "redirect:/admin/mgr/account";
+	
 	public static final String VIEW_ERROR = "common/error";
 	
 	private ViewConst() {

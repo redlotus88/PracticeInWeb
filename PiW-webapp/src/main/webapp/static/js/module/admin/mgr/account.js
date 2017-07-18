@@ -4,12 +4,22 @@ require.config({
 		"jquery":["//cdn.bootcss.com/jquery/3.2.1/jquery.min", "//cdn.bootcss.com/jquery/3.2.1/jquery"],
 		"datatables.net": "//cdn.bootcss.com/datatables/1.10.15/js/jquery.dataTables",
 		"bootstrapDT": "//cdn.bootcss.com/datatables/1.10.15/js/dataTables.bootstrap",
+		"bootstrap-select": "//cdn.bootcss.com/bootstrap-select/1.12.3/js/bootstrap-select.min",
 	},
 });
 
-define(['jquery', 'datatables.net', 'bootstrapDT'], function($, dtnet, dataTable) {
+define(['jquery', 'datatables.net', 'bootstrapDT', 'bootstrap-select'], function($, dtnet, dataTable, btselect) {
 	"use strict"
+	
+	function loadRoles(selector) {
+		selector.selectpicker({
+			'selectedText': 'admin',
+			'size': 8,
+		});
+	}
+	
 	return {
+		
 		/*
 		 * 全局管理 - 账号管理页面的初始化
 		 */
@@ -33,6 +43,10 @@ define(['jquery', 'datatables.net', 'bootstrapDT'], function($, dtnet, dataTable
 		            { "data": "lastModifyTime", "width": "20%"},
 		        ]
 			});
-		}
+			
+			$("#addModal").on("shown.bs.modal", function() {
+				loadRoles($("#roleType"));
+			});
+		},
 	};
 });

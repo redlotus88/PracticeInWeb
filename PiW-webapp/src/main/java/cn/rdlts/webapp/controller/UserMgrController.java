@@ -100,6 +100,14 @@ public class UserMgrController {
 		return ViewConst.REDIRECT_SETTINGS_PROFILE;
 	}
 	
+	@RequestMapping(value="globalAccount", method=RequestMethod.POST)
+	public String addGlobalAccount(RedirectAttributes model) {
+		logger.info("开始添加全局账号：");
+		
+		model.addFlashAttribute(ATT_MESSAGE, WebMessage.createMessage("添加新账号成功", WebMessageTypeEnum.SUCCESS));
+		return ViewConst.REDIRECT_MGR_GLOBAL_ACCOUNT;
+	}
+	
 	/**
 	 * 校验修改密码表单
 	 * 

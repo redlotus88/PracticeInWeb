@@ -35,6 +35,8 @@
 		<module>../PiW-shiro</module>
 		<!-- Jobs模块 -->
 		<module>../PiW-jobs</module>
+		<!-- python模块 -->
+		<module>../PiW-python</module>
 	</modules>
 
 	<build>

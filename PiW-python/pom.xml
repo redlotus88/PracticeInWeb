@@ -1,0 +1,28 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	
+	<parent>
+        <groupId>cn.rdlts</groupId>
+        <artifactId>PiW-root</artifactId>
+        <version>0.0.4-SNAPSHOT</version>
+        <relativePath>../PiW-root</relativePath>
+    </parent>
+    
+	<artifactId>PiW-python</artifactId>
+	<name>PiW-python</name>
+	<description>python in java version</description>
+
+    <properties>
+        <!-- Jython版本定义 -->
+        <jython.version></jython.version>        
+    </properties>
+
+	<dependencies>
+	<dependency>
+		<groupId>org.python</groupId>
+		<artifactId>jython-standalone</artifactId>
+		<version>2.7.1</version>
+	</dependency>
+</dependencies>
+</project>
