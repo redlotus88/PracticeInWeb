@@ -65,11 +65,8 @@
                     <div>
 	                    <p>密码 : &nbsp<label><input type="password" class="txt_input" name="password" id="password" maxlength="16" value="${loginVO['password']}" placeholder="密码" autocomplete="off" required></label></p>
                     </div>
-                    <div class="col-md-12">
-                        <div class="col-md-3">角色 : &nbsp</div>
-                        <div class="col-md-5">
-                            <select id="roleType" class="selectpicker show-tick form-control" multiple data-live-search="false"><option>Mustard</option></select>
-                        </div>
+                    <div>
+                        <p>角色 : &nbsp <select id="roleType" class="modal-role-selection selectpicker show-tick form-control" multiple data-live-search="false"><option>Mustard</option></select></p>
                     </div>
 				</div>
 				<div class="modal-footer">

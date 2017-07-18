@@ -111,5 +111,5 @@ th {
 }
 
 .modal-role-selection {
-	float:left;
+	width:180px !important;
 }
