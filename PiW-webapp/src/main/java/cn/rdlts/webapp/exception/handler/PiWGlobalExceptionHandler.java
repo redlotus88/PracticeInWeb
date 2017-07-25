@@ -31,9 +31,8 @@ public class PiWGlobalExceptionHandler {
 	 */
 	@ResponseStatus(value=HttpStatus.NOT_FOUND, reason="Error occured")  
     @ExceptionHandler(Exception.class)  
-    public String handleIOException(Exception e){  
+    public void handleIOException(Exception e){  
 		logger.error("发生未知错误:" + e.getMessage(), e);
-		return "redirect:/static/error/error.html";
     } 
 	
 	

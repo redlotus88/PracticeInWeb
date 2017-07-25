@@ -1,5 +1,8 @@
 package cn.rdlts.webapp.controller;
 
+import java.util.List;
+import java.util.stream.Collectors;
+
 import org.apache.commons.lang3.StringUtils;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,6 +12,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import cn.rdlts.common.json.JSONUtils;
+import cn.rdlts.core.security.model.Role;
 import cn.rdlts.core.security.service.LoginService;
 import cn.rdlts.core.security.service.SecurityService;
 import cn.rdlts.core.usermgr.service.AccountProfileService;
@@ -45,13 +50,8 @@ public class AdminController {
 	}
 	
 	@RequestMapping(value = "/mgr/account", method = RequestMethod.GET)
-	public String toManageAccount() {
+	public String toManageAccount(AccountVO accountVO) {
 		return ViewTilesConst.VIEW_TILES_ADMIN_MGR_ACCOUNT;
-	}
-	
-	@RequestMapping(value = "/mgr/role", method = RequestMethod.GET)
-	public String toManagerRole() {
-		return ViewTilesConst.VIEW_TILES_ADMIN_MGR_ROLE;
 	}
 	
 	/**
@@ -74,6 +74,11 @@ public class AdminController {
 		return object.toString();
 	}
 	
+	@RequestMapping(value = "/mgr/role", method = RequestMethod.GET)
+	public String toManagerRole() {
+		return ViewTilesConst.VIEW_TILES_ADMIN_MGR_ROLE;
+	}
+	
 	@RequestMapping(value= "/mgr/role", method = RequestMethod.POST)
 	@ResponseBody
 	public String getRoles(RoleVO roleVO) {
@@ -89,5 +94,15 @@ public class AdminController {
 		}
 		return object.toString();
 	}
+	
+	@RequestMapping(value = "/mgr/roles", method = RequestMethod.GET)
+	@ResponseBody
+	public String getAllRoles() {
+		List<Role> roles = securityService.findAllRoles();
+		List<String> codes = roles.stream().map(Role::getCode).collect(Collectors.toList());
+		logger.info(StringUtils.join("获取所有角色信息：", codes));
+		return JSONUtils.toJSON(codes);
+	}
+	
 	
 }

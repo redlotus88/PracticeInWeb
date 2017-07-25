@@ -59,4 +59,16 @@
         from piw_usermgr_role role right outer join piw_usermgr_account_role acc_role on role.id = acc_role.role_id left outer join piw_usermgr_account account on acc_role.account_id = account.id
         where account.account_name = #{accountName}
     </select>
+    
+    <insert id="addRolesToAccount" parameterType="cn.rdlts.core.security.model.AccountRole">
+        insert into piw_usermgr_account_role(account_id, role_id)
+        values
+        <foreach collection="roles" item="item" index="index" separator=",">
+            (#{account.id, jdbcType=INTEGER}, #{item.id, jdbcType=INTEGER})
+        </foreach>
+    </insert>
+    
+    <select id="exist" resultType="boolean" parameterType="cn.rdlts.core.security.model.Role">
+        <![CDATA[ select count(1) from piw_usermgr_role where id=#{id} or code = #{code} ]]> 
+    </select>
 </mapper>

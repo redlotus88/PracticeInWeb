@@ -10,8 +10,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import cn.rdlts.core.security.dao.RoleMapper;
+import cn.rdlts.core.security.model.AccountRole;
 import cn.rdlts.core.security.model.Role;
 import cn.rdlts.core.security.service.SecurityService;
+import cn.rdlts.core.usermgr.model.Account;
 
 @Service("securityService")
 public class SecurityServiceLocalImpl implements SecurityService {
@@ -20,6 +22,10 @@ public class SecurityServiceLocalImpl implements SecurityService {
 	
 	@Autowired
 	private RoleMapper roleMapper;
+	
+	public Role getRole(String codeRole) {
+		return roleMapper.getByCode(codeRole);
+	}
 	
 	@Override
 	public Set<String> getRolesByAccountName(String accountName) {
@@ -32,5 +38,21 @@ public class SecurityServiceLocalImpl implements SecurityService {
 	public List<Role> findAllRoles() {
 		logger.info("获取所有角色信息...");
 		return roleMapper.findAll();
+	}
+
+	@Override
+	public int addRolesToAccount(List<Role> roles, Account account) {
+		AccountRole ar = new AccountRole(account, roles);
+		return roleMapper.addRolesToAccount(ar);
+	}
+
+	@Override
+	public boolean exist(Role role) {
+		return roleMapper.exist(role);
+	}
+
+	@Override
+	public boolean existRole(String codeRole) {
+		return roleMapper.exist(new Role(codeRole));
 	}
 }

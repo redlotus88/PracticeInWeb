@@ -14,6 +14,11 @@ public class Role implements Serializable {
 	private String description;
 	
 	public Role() {
+		this(null, null);
+	}
+	
+	public Role(String code) {
+		this(code, null);
 	}
 	
 	public Role(String code, String description) {

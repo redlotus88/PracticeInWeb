@@ -31,6 +31,15 @@
     <mvc:resources mapping="/css/**" location="/static/css/"/> 
     <mvc:resources mapping="/error/**" location="/static/error/" />
     <mvc:resources mapping="/image/**" location="/static/image/" />
+    
+    <!-- 解除对静态资源的拦截-->
+<!--     <mvc:interceptors> -->
+<!--         <mvc:interceptor> -->
+<!--             <mvc:mapping path="/**/*"/> -->
+<!--             <mvc:exclude-mapping path="/static/**/*.html" /> -->
+<!--             <bean class="cn.rdlts.webapp.interceptor.VisitInterceptor"></bean> -->
+<!--         </mvc:interceptor> -->
+<!--     </mvc:interceptors> -->
 
 <!--     Apache Tiles 3 视图配置 -->
 	<bean id="tilesViewResolver" class="org.springframework.web.servlet.view.UrlBasedViewResolver">
@@ -54,5 +63,4 @@
         <property name="suffix" value=".jsp"></property>  
         <property name="order" value="1"/>
     </bean>  
-    
 </beans>

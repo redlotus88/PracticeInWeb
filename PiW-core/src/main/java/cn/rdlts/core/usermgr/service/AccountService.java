@@ -13,9 +13,13 @@ public interface AccountService {
 	
 	List<Account> findAll();
 	
-	Integer save(final Account account);
+	int save(final Account account);
+	
+	int save(final Account account, final List<Role> roles);
 	
 	boolean exist(final Account account);
+	
+	boolean exist(String accountName);
 	
 	int update(final Account account);
 	

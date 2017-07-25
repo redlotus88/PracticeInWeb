@@ -18,9 +18,9 @@ public class Account implements Serializable {
 	
 	private transient String salt;
 	
-	private LocalDateTime createTime;
+	private transient LocalDateTime createTime;
 	
-	private LocalDateTime lastModifyTime;
+	private transient LocalDateTime lastModifyTime;
 
 	public Account() {
 	}

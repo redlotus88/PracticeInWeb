@@ -4,11 +4,15 @@ import java.util.List;
 
 import org.apache.commons.lang3.StringUtils;
 import org.apache.log4j.Logger;
+import org.apache.shiro.util.CollectionUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import cn.rdlts.core.constant.ServiceConstants;
+import cn.rdlts.core.security.dao.RoleMapper;
+import cn.rdlts.core.security.model.AccountRole;
 import cn.rdlts.core.security.model.Role;
+import cn.rdlts.core.security.model.RoleEnum;
 import cn.rdlts.core.usermgr.dao.AccountMapper;
 import cn.rdlts.core.usermgr.model.Account;
 import cn.rdlts.core.usermgr.service.AccountService;
@@ -21,6 +25,9 @@ public class AccountServiceLocalImpl implements AccountService {
 	
 	@Autowired
 	private AccountMapper accountMapper;
+	
+	@Autowired
+	private RoleMapper roleMapper;
 	
 	@Override
 	public Account getById(Integer id) {
@@ -39,7 +46,7 @@ public class AccountServiceLocalImpl implements AccountService {
 	}
 
 	@Override
-	public Integer save(final Account account) {
+	public int save(final Account account) {
 		logger.info(StringUtils.join("保存用户信息：", account));
 		if (exist(account)) {
 			logger.error(StringUtils.join("已存在用户[", account.getAccountName(), "], 无法创建"));
@@ -51,10 +58,27 @@ public class AccountServiceLocalImpl implements AccountService {
 		logger.info(StringUtils.join("保存结束。影响", Integer.toString(affectedRow), "行"));
 		return affectedRow;
 	}
+	
+	@Override
+	public int save(Account account, List<Role> roles) {
+		int result = save(account);
+		if (CollectionUtils.isEmpty(roles)) {
+			Role guestRole = roleMapper.getByCode(RoleEnum.GUEST.getCode());
+			roles.add(guestRole);
+		}
+		
+		roleMapper.addRolesToAccount(new AccountRole(account, roles));
+		return result;
+	}
 
 	@Override
 	public boolean exist(final Account account) {
 		return accountMapper.exist(account);
+	}
+	
+	@Override
+	public boolean exist(String accountName) {
+		return accountMapper.exist(new Account(accountName));
 	}
 
 	@Override
@@ -71,4 +95,5 @@ public class AccountServiceLocalImpl implements AccountService {
 		// TODO Auto-generated method stub
 		return null;
 	}
+
 }

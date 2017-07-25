@@ -111,5 +111,10 @@ th {
 }
 
 .modal-role-selection {
-	width:180px !important;
+	display: none;
+	width: 200px !important;
+}
+
+.table.dataTable tbody tr.selected {
+	background-color: #B0BED9;
 }

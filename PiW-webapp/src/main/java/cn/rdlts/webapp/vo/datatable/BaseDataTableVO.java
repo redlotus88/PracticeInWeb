@@ -19,7 +19,6 @@ public abstract class BaseDataTableVO<T extends Serializable> implements Seriali
 	private List<T> data = new ArrayList<>();
 	
 	public BaseDataTableVO() {
-		
 	}
 	
 	public BaseDataTableVO(List<T> data) {

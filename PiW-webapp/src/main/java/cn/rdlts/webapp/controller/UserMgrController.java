@@ -1,7 +1,13 @@
 package cn.rdlts.webapp.controller;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+import java.util.Objects;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
+import org.apache.commons.lang.ArrayUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,6 +18,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import org.springframework.web.servlet.view.InternalResourceViewResolver;
 
+import cn.rdlts.core.security.model.Role;
+import cn.rdlts.core.security.service.SecurityService;
 import cn.rdlts.core.usermgr.model.Account;
 import cn.rdlts.core.usermgr.model.AccountProfile;
 import cn.rdlts.core.usermgr.service.AccountProfileService;
@@ -23,6 +31,7 @@ import cn.rdlts.webapp.bean.WebMessage;
 import cn.rdlts.webapp.constant.PathConst;
 import cn.rdlts.webapp.constant.ViewConst;
 import cn.rdlts.webapp.enumeration.WebMessageTypeEnum;
+import cn.rdlts.webapp.vo.AccountVO;
 import cn.rdlts.webapp.vo.ProfileVO;
 import cn.rdlts.webapp.vo.SettingsAccountVO;
 import cn.rdlts.webapp.vo.ViewObjectUtils;
@@ -40,6 +49,9 @@ public class UserMgrController {
 	
 	@Autowired
 	private AccountProfileService accountProfileService;
+	
+	@Autowired
+	private SecurityService securitySerivce;
 	
 	@RequestMapping(value="account/{id}", method=RequestMethod.GET)
 	public String toAccount() {
@@ -101,10 +113,40 @@ public class UserMgrController {
 	}
 	
 	@RequestMapping(value="globalAccount", method=RequestMethod.POST)
-	public String addGlobalAccount(RedirectAttributes model) {
-		logger.info("开始添加全局账号：");
+	public String addGlobalAccount(AccountVO accountVO, RedirectAttributes model) {
+		logger.info("添加全局账号...");
+		WebMessage message = null;
+		String accountName = accountVO.getAccountName();
 		
-		model.addFlashAttribute(ATT_MESSAGE, WebMessage.createMessage("添加新账号成功", WebMessageTypeEnum.SUCCESS));
+		if (!accountService.exist(accountName)) {
+			Account account = new Account(accountName, accountVO.getPassword());
+			String[] codeRoles = accountVO.getRoles();
+			List<Role> roles = new ArrayList<>();
+			
+			if (ArrayUtils.isNotEmpty(codeRoles)) {
+				roles = Arrays.stream(codeRoles).map(codeRole -> securitySerivce.getRole(codeRole)).collect(Collectors.toList());
+				roles.removeIf(Objects::isNull);
+			}
+			
+			try {
+				accountService.save(account, roles);
+				message =  WebMessage.createMessage("添加新账号成功", WebMessageTypeEnum.SUCCESS);
+			} catch (Exception ex) {
+				message =  WebMessage.createMessage("添加账号失败", WebMessageTypeEnum.ERROR);
+			}
+		} else {
+			message = WebMessage.createMessage("创建失败，用户名重复", WebMessageTypeEnum.ERROR);
+		}
+		
+		model.addFlashAttribute(ATT_MESSAGE, message);
+		return ViewConst.REDIRECT_MGR_GLOBAL_ACCOUNT;
+	}
+	
+	@RequestMapping(value="globalAccount/${id}", method=RequestMethod.DELETE)
+	public String updateGlobalAccount(AccountVO accountVO, RedirectAttributes model) {
+		logger.info("更新账号...");
+		
+		model.addFlashAttribute(ATT_MESSAGE, WebMessage.createMessage("更新账号成功", WebMessageTypeEnum.SUCCESS));
 		return ViewConst.REDIRECT_MGR_GLOBAL_ACCOUNT;
 	}
 	
@@ -161,4 +203,5 @@ public class UserMgrController {
 		}
 		return null;
 	}
+	
 }

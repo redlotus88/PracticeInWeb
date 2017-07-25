@@ -42,13 +42,6 @@ public final class ViewObjectUtils {
 		Map<Integer, AccountProfile> mapProfiles = profiles.stream().collect(Collectors.toMap(AccountProfile::getId, p -> p));
 		
 		Map<Integer, List<Role>> mapRoles = new HashMap<>();
-//		Map<Integer, CopyOnWriteArrayList<Role>> mapRolesAfterCollection = 
-//				roles.stream().collect(Collectors.toMap(Role::getId, 
-//					role -> {	
-//						CopyOnWriteArrayList<Role> lst = mapRoles.getOrDefault(role.getId(), new CopyOnWriteArrayList<>());
-//						lst.add(role);
-//						return mapRoles.put(role.getId(), lst);
-//						}));
 		for (Role role : roles) {
 			List<Role> col = mapRoles.getOrDefault(role.getId(), new ArrayList<>());
 			col.add(role);

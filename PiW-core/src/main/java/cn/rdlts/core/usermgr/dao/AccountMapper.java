@@ -8,7 +8,9 @@ import cn.rdlts.core.usermgr.model.Account;
 @Repository
 public interface AccountMapper extends BaseMapper<Account, Integer> {
 	
-	boolean exist(Account entity); 
+	boolean exist(Account entity);
+	
+	boolean existAccount(String accountName);
 	
 	Account getByName(String name);
 }

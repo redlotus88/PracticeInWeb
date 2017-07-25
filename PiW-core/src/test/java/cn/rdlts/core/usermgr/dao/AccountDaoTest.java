@@ -17,6 +17,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 
 import cn.rdlts.core.JUnit4SpringContextTests;
+import cn.rdlts.core.TestUtils;
 import cn.rdlts.core.usermgr.model.Account;
 
 @RunWith(JUnit4SpringContextTests.class)
@@ -104,6 +105,9 @@ public class AccountDaoTest {
 		boolean result = accountMapper.exist(account);
 		assertTrue(result);
 		
+		result = accountMapper.existAccount(ACCOUNT_TEST);
+		assertTrue(result);
+		
 		Account nonExist = new Account("j3r;23iur9x8");
 		result = accountMapper.exist(nonExist);
 		assertFalse(result);
@@ -124,12 +128,7 @@ public class AccountDaoTest {
 	}
 	
 	private Account deleteAndInsertNewAccount(String accName, String password, String salt) {
-		Account account = new Account(accName, password, salt);
-		accountMapper.delete(account);
-		Integer id = accountMapper.save(account);
-		assertNotNull(id);
-		assertTrue(id > 0);
-		return account;
+		return TestUtils.deleteAndInsertNewAccount(accName, password, salt);
 	}
 	
 	private void assertAccount(Account account, String expectedName, String expectedPassword, String expectedSalt) {
