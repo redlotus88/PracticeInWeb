@@ -62,7 +62,7 @@ public class PiWShiroAuthorizingRealm extends AuthorizingRealm {
 		SimpleAuthorizationInfo simpleAuthorInfo = new SimpleAuthorizationInfo();
 		String accountName = account.getAccountName();
 		// 角色赋予
-		Set<String> roles = securityService.getRolesByAccountName(accountName);
+		Set<String> roles = securityService.findRolesCodeByAccountName(accountName);
 		logger.info(StringUtils.join("用户[", accountName, "]角色：", roles));
 		simpleAuthorInfo.setRoles(roles);
 		// 权限赋予

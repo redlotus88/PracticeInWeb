@@ -9,9 +9,11 @@ import java.util.Optional;
 import java.util.stream.Collectors;
 
 import org.apache.log4j.Logger;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import cn.rdlts.core.security.model.LoginInfo;
 import cn.rdlts.core.security.model.Role;
+import cn.rdlts.core.security.service.SecurityService;
 import cn.rdlts.core.usermgr.model.Account;
 import cn.rdlts.core.usermgr.model.AccountProfile;
 import cn.rdlts.webapp.ToStringHelper;
@@ -26,6 +28,9 @@ public final class ViewObjectUtils {
 	
 	private static final String DATE_TIME_PATTERN = "yyyy-MM-dd HH:mm:ss";
 	
+	@Autowired
+	private SecurityService securityService;
+	
 	private ViewObjectUtils() {
 	}
 	
@@ -38,18 +43,11 @@ public final class ViewObjectUtils {
 		accountVO.setData(new AccountDataTableVO(data));
 	}
 	
-	public static void accept(RoleVO roleVO, List<Account> accounts, List<AccountProfile> profiles, List<Role> roles) {
+	public static void accept(RoleVO roleVO, List<Account> accounts, List<AccountProfile> profiles, Map<Integer, List<Role>> accountRoles) {
 		Map<Integer, AccountProfile> mapProfiles = profiles.stream().collect(Collectors.toMap(AccountProfile::getId, p -> p));
 		
-		Map<Integer, List<Role>> mapRoles = new HashMap<>();
-		for (Role role : roles) {
-			List<Role> col = mapRoles.getOrDefault(role.getId(), new ArrayList<>());
-			col.add(role);
-			mapRoles.put(role.getId(), col);
-		}
-		
 		List<RoleView> data = accounts.stream()
-									.map(account -> ViewObjectUtils.decorate(new RoleView(), account, mapProfiles.get(account.getId()), mapRoles.get(account.getId())))
+									.map(account -> ViewObjectUtils.decorate(new RoleView(), account, mapProfiles.get(account.getId()), accountRoles.get(account.getId())))
 									.collect(Collectors.toList());
 		roleVO.setData(new RoleDataTableVO(data));
 	}

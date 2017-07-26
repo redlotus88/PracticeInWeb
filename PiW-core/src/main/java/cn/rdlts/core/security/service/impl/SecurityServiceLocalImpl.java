@@ -23,15 +23,22 @@ public class SecurityServiceLocalImpl implements SecurityService {
 	@Autowired
 	private RoleMapper roleMapper;
 	
-	public Role getRole(String codeRole) {
+	@Override
+	public Role findRole(String codeRole) {
 		return roleMapper.getByCode(codeRole);
 	}
 	
 	@Override
-	public Set<String> getRolesByAccountName(String accountName) {
+	public Set<String> findRolesCodeByAccountName(String accountName) {
 		logger.info(StringUtils.join("获取Accountname=[", accountName, "]的角色"));
 		List<Role> roles = roleMapper.getByAccountName(accountName);
 		return roles.stream().map(Role::getCode).collect(Collectors.toSet());
+	}
+	
+	@Override
+	public Set<Role> findRolesByAccountName(String accountName) {
+		logger.info(StringUtils.join("获取Accountname=[", accountName, "]的角色"));
+		return roleMapper.getByAccountName(accountName).stream().collect(Collectors.toSet());
 	}
 	
 	@Override

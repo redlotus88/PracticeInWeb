@@ -1,6 +1,7 @@
 package cn.rdlts.webapp.controller;
 
 import java.util.List;
+import java.util.Map;
 import java.util.stream.Collectors;
 
 import org.apache.commons.lang3.StringUtils;
@@ -16,6 +17,7 @@ import cn.rdlts.common.json.JSONUtils;
 import cn.rdlts.core.security.model.Role;
 import cn.rdlts.core.security.service.LoginService;
 import cn.rdlts.core.security.service.SecurityService;
+import cn.rdlts.core.usermgr.model.Account;
 import cn.rdlts.core.usermgr.service.AccountProfileService;
 import cn.rdlts.core.usermgr.service.AccountService;
 import cn.rdlts.webapp.constant.tiles.ViewTilesConst;
@@ -83,7 +85,11 @@ public class AdminController {
 	@ResponseBody
 	public String getRoles(RoleVO roleVO) {
 		logger.info("开始获取角色列表信息：");
-		ViewObjectUtils.accept(roleVO, accountService.findAll(), accountProfileService.findAll(), securityService.findAllRoles());
+		List<Account> accounts = accountService.findAll();
+		Map<Integer, List<Role>> accountRoles = accounts.stream().collect(Collectors.toMap(Account::getId, 
+				account -> (List<Role>) securityService.findRolesByAccountName(account.getAccountName()).stream().collect(Collectors.toList())));
+		
+		ViewObjectUtils.accept(roleVO, accounts, accountProfileService.findAll(), accountRoles);
 		JSONObject object = JSONObject.fromObject(roleVO.getData());
 		
 		if (!object.isNullObject()) {

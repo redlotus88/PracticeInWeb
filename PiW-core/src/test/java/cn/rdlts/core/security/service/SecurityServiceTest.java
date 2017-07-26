@@ -20,9 +20,9 @@ public class SecurityServiceTest {
 	
 	@Test
 	public void getRolesByAccountNameTest() {
-		Set<String> rolesRean = securityService.getRolesByAccountName("Rean");
-		Set<String> rolesAlisa = securityService.getRolesByAccountName("Alisa");
-		Set<String> nothing = securityService.getRolesByAccountName("adsfasj.x=1\"s");
+		Set<String> rolesRean = securityService.findRolesCodeByAccountName("Rean");
+		Set<String> rolesAlisa = securityService.findRolesCodeByAccountName("Alisa");
+		Set<String> nothing = securityService.findRolesCodeByAccountName("adsfasj.x=1\"s");
 		
 		Assert.assertNotNull(rolesRean);
 		Assert.assertNotNull(rolesAlisa);

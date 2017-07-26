@@ -124,7 +124,7 @@ public class UserMgrController {
 			List<Role> roles = new ArrayList<>();
 			
 			if (ArrayUtils.isNotEmpty(codeRoles)) {
-				roles = Arrays.stream(codeRoles).map(codeRole -> securitySerivce.getRole(codeRole)).collect(Collectors.toList());
+				roles = Arrays.stream(codeRoles).map(codeRole -> securitySerivce.findRole(codeRole)).collect(Collectors.toList());
 				roles.removeIf(Objects::isNull);
 			}
 			

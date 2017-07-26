@@ -8,9 +8,11 @@ import cn.rdlts.core.usermgr.model.Account;
 
 public interface SecurityService {
 	
-	Role getRole(String codeRole);
+	Role findRole(String codeRole);
 	
-	Set<String> getRolesByAccountName(String accountName);
+	Set<String> findRolesCodeByAccountName(String accountName);
+	
+	Set<Role> findRolesByAccountName(String accountName);
 	
 	List<Role> findAllRoles();
 	
