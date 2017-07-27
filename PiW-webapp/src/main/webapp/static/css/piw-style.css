@@ -21,3 +21,12 @@
     background-color: #f2dede;
     border-color: #ebccd1;
 }
+
+.modal-attribute {
+	padding-bottom: 10px;
+}
+
+.modal-attribute-description {
+	text-align: right;
+	
+}

@@ -86,7 +86,15 @@ public class AccountServiceLocalImpl implements AccountService {
 		logger.info("更新用户信息：" + account);
 		Account toUpdate = ShiroPasswordHelper.encryptPassword(account);
 		int affectedRow = accountMapper.update(toUpdate);
-		logger.info(StringUtils.join("更新完成，影响", Integer.toString(affectedRow), "行"));
+		logger.info(StringUtils.join("更新完成，影响", Integer.toString(affectedRow), "行。"));
+		return affectedRow;
+	}
+	
+	@Override
+	public int delete(final Account account) {
+		logger.info(StringUtils.join("删除账号：", account.toString()));
+		int affectedRow = accountMapper.delete(account);
+		logger.info(StringUtils.join("删除成功，影响", Integer.toString(affectedRow), "行。"));
 		return affectedRow;
 	}
 

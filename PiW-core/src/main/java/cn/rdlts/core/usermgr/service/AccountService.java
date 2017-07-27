@@ -24,4 +24,6 @@ public interface AccountService {
 	int update(final Account account);
 	
 	List<Account> findAccountBy(Role role);
+	
+	int delete(final Account account);
 }

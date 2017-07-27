@@ -6,10 +6,9 @@ public final class AccountVO {
 	
 	private AccountDataTableVO dataTable;
 	
+	private String id;
 	private String accountName;
-	
 	private String password;
-	
 	private String[] roles;
 	
 	public AccountVO() {
@@ -47,4 +46,13 @@ public final class AccountVO {
 	public void setRoles(String[] roles) {
 		this.roles = roles;
 	}
+
+	public String getId() {
+		return id;
+	}
+
+	public void setId(String id) {
+		this.id = id;
+	}
+	
 }

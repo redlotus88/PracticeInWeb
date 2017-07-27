@@ -10,6 +10,12 @@ public final class JSONUtils {
 	private JSONUtils() {
 	}
 	
+	public static String toJSON(Object obj) {
+		JSONObject jsonObj = new JSONObject();
+		jsonObj.put("data", obj);
+		return jsonObj.toString();
+	}
+	
 	public static String toJSON(List<String> lst) {
 		JSONArray jsonArr = new JSONArray();
 		jsonArr.addAll(lst);

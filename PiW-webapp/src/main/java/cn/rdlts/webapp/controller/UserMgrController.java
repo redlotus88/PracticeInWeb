@@ -15,9 +15,11 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import org.springframework.web.servlet.view.InternalResourceViewResolver;
 
+import cn.rdlts.common.json.JSONUtils;
 import cn.rdlts.core.security.model.Role;
 import cn.rdlts.core.security.service.SecurityService;
 import cn.rdlts.core.usermgr.model.Account;
@@ -142,12 +144,29 @@ public class UserMgrController {
 		return ViewConst.REDIRECT_MGR_GLOBAL_ACCOUNT;
 	}
 	
-	@RequestMapping(value="globalAccount/${id}", method=RequestMethod.DELETE)
-	public String updateGlobalAccount(AccountVO accountVO, RedirectAttributes model) {
-		logger.info("更新账号...");
+	@RequestMapping(value="globalAccount/{id}",produces="application/json; charset=utf-8", method=RequestMethod.DELETE)
+	@ResponseBody
+	public String deleteGlobalAccount(@PathVariable String id) {
+		logger.info(StringUtils.join("删除账号[", id, "]"));
+		String message;
+		WebMessageTypeEnum type = WebMessageTypeEnum.ERROR;
+		Account account;
 		
-		model.addFlashAttribute(ATT_MESSAGE, WebMessage.createMessage("更新账号成功", WebMessageTypeEnum.SUCCESS));
-		return ViewConst.REDIRECT_MGR_GLOBAL_ACCOUNT;
+		if (StringUtils.isBlank(id) || !StringUtils.isNumeric(id)) {
+			message = "无法识别id..删除失败";
+		} else {
+			Integer idNum = Integer.parseInt(id);
+			account = accountService.getById(idNum);
+			
+			if (account == null) {
+				message = StringUtils.join("无法找到账号id=[" , id , "]");
+			} else {
+				accountService.delete(account);
+				message = "成功删除元素。";
+				type = WebMessageTypeEnum.SUCCESS;
+			}
+		}
+		return JSONUtils.toJSON(WebMessage.createMessage(message, type));
 	}
 	
 	/**

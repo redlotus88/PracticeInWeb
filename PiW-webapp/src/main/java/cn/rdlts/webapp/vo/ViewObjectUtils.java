@@ -1,19 +1,15 @@
 package cn.rdlts.webapp.vo;
 
 import java.time.format.DateTimeFormatter;
-import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
 import org.apache.log4j.Logger;
-import org.springframework.beans.factory.annotation.Autowired;
 
 import cn.rdlts.core.security.model.LoginInfo;
 import cn.rdlts.core.security.model.Role;
-import cn.rdlts.core.security.service.SecurityService;
 import cn.rdlts.core.usermgr.model.Account;
 import cn.rdlts.core.usermgr.model.AccountProfile;
 import cn.rdlts.webapp.ToStringHelper;
@@ -27,9 +23,6 @@ public final class ViewObjectUtils {
 	protected static Logger logger = Logger.getLogger(ViewObjectUtils.class);
 	
 	private static final String DATE_TIME_PATTERN = "yyyy-MM-dd HH:mm:ss";
-	
-	@Autowired
-	private SecurityService securityService;
 	
 	private ViewObjectUtils() {
 	}

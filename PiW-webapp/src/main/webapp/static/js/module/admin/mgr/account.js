@@ -12,6 +12,8 @@ define(['jquery', 'datatables.net', 'bootstrapDT', 'select2'],
 		function($, dtnet, dataTable, select2) {
 	"use strict"
 	
+	var _tableAccount;
+	
 	function loadRoles(selector) {
 		$.ajax({ // make the request for the selected data object
 			type : 'GET',
@@ -26,13 +28,35 @@ define(['jquery', 'datatables.net', 'bootstrapDT', 'select2'],
 		});	
 	}
 	
+	function deleteAccount(_id) {
+		$.ajax({
+			type: 'DELETE',
+			url: '/usermgr/globalAccount/' + _id,
+			dataType: 'json',
+			success: function(result) {
+				$("#message").html('<div class="alert alert-' + result.data.bootstrapType + '">' + result.data.content + '</div>');
+			},
+			
+			error: function(data) {
+				$("#message").html('<div class="alert alert-danger">Ajax执行错误，删除失败。</div>');
+			}, 
+			
+			complete: function() {
+				$("#deleteModal").modal('hide');
+				console.log(_tableAccount);
+				/* 强制刷新页面 */
+				_tableAccount.ajax.reload();
+			}
+		});
+	}
+	
 	return {
 		/*
 		 * 全局管理 - 账号管理页面的初始化
 		 */
 		initFunction : function() {
 			// 列表初始化
-			var _tableAccount = $("#dt_account_list").DataTable({
+			_tableAccount = $("#dt_account_list").DataTable({
 				stateSave: true,
 				scrollX: "150%",
 				ajax: {
@@ -74,7 +98,14 @@ define(['jquery', 'datatables.net', 'bootstrapDT', 'select2'],
 					$("#deleteModal").modal('hide');
 				}
 				
-				$('#accountName').val("abc");
+				/** 使用ajax异步删除元素 */
+				$("#btnDelModal").on('click', function() {
+					deleteAccount(rows[0].id);
+				});
+				
+				$("#deleteId").val(rows[0].id);
+				$("#deleteAccountName").val(rows[0].accountName);
+				$("#deleteProfileName").val(rows[0].profileName);
 			});
 		},
 	};
