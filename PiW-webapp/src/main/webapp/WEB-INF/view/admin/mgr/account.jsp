@@ -28,6 +28,7 @@
                                 <th>ID</th>
                                 <th>账号</th>
                                 <th>档案名</th>
+                                <th>角色</th>
                                 <th>Email</th>
                                 <th>公司</th>
                                 <th>最后登录时间</th>
@@ -48,12 +49,14 @@
 	        </div>
 	    </c:if>
     </div>
+    <!-- button group -->
     <div class="col-md-12">
         <button id="btnAdd" type="button" class="btn btn-primary" data-toggle="modal" data-target="#addModal">新增</button>
-<!--         <button type="button" class="btn btn-primary">更新</button> -->
+        <button id="btnUpdate" type="button" class="btn btn-primary" data-toggle="modal" data-target="#updateModal" disabled="disabled">更新角色</button>
         <button id="btnDelete" type="button" class="btn btn-danger" data-toggle="modal" data-target="#deleteModal" disabled="disabled">删除</button>
     </div>
     
+    <!-- 添加操作对话框 -->
     <div class="modal fade" id="addModal" tabIndex="-1" role="dialog" aria-labelledby="addModalLabel" aria-hidden="true">
 		<div class="modal-dialog">
 			<div class="modal-content">
@@ -72,7 +75,7 @@
                     </div>
                     <div class="row modal-attribute">
                         <div class="col-md-2 modal-attribute-description">角色 : </div>
-                        <div class="col-md-10"><select name="roles" class="modal-role-selection form-control" multiple="multiple"></select></div>
+                        <div class="col-md-10"><select id="addRole" name="roles" class="modal-role-selection form-control" multiple="multiple"></select></div>
                     </div>
 				</div>
 				<div class="modal-footer">
@@ -85,6 +88,35 @@
 		<!-- /.modal -->
 	</div>
 	
+	<!-- 更新操作对话框 -->
+	<div class="modal fade" id="updateModal" tabIndex="-1" role="dialog" aria-labelledby="updateModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title" id="updateModalLabel">更新账号角色</h4>
+                </div>
+                <div class="modal-body container-fluid">
+                    <div class="row modal-attribute">
+                        <div class="col-md-2 modal-attribute-description">账号 :</div>
+                        <div class="col-md-5"><label><input type="text" class="form-control" id="updateAccountName" name="accountName" disabled="disabled"></label></div>
+                    </div>
+                    <div class="row modal-attribute">
+                        <div class="col-md-2 modal-attribute-description">角色 : </div>
+                        <div class="col-md-10"><select id="updateRole" name="roles" class="modal-role-selection form-control" multiple="multiple"></select></div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                    <button id="btnUpdateModal" type="button" class="modal-btn-commit btn btn-primary" >提交更改</button>
+                </div>
+            </div>
+            <!-- /.modal-content -->
+        </div>
+        <!-- /.modal -->
+    </div>
+	
+	<!-- 删除操作对话框 -->
 	<div class="modal fade" id="deleteModal" tabIndex="-1" role="dialog" aria-labelledby="deleteModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">

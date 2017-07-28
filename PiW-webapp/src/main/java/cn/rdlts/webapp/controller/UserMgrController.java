@@ -15,6 +15,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import org.springframework.web.servlet.view.InternalResourceViewResolver;
@@ -29,6 +30,7 @@ import cn.rdlts.core.usermgr.service.AccountService;
 import cn.rdlts.shiro.ShiroUser;
 import cn.rdlts.shiro.ShiroUtils;
 import cn.rdlts.shiro.ciper.CiperUtils;
+import cn.rdlts.webapp.ToStringHelper;
 import cn.rdlts.webapp.bean.WebMessage;
 import cn.rdlts.webapp.constant.PathConst;
 import cn.rdlts.webapp.constant.ViewConst;
@@ -144,7 +146,41 @@ public class UserMgrController {
 		return ViewConst.REDIRECT_MGR_GLOBAL_ACCOUNT;
 	}
 	
-	@RequestMapping(value="globalAccount/{id}",produces="application/json; charset=utf-8", method=RequestMethod.DELETE)
+	@RequestMapping(value="globalAccount/{id}", method=RequestMethod.POST)
+	@ResponseBody
+	public String updateGlobalAccount(@PathVariable String id, @RequestParam(value = "roles[]") String[] roles) {
+		logger.info(StringUtils.join("更新账号角色信息[", id, "] -> " + ToStringHelper.toString(roles, String::toString, ',') ));
+		String message;
+		WebMessageTypeEnum type = WebMessageTypeEnum.ERROR;
+		Account account;
+		
+		
+		if (StringUtils.isBlank(id) || !StringUtils.isNumeric(id)) {
+			message = "无法识别id..删除失败";
+		} else {
+			Integer idNum = Integer.parseInt(id);
+			account = accountService.getById(idNum);
+			
+			ShiroUser curUser = ShiroUtils.getCurrentUser();
+			
+			if (account == null) {
+				message = StringUtils.join("无法找到账号id=[" , id , "]");
+			} else if (curUser.getAccountName().equals(account.getAccountName())) { //检验是否更新自身.
+				message = "无法更新自身的权限!!!";
+				type = WebMessageTypeEnum.WARNING;
+			} else {
+				List<Role> rolesObj = Arrays.stream(roles).map(code -> securitySerivce.findRole(code)).filter(Objects::nonNull).collect(Collectors.toList());
+				int affectedRow = securitySerivce.saveRolesToAccount(rolesObj, account);
+				message = StringUtils.join("更新账号角色信息成功. 影响行数：", Integer.toString(affectedRow), "行");
+				type = WebMessageTypeEnum.SUCCESS;
+			}
+		}
+		return JSONUtils.toJSON(WebMessage.createMessage(message, type));
+	}
+	
+	@RequestMapping(value="globalAccount/{id}",
+			produces="application/json; charset=utf-8", // 处理ajax返回json中文字符的时候乱码的问题。
+			method=RequestMethod.DELETE)
 	@ResponseBody
 	public String deleteGlobalAccount(@PathVariable String id) {
 		logger.info(StringUtils.join("删除账号[", id, "]"));
@@ -157,9 +193,13 @@ public class UserMgrController {
 		} else {
 			Integer idNum = Integer.parseInt(id);
 			account = accountService.getById(idNum);
+			ShiroUser curUser = ShiroUtils.getCurrentUser();
 			
 			if (account == null) {
 				message = StringUtils.join("无法找到账号id=[" , id , "]");
+			} else if (curUser.getAccountName().equals(account.getAccountName())) {
+				message = "无法删除自己！！！";
+				type = WebMessageTypeEnum.WARNING;
 			} else {
 				accountService.delete(account);
 				message = "成功删除元素。";

@@ -7,6 +7,7 @@ import org.springframework.stereotype.Repository;
 import cn.rdlts.common.dao.BaseMapper;
 import cn.rdlts.core.security.model.AccountRole;
 import cn.rdlts.core.security.model.Role;
+import cn.rdlts.core.usermgr.model.Account;
 
 @Repository
 public interface RoleMapper extends BaseMapper<Role, Integer> {
@@ -23,6 +24,8 @@ public interface RoleMapper extends BaseMapper<Role, Integer> {
 	 * @return
 	 */
 	int addRolesToAccount(AccountRole accountRole);
+	
+	int deleteRoles(Account account);
 	
 	boolean exist(Role role);
 }

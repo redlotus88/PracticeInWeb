@@ -1,5 +1,9 @@
 @CHARSET "UTF-8";
 
+.piw-invisible {
+	display:none;
+}
+
 .error {
 	color: red;
 }

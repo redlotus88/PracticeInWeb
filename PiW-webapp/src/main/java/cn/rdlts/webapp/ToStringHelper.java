@@ -1,6 +1,7 @@
 package cn.rdlts.webapp;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Iterator;
 import java.util.List;
 import java.util.function.Function;
@@ -15,11 +16,27 @@ public final class ToStringHelper {
 	private ToStringHelper() {
 	}
 	
-	public static <T extends Object> String toString(List<T> list, Function<T, String> fn) {
-		return toString(list, fn, "[", "]", ';');
+	public static <T extends Object> String toString(T[] list, Function<T, String> fn) {
+		return toString(Arrays.asList(list), fn);
 	}
 	
-	public static <T extends Object> String toString(List<T> list, Function<T, String> fn, String prefix, String suffix, char sep) {
+	public static <T extends Object> String toString(T[] list, Function<T, String> fn, char sep) {
+		return toString(Arrays.asList(list), fn, sep);
+	}
+	
+	public static <T extends Object> String toString(List<T> list, Function<T, String> fn) {
+		return toString(list, fn, "[", "]", ",");
+	}
+	
+	public static <T extends Object> String toString(List<T> list, Function<T, String> fn, char sep) {
+		return toString(list, fn, "[", "]", Character.toString(sep));
+	}
+	
+	public static <T extends Object> String toString(List<T> list, Function<T, String> fn, String sep) {
+		return toString(list, fn, "[", "]", sep);
+	}
+
+	public static <T extends Object> String toString(List<T> list, Function<T, String> fn, String prefix, String suffix, String sep) {
 		StringBuilder sb = new StringBuilder();
 		if (CollectionUtils.isEmpty(list)) {
 			return StringUtils.EMPTY;

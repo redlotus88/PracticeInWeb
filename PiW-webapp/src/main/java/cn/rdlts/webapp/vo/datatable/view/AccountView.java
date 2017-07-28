@@ -12,6 +12,7 @@ public class AccountView implements Serializable {
 	private String id;
 	private String accountName;
 	private String profileName;
+	private String roles;
 	private String publicEmail;
 	private String company;
 	private String lastLoginTime;
@@ -47,6 +48,14 @@ public class AccountView implements Serializable {
 
 	public void setProfileName(String profileName) {
 		this.profileName = profileName;
+	}
+	
+	public String getRoles() {
+		return roles;
+	}
+
+	public void setRoles(String roles) {
+		this.roles = roles;
 	}
 
 	public String getPublicEmail() {

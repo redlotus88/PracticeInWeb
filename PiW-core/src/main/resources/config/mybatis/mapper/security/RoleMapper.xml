@@ -71,4 +71,8 @@
     <select id="exist" resultType="boolean" parameterType="cn.rdlts.core.security.model.Role">
         <![CDATA[ select count(1) from piw_usermgr_role where id=#{id} or code = #{code} ]]> 
     </select>
+    
+    <delete id="deleteRoles" parameterType="cn.rdlts.core.usermgr.model.Account">
+        delete from piw_usermgr_account_role where account_id = #{id}
+    </delete>
 </mapper>

@@ -52,10 +52,15 @@ public class AdminController {
 	}
 	
 	@RequestMapping(value = "/mgr/account", method = RequestMethod.GET)
-	public String toManageAccount(AccountVO accountVO) {
+	public String toGlobalAccountView(AccountVO accountVO) {
 		return ViewTilesConst.VIEW_TILES_ADMIN_MGR_ACCOUNT;
 	}
 	
+	@RequestMapping(value = "/mgr/role", method = RequestMethod.GET)
+	public String toAccountRoleView() {
+		return ViewTilesConst.VIEW_TILES_ADMIN_MGR_ROLE;
+	}
+
 	/**
 	 * 获取账号信息。
 	 * @return
@@ -64,7 +69,11 @@ public class AdminController {
 	@ResponseBody
 	public String getAccounts(AccountVO accountVO) {
 		logger.info("开始获取账号列表信息：");
-		ViewObjectUtils.accept(accountVO, accountService.findAll(), accountProfileService.findAll(), loginService.findAllLastLoginTimeByAccount());
+		List<Account> accounts = accountService.findAll();
+		Map<Integer, List<Role>> accountRoles = accounts.stream().collect(Collectors.toMap(Account::getId, 
+				account -> (List<Role>) securityService.findRolesByAccountName(account.getAccountName()).stream().collect(Collectors.toList())));
+		
+		ViewObjectUtils.accept(accountVO, accountService.findAll(), accountProfileService.findAll(), loginService.findAllLastLoginTimeByAccount(), accountRoles);
 		JSONObject object = JSONObject.fromObject(accountVO.getData());
 		
 		if (!object.isNullObject()) {
@@ -76,20 +85,12 @@ public class AdminController {
 		return object.toString();
 	}
 	
-	@RequestMapping(value = "/mgr/role", method = RequestMethod.GET)
-	public String toManagerRole() {
-		return ViewTilesConst.VIEW_TILES_ADMIN_MGR_ROLE;
-	}
-	
 	@RequestMapping(value= "/mgr/role", method = RequestMethod.POST)
 	@ResponseBody
 	public String getRoles(RoleVO roleVO) {
-		logger.info("开始获取角色列表信息：");
-		List<Account> accounts = accountService.findAll();
-		Map<Integer, List<Role>> accountRoles = accounts.stream().collect(Collectors.toMap(Account::getId, 
-				account -> (List<Role>) securityService.findRolesByAccountName(account.getAccountName()).stream().collect(Collectors.toList())));
+		logger.info("开始获取角色权限列表信息：");
 		
-		ViewObjectUtils.accept(roleVO, accounts, accountProfileService.findAll(), accountRoles);
+		ViewObjectUtils.accept(roleVO, securityService.findAllRoles());
 		JSONObject object = JSONObject.fromObject(roleVO.getData());
 		
 		if (!object.isNullObject()) {

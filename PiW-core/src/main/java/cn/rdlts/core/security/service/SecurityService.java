@@ -16,7 +16,28 @@ public interface SecurityService {
 	
 	List<Role> findAllRoles();
 	
+	/**
+	 * 
+	 * @param roles
+	 * @param account
+	 * @return int 数据库影响行数
+	 */
 	int addRolesToAccount(List<Role> roles, Account account);
+	
+	/**
+	 * 
+	 * @param roles
+	 * @param account
+	 * @return int 数据库影响行数
+	 */
+	int saveRolesToAccount(List<Role> roles, Account account);
+	
+	/**
+	 * 
+	 * @param account
+	 * @return int 数据库影响行数
+	 */
+	int deleteRoles(Account account);
 	
 	boolean exist(Role role);
 	

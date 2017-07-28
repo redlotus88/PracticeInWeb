@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Set;
 import java.util.stream.Collectors;
 
+import org.apache.commons.collections.CollectionUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -49,8 +50,18 @@ public class SecurityServiceLocalImpl implements SecurityService {
 
 	@Override
 	public int addRolesToAccount(List<Role> roles, Account account) {
+		if (CollectionUtils.isEmpty(roles)) {
+			return 0;
+		}
+		
 		AccountRole ar = new AccountRole(account, roles);
 		return roleMapper.addRolesToAccount(ar);
+	}
+
+	@Override
+	public int saveRolesToAccount(List<Role> roles, Account account) {
+		deleteRoles(account);
+		return addRolesToAccount(roles, account);
 	}
 
 	@Override
@@ -61,5 +72,13 @@ public class SecurityServiceLocalImpl implements SecurityService {
 	@Override
 	public boolean existRole(String codeRole) {
 		return roleMapper.exist(new Role(codeRole));
+	}
+
+	@Override
+	public int deleteRoles(Account account) {
+		if (account != null && CollectionUtils.isNotEmpty(roleMapper.getByAccountName(account.getAccountName()))) {
+			return roleMapper.deleteRoles(account);
+		}
+		return 0;
 	}
 }

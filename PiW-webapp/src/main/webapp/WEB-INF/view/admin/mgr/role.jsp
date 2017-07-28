@@ -23,11 +23,9 @@
                     <table class="table table-striped table-bordered table-hover" id="dt_role_list">
                         <thead>
                             <tr>
-                                <th>ID</th>
-                                <th>账号</th>
-                                <th>档案名</th>
-                                <th>角色</th>
-                                <th>角色信息</th>
+                                <th class="piw-invisible">ID</th>
+                                <th>角色名</th>
+                                <th>角色信息描述</th>
                             </tr>
                         </thead>
                     </table>
@@ -38,3 +36,18 @@
     </div>
 </div>
  <!-- /. ROW  -->
+ 
+<!-- message -->
+<div class="col-md-12" id="message">
+	<c:if test="${not empty message}">
+		<div class="alert alert-${message.bootstrapType}">
+		  ${message.content}
+		</div>
+	</c:if>
+</div>
+
+<div class="col-md-12">
+    <button id="btnAdd" type="button" class="btn btn-primary" data-toggle="modal" data-target="#addModal">新增</button>
+    <button id="btnUpdate" type="button" class="btn btn-primary" >更新</button>
+    <button id="btnDelete" type="button" class="btn btn-danger" data-toggle="modal" data-target="#deleteModal" disabled="disabled">删除</button>
+</div>

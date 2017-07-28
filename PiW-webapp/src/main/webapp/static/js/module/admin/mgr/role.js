@@ -1,3 +1,11 @@
+/**
+ * role.js
+ * 
+ * @author Dragon.Wang
+ * 
+ * 
+ */
+
 require.config({
 	paths: {
 		// jQuery Js
@@ -25,11 +33,17 @@ define(['jquery', 'datatables.net', 'bootstrapDT'], function($, dtnet, dataTable
 				columns : [
 					// 后台属性名字
 		            { "data": "id" },
-		            { "data": "accountName" },
-		            { "data": "profileName" },
-		            { "data": "role"},
+		            { "data": "code"},
 		            { "data": "description"},
-		        ]
+		        ],
+		        
+		        columnDefs : [
+		              {
+		                "targets": [ 0 ],
+		                "visible": false,
+		                "searchable": false
+		              },
+                ]
 			});
 		}
 	};

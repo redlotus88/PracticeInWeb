@@ -104,8 +104,10 @@ public class RoleDaoTest {
 		Assert.assertTrue(roles.contains(role1));
 		Assert.assertTrue(roles.contains(role2));
 		
-		deleteRole(role1);
-		deleteRole(role2);
+		roleMapper.deleteRoles(account);
+		Assert.assertTrue(CollectionUtils.isEmpty(roleMapper.getByAccountName("Test")));
+		deleteRole("roleAcc1");
+		deleteRole("roleAcc2");
 		log.info("addRolesToAccountTest测试结束");
 	}
 	
