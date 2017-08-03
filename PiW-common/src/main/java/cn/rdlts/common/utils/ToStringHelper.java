@@ -14,6 +14,17 @@ public final class ToStringHelper {
 	}
 	
 	/**
+	 * Use T::toString to print object
+	 * @see cn.rdlts.common.utils.ToStringHelper#toString(List, Function)
+	 * 
+	 * @param list
+	 * @return
+	 */
+	public static <T extends Object> String toString(T[] list) {
+		return toString(list, T::toString);
+	}
+	
+	/**
 	 * @see cn.rdlts.common.utils.ToStringHelper#toString(List, Function, String, String, String)
 	 * 
 	 * @param list

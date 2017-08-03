@@ -4,7 +4,7 @@
  * @author Dragon.Wang
  * 
  * JS文件使用的插件如下：
- * Bootstrap modal, datatables, select2,
+ * Bootstrap 模态框(modal), datatables, select2,
  * 
  * 使用的技术：
  * 表单POST提交。

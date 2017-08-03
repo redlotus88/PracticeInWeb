@@ -57,7 +57,7 @@ public class UserMgrController {
 	private AccountProfileService accountProfileService;
 	
 	@Autowired
-	private SecurityService securitySerivce;
+	private SecurityService securityService;
 	
 	@RequestMapping(value="account/{id}", method=RequestMethod.GET)
 	public String toAccount() {
@@ -130,7 +130,7 @@ public class UserMgrController {
 			List<Role> roles = new ArrayList<>();
 			
 			if (ArrayUtils.isNotEmpty(codeRoles)) {
-				roles = Arrays.stream(codeRoles).map(codeRole -> securitySerivce.findRole(codeRole)).collect(Collectors.toList());
+				roles = Arrays.stream(codeRoles).map(codeRole -> securityService.findRole(codeRole)).collect(Collectors.toList());
 				roles.removeIf(Objects::isNull);
 			}
 			
@@ -171,8 +171,8 @@ public class UserMgrController {
 				message = "无法更新自身的权限!!!";
 				type = WebMessageTypeEnum.WARNING;
 			} else {
-				List<Role> rolesObj = Arrays.stream(roles).map(code -> securitySerivce.findRole(code)).filter(Objects::nonNull).collect(Collectors.toList());
-				int affectedRow = securitySerivce.saveRolesToAccount(rolesObj, account);
+				List<Role> rolesObj = Arrays.stream(roles).map(code -> securityService.findRole(code)).filter(Objects::nonNull).collect(Collectors.toList());
+				int affectedRow = securityService.saveRolesToAccount(rolesObj, account);
 				message = StringUtils.join("更新账号角色信息成功. 影响行数：", Integer.toString(affectedRow), "行");
 				type = WebMessageTypeEnum.SUCCESS;
 			}
@@ -218,13 +218,13 @@ public class UserMgrController {
 		String roleCode = roleVO.getCode();
 		String description = roleVO.getDescription();
 		
-		if (!securitySerivce.existRole(roleCode)) {
+		if (!securityService.existRole(roleCode)) {
 			Role role = new Role(roleCode, description);
 			try {
-				securitySerivce.saveRole(role);
-				message =  WebMessage.createMessage("添加新账号成功", WebMessageTypeEnum.SUCCESS);
+				securityService.saveRole(role);
+				message =  WebMessage.createMessage("添加角色成功", WebMessageTypeEnum.SUCCESS);
 			} catch (Exception ex) {
-				message =  WebMessage.createMessage("添加账号失败", WebMessageTypeEnum.ERROR);
+				message =  WebMessage.createMessage("添加角色失败", WebMessageTypeEnum.ERROR);
 			}
 		} else {
 			message = WebMessage.createMessage("创建失败，角色重复", WebMessageTypeEnum.ERROR);
@@ -232,6 +232,58 @@ public class UserMgrController {
 		
 		model.addFlashAttribute(ATT_MESSAGE, message);
 		LogUtils.info(logger, "添加角色结束...");
+		return ViewConst.REDIRECT_MGR_GLOBAL_ROLE;
+	}
+	
+	@RequestMapping(value="updateGlobalRole", method=RequestMethod.POST)
+	public String updateGlobalAccount(RoleVO roleVO, RedirectAttributes model) {
+		LogUtils.info(logger, "更新角色：", roleVO.getCode());
+		WebMessage result = null;
+		WebMessageTypeEnum type = WebMessageTypeEnum.ERROR;
+		String message;
+		
+		if (securityService.existRole(roleVO.getCode())) {
+			Role role = new Role(roleVO.getCode(), roleVO.getDescription());
+			try {
+				securityService.saveRole(role);
+				message = "更新角色成功";  
+				type = WebMessageTypeEnum.SUCCESS;
+			} catch (Exception ex) {
+				message =  "添加角色失败";
+			}
+		} else {
+			message = "不存在该角色，更新失败";
+		}
+		
+		result =  WebMessage.createMessage(message, type);
+		model.addFlashAttribute(ATT_MESSAGE, result);
+		LogUtils.info(logger, "更新角色结束...");
+		return ViewConst.REDIRECT_MGR_GLOBAL_ROLE;
+	}
+	
+	@RequestMapping(value="deleteGlobalRole", method=RequestMethod.POST)
+	public String deleteGlobalRole(RoleVO roleVO, RedirectAttributes model) {
+		LogUtils.info(logger, "删除角色：", roleVO.getCode());
+		WebMessage result = null;
+		WebMessageTypeEnum type = WebMessageTypeEnum.ERROR;
+		String message;
+		
+		if (securityService.existRole(roleVO.getCode())) {
+			Role role = new Role(roleVO.getCode(), roleVO.getDescription());
+			try {
+				securityService.deleteRole(role);
+				message = "删除角色成功";
+				type = WebMessageTypeEnum.SUCCESS;
+			} catch (Exception ex) {
+				message = "更新角色失败";
+			}
+		} else {
+			message = "不存在角色，删除失败";
+		}
+		
+		result =  WebMessage.createMessage(message, type);
+		model.addFlashAttribute(ATT_MESSAGE, result);
+		LogUtils.info(logger, "删除角色结束...");
 		return ViewConst.REDIRECT_MGR_GLOBAL_ROLE;
 	}
 	

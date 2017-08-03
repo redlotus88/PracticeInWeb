@@ -1,6 +1,7 @@
 /**
  * role.js
  * 
+ * 类似于account.js
  * @author Dragon.Wang
  * 
  * 
@@ -19,6 +20,7 @@ define(['jquery', 'datatables.net', 'bootstrapDT'], function($, dtnet, dataTable
 	"use strict"
 	
 	var _tableRole;
+	var timeoutEvent;
 	
 	function getTableSelectedData() {
 		return _tableRole.rows('.selected').data();
@@ -34,13 +36,18 @@ define(['jquery', 'datatables.net', 'bootstrapDT'], function($, dtnet, dataTable
 						}, milli || 5000);
 	}
 	
+	function disabledButtons() {
+		$("#btnDelete").attr('disabled',"true");
+        $("#btnUpdate").attr('disabled',"true");
+	}
+	
 	return {
 		/*
 		 * 全局管理 - 账号管理页面的初始化
 		 */
 		initFunction : function() {
 			// 列表初始化
-			_tableRole = $("#dt_role_list").dataTable({
+			_tableRole = $("#dt_role_list").DataTable({
 				stateSave: true,
 				autowidth: true,
 				ajax: {
@@ -62,6 +69,51 @@ define(['jquery', 'datatables.net', 'bootstrapDT'], function($, dtnet, dataTable
 		              },
                 ]
 			});
+			
+			$('#dt_role_list tbody').on( 'click', 'tr', function () {
+				// 移除所有选择的行
+				$('#dt_role_list tbody .selected').each(function() {
+					$(this).removeClass('selected');
+				});
+				
+				// 选中当前点击的行 
+		        $(this).toggleClass('selected');
+		        
+		        // 解除更新和删除的禁用状态
+		        $("#btnDelete").removeAttr('disabled');
+		        $("#btnUpdate").removeAttr('disabled');
+		    });
+			
+			// add模态框 
+			$("#addModal").on("shown.bs.modal", function() {
+				$("#roleCode").focus();
+			});
+			
+			// update模态框
+			$("#updateModal").on("shown.bs.modal", function() {
+				var rows = getTableSelectedData();
+				if (rows.length < 1) {
+					$("#updateModal").modal('hide');
+				}
+				
+				$("#updateDescription").focus();
+				$("#updateCode").val(rows[0].code);
+				$("#updateDescription").val(rows[0].description);
+			});
+			
+			// delete模态框 
+			$("#deleteModal").on("shown.bs.modal", function() {
+				var rows = getTableSelectedData();
+				if (rows.length < 1) {
+					$("#deleteModal").modal('hide');
+				}
+				
+				$("#deleteCode").val(rows[0].code);
+				$("#deleteDescription").val(rows[0].description);
+			});
+			
+			autoHideMessage();
+			disabledButtons();
 		}
 	};
 });

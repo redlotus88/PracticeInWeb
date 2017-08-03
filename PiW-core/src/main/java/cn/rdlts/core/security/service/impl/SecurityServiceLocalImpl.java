@@ -110,4 +110,13 @@ public class SecurityServiceLocalImpl implements SecurityService {
 	private String getAccountNameOrEmpty(Account account) {
 		return Optional.ofNullable(account).orElse(AccountVoid.getInstance()).getAccountName();
 	}
+
+	@Override
+	public int deleteRole(Role role) {
+		if (role == null) {
+			return 0;
+		}
+		
+		return roleMapper.delete(role);
+	}
 }

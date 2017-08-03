@@ -16,6 +16,8 @@ public interface SecurityService {
 	 */
 	int addRolesToAccount(List<Role> roles, Account account);
 	
+	int deleteRole(Role role);
+	
 	/**
 	 * 
 	 * @param account

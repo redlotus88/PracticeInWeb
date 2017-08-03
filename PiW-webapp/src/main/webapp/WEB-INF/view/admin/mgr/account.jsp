@@ -4,7 +4,7 @@
 <!-- 
     form (POST) 提交，Ajax(GET, POST, DELETE) 提交
     Datatables
-    bootstrap
+    bootstrap 模态框(modal)
     select2
 -->
 
