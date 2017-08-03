@@ -1,5 +1,12 @@
 ﻿<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<!-- account.jsp start -->
+<!-- 
+    form (POST) 提交，Ajax(GET, POST, DELETE) 提交
+    Datatables
+    bootstrap
+    select2
+-->
 
 <link href="//cdn.bootcss.com/select2/4.0.3/css/select2.min.css" rel="stylesheet">
 
@@ -150,3 +157,5 @@
 </div>
  <!-- /. ROW  -->
  </form>
+ 
+ <!-- account.jsp end -->

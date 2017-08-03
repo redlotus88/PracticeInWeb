@@ -8,6 +8,25 @@ import cn.rdlts.core.usermgr.model.Account;
 
 public interface SecurityService {
 	
+	/**
+	 * 
+	 * @param roles
+	 * @param account
+	 * @return int 数据库影响行数
+	 */
+	int addRolesToAccount(List<Role> roles, Account account);
+	
+	/**
+	 * 
+	 * @param account
+	 * @return int 数据库影响行数
+	 */
+	int deleteRoles(Account account);
+	
+	boolean exist(Role role);
+	
+	boolean existRole(String codeRole);
+	
 	Role findRole(String codeRole);
 	
 	Set<String> findRolesCodeByAccountName(String accountName);
@@ -22,24 +41,8 @@ public interface SecurityService {
 	 * @param account
 	 * @return int 数据库影响行数
 	 */
-	int addRolesToAccount(List<Role> roles, Account account);
-	
-	/**
-	 * 
-	 * @param roles
-	 * @param account
-	 * @return int 数据库影响行数
-	 */
 	int saveRolesToAccount(List<Role> roles, Account account);
 	
-	/**
-	 * 
-	 * @param account
-	 * @return int 数据库影响行数
-	 */
-	int deleteRoles(Account account);
+	int saveRole(Role role);
 	
-	boolean exist(Role role);
-	
-	boolean existRole(String codeRole);
 }

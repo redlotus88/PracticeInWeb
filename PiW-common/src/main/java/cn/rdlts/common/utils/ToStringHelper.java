@@ -1,6 +1,5 @@
-package cn.rdlts.webapp;
+package cn.rdlts.common.utils;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Iterator;
 import java.util.List;
@@ -9,33 +8,83 @@ import java.util.function.Function;
 import org.apache.commons.collections.CollectionUtils;
 import org.apache.commons.lang3.StringUtils;
 
-import cn.rdlts.core.security.model.Role;
-
 public final class ToStringHelper {
 	
 	private ToStringHelper() {
 	}
 	
+	/**
+	 * @see cn.rdlts.common.utils.ToStringHelper#toString(List, Function, String, String, String)
+	 * 
+	 * @param list
+	 * @param fn
+	 * @return
+	 */
 	public static <T extends Object> String toString(T[] list, Function<T, String> fn) {
 		return toString(Arrays.asList(list), fn);
 	}
 	
+	/**
+	 * @see cn.rdlts.common.utils.ToStringHelper#toString(List, Function, String, String, String)
+	 * 
+	 * @param list
+	 * @param fn
+	 * @param sep
+	 * @return
+	 */
 	public static <T extends Object> String toString(T[] list, Function<T, String> fn, char sep) {
 		return toString(Arrays.asList(list), fn, sep);
 	}
 	
+	/**
+	 * @see cn.rdlts.common.utils.ToStringHelper#toString(List, Function, String, String, String)
+	 * 
+	 * @param list
+	 * @param fn
+	 * @return
+	 */
 	public static <T extends Object> String toString(List<T> list, Function<T, String> fn) {
 		return toString(list, fn, "[", "]", ",");
 	}
 	
+	/**
+	 * @see cn.rdlts.common.utils.ToStringHelper#toString(List, Function, String, String, String)
+	 * 
+	 * @param list
+	 * @param fn
+	 * @param sep
+	 * @return
+	 */
 	public static <T extends Object> String toString(List<T> list, Function<T, String> fn, char sep) {
 		return toString(list, fn, "[", "]", Character.toString(sep));
 	}
 	
+	/**
+	 * @see cn.rdlts.common.utils.ToStringHelper#toString(List, Function, String, String, String)
+	 * 
+	 * @param list
+	 * @param fn
+	 * @param sep
+	 * @return
+	 */
 	public static <T extends Object> String toString(List<T> list, Function<T, String> fn, String sep) {
 		return toString(list, fn, "[", "]", sep);
 	}
 
+	/**
+	 * <pre>
+	 * 将一个list {a, b, c} 打印成以下格式： prefix + (fn.apply(obj) + sep + fn.apply(obj))* + suffix
+	 * 示例：toString({a,b,c}, String::toString, "[", "]", ";") 
+	 * 结果: [a;b;c]
+	 * </pre>
+	 * 
+	 * @param list
+	 * @param fn
+	 * @param prefix
+	 * @param suffix
+	 * @param sep
+	 * @return
+	 */
 	public static <T extends Object> String toString(List<T> list, Function<T, String> fn, String prefix, String suffix, String sep) {
 		StringBuilder sb = new StringBuilder();
 		if (CollectionUtils.isEmpty(list)) {
@@ -55,18 +104,5 @@ public final class ToStringHelper {
 			sb.deleteCharAt(sb.length() - 1);
 		}
 		return StringUtils.join(prefix, sb.toString(), suffix);
-	}
-	
-	public static void main(String[] args) {
-		Role role1 = new Role("code1", "desc1");
-		Role role2 = new Role("code2", "desc2");
-		Role role3 = new Role("code3", "desc3");
-		Role role4 = new Role("code4", "desc4");
-		List<Role> lst = new ArrayList<Role>();
-		lst.add(role1);
-		lst.add(role2);
-		lst.add(role3);
-		lst.add(role4);
-		System.out.println(ToStringHelper.toString(lst, Role::getCode));
 	}
 }

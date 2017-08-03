@@ -21,6 +21,8 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import org.springframework.web.servlet.view.InternalResourceViewResolver;
 
 import cn.rdlts.common.json.JSONUtils;
+import cn.rdlts.common.utils.LogUtils;
+import cn.rdlts.common.utils.ToStringHelper;
 import cn.rdlts.core.security.model.Role;
 import cn.rdlts.core.security.service.SecurityService;
 import cn.rdlts.core.usermgr.model.Account;
@@ -30,13 +32,13 @@ import cn.rdlts.core.usermgr.service.AccountService;
 import cn.rdlts.shiro.ShiroUser;
 import cn.rdlts.shiro.ShiroUtils;
 import cn.rdlts.shiro.ciper.CiperUtils;
-import cn.rdlts.webapp.ToStringHelper;
 import cn.rdlts.webapp.bean.WebMessage;
 import cn.rdlts.webapp.constant.PathConst;
 import cn.rdlts.webapp.constant.ViewConst;
 import cn.rdlts.webapp.enumeration.WebMessageTypeEnum;
 import cn.rdlts.webapp.vo.AccountVO;
 import cn.rdlts.webapp.vo.ProfileVO;
+import cn.rdlts.webapp.vo.RoleVO;
 import cn.rdlts.webapp.vo.SettingsAccountVO;
 import cn.rdlts.webapp.vo.ViewObjectUtils;
 
@@ -207,6 +209,30 @@ public class UserMgrController {
 			}
 		}
 		return JSONUtils.toJSON(WebMessage.createMessage(message, type));
+	}
+	
+	@RequestMapping(value="globalRole", method=RequestMethod.POST)
+	public String addGlobalRole(RoleVO roleVO, RedirectAttributes model) {
+		logger.info("添加全局角色...");
+		WebMessage message = null;
+		String roleCode = roleVO.getCode();
+		String description = roleVO.getDescription();
+		
+		if (!securitySerivce.existRole(roleCode)) {
+			Role role = new Role(roleCode, description);
+			try {
+				securitySerivce.saveRole(role);
+				message =  WebMessage.createMessage("添加新账号成功", WebMessageTypeEnum.SUCCESS);
+			} catch (Exception ex) {
+				message =  WebMessage.createMessage("添加账号失败", WebMessageTypeEnum.ERROR);
+			}
+		} else {
+			message = WebMessage.createMessage("创建失败，角色重复", WebMessageTypeEnum.ERROR);
+		}
+		
+		model.addFlashAttribute(ATT_MESSAGE, message);
+		LogUtils.info(logger, "添加角色结束...");
+		return ViewConst.REDIRECT_MGR_GLOBAL_ROLE;
 	}
 	
 	/**

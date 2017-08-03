@@ -17,13 +17,30 @@ require.config({
 
 define(['jquery', 'datatables.net', 'bootstrapDT'], function($, dtnet, dataTable) {
 	"use strict"
+	
+	var _tableRole;
+	
+	function getTableSelectedData() {
+		return _tableRole.rows('.selected').data();
+	}
+	
+	function autoHideMessage(milli) {
+		clearTimeout(timeoutEvent);
+		timeoutEvent = setTimeout(function() {
+							$("#message").hide(1000);
+							$("#message").html("");
+							$("#message").show();
+							$("#message").attr('style', 'display:block');
+						}, milli || 5000);
+	}
+	
 	return {
 		/*
 		 * 全局管理 - 账号管理页面的初始化
 		 */
 		initFunction : function() {
 			// 列表初始化
-			$("#dt_role_list").dataTable({
+			_tableRole = $("#dt_role_list").dataTable({
 				stateSave: true,
 				autowidth: true,
 				ajax: {

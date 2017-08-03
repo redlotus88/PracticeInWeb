@@ -1,6 +1,7 @@
 package cn.rdlts.core.security.service.impl;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.Set;
 import java.util.stream.Collectors;
 
@@ -10,11 +11,14 @@ import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import cn.rdlts.common.utils.LogUtils;
+import cn.rdlts.common.utils.ToStringHelper;
 import cn.rdlts.core.security.dao.RoleMapper;
 import cn.rdlts.core.security.model.AccountRole;
 import cn.rdlts.core.security.model.Role;
 import cn.rdlts.core.security.service.SecurityService;
 import cn.rdlts.core.usermgr.model.Account;
+import cn.rdlts.core.usermgr.model.AccountVoid;
 
 @Service("securityService")
 public class SecurityServiceLocalImpl implements SecurityService {
@@ -50,6 +54,8 @@ public class SecurityServiceLocalImpl implements SecurityService {
 
 	@Override
 	public int addRolesToAccount(List<Role> roles, Account account) {
+		logger.info(StringUtils.join("为账户名=[", 
+				getAccountNameOrEmpty(account), "] 添加角色：", ToStringHelper.toString(roles, Role::getCode)));
 		if (CollectionUtils.isEmpty(roles)) {
 			return 0;
 		}
@@ -60,6 +66,8 @@ public class SecurityServiceLocalImpl implements SecurityService {
 
 	@Override
 	public int saveRolesToAccount(List<Role> roles, Account account) {
+		logger.info(StringUtils.join("保存账户名=[", 
+				getAccountNameOrEmpty(account), "] 的角色：", ToStringHelper.toString(roles, Role::getCode)));
 		deleteRoles(account);
 		return addRolesToAccount(roles, account);
 	}
@@ -76,9 +84,30 @@ public class SecurityServiceLocalImpl implements SecurityService {
 
 	@Override
 	public int deleteRoles(Account account) {
+		logger.info(StringUtils.join("删除账号[", getAccountNameOrEmpty(account) , "]的角色。"));
 		if (account != null && CollectionUtils.isNotEmpty(roleMapper.getByAccountName(account.getAccountName()))) {
 			return roleMapper.deleteRoles(account);
 		}
 		return 0;
+	}
+	
+	@Override
+	public int saveRole(Role role) {
+		LogUtils.info(logger, "增加角色", role);
+		int result = 0;
+		if (role == null) {
+			return result;
+		}
+		
+		if (roleMapper.exist(role)) {
+			result = roleMapper.update(role);
+		} else {
+			result = roleMapper.save(role);
+		}
+		return result;
+	}
+
+	private String getAccountNameOrEmpty(Account account) {
+		return Optional.ofNullable(account).orElse(AccountVoid.getInstance()).getAccountName();
 	}
 }

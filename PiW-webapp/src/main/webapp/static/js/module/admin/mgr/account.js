@@ -8,7 +8,7 @@
  * 
  * 使用的技术：
  * 表单POST提交。
- * ajax: GET，DELETE方法异步更新。
+ * ajax: GET，POST, DELETE方法异步更新。
  * 
  */
 
@@ -19,11 +19,12 @@ require.config({
 		"datatables.net": "//cdn.bootcss.com/datatables/1.10.15/js/jquery.dataTables",
 		"bootstrapDT": "//cdn.bootcss.com/datatables/1.10.15/js/dataTables.bootstrap",
 		"select2": "//cdn.bootcss.com/select2/4.0.3/js/select2.min",
+		"piw-ajax" : "/js/module/piw-ajax",
 	},
 });
 
-define(['jquery', 'datatables.net', 'bootstrapDT', 'select2'], 
-		function($, dtnet, dataTable, select2) {
+define(['jquery', 'datatables.net', 'bootstrapDT', 'select2', 'piw-ajax'], 
+		function($, dtnet, dataTable, select2, Ajax) {
 	"use strict"
 	
 	var _tableAccount;
@@ -31,21 +32,18 @@ define(['jquery', 'datatables.net', 'bootstrapDT', 'select2'],
 	var timeoutEvent;
 	
 	function loadRoles(selector, checked) {
-		$.ajax({ // make the request for the selected data object
-			type : 'GET',
-			url : '/admin/mgr/roles',
-			dataType : 'json'
-		}).then(function(data) {
-			_selectorRole = selector.select2({
-				placeholder : '选择角色',
-				allowClear: true,
-				data:data,
-			});
-			
-			if (!(checked == undefined || checked == "")) {
-				_selectorRole.val(checked).trigger("change");
-			}
-		});	
+		Ajax.ajax_get('/admin/mgr/roles')
+			.then(function(data){
+				_selectorRole = selector.select2({
+					placeholder : '选择角色',
+					allowClear: true,
+					data:data,
+				});
+				
+				if (!(checked == undefined || checked == "")) {
+					_selectorRole.val(checked).trigger("change");
+				}
+			}) 
 	}
 	
 	function resolveCheckedRoles(checked) {
@@ -61,12 +59,19 @@ define(['jquery', 'datatables.net', 'bootstrapDT', 'select2'],
 			url: '/usermgr/globalAccount/' + _id,
 			dataType: 'json',
 			data: {"roles" : roles},
+			beforeSend: function() {
+				$('#btnUpdateModal').attr('disabled', true);
+				$('#btnUpdateModal').text('正在更新...');
+			},
+			
 			success: function(result) {
 				$("#message").html('<div class="alert alert-' + result.data.bootstrapType + '">' + result.data.content + '</div>');
+				$("#message").attr('style', 'display:block');
 			},
 			
 			error: function(result) {
 				$("#message").html('<div class="alert alert-danger">Ajax执行错误，更新角色失败。</div>');
+				$("#message").attr('style', 'display:block');
 			},
 		
 			complete: function(result) {
@@ -75,6 +80,8 @@ define(['jquery', 'datatables.net', 'bootstrapDT', 'select2'],
 				_tableAccount.ajax.reload();
 				disabledButtons();
 				autoHideMessage();
+				$('#btnUpdateModal').attr('disabled', false);
+				$('#btnUpdateModal').text('提交更新');
 			}
 		})
 	}
@@ -84,13 +91,19 @@ define(['jquery', 'datatables.net', 'bootstrapDT', 'select2'],
 			type: 'DELETE',
 			url: '/usermgr/globalAccount/' + _id,
 			dataType: 'json',
+			beforeSend: function() {
+				$('#btnDelModal').attr('disabled', true);
+				$('#btnDelModal').text('正在删除...');
+			},
+			
 			success: function(result) {
 				$("#message").html('<div class="alert alert-' + result.data.bootstrapType + '">' + result.data.content + '</div>');
-				$("#message").show();
+				$("#message").attr('style', 'display:block');
 			},
 			
 			error: function(data) {
 				$("#message").html('<div class="alert alert-danger">Ajax执行错误，删除失败。</div>');
+				$("#message").attr('style', 'display:block');
 			}, 
 			
 			complete: function() {
@@ -99,6 +112,8 @@ define(['jquery', 'datatables.net', 'bootstrapDT', 'select2'],
 				_tableAccount.ajax.reload();
 				disabledButtons();
 				autoHideMessage();
+				$('#btnDelModal').attr('disabled', false);
+				$('#btnDelModal').text('删除');
 			}
 		});
 	}
@@ -113,6 +128,7 @@ define(['jquery', 'datatables.net', 'bootstrapDT', 'select2'],
 							$("#message").hide(1000);
 							$("#message").html("");
 							$("#message").show();
+							$("#message").attr('style', 'display:block');
 						}, milli || 5000);
 	}
 	
@@ -175,6 +191,7 @@ define(['jquery', 'datatables.net', 'bootstrapDT', 'select2'],
 					$("#updateModal").modal('hide');
 				}
 				
+				$("#btnUpdateModal").unbind('click');
 				$("#btnUpdateModal").on('click', function() {
 					updateAccountRole(rows[0].id, _selectorRole.select2("val"));
 				});
@@ -190,6 +207,7 @@ define(['jquery', 'datatables.net', 'bootstrapDT', 'select2'],
 					$("#deleteModal").modal('hide');
 				}
 				
+				$("#btnDelModal").unbind('click');
 				// 使用ajax异步删除元素
 				$("#btnDelModal").on('click', function() {
 					deleteAccount(rows[0].id);
