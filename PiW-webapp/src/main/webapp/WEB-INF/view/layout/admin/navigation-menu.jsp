@@ -17,7 +17,12 @@
                 </ul>
             </li>
             <li>
-                <a href="#"><i class="fa fa-bar-chart-o"></i> Charts</a>
+                <a href="#" data-selected-link="/admin/git" aria-expanded="false"><i class="fa fa-github"></i> Git<span class="fa arrow"></span></a>
+                <ul class="nav nav-second-level">
+                    <li>
+                        <a href="${ctx}/admin/git/repository" data-selected-link="/admin/git/repository"><i class="fa fa-user fa-fw"></i> 账号权限管理</a>
+                    </li>
+                </ul>
             </li>
             <li>
                 <a href="#"><i class="fa fa-qrcode"></i> Tabs & Panels</a>
