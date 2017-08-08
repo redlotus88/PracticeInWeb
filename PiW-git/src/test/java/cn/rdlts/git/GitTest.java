@@ -22,6 +22,9 @@ public class GitTest {
 		Assert.assertEquals(piWGit.getConfiguration().getBranch(), "*");
 		Assert.assertTrue(StringUtils.isNotEmpty(piWGit.getConfiguration().getCloneUrl()));
 		Assert.assertNotNull(piWGit.getGitRepository());
+		
+		//TODO: to delete 
+		piWGit.getCommits();
 	}
 	
 	

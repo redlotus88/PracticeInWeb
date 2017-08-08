@@ -10,7 +10,9 @@ import org.apache.commons.logging.LogFactory;
 import org.eclipse.jgit.api.CloneCommand;
 import org.eclipse.jgit.api.Git;
 import org.eclipse.jgit.api.ResetCommand.ResetType;
+import org.eclipse.jgit.api.errors.GitAPIException;
 import org.eclipse.jgit.lib.Repository;
+import org.eclipse.jgit.revwalk.RevCommit;
 import org.eclipse.jgit.storage.file.FileRepositoryBuilder;
 import org.springframework.beans.factory.InitializingBean;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -35,6 +37,24 @@ public class PiWGit implements InitializingBean {
 		// nothing to do.
 	}
 	
+	public Iterable<RevCommit> getCommits() {
+		// TODO: 
+		try {
+			Iterable<RevCommit> commits = git.log().call();
+			for (RevCommit rev : commits) {
+				System.out.println(rev.getAuthorIdent());
+				System.out.println(rev.getFullMessage());
+				System.out.println(rev.getShortMessage());
+				System.out.println(rev.getCommitTime());
+			}
+			
+			return null;
+		} catch (GitAPIException e) {
+			e.printStackTrace();
+			return null;
+		}
+	}
+	
 	public List<GitBranch> getBranches() {
 		//TODO 得到所有Branch信息。
 //		try {
@@ -55,7 +75,7 @@ public class PiWGit implements InitializingBean {
 		String repository = configuration.getRepository();
 		
 		File repositoryDir = new File(repository);
-		if (!repositoryDir.isDirectory()) {
+		if (repositoryDir.exists() && !repositoryDir.isDirectory()) {
 			throw new PiWGitRuntimeException("git.repository must be a directory.");
 		}
 		

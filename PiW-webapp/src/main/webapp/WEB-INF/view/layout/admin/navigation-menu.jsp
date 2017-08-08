@@ -20,7 +20,7 @@
                 <a href="#" data-selected-link="/admin/git" aria-expanded="false"><i class="fa fa-github"></i> Git<span class="fa arrow"></span></a>
                 <ul class="nav nav-second-level">
                     <li>
-                        <a href="${ctx}/admin/git/repository" data-selected-link="/admin/git/repository"><i class="fa fa-user fa-fw"></i> 账号权限管理</a>
+                        <a href="${ctx}/admin/git/repository" data-selected-link="/admin/git/repository"><i class="fa fa-user fa-fw"></i> Git远程仓库管理</a>
                     </li>
                 </ul>
             </li>
