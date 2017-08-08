@@ -13,7 +13,10 @@
     <name>PiW-webapp</name>
     
     <properties>
+        <!-- Apache Tiles -->
         <tiles.version>3.0.7</tiles.version>
+        <!-- Thymeleaf -->
+        <thymeleaf.version>3.0.7.RELEASE</thymeleaf.version>
     </properties>
     
     <build>
@@ -93,6 +96,17 @@
             <version>${tiles.version}</version>
         </dependency>
         
+        <!-- THYMELEAF -->
+        <dependency>
+            <groupId>org.thymeleaf</groupId>
+            <artifactId>thymeleaf</artifactId>
+            <version>${thymeleaf.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.thymeleaf</groupId>
+            <artifactId>thymeleaf-spring4</artifactId>
+            <version>${thymeleaf.version}</version>
+        </dependency>
     </dependencies>
     
 </project>

@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:oxm="http://www.springframework.org/schema/oxm"
+       xsi:schemaLocation="http://www.springframework.org/schema/oxm
+         http://www.springframework.org/schema/oxm/spring-oxm.xsd
+         http://www.springframework.org/schema/beans
+         http://www.springframework.org/schema/beans/spring-beans.xsd">
+         
+<!-- Apache Tiles 3 视图配置 -->
+    <bean id="tilesViewResolver" class="org.springframework.web.servlet.view.UrlBasedViewResolver">
+        <property name="viewClass">
+          <value>org.springframework.web.servlet.view.tiles3.TilesView</value>
+        </property>
+        <property name="order" value="0"/>
+    </bean>
+
+    <bean id="tilesConfigurer" class="org.springframework.web.servlet.view.tiles3.TilesConfigurer">
+       <property name="definitions">
+            <list>
+                <value>/WEB-INF/config/tiles/tiles-admin.xml</value>
+            </list>
+       </property>
+    </bean>
+
+    <!-- **************************************************************** -->
+    <!-- THYMELEAF-SPECIFIC ARTIFACTS -->
+    <!-- TemplateResolver <- TemplateEngine <- ViewResolver -->
+    <!-- **************************************************************** -->
+    <bean id="templateResolver" class="org.thymeleaf.spring4.templateresolver.SpringResourceTemplateResolver">
+        <property name="prefix" value="/WEB-INF/view/thymeleaf/" />
+        <property name="suffix" value=".html" />
+        <property name="templateMode" value="HTML5" />
+        <property name="cacheable" value="true" />
+    </bean>
+
+    <bean id="templateEngine" class="org.thymeleaf.spring4.SpringTemplateEngine">
+        <property name="templateResolver" ref="templateResolver" />
+    </bean>
+
+    <bean class="org.thymeleaf.spring4.view.ThymeleafViewResolver">
+        <property name="templateEngine" ref="templateEngine" />
+    </bean>    
+    
+    <!--  视图解析器  -->
+    <bean id="viewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">  
+        <property name="prefix" value="/WEB-INF/view/thymeleaf/"></property>  
+        <property name="suffix" value=".jsp"></property>  
+        <property name="order" value="1"/>
+    </bean>  
+</beans>

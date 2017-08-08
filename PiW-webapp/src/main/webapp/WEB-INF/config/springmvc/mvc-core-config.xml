@@ -16,8 +16,10 @@
                         http://www.springframework.org/schema/tx 
                         http://www.springframework.org/schema/tx/spring-tx-4.1.xsd"
     default-lazy-init="true">
-    <!-- <context:annotation-config /> -->  
-    <!-- context:component-scan 具有annotation-config 的功能 -->  
+    
+    <import resource="mvc-view-config.xml"/>
+    
+    <!-- Spring 注解处理 -->
     <!-- 扫描 控制层 -->  
     <context:component-scan base-package="cn.rdlts.webapp" use-default-filters="false">
         <context:include-filter type="annotation" expression="org.springframework.stereotype.Controller" />
@@ -36,6 +38,7 @@
             </bean>
         </mvc:message-converters>
     </mvc:annotation-driven>
+    <!-- Spring 注解处理 end -->
     
     <!-- 启用默认servlet, 解除静态资源的拦截。 -->
     <mvc:default-servlet-handler/>
@@ -46,27 +49,4 @@
     <mvc:resources mapping="/error/**" location="/static/error/" />
     <mvc:resources mapping="/image/**" location="/static/image/" />
     
-
-<!--     Apache Tiles 3 视图配置 -->
-	<bean id="tilesViewResolver" class="org.springframework.web.servlet.view.UrlBasedViewResolver">
-		<property name="viewClass">
-		  <value>org.springframework.web.servlet.view.tiles3.TilesView</value>
-		</property>
-		<property name="order" value="0"/>
-	</bean>
-
-    <bean id="tilesConfigurer" class="org.springframework.web.servlet.view.tiles3.TilesConfigurer">
-	   <property name="definitions">
-			<list>
-				<value>/WEB-INF/config/tiles/tiles-admin.xml</value>
-			</list>
-	   </property>
-    </bean>
-    
-    <!--  视图解析器  -->
-    <bean id="viewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">  
-        <property name="prefix" value="/WEB-INF/view/"></property>  
-        <property name="suffix" value=".jsp"></property>  
-        <property name="order" value="1"/>
-    </bean>  
 </beans>
