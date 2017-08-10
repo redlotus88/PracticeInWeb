@@ -20,6 +20,7 @@ import cn.rdlts.core.security.service.SecurityService;
 import cn.rdlts.core.usermgr.model.Account;
 import cn.rdlts.core.usermgr.service.AccountProfileService;
 import cn.rdlts.core.usermgr.service.AccountService;
+import cn.rdlts.webapp.constant.ViewConst;
 import cn.rdlts.webapp.constant.tiles.ViewTilesConst;
 import cn.rdlts.webapp.vo.AccountVO;
 import cn.rdlts.webapp.vo.RoleVO;
@@ -59,6 +60,11 @@ public class AdminController {
 	@RequestMapping(value = "/mgr/role", method = RequestMethod.GET)
 	public String toAccountRoleView() {
 		return ViewTilesConst.VIEW_TILES_ADMIN_MGR_ROLE;
+	}
+	
+	@RequestMapping(value = "/git/repository", method = RequestMethod.GET)
+	public String toGitRepository() {
+		return ViewConst.VIEW_GIT_REPOSITORY;
 	}
 
 	/**

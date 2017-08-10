@@ -1,7 +1,9 @@
 package cn.rdlts.git;
 
 import java.io.File;
+import java.util.Collections;
 import java.util.List;
+import java.util.Map;
 
 import org.apache.commons.io.FileUtils;
 import org.apache.commons.lang3.StringUtils;
@@ -10,59 +12,42 @@ import org.apache.commons.logging.LogFactory;
 import org.eclipse.jgit.api.CloneCommand;
 import org.eclipse.jgit.api.Git;
 import org.eclipse.jgit.api.ResetCommand.ResetType;
-import org.eclipse.jgit.api.errors.GitAPIException;
+import org.eclipse.jgit.lib.Ref;
 import org.eclipse.jgit.lib.Repository;
-import org.eclipse.jgit.revwalk.RevCommit;
 import org.eclipse.jgit.storage.file.FileRepositoryBuilder;
 import org.springframework.beans.factory.InitializingBean;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
 
-import cn.rdlts.git.core.GitBranch;
+import cn.rdlts.git.core.Branch;
 import cn.rdlts.git.exception.PiWGitRuntimeException;
 
-@Component(value="piWGit")
 public class PiWGit implements InitializingBean {
 	
 	private static Log logger = LogFactory.getLog(PiWGit.class);
 	
-	@Autowired
 	private GitConfiguration configuration;
 	
 	private Repository gitRepository;
 	
 	private Git git;
 	
+	private boolean lazyLoad = false;
+	
+	private boolean initialized = false;
+	
 	public PiWGit() {
 		// nothing to do.
 	}
 	
-	public Iterable<RevCommit> getCommits() {
-		// TODO: 
-		try {
-			Iterable<RevCommit> commits = git.log().call();
-			for (RevCommit rev : commits) {
-				System.out.println(rev.getAuthorIdent());
-				System.out.println(rev.getFullMessage());
-				System.out.println(rev.getShortMessage());
-				System.out.println(rev.getCommitTime());
-			}
-			
-			return null;
-		} catch (GitAPIException e) {
-			e.printStackTrace();
-			return null;
-		}
+	public String getUri() {
+		return configuration.getCloneUrl();
 	}
 	
-	public List<GitBranch> getBranches() {
-		//TODO 得到所有Branch信息。
-//		try {
-//			List<Ref> refs = git.branchList().call();
-//		} catch (GitAPIException e) {
-//			e.printStackTrace();
-//		}
-		return null;
+	public List<Branch> getBranches() {
+		Map<String, Ref> refs = getGitRepository().getAllRefs();
+		for (Ref ref : refs.values()) {
+			System.out.println(ref.getName() + ref.getObjectId().getName());
+		}
+		return Collections.EMPTY_LIST;
 	}
 	
 	/**
@@ -71,7 +56,12 @@ public class PiWGit implements InitializingBean {
 	 * @param forced true表示强制清空git目录，重新clone一个新的。
 	 * @throws Exception
 	 */
-	public void initRepository(boolean forced) throws Exception {
+	public synchronized void initRepository(boolean forced) throws Exception {
+		if (configuration == null) {
+			logger.warn("No configuration found!");
+			return;
+		}
+		
 		String repository = configuration.getRepository();
 		
 		File repositoryDir = new File(repository);
@@ -88,7 +78,7 @@ public class PiWGit implements InitializingBean {
 		
 		File gitDir = new File(StringUtils.join(repository, GitConstants.GIT_FOLDER));
 		if (!gitDir.exists()) {
-			throw new PiWGitRuntimeException("Can't find /.git directory!");
+			throw new PiWGitRuntimeException("无法找到.git目录[" + gitDir.getAbsolutePath() + "]");
 		}
 		
 		FileRepositoryBuilder builder = new FileRepositoryBuilder();
@@ -97,12 +87,13 @@ public class PiWGit implements InitializingBean {
 								.findGitDir()
 								.build();
 		git = new Git(gitRepository);
-		
 		// 如果是非强制模式
 		if (repositoryDir.exists() && !forced) {
-			git.log().call();
 			resetRepository();
 		}
+		
+		GitRegistration.register(this);
+		initialized = true;
 	}
 	
 	/**
@@ -153,29 +144,45 @@ public class PiWGit implements InitializingBean {
 	public GitConfiguration getConfiguration() {
 		return configuration;
 	}
-
+	
 	public void setConfiguration(GitConfiguration configuration) {
 		this.configuration = configuration;
 	}
+	
+	public boolean isLazyLoad() {
+		return lazyLoad;
+	}
+
+	public void setLazyLoad(boolean lazyLoad) {
+		this.lazyLoad = lazyLoad;
+	}
 
 	protected Repository getGitRepository() {
+		lazyLoad();
 		return gitRepository;
 	}
-
-	protected void setGitRepository(Repository gitRepository) {
-		this.gitRepository = gitRepository;
-	}
 	
-	public Git getGit() {
+	protected Git getGit() {
+		lazyLoad();
 		return git;
 	}
 
-	public void setGit(Git git) {
-		this.git = git;
+	private void lazyLoad() {
+		if (!initialized && lazyLoad) {
+			try {
+				initRepository(false);
+			} catch (Exception e) {
+				throw new PiWGitRuntimeException("懒加载初始化git repository[" + configuration.getRepository() + "]失败", e);
+			}
+		}
 	}
-
+	
 	@Override
 	public void afterPropertiesSet() throws Exception {
-		initRepository(false);
+		if (!lazyLoad) {
+			initRepository(false);
+		} else {
+			GitRegistration.register(this);
+		}
 	}
 }

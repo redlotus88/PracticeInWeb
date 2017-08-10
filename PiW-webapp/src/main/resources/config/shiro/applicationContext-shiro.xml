@@ -121,6 +121,7 @@
 				/admin/**=authc,roles[admin]
 				/settings/** = authc
 				/usermgr/** = authc
+				/git/** = authc
 				/static/** = anon
 			</value>
 		</constructor-arg>

@@ -7,11 +7,17 @@
                 http://www.springframework.org/schema/context/spring-context-4.1.xsd"
                 default-lazy-init="false">
 
-	<!--引入配置属性文件 -->
-	<context:property-placeholder location="classpath*:config/git.properties" />
-
 	<!-- 扫描包，注入bean -->
 	<context:component-scan base-package="cn.rdlts" />
 	
+	<bean id="repoConfig" class="cn.rdlts.git.GitConfiguration">
+	   <property name="cloneUrl" value="https://github.com/redlotus88/PracticeInWeb.git" />
+       <property name="repository" value="./target/git" />
+       <property name="reference" value="HEAD"/>
+	</bean>
 	
+	<bean id="gitRepo" class="cn.rdlts.git.PiWGit">
+	   <property name="configuration" ref="repoConfig" />
+	   <property name="lazyLoad" value="false" />
+	</bean>
 </beans>  

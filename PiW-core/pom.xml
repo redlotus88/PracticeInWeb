@@ -42,6 +42,12 @@
         
         <dependency>
             <groupId>cn.rdlts</groupId>
+            <artifactId>PiW-git</artifactId>
+            <version>${piw.version}</version>
+        </dependency>
+        
+        <dependency>
+            <groupId>cn.rdlts</groupId>
             <artifactId>PiW-shiro</artifactId>
             <version>${piw.version}</version>
         </dependency>

@@ -8,8 +8,31 @@
 		<version>0.0.4-SNAPSHOT</version>
 		<relativePath>../PiW-root</relativePath>
 	</parent>
-	
+
 	<artifactId>PiW-jobs</artifactId>
 	<name>PiW-jobs</name>
 	
+	<build>
+	<resources>
+		<resource>
+			<filtering>false</filtering>
+			<directory>/src/main/resources</directory>
+		</resource>
+		<resource>
+			<filtering>true</filtering>
+			<directory>/src/test/resources</directory>
+			<excludes>
+				<exclude>**/*.*</exclude>
+			</excludes>
+		</resource>
+	</resources>
+</build>
+
+	<dependencies>
+        <dependency>  
+            <groupId>org.quartz-scheduler</groupId>  
+            <artifactId>quartz</artifactId>  
+            <version>2.2.2</version>  
+        </dependency>  
+	</dependencies>
 </project>

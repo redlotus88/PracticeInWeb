@@ -1,35 +1,20 @@
 package cn.rdlts.git;
 
 import org.apache.commons.lang.builder.ToStringBuilder;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
 @Component
 public class GitConfiguration {
 	
-	@Value("${git.username}")
 	private String username;
-	
-	@Value("${git.password}")
 	private String password;
-	
-	@Value("${git.repository}")
 	private String repository;
-	
-	@Value("${git.cloneUrl}")
 	private String cloneUrl;
+	private String reference = "HEAD";
+	private String branch = "*";
 	
-	/**
-	 * 默认值为origin
-	 */
-	@Value("${git.reference:HEAD}")
-	private String reference;
-	
-	/**
-	 * 默认值为*
-	 */
-	@Value("${git.branch:*}")
-	private String branch;
+	public GitConfiguration() {
+	}
 	
 	public String getUsername() {
 		return username;

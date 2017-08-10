@@ -22,6 +22,8 @@ public final class ViewConst {
 	
 	public static final String REDIRECT_MGR_GLOBAL_ROLE = "redirect:/admin/mgr/role";
 	
+	public static final String VIEW_GIT_REPOSITORY = "/git/repository";
+	
 	public static final String VIEW_ERROR = "common/error";
 	
 	private ViewConst() {

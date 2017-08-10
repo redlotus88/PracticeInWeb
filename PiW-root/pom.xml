@@ -37,6 +37,8 @@
 		<module>../PiW-jobs</module>
 		<!-- python模块 -->
 		<module>../PiW-python</module>
+		<!-- git 模块 -->
+		<module>../PiW-git</module>
 	</modules>
 
 	<build>

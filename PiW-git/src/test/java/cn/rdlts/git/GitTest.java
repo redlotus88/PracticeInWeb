@@ -5,6 +5,7 @@ import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.test.context.ContextConfiguration;
 
 @RunWith(PiWJunit4GitTestRunner.class)
@@ -12,20 +13,21 @@ import org.springframework.test.context.ContextConfiguration;
 public class GitTest {
 
 	@Autowired
+	@Qualifier("gitRepo")
 	private PiWGit piWGit;
 	
-	@Test
+//	@Test
 	public void gitTest() {
-		Assert.assertEquals(piWGit.getConfiguration().getUsername(), StringUtils.EMPTY);
-		Assert.assertEquals(piWGit.getConfiguration().getPassword(), StringUtils.EMPTY);
+		Assert.assertNull(piWGit.getConfiguration().getUsername());
+		Assert.assertNull(piWGit.getConfiguration().getPassword());
 		Assert.assertEquals(piWGit.getConfiguration().getRepository(), "./target/git");
 		Assert.assertEquals(piWGit.getConfiguration().getBranch(), "*");
 		Assert.assertTrue(StringUtils.isNotEmpty(piWGit.getConfiguration().getCloneUrl()));
 		Assert.assertNotNull(piWGit.getGitRepository());
-		
-		//TODO: to delete 
-		piWGit.getCommits();
 	}
 	
-	
+	@Test
+	public void getBranchesTest() {
+		Assert.assertTrue(piWGit.getBranches().size() > 0);
+	}
 }
