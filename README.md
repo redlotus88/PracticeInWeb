@@ -1,2 +1,2 @@
 # PracticeInWeb
-A web application to test for different types of plugin or technical.
+A web application to test for different types of plugin, framework etc.
