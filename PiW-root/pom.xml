@@ -4,7 +4,7 @@
 	<!-- maven属性定义 -->
 	<properties>
 		<!-- 项目版本定义 -->
-		<piw.version>0.0.4-SNAPSHOT</piw.version>
+		<piw.version>0.0.4</piw.version>
 	
 		<java.version>1.8</java.version>
 		<json-lib.version>2.4</json-lib.version>
@@ -18,7 +18,7 @@
 
 	<groupId>cn.rdlts</groupId>
 	<artifactId>PiW-root</artifactId>
-	<version>0.0.4-SNAPSHOT</version>
+	<version>0.0.4</version>
 	<packaging>pom</packaging>
 	<name>PiW-root</name>
 	<description>Practice in web to test different type of web plugin.</description>
