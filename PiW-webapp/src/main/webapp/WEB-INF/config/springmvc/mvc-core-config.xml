@@ -48,5 +48,4 @@
     <mvc:resources mapping="/css/**" location="/static/css/"/> 
     <mvc:resources mapping="/error/**" location="/static/error/" />
     <mvc:resources mapping="/image/**" location="/static/image/" />
-    
 </beans>

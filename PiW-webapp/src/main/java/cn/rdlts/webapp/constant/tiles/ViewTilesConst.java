@@ -12,6 +12,8 @@ public class ViewTilesConst {
 	
 	public static final String VIEW_TILES_ADMIN_MGR_ROLE = "tiles.admin.mgr.role";
 	
+	public static final String VIEW_TILES_ADMIN_SKYEYES_DASHBOARD = "tiles.admin.skyeyes.dashboard";
+	
 	private ViewTilesConst() {
 	}
 }

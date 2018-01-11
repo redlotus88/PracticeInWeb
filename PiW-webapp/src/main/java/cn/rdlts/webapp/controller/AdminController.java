@@ -62,9 +62,14 @@ public class AdminController {
 		return ViewTilesConst.VIEW_TILES_ADMIN_MGR_ROLE;
 	}
 	
-	@RequestMapping(value = "/git/repository", method = RequestMethod.GET)
-	public String toGitRepository() {
-		return ViewConst.VIEW_GIT_REPOSITORY;
+//	@RequestMapping(value = "/git/repository", method = RequestMethod.GET)
+//	public String toGitRepository() {
+//		return ViewConst.VIEW_GIT_REPOSITORY;
+//	}
+	
+	@RequestMapping(value = "/skyeyes/dashboard", method = RequestMethod.GET)
+	public String toSkyeyes() {
+		return ViewTilesConst.VIEW_TILES_ADMIN_SKYEYES_DASHBOARD;
 	}
 
 	/**

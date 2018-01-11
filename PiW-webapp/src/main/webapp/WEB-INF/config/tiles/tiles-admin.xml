@@ -28,6 +28,10 @@
         <put-attribute name="content" value="/WEB-INF/view/admin/mgr/role.jsp"/>
     </definition>
     
+     <definition name="tiles.admin.skyeyes.dashboard" extends="tiles.admin.base">
+        <put-attribute name="content" value="/WEB-INF/view/skyeyes/dashboard.jsp"/>
+    </definition>
+    
 <!-- 	<definition name="default.list" template="/WEB-INF/jsp/template/list.jsp"> -->
 <!-- 		<put-attribute name="left" value="/WEB-INF/jsp/template/left.jsp" /> -->
 <!-- 		<put-attribute name="main" value="/WEB-INF/jsp/template/main.jsp" /> -->

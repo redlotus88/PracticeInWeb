@@ -40,7 +40,7 @@ public class LoginServiceLocalImpl implements LoginService {
 	@Override
 	public int getDailyVisits() {
 		int num = loginInfoMapper.getDailyVisits();
-		logger.info(StringUtils.join("查询当天登录人数：", Integer.toString(num)));
+		logger.info(StringUtils.join("查询当天登录人次数：", Integer.toString(num)));
 		return num;
 	}
 

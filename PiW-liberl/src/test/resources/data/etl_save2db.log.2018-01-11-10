@@ -1,0 +1,342 @@
+2018/1/11 上午10:23:44[2018-01-11 10:23:44] INFO [<eval>:325] lv1tolv2_update {"cid":190576630,"city":"太原","site":"139","state":3,"lastpubtime":"2018-01-11 10:23:44"}
+2018/1/11 上午10:23:47[2018-01-11 10:23:47] INFO [<eval>:130] insert #191391037 | http://www.che168.com/dealer/107564/25452631.html
+2018/1/11 上午10:23:47[2018-01-11 10:23:47] INFO [<eval>:325] 23_lv1tolv2 {"cid":191391037,"city":"重庆","site":"7","state":1,"lastpubtime":"2018-01-11 10:23:47"}
+2018/1/11 上午10:23:48[2018-01-11 10:23:48] INFO [<eval>:130] insert #191391044 | http://www.che168.com/personal/25451499.html
+2018/1/11 上午10:23:48[2018-01-11 10:23:48] INFO [<eval>:325] 23_lv1tolv2 {"cid":191391044,"city":"太原","site":"7","state":1,"lastpubtime":"2018-01-11 10:23:48"}
+2018/1/11 上午10:23:49[2018-01-11 10:23:49] INFO [<eval>:204] update #185688402 | http://huizhou.58.com/ershouche/32370914584903x.shtml | {"lastpubtime":"2017-12-22 10:23:49"}
+2018/1/11 上午10:23:49[2018-01-11 10:23:49] WARN [<eval>:207] title changed: 宝马 3系 2016款 320Li 时尚型精品一手车7天可退换按揭利息低 -> 宝马 3系 2016款 320Li 时尚型 | 185688402 | http://huizhou.58.com/ershouche/32370914584903x.shtml
+2018/1/11 上午10:23:49[2018-01-11 10:23:49] INFO [<eval>:325] lv1tolv2_update {"cid":185688402,"city":"惠州","site":"1","state":2,"lastpubtime":"2017-12-22 10:23:49"}
+2018/1/11 上午10:23:52[2018-01-11 10:23:52] INFO [<eval>:204] update #190821717 | http://www.che168.com/dealer/264907/25394754.html | {"state":300}
+2018/1/11 上午10:23:52[2018-01-11 10:23:52] INFO [<eval>:325] lv1tolv2_update {"cid":190821717,"city":"北京","site":"7","state":3,"lastpubtime":"2018-01-11 10:23:52"}
+2018/1/11 上午10:23:56[2018-01-11 10:23:56] INFO [<eval>:325] lv1tolv2_update {"cid":186746943,"city":"深圳","site":"5","state":3,"lastpubtime":"2018-01-11 10:23:56"}
+2018/1/11 上午10:23:56[2018-01-11 10:23:56] INFO [<eval>:204] update #187698662 | http://www.che168.com/dealer/266569/25176999.html | {"state":300}
+2018/1/11 上午10:23:57[2018-01-11 10:23:57] INFO [<eval>:325] lv1tolv2_update {"cid":187698662,"city":"枣庄","site":"7","state":3,"lastpubtime":"2018-01-11 10:23:57"}
+2018/1/11 上午10:23:57[2018-01-11 10:23:57] INFO [<eval>:130] insert #191391072 | http://www.che168.com/dealer/322292/25452812.html
+2018/1/11 上午10:23:57[2018-01-11 10:23:57] INFO [<eval>:325] 23_lv1tolv2 {"cid":191391072,"city":"郑州","site":"7","state":1,"lastpubtime":"2018-01-11 10:23:57"}
+2018/1/11 上午10:23:57[2018-01-11 10:23:57] INFO [<eval>:204] update #185742943 | http://yy.58.com/ershouche/32389987740601x.shtml | {"lastpubtime":"2018-01-10 10:23:57"}
+2018/1/11 上午10:23:57[2018-01-11 10:23:57] INFO [<eval>:325] lv1tolv2_update {"cid":185742943,"city":"岳阳","site":"1","state":2,"lastpubtime":"2018-01-10 10:23:57"}
+2018/1/11 上午10:23:57[2018-01-11 10:23:57] INFO [<eval>:130] insert #191391076 | http://www.che168.com/personal/25452041.html
+2018/1/11 上午10:23:57[2018-01-11 10:23:57] INFO [<eval>:325] 23_lv1tolv2 {"cid":191391076,"city":"合肥","site":"7","state":1,"lastpubtime":"2018-01-11 10:23:57"}
+2018/1/11 上午10:23:57[2018-01-11 10:23:57] INFO [<eval>:130] insert #191391078 | http://www.che168.com/dealer/318890/25414079.html
+2018/1/11 上午10:23:57[2018-01-11 10:23:57] INFO [<eval>:325] 23_lv1tolv2 {"cid":191391078,"city":"惠州","site":"7","state":1,"lastpubtime":"2018-01-11 10:23:57"}
+2018/1/11 上午10:23:57[2018-01-11 10:23:57] INFO [<eval>:204] update #189367651 | http://www.souche.com/pages/choosecarpage/choose-car-detail.html?carId=HpgnfSeYO8 | {"lastpubtime":"2018-01-11 10:23:57","state":300}
+2018/1/11 上午10:23:57[2018-01-11 10:23:57] INFO [<eval>:325] lv1tolv2_update {"cid":189367651,"city":"安阳","site":"139","state":3,"lastpubtime":"2018-01-11 10:23:57"}
+2018/1/11 上午10:23:58[2018-01-11 10:23:58] INFO [<eval>:325] lv1tolv2_update {"cid":190567020,"city":"广州","site":"5","state":3,"lastpubtime":"2018-01-11 10:23:58"}
+2018/1/11 上午10:23:58[2018-01-11 10:23:58] INFO [<eval>:204] update #185687288 | http://fz.58.com/ershouche/32370745696561x.shtml | {"lastpubtime":"2017-12-22 10:23:58"}
+2018/1/11 上午10:23:58[2018-01-11 10:23:58] WARN [<eval>:207] title changed: 宝马 5系 2010款 520Li 豪华型一手车无事故无泡水 -> 宝马 5系 2010款 520Li 豪华型 | 185687288 | http://fz.58.com/ershouche/32370745696561x.shtml
+2018/1/11 上午10:23:58[2018-01-11 10:23:58] INFO [<eval>:325] lv1tolv2_update {"cid":185687288,"city":"福州","site":"1","state":2,"lastpubtime":"2017-12-22 10:23:58"}
+2018/1/11 上午10:23:58[2018-01-11 10:23:58] INFO [<eval>:204] update #185323760 | http://nb.58.com/ershouche/32350935481775x.shtml | {"lastpubtime":"2017-12-20 10:23:58"}
+2018/1/11 上午10:23:58[2018-01-11 10:23:58] WARN [<eval>:207] title changed: 宝马 3系 2012款 320i 时尚型一手寄卖车况精品可按揭 -> 宝马 3系 2012款 320i 时尚型 | 185323760 | http://nb.58.com/ershouche/32350935481775x.shtml
+2018/1/11 上午10:23:58[2018-01-11 10:23:58] INFO [<eval>:325] lv1tolv2_update {"cid":185323760,"city":"宁波","site":"1","state":2,"lastpubtime":"2017-12-20 10:23:58"}
+2018/1/11 上午10:23:59[2018-01-11 10:23:59] INFO [<eval>:204] update #190513113 | http://www.che168.com/dealer/264907/25360801.html | {"state":300}
+2018/1/11 上午10:23:59[2018-01-11 10:23:59] INFO [<eval>:325] lv1tolv2_update {"cid":190513113,"city":"杭州","site":"7","state":3,"lastpubtime":"2018-01-11 10:23:59"}
+2018/1/11 上午10:24:00[2018-01-11 10:24:00] INFO [<eval>:204] update #191388670 | http://www.che168.com/dealer/147784/25452322.html | {"state":2}
+2018/1/11 上午10:24:00[2018-01-11 10:24:00] INFO [<eval>:308] no_send: 191388670 http://www.che168.com/dealer/147784/25452322.html
+2018/1/11 上午10:24:02[2018-01-11 10:24:02] INFO [<eval>:204] update #188733814 | http://lyg.58.com/ershouche/32493767182520x.shtml | {"lastpubtime":"2018-01-02 10:24:02"}
+2018/1/11 上午10:24:02[2018-01-11 10:24:02] INFO [<eval>:325] lv1tolv2_update {"cid":188733814,"city":"连云港","site":"1","state":2,"lastpubtime":"2018-01-02 10:24:02"}
+2018/1/11 上午10:24:03[2018-01-11 10:24:03] INFO [<eval>:130] insert #191391095 | http://www.che168.com/dealer/124093/25452655.html
+2018/1/11 上午10:24:03[2018-01-11 10:24:03] INFO [<eval>:325] 23_lv1tolv2 {"cid":191391095,"city":"贵阳","site":"7","state":1,"lastpubtime":"2018-01-11 10:24:03"}
+2018/1/11 上午10:24:03[2018-01-11 10:24:03] WARN [<eval>:207] title changed: 别克 君越 2009款 2.4 手自一体 舒适版不限年限都可按揭 价格可议 -> 别克 君越 2009款 2.4 手自一体 舒适版 | 185325137 | http://nb.58.com/ershouche/32351302111786x.shtml
+2018/1/11 上午10:24:03[2018-01-11 10:24:03] INFO [<eval>:308] no_send: 185325137 http://nb.58.com/ershouche/32351302111786x.shtml
+2018/1/11 上午10:24:04[2018-01-11 10:24:04] INFO [<eval>:130] insert #191391098 | http://www.che168.com/dealer/303081/25452431.html
+2018/1/11 上午10:24:04[2018-01-11 10:24:04] INFO [<eval>:325] 23_lv1tolv2 {"cid":191391098,"city":"宁波","site":"7","state":1,"lastpubtime":"2018-01-11 10:24:04"}
+2018/1/11 上午10:24:06[2018-01-11 10:24:06] INFO [<eval>:204] update #185695890 | http://qd.58.com/ershouche/32373246041918x.shtml | {"lastpubtime":"2017-12-22 10:24:06"}
+2018/1/11 上午10:24:06[2018-01-11 10:24:06] WARN [<eval>:207] title changed: 奥迪 A3 2014款 35TFSI 1.4T 自动 时尚型Limousine代过户.有质保.车况好.可外迁 -> 奥迪 A3 2014款 35TFSI 1.4T 自动 时尚型Limousine | 185695890 | http://qd.58.com/ershouche/32373246041918x.shtml
+2018/1/11 上午10:24:06[2018-01-11 10:24:06] INFO [<eval>:325] lv1tolv2_update {"cid":185695890,"city":"青岛","site":"1","state":2,"lastpubtime":"2017-12-22 10:24:06"}
+2018/1/11 上午10:24:06[2018-01-11 10:24:06] INFO [<eval>:130] insert #191391104 | http://www.che168.com/dealer/118186/25445460.html
+2018/1/11 上午10:24:06[2018-01-11 10:24:06] INFO [<eval>:325] 23_lv1tolv2 {"cid":191391104,"city":"南京","site":"7","state":1,"lastpubtime":"2018-01-11 10:24:06"}
+2018/1/11 上午10:24:06[2018-01-11 10:24:06] INFO [<eval>:308] no_send: 191390836 http://www.che168.com/dealer/325963/25452418.html
+2018/1/11 上午10:24:06[2018-01-11 10:24:06] INFO [<eval>:204] update #188624759 | http://nb.58.com/ershouche/32489074914999x.shtml | {"lastpubtime":"2018-01-02 10:24:06"}
+2018/1/11 上午10:24:06[2018-01-11 10:24:06] INFO [<eval>:325] lv1tolv2_update {"cid":188624759,"city":"宁波","site":"1","state":2,"lastpubtime":"2018-01-02 10:24:06"}
+2018/1/11 上午10:24:07[2018-01-11 10:24:07] INFO [<eval>:204] update #188694838 | http://zz.58.com/ershouche/32490593156664x.shtml | {"lastpubtime":"2018-01-02 10:24:07"}
+2018/1/11 上午10:24:07[2018-01-11 10:24:07] INFO [<eval>:325] lv1tolv2_update {"cid":188694838,"city":"郑州","site":"1","state":2,"lastpubtime":"2018-01-02 10:24:07"}
+2018/1/11 上午10:24:07[2018-01-11 10:24:07] INFO [<eval>:204] update #184904041 | http://yt.58.com/ershouche/32323836047535x.shtml | {"lastpubtime":"2017-12-18 10:24:07"}
+2018/1/11 上午10:24:07[2018-01-11 10:24:07] INFO [<eval>:325] lv1tolv2_update {"cid":184904041,"city":"烟台","site":"1","state":2,"lastpubtime":"2017-12-18 10:24:07"}
+2018/1/11 上午10:24:08[2018-01-11 10:24:08] WARN [<eval>:207] title changed: 马自达 2 2011款 炫动版 1.3L 自动标准型原漆可检 里程少 可议价 分期 -> 马自达 2 2011款 炫动版 1.3L 自动标准型 | 185345710 | http://nb.58.com/ershouche/32349807931573x.shtml
+2018/1/11 上午10:24:08[2018-01-11 10:24:08] INFO [<eval>:308] no_send: 185345710 http://nb.58.com/ershouche/32349807931573x.shtml
+2018/1/11 上午10:24:10[2018-01-11 10:24:10] INFO [<eval>:204] update #190810737 | http://www.bucar.com/car/6b24f3ad57e74d788cbda39a3d793713?shopId=&siteId=49 | {"lastpubtime":"2018-01-11 10:24:10","state":300}
+2018/1/11 上午10:24:10[2018-01-11 10:24:10] INFO [<eval>:325] lv1tolv2_update {"cid":190810737,"city":"衢州","site":"123","state":3,"lastpubtime":"2018-01-11 10:24:10"}
+2018/1/11 上午10:24:10[2018-01-11 10:24:10] INFO [<eval>:204] update #185689449 | http://nb.58.com/ershouche/32384002007497x.shtml | {"lastpubtime":"2017-12-23 10:24:10"}
+2018/1/11 上午10:24:10[2018-01-11 10:24:10] WARN [<eval>:207] title changed: 本田 杰德 2013款 1.8 自动 5座舒适型精品一手车 支持任何检测 -> 本田 杰德 2013款 1.8 自动 5座舒适型 | 185689449 | http://nb.58.com/ershouche/32384002007497x.shtml
+2018/1/11 上午10:24:10[2018-01-11 10:24:10] INFO [<eval>:325] lv1tolv2_update {"cid":185689449,"city":"宁波","site":"1","state":2,"lastpubtime":"2017-12-23 10:24:10"}
+2018/1/11 上午10:24:11[2018-01-11 10:24:11] INFO [<eval>:130] insert #191391115 | http://www.che168.com/dealer/259501/25452697.html
+2018/1/11 上午10:24:11[2018-01-11 10:24:11] INFO [<eval>:325] 23_lv1tolv2 {"cid":191391115,"city":"南昌","site":"7","state":1,"lastpubtime":"2018-01-11 10:24:11"}
+2018/1/11 上午10:24:12[2018-01-11 10:24:12] INFO [<eval>:204] update #185333631 | http://fz.58.com/ershouche/32347860577837x.shtml | {"lastpubtime":"2017-12-20 10:24:12"}
+2018/1/11 上午10:24:12[2018-01-11 10:24:12] WARN [<eval>:207] title changed: 日产 天籁 2009款 2.5 CVT VIP尊享版XV车好价优,超低首付就可开回家 -> 日产 天籁 2009款 2.5 CVT VIP尊享版XV | 185333631 | http://fz.58.com/ershouche/32347860577837x.shtml
+2018/1/11 上午10:24:12[2018-01-11 10:24:12] INFO [<eval>:325] lv1tolv2_update {"cid":185333631,"city":"福州","site":"1","state":2,"lastpubtime":"2017-12-20 10:24:12"}
+2018/1/11 上午10:24:12[2018-01-11 10:24:12] INFO [<eval>:204] update #189699375 | http://cs.58.com/ershouche/32566375702082x.shtml | {"lastpubtime":"2018-01-09 10:24:12","state":2}
+2018/1/11 上午10:24:12[2018-01-11 10:24:12] INFO [<eval>:325] lv1tolv2_update {"cid":189699375,"city":"长沙","site":"1","state":2,"lastpubtime":"2018-01-09 10:24:12"}
+2018/1/11 上午10:24:14[2018-01-11 10:24:14] INFO [<eval>:204] update #190908038 | http://www.souche.com/pages/choosecarpage/choose-car-detail.html?carId=f9cb313a2b914684938bc98bee8782ad | {"lastpubtime":"2018-01-11 10:24:14","state":300}
+2018/1/11 上午10:24:14[2018-01-11 10:24:14] INFO [<eval>:325] lv1tolv2_update {"cid":190908038,"city":"萍乡","site":"139","state":3,"lastpubtime":"2018-01-11 10:24:14"}
+2018/1/11 上午10:24:16[2018-01-11 10:24:16] INFO [<eval>:204] update #187886077 | http://www.che168.com/dealer/264907/25187957.html | {"state":300}
+2018/1/11 上午10:24:16[2018-01-11 10:24:16] INFO [<eval>:325] lv1tolv2_update {"cid":187886077,"city":"潍坊","site":"7","state":3,"lastpubtime":"2018-01-11 10:24:16"}
+2018/1/11 上午10:24:16[2018-01-11 10:24:16] INFO [<eval>:204] update #185152370 | http://nb.58.com/ershouche/32339022109366x.shtml | {"lastpubtime":"2017-12-19 10:24:16"}
+2018/1/11 上午10:24:16[2018-01-11 10:24:16] WARN [<eval>:207] title changed: 奥迪 A8L 2014款 45 TFSI quattro舒适型美女白领精品一手车价格可谈 -> 奥迪 A8L 2014款 45 TFSI quattro舒适型 | 185152370 | http://nb.58.com/ershouche/32339022109366x.shtml
+2018/1/11 上午10:24:16[2018-01-11 10:24:16] INFO [<eval>:325] lv1tolv2_update {"cid":185152370,"city":"宁波","site":"1","state":2,"lastpubtime":"2017-12-19 10:24:16"}
+2018/1/11 上午10:24:19[2018-01-11 10:24:19] INFO [<eval>:130] insert #191391141 | http://qhd.58.com/ershouche/32721571275210x.shtml
+2018/1/11 上午10:24:19[2018-01-11 10:24:19] INFO [<eval>:325] 23_lv1tolv2 {"cid":191391141,"city":"秦皇岛","site":"1","state":1,"lastpubtime":"2018-01-10 10:24:19"}
+2018/1/11 上午10:24:21[2018-01-11 10:24:21] INFO [<eval>:130] insert #191391147 | http://www.che168.com/dealer/264907/25452669.html
+2018/1/11 上午10:24:21[2018-01-11 10:24:21] INFO [<eval>:325] 23_lv1tolv2 {"cid":191391147,"city":"成都","site":"7","state":1,"lastpubtime":"2018-01-11 10:24:20"}
+2018/1/11 上午10:24:21[2018-01-11 10:24:21] INFO [<eval>:204] update #188448079 | http://www.che168.com/dealer/314894/25234177.html | {"state":300}
+2018/1/11 上午10:24:21[2018-01-11 10:24:21] INFO [<eval>:325] lv1tolv2_update {"cid":188448079,"city":"东莞","site":"7","state":3,"lastpubtime":"2018-01-11 10:24:21"}
+2018/1/11 上午10:24:22[2018-01-11 10:24:22] INFO [<eval>:204] update #188492974 | http://nb.58.com/ershouche/32482288135849x.shtml | {"lastpubtime":"2018-01-01 10:24:22"}
+2018/1/11 上午10:24:22[2018-01-11 10:24:22] INFO [<eval>:325] lv1tolv2_update {"cid":188492974,"city":"宁波","site":"1","state":2,"lastpubtime":"2018-01-01 10:24:22"}
+2018/1/11 上午10:24:23[2018-01-11 10:24:23] INFO [<eval>:130] insert #191391151 | http://www.che168.com/dealer/249568/25452026.html
+2018/1/11 上午10:24:23[2018-01-11 10:24:23] INFO [<eval>:204] update #188776288 | http://tz.58.com/ershouche/32511320410676x.shtml | {"lastpubtime":"2018-01-04 10:24:23"}
+2018/1/11 上午10:24:23[2018-01-11 10:24:23] INFO [<eval>:325] 23_lv1tolv2 {"cid":191391151,"city":"合肥","site":"7","state":1,"lastpubtime":"2018-01-11 10:24:23"}
+2018/1/11 上午10:24:23[2018-01-11 10:24:23] INFO [<eval>:325] lv1tolv2_update {"cid":188776288,"city":"台州","site":"1","state":2,"lastpubtime":"2018-01-04 10:24:23"}
+2018/1/11 上午10:24:23[2018-01-11 10:24:23] INFO [<eval>:204] update #190584774 | http://www.souche.com/pages/choosecarpage/choose-car-detail.html?carId=73a8b1d892414a828f36f62045b4b8b2 | {"lastpubtime":"2018-01-11 10:24:23"}
+2018/1/11 上午10:24:23[2018-01-11 10:24:23] INFO [<eval>:325] lv1tolv2_update {"cid":190584774,"city":"佛山","site":"139","state":3,"lastpubtime":"2018-01-11 10:24:23"}
+2018/1/11 上午10:24:23[2018-01-11 10:24:23] INFO [<eval>:204] update #185703261 | http://xm.58.com/ershouche/32379470790080x.shtml | {"lastpubtime":"2017-12-23 10:24:23"}
+2018/1/11 上午10:24:23[2018-01-11 10:24:23] WARN [<eval>:207] title changed: 大众 迈腾 2013款 1.8TSI 双离合 豪华版私家车 -> 大众 迈腾 2013款 1.8TSI 双离合 豪华版 | 185703261 | http://xm.58.com/ershouche/32379470790080x.shtml
+2018/1/11 上午10:24:23[2018-01-11 10:24:23] INFO [<eval>:325] lv1tolv2_update {"cid":185703261,"city":"厦门","site":"1","state":2,"lastpubtime":"2017-12-23 10:24:23"}
+2018/1/11 上午10:24:24[2018-01-11 10:24:24] INFO [<eval>:130] insert #191391156 | http://www.che168.com/personal/25452182.html
+2018/1/11 上午10:24:24[2018-01-11 10:24:24] INFO [<eval>:325] 23_lv1tolv2 {"cid":191391156,"city":"沈阳","site":"7","state":1,"lastpubtime":"2018-01-11 10:24:24"}
+2018/1/11 上午10:24:26[2018-01-11 10:24:26] INFO [<eval>:204] update #190819838 | http://www.che168.com/dealer/251315/25394244.html | {"state":300}
+2018/1/11 上午10:24:26[2018-01-11 10:24:26] INFO [<eval>:325] lv1tolv2_update {"cid":190819838,"city":"合肥","site":"7","state":3,"lastpubtime":"2018-01-11 10:24:26"}
+2018/1/11 上午10:24:28[2018-01-11 10:24:28] INFO [<eval>:204] update #190811988 | http://www.souche.com/pages/choosecarpage/choose-car-detail.html?carId=ca2010445e5e443fb90f6f64f9fc31fb | {"lastpubtime":"2018-01-11 10:24:28","state":300}
+2018/1/11 上午10:24:28[2018-01-11 10:24:28] INFO [<eval>:325] lv1tolv2_update {"cid":190811988,"city":"北京","site":"139","state":3,"lastpubtime":"2018-01-11 10:24:28"}
+2018/1/11 上午10:24:32[2018-01-11 10:24:32] INFO [<eval>:130] insert #191391184 | http://www.che168.com/dealer/169374/25451979.html
+2018/1/11 上午10:24:32[2018-01-11 10:24:32] INFO [<eval>:325] 23_lv1tolv2 {"cid":191391184,"city":"临沂","site":"7","state":1,"lastpubtime":"2018-01-11 10:24:32"}
+2018/1/11 上午10:24:39[2018-01-11 10:24:39] INFO [<eval>:204] update #186836731 | http://www.souche.com/pages/choosecarpage/choose-car-detail.html?carId=ad2b803329704c5994084110e0765ecc | {"lastpubtime":"2018-01-11 10:24:39"}
+2018/1/11 上午10:24:39[2018-01-11 10:24:39] INFO [<eval>:325] lv1tolv2_update {"cid":186836731,"city":"衡阳","site":"139","state":3,"lastpubtime":"2018-01-11 10:24:39"}
+2018/1/11 上午10:24:39[2018-01-11 10:24:39] INFO [<eval>:204] update #190733661 | http://www.haoche51.com/cd/details/185393.html | {"lastpubtime":"2018-01-11 10:24:39","state":300}
+2018/1/11 上午10:24:39[2018-01-11 10:24:39] INFO [<eval>:325] lv1tolv2_update {"cid":190733661,"city":"成都","site":"133","state":3,"lastpubtime":"2018-01-11 10:24:39"}
+2018/1/11 上午10:24:41[2018-01-11 10:24:41] INFO [<eval>:204] update #184923378 | http://jining.58.com/ershouche/32327862151495x.shtml | {"lastpubtime":"2017-12-18 10:24:41"}
+2018/1/11 上午10:24:41[2018-01-11 10:24:41] INFO [<eval>:204] update #185701979 | http://nb.58.com/ershouche/32379146145586x.shtml | {"lastpubtime":"2017-12-23 10:24:41"}
+2018/1/11 上午10:24:41[2018-01-11 10:24:41] WARN [<eval>:207] title changed: 马自达 6 2008款 2.0 自动 时尚型车商勿扰 极品代步好车欢迎咨询 -> 马自达 6 2008款 2.0 自动 时尚型 | 185701979 | http://nb.58.com/ershouche/32379146145586x.shtml
+2018/1/11 上午10:24:41[2018-01-11 10:24:41] INFO [<eval>:325] lv1tolv2_update {"cid":184923378,"city":"济宁","site":"1","state":2,"lastpubtime":"2017-12-18 10:24:41"}
+2018/1/11 上午10:24:41[2018-01-11 10:24:41] INFO [<eval>:325] lv1tolv2_update {"cid":185701979,"city":"宁波","site":"1","state":2,"lastpubtime":"2017-12-23 10:24:41"}
+2018/1/11 上午10:24:42[2018-01-11 10:24:42] INFO [<eval>:130] insert #191391216 | http://www.che168.com/dealer/98122/25452663.html
+2018/1/11 上午10:24:42[2018-01-11 10:24:42] INFO [<eval>:325] 23_lv1tolv2 {"cid":191391216,"city":"杭州","site":"7","state":1,"lastpubtime":"2018-01-11 10:24:42"}
+2018/1/11 上午10:24:42[2018-01-11 10:24:42] INFO [<eval>:325] lv1tolv2_update {"cid":190522037,"city":"北京","site":"5","state":3,"lastpubtime":"2018-01-11 10:24:42"}
+2018/1/11 上午10:24:45[2018-01-11 10:24:45] WARN [<eval>:207] title changed: 力帆 330 2014款 1.3 手动 标准型LX代过户.有质保.车况好.可外迁 -> 力帆 330 2014款 1.3 手动 标准型LX | 185323820 | http://hf.58.com/ershouche/32351006242994x.shtml
+2018/1/11 上午10:24:45[2018-01-11 10:24:45] INFO [<eval>:308] no_send: 185323820 http://hf.58.com/ershouche/32351006242994x.shtml
+2018/1/11 上午10:24:46[2018-01-11 10:24:46] INFO [<eval>:308] no_send: 184926650 http://wh.58.com/ershouche/32328939333958x.shtml
+2018/1/11 上午10:24:49[2018-01-11 10:24:49] INFO [<eval>:204] update #190494060 | http://www.souche.com/pages/choosecarpage/choose-car-detail.html?carId=9d3eba844a3c4367a4bf9bf55cdd1247 | {"lastpubtime":"2018-01-11 10:24:49"}
+2018/1/11 上午10:24:49[2018-01-11 10:24:49] INFO [<eval>:325] lv1tolv2_update {"cid":190494060,"city":"景德镇","site":"139","state":3,"lastpubtime":"2018-01-11 10:24:49"}
+2018/1/11 上午10:24:49[2018-01-11 10:24:49] WARN [<eval>:207] title changed: 起亚 K5 2012款 2.0 自动 Premium百分百的精品车 -> 起亚 K5 2012款 2.0 自动 Premium | 185330910 | http://wz.58.com/ershouche/32347373122120x.shtml
+2018/1/11 上午10:24:49[2018-01-11 10:24:49] INFO [<eval>:308] no_send: 185330910 http://wz.58.com/ershouche/32347373122120x.shtml
+2018/1/11 上午10:24:49[2018-01-11 10:24:49] INFO [<eval>:130] insert #191391235 | http://www.che168.com/personal/25452039.html
+2018/1/11 上午10:24:49[2018-01-11 10:24:49] INFO [<eval>:325] 23_lv1tolv2 {"cid":191391235,"city":"日照","site":"7","state":1,"lastpubtime":"2018-01-11 10:24:49"}
+2018/1/11 上午10:24:50[2018-01-11 10:24:50] INFO [<eval>:204] update #185705821 | http://tz.58.com/ershouche/32380328920365x.shtml | {"lastpubtime":"2017-12-23 10:24:50"}
+2018/1/11 上午10:24:50[2018-01-11 10:24:50] INFO [<eval>:325] lv1tolv2_update {"cid":185705821,"city":"台州","site":"1","state":2,"lastpubtime":"2017-12-23 10:24:50"}
+2018/1/11 上午10:24:54[2018-01-11 10:24:54] INFO [<eval>:204] update #190151225 | http://www.che168.com/dealer/264907/25327190.html | {"state":300}
+2018/1/11 上午10:24:54[2018-01-11 10:24:54] INFO [<eval>:325] lv1tolv2_update {"cid":190151225,"city":"宁波","site":"7","state":3,"lastpubtime":"2018-01-11 10:24:54"}
+2018/1/11 上午10:24:54[2018-01-11 10:24:54] INFO [<eval>:204] update #185687853 | http://nb.58.com/ershouche/32370801422891x.shtml | {"lastpubtime":"2017-12-22 10:24:54"}
+2018/1/11 上午10:24:54[2018-01-11 10:24:54] WARN [<eval>:207] title changed: 吉利 博越 2016款 1.8TD 自动 智尚型个人一手车支持检测包过户可分期 -> 吉利 博越 2016款 1.8TD 自动 智尚型 | 185687853 | http://nb.58.com/ershouche/32370801422891x.shtml
+2018/1/11 上午10:24:54[2018-01-11 10:24:54] INFO [<eval>:325] lv1tolv2_update {"cid":185687853,"city":"宁波","site":"1","state":2,"lastpubtime":"2017-12-22 10:24:54"}
+2018/1/11 上午10:24:54[2018-01-11 10:24:54] INFO [<eval>:204] update #187812726 | http://www.souche.com/pages/choosecarpage/choose-car-detail.html?carId=z76BLyvVCE | {"lastpubtime":"2018-01-11 10:24:54","state":300}
+2018/1/11 上午10:24:54[2018-01-11 10:24:54] INFO [<eval>:325] lv1tolv2_update {"cid":187812726,"city":"合肥","site":"139","state":3,"lastpubtime":"2018-01-11 10:24:54"}
+2018/1/11 上午10:24:55[2018-01-11 10:24:55] INFO [<eval>:204] update #185337512 | http://cd.58.com/ershouche/32348427755975x.shtml | {"lastpubtime":"2017-12-20 10:24:55"}
+2018/1/11 上午10:24:55[2018-01-11 10:24:55] WARN [<eval>:207] title changed: 江淮 瑞风S3 2014款 1.5 自动 豪华智能型一手无事故的私家好车 -> 江淮 瑞风S3 2014款 1.5 自动 豪华智能型 | 185337512 | http://cd.58.com/ershouche/32348427755975x.shtml
+2018/1/11 上午10:24:55[2018-01-11 10:24:55] INFO [<eval>:325] lv1tolv2_update {"cid":185337512,"city":"成都","site":"1","state":2,"lastpubtime":"2017-12-20 10:24:55"}
+2018/1/11 上午10:24:55[2018-01-11 10:24:55] INFO [<eval>:204] update #188766018 | http://www.che168.com/dealer/264907/25258011.html | {"state":300}
+2018/1/11 上午10:24:55[2018-01-11 10:24:55] INFO [<eval>:325] lv1tolv2_update {"cid":188766018,"city":"北京","site":"7","state":3,"lastpubtime":"2018-01-11 10:24:55"}
+2018/1/11 上午10:24:58[2018-01-11 10:24:58] INFO [<eval>:336] queue length: 0, running: 0, concurrency: 10
+2018/1/11 上午10:25:00[2018-01-11 10:25:00] INFO [<eval>:130] insert #191391250 | http://www.che168.com/personal/25451784.html
+2018/1/11 上午10:25:00[2018-01-11 10:25:00] INFO [<eval>:325] 23_lv1tolv2 {"cid":191391250,"city":"临夏","site":"7","state":1,"lastpubtime":"2018-01-11 10:25:00"}
+2018/1/11 上午10:25:00[2018-01-11 10:25:00] INFO [<eval>:204] update #191234421 | http://nj.58.com/ershouche/32710611428905x.shtml | {"price":"3万","lastpubtime":"2018-01-10 11:25:00"}
+2018/1/11 上午10:25:01[2018-01-11 10:25:01] INFO [<eval>:325] lv1tolv2_update {"cid":191234421,"city":"南京","site":"1","state":2,"lastpubtime":"2018-01-10 11:25:00"}
+2018/1/11 上午10:25:01[2018-01-11 10:25:01] INFO [<eval>:204] update #191030899 | http://www.che168.com/dealer/264907/25415350.html | {"state":300}
+2018/1/11 上午10:25:01[2018-01-11 10:25:01] INFO [<eval>:325] lv1tolv2_update {"cid":191030899,"city":"广州","site":"7","state":3,"lastpubtime":"2018-01-11 10:25:01"}
+2018/1/11 上午10:25:02[2018-01-11 10:25:02] INFO [<eval>:204] update #185208754 | http://yulin.58.com/ershouche/32340808668362x.shtml | {"lastpubtime":"2017-12-19 10:25:02"}
+2018/1/11 上午10:25:02[2018-01-11 10:25:02] INFO [<eval>:325] lv1tolv2_update {"cid":185208754,"city":"玉林","site":"1","state":2,"lastpubtime":"2017-12-19 10:25:02"}
+2018/1/11 上午10:25:03[2018-01-11 10:25:03] INFO [<eval>:130] insert #191391254 | http://www.che168.com/dealer/111524/25452787.html
+2018/1/11 上午10:25:03[2018-01-11 10:25:03] INFO [<eval>:325] 23_lv1tolv2 {"cid":191391254,"city":"银川","site":"7","state":1,"lastpubtime":"2018-01-11 10:25:03"}
+2018/1/11 上午10:25:04[2018-01-11 10:25:04] INFO [<eval>:204] update #190151294 | http://www.che168.com/dealer/264907/25327260.html | {"state":300}
+2018/1/11 上午10:25:04[2018-01-11 10:25:04] INFO [<eval>:325] lv1tolv2_update {"cid":190151294,"city":"宁波","site":"7","state":3,"lastpubtime":"2018-01-11 10:25:04"}
+2018/1/11 上午10:25:04[2018-01-11 10:25:04] INFO [<eval>:204] update #190863991 | http://www.che168.com/dealer/122188/25399813.html | {"state":300}
+2018/1/11 上午10:25:04[2018-01-11 10:25:04] INFO [<eval>:325] lv1tolv2_update {"cid":190863991,"city":"青岛","site":"7","state":3,"lastpubtime":"2018-01-11 10:25:04"}
+2018/1/11 上午10:25:05[2018-01-11 10:25:05] INFO [<eval>:204] update #188776188 | http://xa.58.com/ershouche/32511320504378x.shtml | {"lastpubtime":"2018-01-04 10:25:05"}
+2018/1/11 上午10:25:05[2018-01-11 10:25:05] INFO [<eval>:325] lv1tolv2_update {"cid":188776188,"city":"西安","site":"1","state":2,"lastpubtime":"2018-01-04 10:25:05"}
+2018/1/11 上午10:25:06[2018-01-11 10:25:06] INFO [<eval>:130] insert #191391261 | http://www.che168.com/dealer/124553/25452804.html
+2018/1/11 上午10:25:06[2018-01-11 10:25:06] INFO [<eval>:325] 23_lv1tolv2 {"cid":191391261,"city":"沈阳","site":"7","state":1,"lastpubtime":"2018-01-11 10:25:06"}
+2018/1/11 上午10:25:10[2018-01-11 10:25:10] INFO [<eval>:325] lv1tolv2_update {"cid":186835594,"city":"济南","site":"5","state":3,"lastpubtime":"2018-01-11 10:25:10"}
+2018/1/11 上午10:25:10[2018-01-11 10:25:10] INFO [<eval>:204] update #190715475 | http://www.che168.com/dealer/264907/25383308.html | {"state":300}
+2018/1/11 上午10:25:10[2018-01-11 10:25:10] INFO [<eval>:325] lv1tolv2_update {"cid":190715475,"city":"南京","site":"7","state":3,"lastpubtime":"2018-01-11 10:25:10"}
+2018/1/11 上午10:25:10[2018-01-11 10:25:10] INFO [<eval>:204] update #190079380 | http://www.che168.com/dealer/275481/25327296.html | {"state":300}
+2018/1/11 上午10:25:10[2018-01-11 10:25:10] INFO [<eval>:325] lv1tolv2_update {"cid":190079380,"city":"湖州","site":"7","state":3,"lastpubtime":"2018-01-11 10:25:10"}
+2018/1/11 上午10:25:10[2018-01-11 10:25:10] INFO [<eval>:130] insert #191391271 | http://www.che168.com/dealer/175888/25436974.html
+2018/1/11 上午10:25:10[2018-01-11 10:25:10] INFO [<eval>:325] 23_lv1tolv2 {"cid":191391271,"city":"广州","site":"7","state":1,"lastpubtime":"2018-01-11 10:25:10"}
+2018/1/11 上午10:25:11[2018-01-11 10:25:11] INFO [<eval>:130] insert #191391272 | http://www.che168.com/dealer/137383/25451939.html
+2018/1/11 上午10:25:11[2018-01-11 10:25:11] INFO [<eval>:325] 23_lv1tolv2 {"cid":191391272,"city":"金华","site":"7","state":1,"lastpubtime":"2018-01-11 10:25:11"}
+2018/1/11 上午10:25:11[2018-01-11 10:25:11] INFO [<eval>:204] update #189496040 | http://www.che168.com/dealer/206183/25289841.html | {"state":300}
+2018/1/11 上午10:25:11[2018-01-11 10:25:11] INFO [<eval>:325] lv1tolv2_update {"cid":189496040,"city":"许昌","site":"7","state":3,"lastpubtime":"2018-01-11 10:25:11"}
+2018/1/11 上午10:25:11[2018-01-11 10:25:11] INFO [<eval>:204] update #185089324 | http://gz.58.com/ershouche/32335129852108x.shtml | {"lastpubtime":"2017-12-19 10:25:11"}
+2018/1/11 上午10:25:11[2018-01-11 10:25:11] INFO [<eval>:325] lv1tolv2_update {"cid":185089324,"city":"广州","site":"1","state":2,"lastpubtime":"2017-12-19 10:25:11"}
+2018/1/11 上午10:25:12[2018-01-11 10:25:12] INFO [<eval>:325] lv1tolv2_update {"cid":190786818,"city":"杭州","site":"7","state":3,"lastpubtime":"2018-01-11 10:25:12"}
+2018/1/11 上午10:25:14[2018-01-11 10:25:14] INFO [<eval>:204] update #186987876 | http://www.iautos.cn/usedcar/6575851.html | {"lastpubtime":"2018-01-11 10:25:14","state":300}
+2018/1/11 上午10:25:14[2018-01-11 10:25:14] INFO [<eval>:325] lv1tolv2_update {"cid":186987876,"city":"衡阳","site":"6","state":3,"lastpubtime":"2018-01-11 10:25:14"}
+2018/1/11 上午10:25:16[2018-01-11 10:25:16] INFO [<eval>:204] update #184895050 | http://sy.58.com/ershouche/32324158469035x.shtml | {"lastpubtime":"2017-12-25 10:25:16"}
+2018/1/11 上午10:25:16[2018-01-11 10:25:16] WARN [<eval>:207] title changed: 雪佛兰 科鲁兹 2009款 1.6 自动 SL克鲁兹变形金刚 -> 雪佛兰 科鲁兹 2009款 1.6 自动 SL | 184895050 | http://sy.58.com/ershouche/32324158469035x.shtml
+2018/1/11 上午10:25:16[2018-01-11 10:25:16] INFO [<eval>:325] lv1tolv2_update {"cid":184895050,"city":"沈阳","site":"1","state":2,"lastpubtime":"2017-12-25 10:25:16"}
+2018/1/11 上午10:25:20[2018-01-11 10:25:20] WARN [<eval>:207] title changed: 雷克萨斯 ES 2006款 350 3.5 手自一体超精品车况 -> 雷克萨斯 ES 2006款 350 3.5 手自一体 | 185329971 | http://sh.58.com/ershouche/32347149171660x.shtml
+2018/1/11 上午10:25:20[2018-01-11 10:25:20] INFO [<eval>:308] no_send: 185329971 http://sh.58.com/ershouche/32347149171660x.shtml
+2018/1/11 上午10:25:21[2018-01-11 10:25:21] INFO [<eval>:130] insert #191391282 | http://www.che168.com/dealer/147095/25452619.html
+2018/1/11 上午10:25:21[2018-01-11 10:25:21] INFO [<eval>:325] 23_lv1tolv2 {"cid":191391282,"city":"西安","site":"7","state":1,"lastpubtime":"2018-01-11 10:25:21"}
+2018/1/11 上午10:25:23[2018-01-11 10:25:23] INFO [<eval>:308] no_send: 190970675 http://nb.58.com/ershouche/32691524624953x.shtml
+2018/1/11 上午10:25:24[2018-01-11 10:25:24] WARN [<eval>:207] title changed: 日产 轩逸 2008款 2.0 自动 VDVD版低价出售2.0轩逸 -> 日产 轩逸 2008款 2.0 自动 VDVD版 | 185322498 | http://dg.58.com/ershouche/32182920019656x.shtml
+2018/1/11 上午10:25:24[2018-01-11 10:25:24] INFO [<eval>:308] no_send: 185322498 http://dg.58.com/ershouche/32182920019656x.shtml
+2018/1/11 上午10:25:24[2018-01-11 10:25:24] INFO [<eval>:325] lv1tolv2_update {"cid":190387358,"city":"杭州","site":"7","state":3,"lastpubtime":"2018-01-11 10:25:24"}
+2018/1/11 上午10:25:25[2018-01-11 10:25:25] INFO [<eval>:204] update #185644491 | http://nb.58.com/ershouche/32368444270511x.shtml | {"lastpubtime":"2017-12-22 10:25:25"}
+2018/1/11 上午10:25:25[2018-01-11 10:25:25] WARN [<eval>:207] title changed: 大众 CC 2011款 2.0TSI 手自一体 至尊型精品车放心车途众好车 -> 大众 CC 2011款 2.0TSI 手自一体 至尊型 | 185644491 | http://nb.58.com/ershouche/32368444270511x.shtml
+2018/1/11 上午10:25:25[2018-01-11 10:25:25] INFO [<eval>:325] lv1tolv2_update {"cid":185644491,"city":"宁波","site":"1","state":2,"lastpubtime":"2017-12-22 10:25:25"}
+2018/1/11 上午10:25:26[2018-01-11 10:25:26] INFO [<eval>:325] lv1tolv2_update {"cid":190686277,"city":"太原","site":"7","state":3,"lastpubtime":"2018-01-11 10:25:26"}
+2018/1/11 上午10:25:26[2018-01-11 10:25:26] INFO [<eval>:204] update #187805203 | http://www.souche.com/pages/choosecarpage/choose-car-detail.html?carId=b3829ec5416840afb4fa0721d81b5763 | {"lastpubtime":"2018-01-11 10:25:26","state":300}
+2018/1/11 上午10:25:26[2018-01-11 10:25:26] INFO [<eval>:325] lv1tolv2_update {"cid":187805203,"city":"苏州","site":"139","state":3,"lastpubtime":"2018-01-11 10:25:26"}
+2018/1/11 上午10:25:27[2018-01-11 10:25:27] INFO [<eval>:325] lv1tolv2_update {"cid":186676510,"city":"曲靖","site":"7","state":3,"lastpubtime":"2018-01-11 10:25:27"}
+2018/1/11 上午10:25:27[2018-01-11 10:25:27] INFO [<eval>:204] update #190029984 | http://www.che168.com/dealer/264907/25322056.html | {"state":300}
+2018/1/11 上午10:25:27[2018-01-11 10:25:27] INFO [<eval>:325] lv1tolv2_update {"cid":190029984,"city":"湖州","site":"7","state":3,"lastpubtime":"2018-01-11 10:25:27"}
+2018/1/11 上午10:25:27[2018-01-11 10:25:27] INFO [<eval>:204] update #190515961 | http://www.souche.com/pages/choosecarpage/choose-car-detail.html?carId=d44e9cfa5da4485e8e4b654756667f6b | {"lastpubtime":"2018-01-11 10:25:27"}
+2018/1/11 上午10:25:27[2018-01-11 10:25:27] INFO [<eval>:325] lv1tolv2_update {"cid":190515961,"city":"商丘","site":"139","state":3,"lastpubtime":"2018-01-11 10:25:27"}
+2018/1/11 上午10:25:29[2018-01-11 10:25:29] INFO [<eval>:204] update #185698245 | http://cd.58.com/ershouche/32377392449596x.shtml | {"lastpubtime":"2017-12-23 10:25:29"}
+2018/1/11 上午10:25:29[2018-01-11 10:25:29] WARN [<eval>:207] title changed: 别克 英朗GT 2013款 1.6 手动 进取版代过户.有质保.车况好.可外迁 -> 别克 英朗GT 2013款 1.6 手动 进取版 | 185698245 | http://cd.58.com/ershouche/32377392449596x.shtml
+2018/1/11 上午10:25:29[2018-01-11 10:25:29] INFO [<eval>:325] lv1tolv2_update {"cid":185698245,"city":"成都","site":"1","state":2,"lastpubtime":"2017-12-23 10:25:29"}
+2018/1/11 上午10:25:29[2018-01-11 10:25:29] INFO [<eval>:325] lv1tolv2_update {"cid":190497528,"city":"北京","site":"7","state":3,"lastpubtime":"2018-01-11 10:25:29"}
+2018/1/11 上午10:25:30[2018-01-11 10:25:30] INFO [<eval>:130] insert #191391300 | http://dg.58.com/ershouche/32721575245120x.shtml
+2018/1/11 上午10:25:30[2018-01-11 10:25:30] INFO [<eval>:325] 23_lv1tolv2 {"cid":191391300,"city":"东莞","site":"1","state":1,"lastpubtime":"2018-01-11 10:23:30"}
+2018/1/11 上午10:25:33[2018-01-11 10:25:33] WARN [<eval>:207] title changed: 标致 308 2014款 1.6 手自一体 乐享版优尚型漂亮大气 大空间 车况精品 -> 标致 308 2014款 1.6 手自一体 乐享版优尚型 | 184924365 | http://xm.58.com/ershouche/32328316270377x.shtml
+2018/1/11 上午10:25:33[2018-01-11 10:25:33] INFO [<eval>:308] no_send: 184924365 http://xm.58.com/ershouche/32328316270377x.shtml
+2018/1/11 上午10:25:33[2018-01-11 10:25:33] INFO [<eval>:204] update #188751887 | http://wz.58.com/ershouche/32499833843500x.shtml | {"lastpubtime":"2018-01-09 10:25:33"}
+2018/1/11 上午10:25:33[2018-01-11 10:25:33] INFO [<eval>:325] lv1tolv2_update {"cid":188751887,"city":"温州","site":"1","state":2,"lastpubtime":"2018-01-09 10:25:33"}
+2018/1/11 上午10:25:34[2018-01-11 10:25:34] INFO [<eval>:204] update #188758552 | http://hf.58.com/ershouche/32500914885839x.shtml | {"lastpubtime":"2018-01-03 10:25:34"}
+2018/1/11 上午10:25:34[2018-01-11 10:25:34] INFO [<eval>:325] lv1tolv2_update {"cid":188758552,"city":"合肥","site":"1","state":2,"lastpubtime":"2018-01-03 10:25:34"}
+2018/1/11 上午10:25:34[2018-01-11 10:25:34] WARN [<eval>:207] title changed: 标致 508 2012款 2.0 手自一体 豪华版个人一手车有质保可分期 -> 标致 508 2012款 2.0 手自一体 豪华版 | 185327190 | http://nb.58.com/ershouche/32346573079373x.shtml
+2018/1/11 上午10:25:34[2018-01-11 10:25:34] INFO [<eval>:308] no_send: 185327190 http://nb.58.com/ershouche/32346573079373x.shtml
+2018/1/11 上午10:25:34[2018-01-11 10:25:34] INFO [<eval>:204] update #189400025 | http://www.che168.com/dealer/327866/25282425.html | {"state":300}
+2018/1/11 上午10:25:34[2018-01-11 10:25:34] INFO [<eval>:325] lv1tolv2_update {"cid":189400025,"city":"沈阳","site":"7","state":3,"lastpubtime":"2018-01-11 10:25:34"}
+2018/1/11 上午10:25:37[2018-01-11 10:25:37] INFO [<eval>:204] update #182299322 | http://su.58.com/ershouche/32003704960057x.shtml | {"lastpubtime":"2018-01-10 20:25:37"}
+2018/1/11 上午10:25:37[2018-01-11 10:25:37] WARN [<eval>:207] title changed: 别克 GL8 2007款 2.5 自动 GT 7座精英版转让自己家用好车性能好的没话说 -> 别克 GL8 2007款 2.5 自动 GT 7座精英版 | 182299322 | http://su.58.com/ershouche/32003704960057x.shtml
+2018/1/11 上午10:25:37[2018-01-11 10:25:37] INFO [<eval>:325] lv1tolv2_update {"cid":182299322,"city":"苏州","site":"1","state":2,"lastpubtime":"2018-01-10 20:25:37"}
+2018/1/11 上午10:25:37[2018-01-11 10:25:37] INFO [<eval>:204] update #190023071 | http://www.che168.com/dealer/264907/25321473.html | {"state":300}
+2018/1/11 上午10:25:37[2018-01-11 10:25:37] INFO [<eval>:325] lv1tolv2_update {"cid":190023071,"city":"南宁","site":"7","state":3,"lastpubtime":"2018-01-11 10:25:37"}
+2018/1/11 上午10:25:41[2018-01-11 10:25:41] INFO [<eval>:204] update #185699892 | http://fz.58.com/ershouche/32378534339125x.shtml | {"lastpubtime":"2017-12-23 10:25:41"}
+2018/1/11 上午10:25:41[2018-01-11 10:25:41] WARN [<eval>:207] title changed: 本田 雅阁 2010款 2.0 自动 EX标准版私家美女一手车全福州就这一台 -> 本田 雅阁 2010款 2.0 自动 EX标准版 | 185699892 | http://fz.58.com/ershouche/32378534339125x.shtml
+2018/1/11 上午10:25:41[2018-01-11 10:25:41] INFO [<eval>:325] lv1tolv2_update {"cid":185699892,"city":"福州","site":"1","state":2,"lastpubtime":"2017-12-23 10:25:41"}
+2018/1/11 上午10:25:44[2018-01-11 10:25:44] INFO [<eval>:204] update #185663046 | http://linyi.58.com/ershouche/32371924999241x.shtml | {"lastpubtime":"2017-12-22 10:25:44"}
+2018/1/11 上午10:25:44[2018-01-11 10:25:44] INFO [<eval>:325] lv1tolv2_update {"cid":185663046,"city":"临沂","site":"1","state":2,"lastpubtime":"2017-12-22 10:25:44"}
+2018/1/11 上午10:25:46[2018-01-11 10:25:46] INFO [<eval>:204] update #186655539 | http://www.che168.com/dealer/226320/25102042.html | {"state":300}
+2018/1/11 上午10:25:46[2018-01-11 10:25:46] INFO [<eval>:325] lv1tolv2_update {"cid":186655539,"city":"东莞","site":"7","state":3,"lastpubtime":"2018-01-11 10:25:46"}
+2018/1/11 上午10:25:47[2018-01-11 10:25:47] INFO [<eval>:204] update #185321845 | http://ruiancity.58.com/ershouche/32345905147073x.shtml | {"lastpubtime":"2017-12-20 10:25:47"}
+2018/1/11 上午10:25:47[2018-01-11 10:25:47] WARN [<eval>:207] title changed: 别克 威朗 2016款 1.5 自动 15S进取型首付一成,可当天提车 -> 别克 威朗 2016款 1.5 自动 15S进取型 | 185321845 | http://ruiancity.58.com/ershouche/32345905147073x.shtml
+2018/1/11 上午10:25:47[2018-01-11 10:25:47] INFO [<eval>:325] lv1tolv2_update {"cid":185321845,"city":"瑞安","site":"1","state":2,"lastpubtime":"2017-12-20 10:25:47"}
+2018/1/11 上午10:25:48[2018-01-11 10:25:48] INFO [<eval>:204] update #184898362 | http://st.58.com/ershouche/32325309475144x.shtml | {"lastpubtime":"2017-12-18 10:25:48"}
+2018/1/11 上午10:25:48[2018-01-11 10:25:48] INFO [<eval>:325] lv1tolv2_update {"cid":184898362,"city":"汕头","site":"1","state":2,"lastpubtime":"2017-12-18 10:25:48"}
+2018/1/11 上午10:25:48[2018-01-11 10:25:48] INFO [<eval>:204] update #189504351 | http://www.souche.com/pages/choosecarpage/choose-car-detail.html?carId=4c65ec85a29f43ae9161d4bf21788232 | {"lastpubtime":"2018-01-11 10:25:48","state":300}
+2018/1/11 上午10:25:48[2018-01-11 10:25:48] INFO [<eval>:325] lv1tolv2_update {"cid":189504351,"city":"西安","site":"139","state":3,"lastpubtime":"2018-01-11 10:25:48"}
+2018/1/11 上午10:25:52[2018-01-11 10:25:52] INFO [<eval>:204] update #184921089 | http://nb.58.com/ershouche/32327025355703x.shtml | {"lastpubtime":"2017-12-18 10:25:52"}
+2018/1/11 上午10:25:52[2018-01-11 10:25:52] INFO [<eval>:325] lv1tolv2_update {"cid":184921089,"city":"宁波","site":"1","state":2,"lastpubtime":"2017-12-18 10:25:52"}
+2018/1/11 上午10:25:55[2018-01-11 10:25:55] INFO [<eval>:204] update #185154579 | http://nb.58.com/ershouche/32339380688318x.shtml | {"lastpubtime":"2017-12-19 10:25:55"}
+2018/1/11 上午10:25:55[2018-01-11 10:25:55] WARN [<eval>:207] title changed: 奥迪 Q7 2010款 3.6 FSI 手自一体 quattro基本型个人一手车 无敌车况 可分期 -> 奥迪 Q7 2010款 3.6 FSI 手自一体 quattro基本型 | 185154579 | http://nb.58.com/ershouche/32339380688318x.shtml
+2018/1/11 上午10:25:55[2018-01-11 10:25:55] INFO [<eval>:325] lv1tolv2_update {"cid":185154579,"city":"宁波","site":"1","state":2,"lastpubtime":"2017-12-19 10:25:55"}
+2018/1/11 上午10:26:01[2018-01-11 10:26:01] INFO [<eval>:204] update #185125534 | http://qz.58.com/ershouche/32336167986859x.shtml | {"lastpubtime":"2017-12-19 10:26:01"}
+2018/1/11 上午10:26:01[2018-01-11 10:26:01] WARN [<eval>:207] title changed: 陆风 X7 2016款 X7 2.0T 全景尊贵版精品车况 -> 陆风 X7 2016款 X7 2.0T 全景尊贵版 | 185125534 | http://qz.58.com/ershouche/32336167986859x.shtml
+2018/1/11 上午10:26:01[2018-01-11 10:26:01] INFO [<eval>:325] lv1tolv2_update {"cid":185125534,"city":"泉州","site":"1","state":2,"lastpubtime":"2017-12-19 10:26:01"}
+2018/1/11 上午10:26:01[2018-01-11 10:26:01] INFO [<eval>:204] update #185129520 | http://dg.58.com/ershouche/32340361785038x.shtml | {"lastpubtime":"2018-01-08 10:26:01"}
+2018/1/11 上午10:26:01[2018-01-11 10:26:01] WARN [<eval>:207] title changed: 大众 新宝来 2012款 1.6 自动 豪华型一手公务员精品代步用车无居可户 -> 大众 新宝来 2012款 1.6 自动 豪华型 | 185129520 | http://dg.58.com/ershouche/32340361785038x.shtml
+2018/1/11 上午10:26:01[2018-01-11 10:26:01] INFO [<eval>:325] lv1tolv2_update {"cid":185129520,"city":"东莞","site":"1","state":2,"lastpubtime":"2018-01-08 10:26:01"}
+2018/1/11 上午10:26:04[2018-01-11 10:26:04] INFO [<eval>:325] lv1tolv2_update {"cid":186788758,"city":"聊城","site":"7","state":3,"lastpubtime":"2018-01-11 10:26:04"}
+2018/1/11 上午10:26:05[2018-01-11 10:26:05] WARN [<eval>:207] title changed: 瑞麒 M1 2010款 1.0 手动 舒适型低价处理 -> 瑞麒 M1 2010款 1.0 手动 舒适型 | 185159746 | http://rizhao.58.com/ershouche/32340539341873x.shtml
+2018/1/11 上午10:26:05[2018-01-11 10:26:05] INFO [<eval>:308] no_send: 185159746 http://rizhao.58.com/ershouche/32340539341873x.shtml
+2018/1/11 上午10:26:06[2018-01-11 10:26:06] INFO [<eval>:204] update #185738706 | http://tianshui.58.com/ershouche/32390173393325x.shtml | {"lastpubtime":"2017-12-24 10:26:06"}
+2018/1/11 上午10:26:06[2018-01-11 10:26:06] WARN [<eval>:207] title changed: 凯迪拉克 SLS赛威 2008款 2.8 手自一体 豪华型精品个人一手豪车 -> 凯迪拉克 SLS赛威 2008款 2.8 手自一体 豪华型 | 185738706 | http://tianshui.58.com/ershouche/32390173393325x.shtml
+2018/1/11 上午10:26:06[2018-01-11 10:26:06] INFO [<eval>:325] lv1tolv2_update {"cid":185738706,"city":"天水","site":"1","state":2,"lastpubtime":"2017-12-24 10:26:06"}
+2018/1/11 上午10:26:09[2018-01-11 10:26:09] INFO [<eval>:130] insert #191391354 | http://www.che168.com/dealer/224423/25452784.html
+2018/1/11 上午10:26:09[2018-01-11 10:26:09] INFO [<eval>:325] 23_lv1tolv2 {"cid":191391354,"city":"常州","site":"7","state":1,"lastpubtime":"2018-01-11 10:26:09"}
+2018/1/11 上午10:26:10[2018-01-11 10:26:10] INFO [<eval>:204] update #188171711 | http://www.che168.com/dealer/264907/25213666.html | {"state":300}
+2018/1/11 上午10:26:10[2018-01-11 10:26:10] INFO [<eval>:325] lv1tolv2_update {"cid":188171711,"city":"郑州","site":"7","state":3,"lastpubtime":"2018-01-11 10:26:10"}
+2018/1/11 上午10:26:15[2018-01-11 10:26:15] INFO [<eval>:130] insert #191391365 | http://www.che168.com/personal/25452380.html
+2018/1/11 上午10:26:15[2018-01-11 10:26:15] INFO [<eval>:325] 23_lv1tolv2 {"cid":191391365,"city":"安顺","site":"7","state":1,"lastpubtime":"2018-01-11 10:26:15"}
+2018/1/11 上午10:26:15[2018-01-11 10:26:15] INFO [<eval>:204] update #187935545 | http://www.che168.com/dealer/312434/25194955.html | {"state":300}
+2018/1/11 上午10:26:15[2018-01-11 10:26:15] WARN [<eval>:207] title changed: 英朗 2010款 GT 1.6T 时尚运动版 -> 英朗 2010款 XT 1.6T 时尚运动版 | 187935545 | http://www.che168.com/dealer/312434/25194955.html
+2018/1/11 上午10:26:15[2018-01-11 10:26:15] INFO [<eval>:325] lv1tolv2_update {"cid":187935545,"city":"成都","site":"7","state":3,"lastpubtime":"2018-01-11 10:26:15"}
+2018/1/11 上午10:26:19[2018-01-11 10:26:19] INFO [<eval>:204] update #187932940 | http://www.che168.com/dealer/264907/25196373.html | {"state":300}
+2018/1/11 上午10:26:19[2018-01-11 10:26:19] INFO [<eval>:130] insert #191391373 | http://www.che168.com/dealer/183601/25452609.html
+2018/1/11 上午10:26:19[2018-01-11 10:26:19] INFO [<eval>:325] lv1tolv2_update {"cid":187932940,"city":"重庆","site":"7","state":3,"lastpubtime":"2018-01-11 10:26:19"}
+2018/1/11 上午10:26:19[2018-01-11 10:26:19] INFO [<eval>:325] 23_lv1tolv2 {"cid":191391373,"city":"芜湖","site":"7","state":1,"lastpubtime":"2018-01-11 10:26:19"}
+2018/1/11 上午10:26:21[2018-01-11 10:26:21] INFO [<eval>:204] update #185703357 | http://fz.58.com/ershouche/32379466858681x.shtml | {"lastpubtime":"2017-12-23 10:26:21"}
+2018/1/11 上午10:26:21[2018-01-11 10:26:21] WARN [<eval>:207] title changed: 福特 福克斯三厢 2011款 1.8 自动 豪华型精品车况 支持检测 -> 福特 福克斯三厢 2011款 1.8 自动 豪华型 | 185703357 | http://fz.58.com/ershouche/32379466858681x.shtml
+2018/1/11 上午10:26:21[2018-01-11 10:26:21] INFO [<eval>:204] update #184763655 | http://fz.58.com/ershouche/32317741489971x.shtml | {"lastpubtime":"2017-12-17 10:26:21"}
+2018/1/11 上午10:26:21[2018-01-11 10:26:21] WARN [<eval>:207] title changed: 吉利 博瑞 2016款 1.8T 自动 豪华型准新车 -> 吉利 博瑞 2016款 1.8T 自动 豪华型 | 184763655 | http://fz.58.com/ershouche/32317741489971x.shtml
+2018/1/11 上午10:26:21[2018-01-11 10:26:21] INFO [<eval>:325] lv1tolv2_update {"cid":185703357,"city":"福州","site":"1","state":2,"lastpubtime":"2017-12-23 10:26:21"}
+2018/1/11 上午10:26:21[2018-01-11 10:26:21] INFO [<eval>:204] update #184908075 | http://nb.58.com/ershouche/32324614724941x.shtml | {"lastpubtime":"2017-12-18 10:26:21"}
+2018/1/11 上午10:26:21[2018-01-11 10:26:21] WARN [<eval>:207] title changed: 起亚 智跑 2015款 2.0 自动 GL看车特大优惠可分期送保养 -> 起亚 智跑 2015款 2.0 自动 GL | 184908075 | http://nb.58.com/ershouche/32324614724941x.shtml
+2018/1/11 上午10:26:21[2018-01-11 10:26:21] INFO [<eval>:325] lv1tolv2_update {"cid":184763655,"city":"福州","site":"1","state":2,"lastpubtime":"2017-12-17 10:26:21"}
+2018/1/11 上午10:26:21[2018-01-11 10:26:21] INFO [<eval>:204] update #185127080 | http://huantaixian.58.com/ershouche/32339942037051x.shtml | {"lastpubtime":"2017-12-19 10:26:21"}
+2018/1/11 上午10:26:21[2018-01-11 10:26:21] WARN [<eval>:207] title changed: 丰田 皇冠 2005款 2.5 手自一体 行政版质保两年免费过户可分期价格面议 -> 丰田 皇冠 2005款 2.5 手自一体 行政版 | 185127080 | http://huantaixian.58.com/ershouche/32339942037051x.shtml
+2018/1/11 上午10:26:21[2018-01-11 10:26:21] INFO [<eval>:325] lv1tolv2_update {"cid":184908075,"city":"宁波","site":"1","state":2,"lastpubtime":"2017-12-18 10:26:21"}
+2018/1/11 上午10:26:21[2018-01-11 10:26:21] INFO [<eval>:325] lv1tolv2_update {"cid":185127080,"city":"桓台","site":"1","state":2,"lastpubtime":"2017-12-19 10:26:21"}
+2018/1/11 上午10:26:22[2018-01-11 10:26:22] INFO [<eval>:204] update #188540633 | http://www.che168.com/dealer/229312/25236388.html | {"state":300}
+2018/1/11 上午10:26:22[2018-01-11 10:26:22] INFO [<eval>:325] lv1tolv2_update {"cid":188540633,"city":"昆明","site":"7","state":3,"lastpubtime":"2018-01-11 10:26:22"}
+2018/1/11 上午10:26:23[2018-01-11 10:26:23] INFO [<eval>:204] update #185691369 | http://jl.58.com/ershouche/32384739319097x.shtml | {"lastpubtime":"2017-12-23 10:26:23","state":2}
+2018/1/11 上午10:26:23[2018-01-11 10:26:23] INFO [<eval>:325] lv1tolv2_update {"cid":185691369,"city":"吉林","site":"1","state":2,"lastpubtime":"2017-12-23 10:26:23"}
+2018/1/11 上午10:26:24[2018-01-11 10:26:24] INFO [<eval>:325] lv1tolv2_update {"cid":186759049,"city":"镇江","site":"7","state":3,"lastpubtime":"2018-01-11 10:26:24"}
+2018/1/11 上午10:26:25[2018-01-11 10:26:25] INFO [<eval>:204] update #190053520 | http://item.51auto.com/buycar/4118868.html | {"price":"3.50万","lastpubtime":"2018-01-11 10:26:25","state":300}
+2018/1/11 上午10:26:25[2018-01-11 10:26:25] INFO [<eval>:325] lv1tolv2_update {"cid":190053520,"city":"上海","site":"5","state":3,"lastpubtime":"2018-01-11 10:26:25"}
+2018/1/11 上午10:26:27[2018-01-11 10:26:27] INFO [<eval>:204] update #190077672 | http://www.che168.com/dealer/327167/25324781.html | {"state":300}
+2018/1/11 上午10:26:27[2018-01-11 10:26:27] INFO [<eval>:325] lv1tolv2_update {"cid":190077672,"city":"南京","site":"7","state":3,"lastpubtime":"2018-01-11 10:26:27"}
+2018/1/11 上午10:26:27[2018-01-11 10:26:27] INFO [<eval>:204] update #185125333 | http://bj.58.com/ershouche/32339722393269x.shtml | {"lastpubtime":"2017-12-19 10:26:27"}
+2018/1/11 上午10:26:27[2018-01-11 10:26:27] WARN [<eval>:207] title changed: 铃木 北斗星 2013款 全能升级版 1.4 手动 标准型代过户.有质保.车况好.可外迁 -> 铃木 北斗星 2013款 全能升级版 1.4 手动 标准型 | 185125333 | http://bj.58.com/ershouche/32339722393269x.shtml
+2018/1/11 上午10:26:27[2018-01-11 10:26:27] INFO [<eval>:325] lv1tolv2_update {"cid":185125333,"city":"北京","site":"1","state":2,"lastpubtime":"2017-12-19 10:26:27"}
+2018/1/11 上午10:26:28[2018-01-11 10:26:28] INFO [<eval>:204] update #185696382 | http://xj.58.com/ershouche/32373550842803x.shtml | {"lastpubtime":"2017-12-22 10:26:28"}
+2018/1/11 上午10:26:28[2018-01-11 10:26:28] WARN [<eval>:207] title changed: 大众 朗逸 2013款 1.6 手动 改款舒适版车况精品 -> 大众 朗逸 2013款 1.6 手动 改款舒适版 | 185696382 | http://xj.58.com/ershouche/32373550842803x.shtml
+2018/1/11 上午10:26:28[2018-01-11 10:26:28] INFO [<eval>:325] lv1tolv2_update {"cid":185696382,"city":"乌鲁木齐","site":"1","state":2,"lastpubtime":"2017-12-22 10:26:28"}
+2018/1/11 上午10:26:30[2018-01-11 10:26:30] INFO [<eval>:204] update #185123309 | http://hu.58.com/ershouche/32335868333501x.shtml | {"lastpubtime":"2017-12-19 10:26:30"}
+2018/1/11 上午10:26:30[2018-01-11 10:26:30] INFO [<eval>:325] lv1tolv2_update {"cid":185123309,"city":"呼和浩特","site":"1","state":2,"lastpubtime":"2017-12-19 10:26:30"}
+2018/1/11 上午10:26:32[2018-01-11 10:26:32] INFO [<eval>:204] update #190873486 | http://item.51auto.com/buycar/4125714.html | {"price":"5.60万","lastpubtime":"2018-01-11 10:26:32","state":300}
+2018/1/11 上午10:26:32[2018-01-11 10:26:32] INFO [<eval>:325] lv1tolv2_update {"cid":190873486,"city":"深圳","site":"5","state":3,"lastpubtime":"2018-01-11 10:26:32"}
+2018/1/11 上午10:26:33[2018-01-11 10:26:33] WARN [<eval>:207] title changed: 丰田 汉兰达 2012款 3.5 手自一体 四驱7座豪华导航版3.5 V6发动机 极品 -> 丰田 汉兰达 2012款 3.5 手自一体 四驱7座豪华导航版 | 184919149 | http://xm.58.com/ershouche/32326455253837x.shtml
+2018/1/11 上午10:26:33[2018-01-11 10:26:33] INFO [<eval>:308] no_send: 184919149 http://xm.58.com/ershouche/32326455253837x.shtml
+2018/1/11 上午10:26:33[2018-01-11 10:26:33] INFO [<eval>:204] update #188625088 | http://xm.58.com/ershouche/32489051712710x.shtml | {"lastpubtime":"2018-01-02 10:26:33"}
+2018/1/11 上午10:26:33[2018-01-11 10:26:33] INFO [<eval>:325] lv1tolv2_update {"cid":188625088,"city":"厦门","site":"1","state":2,"lastpubtime":"2018-01-02 10:26:33"}
+2018/1/11 上午10:26:34[2018-01-11 10:26:34] INFO [<eval>:130] insert #191391405 | http://su.58.com/ershouche/32721592217667x.shtml
+2018/1/11 上午10:26:34[2018-01-11 10:26:34] INFO [<eval>:325] 23_lv1tolv2 {"cid":191391405,"city":"苏州","site":"1","state":1,"lastpubtime":"2018-01-11 10:25:34"}
+2018/1/11 上午10:26:36[2018-01-11 10:26:36] INFO [<eval>:204] update #188141352 | http://www.che168.com/dealer/264907/25210661.html | {"state":300}
+2018/1/11 上午10:26:36[2018-01-11 10:26:36] INFO [<eval>:325] lv1tolv2_update {"cid":188141352,"city":"昆明","site":"7","state":3,"lastpubtime":"2018-01-11 10:26:36"}
+2018/1/11 上午10:26:37[2018-01-11 10:26:37] INFO [<eval>:204] update #185132520 | http://nb.58.com/ershouche/32336732361535x.shtml | {"lastpubtime":"2017-12-19 10:26:37"}
+2018/1/11 上午10:26:37[2018-01-11 10:26:37] INFO [<eval>:325] lv1tolv2_update {"cid":185132520,"city":"宁波","site":"1","state":2,"lastpubtime":"2017-12-19 10:26:37"}
+2018/1/11 上午10:26:37[2018-01-11 10:26:37] INFO [<eval>:204] update #184740855 | http://ny.58.com/ershouche/32312378499242x.shtml | {"lastpubtime":"2017-12-17 10:26:37"}
+2018/1/11 上午10:26:37[2018-01-11 10:26:37] WARN [<eval>:207] title changed: 五菱 宏光 2010款 1.4 手动 豪华型私家精品车急售 -> 五菱 宏光 2010款 1.4 手动 豪华型 | 184740855 | http://ny.58.com/ershouche/32312378499242x.shtml
+2018/1/11 上午10:26:37[2018-01-11 10:26:37] INFO [<eval>:325] lv1tolv2_update {"cid":184740855,"city":"南阳","site":"1","state":2,"lastpubtime":"2017-12-17 10:26:37"}
+2018/1/11 上午10:26:38[2018-01-11 10:26:38] INFO [<eval>:325] lv1tolv2_update {"cid":186745370,"city":"深圳","site":"7","state":3,"lastpubtime":"2018-01-11 10:26:38"}
+2018/1/11 上午10:26:43[2018-01-11 10:26:43] INFO [<eval>:204] update #184896194 | http://nb.58.com/ershouche/32324571151938x.shtml | {"lastpubtime":"2017-12-18 10:26:43"}
+2018/1/11 上午10:26:43[2018-01-11 10:26:43] WARN [<eval>:207] title changed: 本田 思迪 2007款 1.5 自动 豪华版代步练手神车,好且批发价 -> 本田 思迪 2007款 1.5 自动 豪华版 | 184896194 | http://nb.58.com/ershouche/32324571151938x.shtml
+2018/1/11 上午10:26:43[2018-01-11 10:26:43] INFO [<eval>:325] lv1tolv2_update {"cid":184896194,"city":"宁波","site":"1","state":2,"lastpubtime":"2017-12-18 10:26:43"}
+2018/1/11 上午10:26:47[2018-01-11 10:26:47] INFO [<eval>:204] update #188195753 | http://www.jh100.com/car/81a31547c20b49558d585b2f11e9a991?shopId=&siteId=352 | {"lastpubtime":"2018-01-11 10:26:47","state":300}
+2018/1/11 上午10:26:47[2018-01-11 10:26:47] INFO [<eval>:325] lv1tolv2_update {"cid":188195753,"city":"深圳","site":"109","state":3,"lastpubtime":"2018-01-11 10:26:47"}
+2018/1/11 上午10:26:49[2018-01-11 10:26:49] INFO [<eval>:130] insert #191391419 | http://www.che168.com/dealer/306792/25452972.html
+2018/1/11 上午10:26:49[2018-01-11 10:26:49] INFO [<eval>:325] 23_lv1tolv2 {"cid":191391419,"city":"新乡","site":"7","state":1,"lastpubtime":"2018-01-11 10:26:49"}
+2018/1/11 上午10:26:49[2018-01-11 10:26:49] INFO [<eval>:204] update #187767599 | http://www.che168.com/dealer/264907/25184349.html | {"state":300}
+2018/1/11 上午10:26:49[2018-01-11 10:26:49] INFO [<eval>:325] lv1tolv2_update {"cid":187767599,"city":"南京","site":"7","state":3,"lastpubtime":"2018-01-11 10:26:49"}
+2018/1/11 上午10:26:54[2018-01-11 10:26:54] INFO [<eval>:204] update #185128183 | http://xm.58.com/ershouche/32340007208389x.shtml | {"lastpubtime":"2017-12-19 10:26:54"}
+2018/1/11 上午10:26:54[2018-01-11 10:26:54] INFO [<eval>:325] lv1tolv2_update {"cid":185128183,"city":"厦门","site":"1","state":2,"lastpubtime":"2017-12-19 10:26:54"}
+2018/1/11 上午10:26:54[2018-01-11 10:26:54] INFO [<eval>:308] no_send: 191390542 http://www.che168.com/dealer/107616/25452163.html
+2018/1/11 上午10:26:54[2018-01-11 10:26:54] INFO [<eval>:204] update #190805078 | http://www.souche.com/pages/choosecarpage/choose-car-detail.html?carId=20834c4c8bdc439381e8567af3c97208 | {"lastpubtime":"2018-01-11 10:26:54","state":300}
+2018/1/11 上午10:26:54[2018-01-11 10:26:54] INFO [<eval>:325] lv1tolv2_update {"cid":190805078,"city":"沈阳","site":"139","state":3,"lastpubtime":"2018-01-11 10:26:54"}
+2018/1/11 上午10:26:55[2018-01-11 10:26:55] WARN [<eval>:207] title changed: 大众 朗逸 2011款 1.6 手自一体 品悠版首付低 利率低 提车快 -> 大众 朗逸 2011款 1.6 手自一体 品悠版 | 185283638 | http://hu.58.com/ershouche/32345796911786x.shtml
+2018/1/11 上午10:26:55[2018-01-11 10:26:55] INFO [<eval>:308] no_send: 185283638 http://hu.58.com/ershouche/32345796911786x.shtml
+2018/1/11 上午10:26:56[2018-01-11 10:26:56] INFO [<eval>:130] insert #191391431 | http://www.che168.com/personal/25451454.html
+2018/1/11 上午10:26:56[2018-01-11 10:26:56] INFO [<eval>:325] 23_lv1tolv2 {"cid":191391431,"city":"河源","site":"7","state":1,"lastpubtime":"2018-01-11 10:26:56"}
+2018/1/11 上午10:26:56[2018-01-11 10:26:56] INFO [<eval>:130] insert #191391432 | http://www.che168.com/personal/25452198.html
+2018/1/11 上午10:26:56[2018-01-11 10:26:56] INFO [<eval>:325] 23_lv1tolv2 {"cid":191391432,"city":"承德","site":"7","state":1,"lastpubtime":"2018-01-11 10:26:56"}
+2018/1/11 上午10:26:56[2018-01-11 10:26:56] INFO [<eval>:325] lv1tolv2_update {"cid":187100899,"city":"保定","site":"7","state":3,"lastpubtime":"2018-01-11 10:26:56"}
+2018/1/11 上午10:26:57[2018-01-11 10:26:57] INFO [<eval>:204] update #185127474 | http://fz.58.com/ershouche/32336290683202x.shtml | {"lastpubtime":"2017-12-19 10:26:57"}
+2018/1/11 上午10:26:57[2018-01-11 10:26:57] WARN [<eval>:207] title changed: 本田 思域 2014款 1.8 自动 VTi豪华版时尚轿车 价格实惠 支持检测 -> 本田 思域 2014款 1.8 自动 VTi豪华版 | 185127474 | http://fz.58.com/ershouche/32336290683202x.shtml
+2018/1/11 上午10:26:57[2018-01-11 10:26:57] INFO [<eval>:325] lv1tolv2_update {"cid":185127474,"city":"福州","site":"1","state":2,"lastpubtime":"2017-12-19 10:26:57"}
+2018/1/11 上午10:26:57[2018-01-11 10:26:57] INFO [<eval>:130] insert #191391433 | http://www.che168.com/dealer/264907/25452438.html
+2018/1/11 上午10:26:57[2018-01-11 10:26:57] INFO [<eval>:325] 23_lv1tolv2 {"cid":191391433,"city":"烟台","site":"7","state":1,"lastpubtime":"2018-01-11 10:26:57"}
+2018/1/11 上午10:26:58[2018-01-11 10:26:58] INFO [<eval>:336] queue length: 0, running: 0, concurrency: 10
+2018/1/11 上午10:26:59[2018-01-11 10:26:59] INFO [<eval>:204] update #184911998 | http://xm.58.com/ershouche/32326938387655x.shtml | {"lastpubtime":"2017-12-18 10:26:59"}
+2018/1/11 上午10:26:59[2018-01-11 10:26:59] WARN [<eval>:207] title changed: 福特 翼搏 2013款 1.5 自动 尊贵型高档配置,带天窗 -> 福特 翼搏 2013款 1.5 自动 尊贵型 | 184911998 | http://xm.58.com/ershouche/32326938387655x.shtml
+2018/1/11 上午10:26:59[2018-01-11 10:26:59] INFO [<eval>:325] lv1tolv2_update {"cid":184911998,"city":"厦门","site":"1","state":2,"lastpubtime":"2017-12-18 10:26:59"}
+2018/1/11 上午10:27:01[2018-01-11 10:27:01] INFO [<eval>:204] update #190163258 | http://www.che168.com/dealer/325970/25330041.html | {"state":300}
+2018/1/11 上午10:27:01[2018-01-11 10:27:01] INFO [<eval>:325] lv1tolv2_update {"cid":190163258,"city":"成都","site":"7","state":3,"lastpubtime":"2018-01-11 10:27:01"}
+2018/1/11 上午10:27:02[2018-01-11 10:27:02] INFO [<eval>:204] update #185119949 | http://fcg.58.com/ershouche/32335416938307x.shtml | {"lastpubtime":"2017-12-19 10:27:02"}
+2018/1/11 上午10:27:02[2018-01-11 10:27:02] WARN [<eval>:207] title changed: 丰田 凯美瑞 2010款 200E 2.0 自动 精英版保养好车凯美瑞 -> 丰田 凯美瑞 2010款 200E 2.0 自动 精英版 | 185119949 | http://fcg.58.com/ershouche/32335416938307x.shtml
+2018/1/11 上午10:27:02[2018-01-11 10:27:02] INFO [<eval>:325] lv1tolv2_update {"cid":185119949,"city":"防城港","site":"1","state":2,"lastpubtime":"2017-12-19 10:27:02"}
+2018/1/11 上午10:27:02[2018-01-11 10:27:02] INFO [<eval>:204] update #185118655 | http://nb.58.com/ershouche/32338842911565x.shtml | {"lastpubtime":"2017-12-19 10:27:02"}
+2018/1/11 上午10:27:02[2018-01-11 10:27:02] WARN [<eval>:207] title changed: 宝马 5系 2013款 525Li 领先型个人一手车车况精美支持检测 -> 宝马 5系 2013款 525Li 领先型 | 185118655 | http://nb.58.com/ershouche/32338842911565x.shtml
+2018/1/11 上午10:27:02[2018-01-11 10:27:02] INFO [<eval>:325] lv1tolv2_update {"cid":185118655,"city":"宁波","site":"1","state":2,"lastpubtime":"2017-12-19 10:27:02"}
+2018/1/11 上午10:27:03[2018-01-11 10:27:03] INFO [<eval>:204] update #188799349 | http://www.che168.com/dealer/307097/25251796.html | {"state":300}
+2018/1/11 上午10:27:03[2018-01-11 10:27:03] INFO [<eval>:325] lv1tolv2_update {"cid":188799349,"city":"衢州","site":"7","state":3,"lastpubtime":"2018-01-11 10:27:03"}
