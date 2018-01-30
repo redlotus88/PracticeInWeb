@@ -28,6 +28,8 @@
 		<!--<module>piw-spring-cloud</module>-->
         <module>piw-eureka-server</module>
 		<module>piw-eureka-client-example</module>
+		<module>piw-eureka-consumer</module>
+		<module>piw-eureka-consumer-ribbon</module>
 	</modules>
 
 	<build>
