@@ -1,0 +1,16 @@
+spring:
+  application:
+    name: piw-eureka-server
+
+server:
+  port: 8761
+
+eureka:
+  instance:
+    hostname: localhost
+
+  # 禁用自己的客户端注册行为
+  client:
+    register-with-eureka: false
+    fetch-registry: false
+
