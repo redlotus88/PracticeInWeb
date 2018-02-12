@@ -1,5 +1,7 @@
 ### PiW-Kiseki
 
+项目迁移到https://github.com/redlotus88/NT-Kiseki.git
+
 Project Kiseki: 车商云系统 基础架构原型Kiseki
 
 由以下技术实现:
@@ -12,3 +14,5 @@ Spring-cloud-eureka:
 Redis:
     port: 6379
 
+piw-config-server-git
+    port: 1201
